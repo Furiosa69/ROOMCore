@@ -3,8 +3,7 @@ all:
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!"
-	-I npc
-	verilator -Wall --trace -cc example.v --exe main.cpp
+	verilator -I npc -Wall --trace -cc example.v --exe main.cpp
 	make -C obj_dir -f example.mk example
 	./obj_dir/example
 	@echo "--- WAVES ----"
