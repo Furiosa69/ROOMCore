@@ -1,5 +1,5 @@
-VSRC = $(wildcard ./vsrc/*.v);
-CSRC = $(wildcard ./csrc/*.cpp);
+VSRC = $(wildcard ./vsrc/*.v)
+CSRC = $(wildcard ./csrc/*.cpp)
 all:
 	@echo "Write this Makefile by your self."
 
