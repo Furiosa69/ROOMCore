@@ -6,8 +6,8 @@ all:
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!"
 	verilator -Wall --trace -cc $(VSRC) --exe $(CSRC)
-	make -C obj_dir -f example.mk example
-	./obj_dir/example
+	make -C obj_dir -f Vexample.mk Vexample
+	./obj_dir/Vexample
 	@echo "--- WAVES ----"
 	gtkwave waveform.vcd
 
