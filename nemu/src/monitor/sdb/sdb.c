@@ -55,7 +55,7 @@ static int cmd_q(char *args) {
 
 static int cmd_help(char *args);
 static int cmd_si(char *args);
-//static int cmd_info(char *args);
+static int cmd_info(char *args);
 //static int cmd_x(char *args);
 
 static struct {
@@ -67,8 +67,8 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si","Continue the execution in N steps,default 1",cmd_si },
-//  { "info","Display the info of registers & watchpoints",cmd_info },
-//  { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
+  { "info","Display the info of registers & watchpoints",cmd_info },
+ // { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
 
   /* TODO: Add more commands */
 
@@ -90,24 +90,24 @@ static int cmd_si(char *args){
   return 0;
 }
 
-//static int cmd_info(char *args){
-//  char *arg = strtok(NULL," ");
-//
-//  if(arg == NULL) {
-//	printf("Usage: info r(registers) or info w(watchpoints)\n");
-//  } else {
-//	if(strcmp(arg,"r")==0) {
-//		isa_reg_display();
-//	} else if(strcmp(arg,"w")==0) {
-//		//i don't konw
-//	} else {
-//		printf("Usage: info r(registers) or info w(watchpoints)\n");
-//	}
-//  }
-// 
-//  return 0;
-//}
-//
+static int cmd_info(char *args){
+  char *arg = strtok(NULL," ");
+
+  if(arg == NULL) {
+	printf("Usage: info r(registers) or info w(watchpoints)\n");
+  } else {
+	if(strcmp(arg,"r")==0) {
+		isa_reg_display();
+	} else if(strcmp(arg,"w")==0) {
+		//i don't konw
+	} else {
+		printf("Usage: info r(registers) or info w(watchpoints)\n");
+	}
+  }
+ 
+  return 0;
+}
+
 //static int cmd_x(char *args) {
 //  char *arg1 = strtok(NULL," ");
 //  if(arg1 == NULL) {
