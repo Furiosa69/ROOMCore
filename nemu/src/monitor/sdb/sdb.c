@@ -115,17 +115,14 @@ static int cmd_x(char *args) {
   vaddr_t addr;
   sscanf(args,"%d %x",&len,&addr);
 
-  int i,j;
-  for(i = 0;i<len;){
-	printf(ANSI_FMT("addr:%#010x ",ANSI_FG_BLUE),addr);
-	printf("data:");
+  int i;
+  printf(ANSI_FMT("addr:%#010x ",ANSI_FG_BLUE),addr);
+  printf("data:");
   
-	for(j = 0;i<len&&j<4;i++,j++){
-		word_t data = vaddr_read(addr,2);
-		addr += 8;
-		printf("%#010x ",data);
-	}
-	puts("");
+  for(i = 0;i<len;i++){
+	word_t data = vaddr_read(addr,2);
+	addr += 8;
+	printf("%#010x ",data);
   }
   return 0;
 }
