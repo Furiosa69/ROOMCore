@@ -174,7 +174,7 @@ void test_expr() {
   size_t len = 0;
   ssize_t read;
 
-  FILE *fp = fopen("~/ysyx-workench/nemu/tools/gen-expr/input","r");
+  FILE *fp = fopen("/home/furiosa/ysyx-workench/nemu/tools/gen-expr/input","r");
   if(fp == NULL) perror("fail to open file!\n");
 
   char *buf = NULL;
