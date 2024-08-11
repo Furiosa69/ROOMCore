@@ -22,7 +22,7 @@
 
 enum {
   TK_NOTYPE = 256, TK_EQ,
-
+  TK_NUM,
   /* TODO: Add more token types */
 
 };
@@ -39,6 +39,12 @@ static struct rule {
   {" +", TK_NOTYPE},    // spaces
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
+  {"-",'-'},
+  {"/",'/'},
+  {"\\*",'*'},
+  {"\\(",'('},
+  {"\\)",')'},
+  {"[0-9]+",TK_NUM},	//NUM
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -84,8 +90,8 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
-            i, rules[i].regex, position, substr_len, substr_len, substr_start);
+//        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
+//            i, rules[i].regex, position, substr_len, substr_len, substr_start);
 
         position += substr_len;
 
@@ -93,10 +99,15 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
+	if (rules[i].token_type == TK_NOTYPE) break;
+	tokens[nr_token].type = rules[i].token_type;
 
         switch (rules[i].token_type) {
-          default: TODO();
+	  case TK_NUM :
+		strncpy(tokens[nr_token].str,substr_start,substr_len);
+		tokens[nr_token].str[substr_len] = '\0';
         }
+	nr_token++;
 
         break;
       }
@@ -111,6 +122,100 @@ static bool make_token(char *e) {
   return true;
 }
 
+bool check_parentheses(int p ,int q) {
+  if(tokens[p].type == '(' &&tokens[q].type == ')') {
+	int count = 0;//count 记录有多少个未匹配的左括号
+	int i;
+	for(i = p;i<= q;i++) {
+		if(tokens[i].type == '(') count ++;
+		else if(tokens[i].type == ')') count --;
+	
+		if(count == 0) return i==q;
+	}
+  }
+  return false;
+}
+
+int find_major(int p ,int q) {
+  int ret = -1,par = 0,op_type = 0;
+  for (int i = p;i <= q; i++) {
+	if(tokens[i].type == TK_NUM) {
+		continue;
+	}
+	if(tokens[i].type == '(') {
+		par ++;
+	} else if (tokens[i].type == ')') {
+		if(par == 0){ return -1;}
+		par--;
+	} else if (par > 0) {
+		continue;
+	} else {
+		int tmp_type = 0;
+
+		switch(tokens[i].type) {
+		case '*': case '/' : tmp_type = 1;break;
+		case '+': case '-' : tmp_type = 2;break;
+		default: assert(0);
+		}
+
+		if(tmp_type >= op_type) {
+			op_type = tmp_type;
+			ret = i;
+		}
+	}
+  }
+  if(par != 0) return -1;
+  return ret;
+}
+	
+		
+
+word_t eval(int p,int q,bool *success){
+  *success = true;
+
+  if(p>q){
+	//Bad expression
+	*success = false;
+	return 0;
+  } else if (p == q) {
+	//Single token.For now this token should be a number.Return the value of the number.
+	if(tokens[p].type != TK_NUM) { 
+		*success = false;
+		return 0;
+	}
+	word_t tok = strtol(tokens[p].str,NULL,10);
+	return tok;
+  } else if (check_parentheses(p,q) == true) {
+	//The expression is surrounded by a matched pair of parentheses.If that is the case, just throw away the parentheses.
+	return eval(p+1,q-1,success);
+  } else {
+	int major = find_major(p,q);
+	if(major < 0) {
+		*success = false;
+		return 0;
+	}
+
+	//op = the position of 主运算符 in the token expression;
+	word_t val1 = eval(p,major-1,success);
+	if(!*success) return 0;
+	word_t val2 = eval(major+1,q,success);
+	if(!*success) return 0;
+	
+	switch(tokens[major].type) {
+		case '+' : return val1 + val2;
+		case '-' : return val1 - val2;
+		case '*' : return val1 * val2;
+		case '/' : 
+			   if(val2 == 0) {
+				*success = false;
+				return 0;
+			   } else {
+				return (sword_t)val1 / (sword_t)val2;//sword_t类型为有符号型，适应负数情况
+			   }
+		default:assert(0);
+	}
+  }
+}
 
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
@@ -118,8 +223,7 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
 
-  /* TODO: Insert codes to evaluate the expression. */
-  TODO();
-
-  return 0;
+  return eval(0,nr_token-1,success);
 }
+
+
