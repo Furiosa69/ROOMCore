@@ -116,8 +116,7 @@ static int cmd_x(char *args) {
   sscanf(args,"%d %x",&len,&addr);
 
   int i;
-  printf(ANSI_FMT("addr:%#010x ",ANSI_FG_BLUE),addr);
-  printf("data:");
+  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
   for(i = 0;i<len;i++){
 	word_t data = vaddr_read(addr,2);
