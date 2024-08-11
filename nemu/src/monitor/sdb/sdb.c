@@ -112,12 +112,11 @@ static int cmd_info(char *args){
 static int cmd_x(char *args) {
 
   int n,expr;
-//  vaddr_t expr = strtol(arg2,NULL,16);
   sscanf(args,"%d %x",&n,&expr);
 
   int i,j;
   for(i = 0;i<n;){
-	printf(ANSI_FMT("%#018x: ",ANSI_FG_CYAN),expr);
+	printf("%#018x: ",expr);
   
 	for(j = 0;i<n&&j<4;i++,j++){
 		word_t w = vaddr_read(expr,8);
