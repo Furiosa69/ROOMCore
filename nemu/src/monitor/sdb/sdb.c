@@ -120,7 +120,7 @@ static int cmd_x(char *args) {
 	printf("%#018x: ",addr);
   
 	for(j = 0;i<len&&j<4;i++,j++){
-		word_t data = vaddr_read(addr,8);
+		word_t data = vaddr_read(addr,4);
 		addr += 8;
 		printf("%#018x ",data);
 	}
