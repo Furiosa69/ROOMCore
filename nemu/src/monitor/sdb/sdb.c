@@ -18,6 +18,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "sdb.h"
+#include "memory/vaddr.h"
 
 static int is_batch_mode = false;
 
@@ -56,7 +57,7 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 static int cmd_si(char *args);
 static int cmd_info(char *args);
-//static int cmd_x(char *args);
+static int cmd_x(char *args);
 
 static struct {
   const char *name;
@@ -68,7 +69,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si","Continue the execution in N steps,default 1",cmd_si },
   { "info","Display the info of registers & watchpoints",cmd_info },
- // { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
+  { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
 
   /* TODO: Add more commands */
 
@@ -108,35 +109,35 @@ static int cmd_info(char *args){
   return 0;
 }
 
-//static int cmd_x(char *args) {
-//  char *arg1 = strtok(NULL," ");
-//  if(arg1 == NULL) {
-//	printf("Usage: x N EXPR\n");
-//	return 0;
-//  }
-//
-//  char *arg2 = strtok(NULL," ");
-//  if(arg2 == NULL) {
-//	printf("Usage: x N EXPR\n");
-//	return 0;
-//  }
-//  
-//  int n = strtol(arg1,NULL,10);
-//  vaddr_t expr = strtol(arg2,NULL,16);
-//
-//  int i,j;
-//  for(i = 0;i<n;){
-//	printf(ANSI_FMT("%#018lx: ",ANSI_FG_CYAN),expr);
-//  
-//	for(j = 0;i<n&&j<4;i++,j++){
-//		word_t w = vaddr_read(expr,8);
-//		expr += 8;
-//		printf("%#018lx ",w);
-//	}
-//	puts("");
-//  }
-//  return 0;
-//}
+static int cmd_x(char *args) {
+  char *arg1 = strtok(NULL," ");
+  if(arg1 == NULL) {
+	printf("Usage: x N EXPR\n");
+	return 0;
+  }
+
+  char *arg2 = strtok(NULL," ");
+  if(arg2 == NULL) {
+	printf("Usage: x N EXPR\n");
+	return 0;
+  }
+  
+  int n = strtol(arg1,NULL,10);
+  vaddr_t expr = strtol(arg2,NULL,16);
+
+  int i,j;
+  for(i = 0;i<n;){
+	printf(ANSI_FMT("%#018x: ",ANSI_FG_CYAN),expr);
+  
+	for(j = 0;i<n&&j<4;i++,j++){
+		word_t w = vaddr_read(expr,8);
+		expr += 8;
+		printf("%#018x ",w);
+	}
+	puts("");
+  }
+  return 0;
+}
 
 static int cmd_help(char *args) {
   /* extract the first argument */
