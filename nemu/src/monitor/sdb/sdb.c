@@ -58,6 +58,7 @@ static int cmd_help(char *args);
 static int cmd_si(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
+static int cmd_p(char *args);
 
 static struct {
   const char *name;
@@ -70,12 +71,24 @@ static struct {
   { "si","Continue the execution in N steps,default 1",cmd_si },
   { "info","Display the info of registers & watchpoints",cmd_info },
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
+  { "p","Usage: p EXPR, Calcalate the expression, e.g. p $eax + 1",cmd_p}
 
   /* TODO: Add more commands */
 
 };
 
 #define NR_CMD ARRLEN(cmd_table)
+
+static int cmd_p(char *args){
+  bool success;
+  word_t res = expr(args,&success);
+  if(!success) {
+	printf("invalid expression");
+  } else {
+	printf("%u\n",res);
+  }
+  return 0;
+}
 
 static int cmd_si(char *args){
   char *arg = strtok(NULL," ");
