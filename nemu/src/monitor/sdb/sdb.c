@@ -119,7 +119,7 @@ static int cmd_x(char *args) {
   printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
   for(i = 0;i<len;i++){
-	word_t data = vaddr_read(addr,1);
+	word_t data = vaddr_read(addr,4);
 	addr += 8;
 	printf("%#010x ",data);
   }
