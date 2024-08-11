@@ -18,6 +18,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "sdb.h"
+#include "memory/vaddr.h"
 
 static int is_batch_mode = false;
 
@@ -49,10 +50,14 @@ static int cmd_c(char *args) {
 
 
 static int cmd_q(char *args) {
+  nemu_state.state = NEMU_QUIT;
   return -1;
 }
 
 static int cmd_help(char *args);
+static int cmd_si(char *args);
+static int cmd_info(char *args);
+static int cmd_x(char *args);
 
 static struct {
   const char *name;
@@ -62,12 +67,65 @@ static struct {
   { "help", "Display information about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  { "si","Continue the execution in N steps,default 1",cmd_si },
+  { "info","Display the info of registers & watchpoints",cmd_info },
+  { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
 
   /* TODO: Add more commands */
 
 };
 
 #define NR_CMD ARRLEN(cmd_table)
+
+static int cmd_si(char *args){
+  char *arg = strtok(NULL," ");
+  int n;
+
+  if(arg == NULL) {
+	n = 1;
+  } else {
+	n = strtol(arg,NULL,10);
+  }
+ 
+  cpu_exec(n);
+  return 0;
+}
+
+static int cmd_info(char *args){
+  char *arg = strtok(NULL," ");
+
+  if(arg == NULL) {
+	printf("Usage: info r(registers) or info w(watchpoints)\n");
+  } else {
+	if(strcmp(arg,"r")==0) {
+		isa_reg_display();
+	} else if(strcmp(arg,"w")==0) {
+		//i don't konw
+	} else {
+		printf("Usage: info r(registers) or info w(watchpoints)\n");
+	}
+  }
+ 
+  return 0;
+}
+
+static int cmd_x(char *args) {
+
+  int len;
+  vaddr_t addr;
+  sscanf(args,"%d %x",&len,&addr);
+
+  int i;
+  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
+  
+  for(i = 0;i<len;i++){
+	word_t data = vaddr_read(addr,2);
+	addr += 8;
+	printf("%#010x ",data);
+  }
+  puts("");
+  return 0;
+}
 
 static int cmd_help(char *args) {
   /* extract the first argument */
@@ -126,9 +184,6 @@ void sdb_mainloop() {
     for (i = 0; i < NR_CMD; i ++) {
       if (strcmp(cmd, cmd_table[i].name) == 0) {
         if (cmd_table[i].handler(args) < 0) {
-		if(strcmp(cmd,"q")==0){
-			nemu_state.state = NEMU_QUIT;
-		}	
 		 return;
 	 }
 
@@ -147,3 +202,4 @@ void init_sdb() {
   /* Initialize the watchpoint pool. */
   init_wp_pool();
 }
+		
