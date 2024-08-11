@@ -124,6 +124,7 @@ static int cmd_x(char *args) {
 	addr += 8;
 	printf("%#010x ",data);
   }
+  puts("");
   return 0;
 }
 
