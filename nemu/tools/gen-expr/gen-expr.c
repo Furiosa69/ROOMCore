@@ -82,6 +82,7 @@ static void gen_rand_expr() {
 }
 
 int main(int argc, char *argv[]) {
+
   int seed = time(0);
   srand(seed);
   int loop = 1;
