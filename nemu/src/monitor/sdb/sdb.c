@@ -117,7 +117,8 @@ static int cmd_x(char *args) {
 
   int i,j;
   for(i = 0;i<len;){
-	printf(ANSI_FMT("addr:%#010x data:",ANSI_FG_BLUE),addr);
+	printf(ANSI_FMT("addr:%#010x ",ANSI_FG_BLUE),addr);
+	printf("data:");
   
 	for(j = 0;i<len&&j<4;i++,j++){
 		word_t data = vaddr_read(addr,2);
