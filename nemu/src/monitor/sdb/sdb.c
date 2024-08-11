@@ -110,20 +110,10 @@ static int cmd_info(char *args){
 }
 
 static int cmd_x(char *args) {
-  char *arg1 = strtok(NULL," ");
-  if(arg1 == NULL) {
-	printf("Usage: x N EXPR\n");
-	return 0;
-  }
 
-  char *arg2 = strtok(NULL," ");
-  if(arg1 == NULL) {
-	printf("Usage: x N EXPR\n");
-	return 0;
-  }
-  
-  int n = strtol(arg1,NULL,10);
-  vaddr_t expr = strtol(arg2,NULL,16);
+  int n,expr;
+//  vaddr_t expr = strtol(arg2,NULL,16);
+  sscanf(args,"%d %x",&n,&expr);
 
   int i,j;
   for(i = 0;i<n;){
