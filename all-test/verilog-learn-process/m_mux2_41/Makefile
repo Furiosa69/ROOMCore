@@ -1,4 +1,4 @@
-TOPNAME = top
+TOPNAME = mux2_41
 NXDC_FILES = ./boot.nxdc
 INC_PATH ?=
 
