@@ -24,6 +24,7 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
+void test_expr();
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -58,6 +59,7 @@ static int cmd_help(char *args);
 static int cmd_si(char *args);
 static int cmd_info(char *args);
 static int cmd_x(char *args);
+static int cmd_p(char *args);
 
 static struct {
   const char *name;
@@ -70,12 +72,24 @@ static struct {
   { "si","Continue the execution in N steps,default 1",cmd_si },
   { "info","Display the info of registers & watchpoints",cmd_info },
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
+  { "p","Usage: p EXPR, Calcalate the expression, e.g. p $eax + 1",cmd_p}
 
   /* TODO: Add more commands */
 
 };
 
 #define NR_CMD ARRLEN(cmd_table)
+
+static int cmd_p(char *args){
+  bool success;
+  word_t res = expr(args,&success);
+  if(!success) {
+	printf("invalid expression\n");
+  } else {
+	printf("%u\n",res);
+  }
+  return 0;
+}
 
 static int cmd_si(char *args){
   char *arg = strtok(NULL," ");
@@ -115,15 +129,17 @@ static int cmd_x(char *args) {
   vaddr_t addr;
   sscanf(args,"%d %x",&len,&addr);
 
-  int i;
-  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
+  int i,j;
+  for(i = 0;i<len;){
+	  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
-  for(i = 0;i<len;i++){
-	word_t data = vaddr_read(addr,2);
-	addr += 8;
-	printf("%#010x ",data);
+	  for(j = 0;i<len&&j<5;j++,i++){
+		word_t data = vaddr_read(addr,4);
+		addr += 4;
+		printf("%#010x ",data);
   }
   puts("");
+  }
   return 0;
 }
 
@@ -175,6 +191,39 @@ void sdb_mainloop() {
       args = NULL;
     }
 
+void test_expr() {
+  word_t expr_res;
+  word_t syst_res;
+  bool ready = false;
+  size_t len = 0;
+  ssize_t read;
+
+  FILE *fp = fopen("~/ysyx-workench/nemu/tools/gen-expr/input","r");
+  if(fp == NULL) perror("fail to open file!\n");
+
+  char *buf = NULL;
+
+  while(true) {
+	if(fscanf(fp,"%u ",&syst_res) == -1) break;
+	read = getline(&buf,&len,fp);
+	buf[read-1] = '\0';
+
+	expr_res = expr(buf,&ready);
+	
+	if(syst_res != expr_res) {
+		puts(buf);
+		printf("syst_res: %u, expr_res: %u\n",syst_res,expr_res);
+		assert(0);
+	}
+  }
+	
+
+  fclose(fp);
+  if(buf) free(buf);
+  Log("expr text success");
+}
+
+
 #ifdef CONFIG_DEVICE
     extern void sdl_clear_event_queue();
     sdl_clear_event_queue();
@@ -198,6 +247,8 @@ void sdb_mainloop() {
 void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
+  
+  test_expr();
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
