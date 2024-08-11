@@ -117,7 +117,7 @@ static int cmd_x(char *args) {
   }
 
   char *arg2 = strtok(NULL," ");
-  if(arg2 == NULL) {
+  if(arg1 == NULL) {
 	printf("Usage: x N EXPR\n");
 	return 0;
   }
