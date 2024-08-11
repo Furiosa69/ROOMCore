@@ -111,17 +111,18 @@ static int cmd_info(char *args){
 
 static int cmd_x(char *args) {
 
-  int n,expr;
-  sscanf(args,"%d %x",&n,&expr);
+  int len;
+  vaddr_t addr;
+  sscanf(args,"%d %x",&len,&addr);
 
   int i,j;
-  for(i = 0;i<n;){
-	printf("%#018x: ",expr);
+  for(i = 0;i<len;){
+	printf("%#018x: ",addr);
   
-	for(j = 0;i<n&&j<4;i++,j++){
-		word_t w = vaddr_read(expr,8);
-		expr += 8;
-		printf("%#018x ",w);
+	for(j = 0;i<len&&j<4;i++,j++){
+		word_t data = vaddr_read(addr,8);
+		addr += 8;
+		printf("%#018x ",data);
 	}
 	puts("");
   }
