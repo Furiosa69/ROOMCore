@@ -185,6 +185,8 @@ void test_expr() {
 	buf[read-1] = '\0';
 
 	expr_res = expr(buf,&ready);
+
+	assert(ready);
 	
 	if(syst_res != expr_res) {
 		puts(buf);
