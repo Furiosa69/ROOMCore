@@ -70,7 +70,7 @@ void init_regex() {
 
 typedef struct token {
   int type;
-  char str[256];
+  char str[512];
 } Token;
 
 static Token tokens[1024] __attribute__((used)) = {};
