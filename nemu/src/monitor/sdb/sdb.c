@@ -24,7 +24,6 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
-void test_expr();
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -166,6 +165,42 @@ static int cmd_help(char *args) {
   return 0;
 }
 
+
+void test_expr() {
+  word_t expr_res;
+  word_t syst_res;
+  bool ready = false;
+  size_t len = 0;
+  ssize_t read;
+
+  FILE *fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
+
+  if(fp == NULL) perror("fail to open file!\n");
+
+  char *buf = NULL;
+
+  while(true) {
+	if(fscanf(fp,"%u ",&syst_res) == -1) break;
+	read = getline(&buf,&len,fp);
+	buf[read-1] = '\0';
+
+	expr_res = expr(buf,&ready);
+
+//	assert(ready);
+	
+	if(syst_res != expr_res) {
+		puts(buf);
+		printf("syst_res: %u, expr_res: %u\n",syst_res,expr_res);
+//		assert(0);
+	}
+  }
+	
+  fclose(fp);
+  if(buf) free(buf);
+  Log("expr text success");
+}
+
+
 void sdb_set_batch_mode() {
   is_batch_mode = true;
 }
@@ -190,39 +225,6 @@ void sdb_mainloop() {
     if (args >= str_end) {
       args = NULL;
     }
-
-void test_expr() {
-  word_t expr_res;
-  word_t syst_res;
-  bool ready = false;
-  size_t len = 0;
-  ssize_t read;
-
-  FILE *fp = fopen("~/ysyx-workench/nemu/tools/gen-expr/input","r");
-  if(fp == NULL) perror("fail to open file!\n");
-
-  char *buf = NULL;
-
-  while(true) {
-	if(fscanf(fp,"%u ",&syst_res) == -1) break;
-	read = getline(&buf,&len,fp);
-	buf[read-1] = '\0';
-
-	expr_res = expr(buf,&ready);
-	
-	if(syst_res != expr_res) {
-		puts(buf);
-		printf("syst_res: %u, expr_res: %u\n",syst_res,expr_res);
-		assert(0);
-	}
-  }
-	
-
-  fclose(fp);
-  if(buf) free(buf);
-  Log("expr text success");
-}
-
 
 #ifdef CONFIG_DEVICE
     extern void sdl_clear_event_queue();
