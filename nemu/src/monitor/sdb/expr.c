@@ -19,10 +19,14 @@
  * Type 'man regex' for more information about POSIX regex functions.
  */
 #include <regex.h>
+#include "memory/vaddr.h"
 
 enum {
   TK_NOTYPE = 256, TK_EQ,
   TK_NUM,
+  TK_NEQ,
+  TK_AND,TK_OR,TK_LT,TK_GT,TK_LE,TK_GE,
+  TK_REG,TK_NEG,TK_DEREF,
   /* TODO: Add more token types */
 
 };
@@ -37,15 +41,24 @@ static struct rule {
    */
 
   {" +", TK_NOTYPE},    // spaces
-  {"\\+", '+'},         // plus
-  {"==", TK_EQ},        // equal
-  {"-",'-'},
-  {"/",'/'},
-  {"\\*",'*'},
-  {"\\(",'('},
-  {"\\)",')'},
-  {"[0-9]+",TK_NUM},	//NUM
+  {"==", TK_EQ},{"!=",TK_NEQ},
+
+  {"\\+", '+'},{"-",'-'},
+  {"/",'/'},{"\\*",'*'},
+
+  {"\\(",'('},{"\\)",')'},
+
+  {"&&",TK_AND},{"\\|\\|",TK_OR},
+  {"<",TK_LT},{">",TK_GT},{"<=",TK_LE},{">=",TK_GE},
+
+  {"(0x)?[0-9]+",TK_NUM},	//匹配0x开头
+  {"\\$\\w+",TK_REG},
 };
+
+
+static word_t calculate1(word_t val1,int op,word_t val2,bool *success);
+static word_t calculate2(int op,word_t val,bool *success);
+static word_t eval_operand(int i,bool *success);
 
 #define NR_REGEX ARRLEN(rules)
 
@@ -76,6 +89,18 @@ typedef struct token {
 static Token tokens[65536] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
+#define which_type(type,types) whichtype(type,types,ARRLEN(types))
+static int type1[] = {TK_NEG,TK_DEREF};//-，*
+static int type2[] = {')',TK_NUM,TK_REG};
+static int type3[] = {'(',')',TK_NUM,TK_REG};
+
+static bool whichtype(int type,int types[],int size) {
+  for(int i = 0;i<size;i++){
+	if(type == types[i]) return true;
+  }
+  return false;
+}
+
 static bool make_token(char *e) {
   int position = 0;
   int i;
@@ -103,9 +128,19 @@ static bool make_token(char *e) {
 	tokens[nr_token].type = rules[i].token_type;
 
         switch (rules[i].token_type) {
-	  case TK_NUM :
+	  case TK_NUM : case TK_REG:
 		strncpy(tokens[nr_token].str,substr_start,substr_len);
 		tokens[nr_token].str[substr_len] = '\0';
+		break;
+	  case '*' : case '-' :
+		if(nr_token == 0 || !which_type(tokens[nr_token-1].type,type2)){
+			switch(rules[i].token_type)
+			{
+			  case '*' :tokens[nr_token].type = TK_DEREF;break;
+			  case '-' :tokens[nr_token].type = TK_NEG;break;		
+			}
+		}
+	  break;
         }
 	nr_token++;
 
@@ -147,18 +182,24 @@ int find_major(int p ,int q) {
 	} else if (tokens[i].type == ')') {
 		if(par == 0){ return -1;}
 		par--;
+	} else if (which_type(tokens[i].type,type3)) {
+		continue;
 	} else if (par > 0) {
 		continue;
 	} else {
 		int tmp_type = 0;
 
 		switch(tokens[i].type) {
-		case '*': case '/' : tmp_type = 1;break;
-		case '+': case '-' : tmp_type = 2;break;
+		case '*': case '/' : tmp_type ++;
+		case '+': case '-' : tmp_type ++;
+		case TK_OR: case TK_AND : tmp_type ++;
+		case TK_EQ: case TK_NEQ : tmp_type ++;
+		case TK_LT: case TK_GT : case TK_GE :case TK_LE: tmp_type ++;
+		case TK_DEREF:case TK_NEG: tmp_type++;	break;
 		default: assert(0);
 		}
 
-		if(tmp_type >= op_type) {
+		if(tmp_type >= op_type || (tmp_type == op_type && !which_type(tokens[i].type,type1))) {
 			op_type = tmp_type;
 			ret = i;
 		}
@@ -170,7 +211,7 @@ int find_major(int p ,int q) {
 	
 		
 
-word_t eval(int p,int q,bool *success){
+static word_t eval(int p,int q,bool *success){
   *success = true;
 
   if(p>q){
@@ -179,12 +220,7 @@ word_t eval(int p,int q,bool *success){
 	return 0;
   } else if (p == q) {
 	//Single token.For now this token should be a number.Return the value of the number.
-	if(tokens[p].type != TK_NUM) { 
-		*success = false;
-		return 0;
-	}
-	word_t tok = strtol(tokens[p].str,NULL,10);
-	return tok;
+	return eval_operand(p,success);
   } else if (check_parentheses(p,q) == true) {
 	//The expression is surrounded by a matched pair of parentheses.If that is the case, just throw away the parentheses.
 	return eval(p+1,q-1,success);
@@ -196,25 +232,70 @@ word_t eval(int p,int q,bool *success){
 	}
 
 	//op = the position of 主运算符 in the token expression;
-	word_t val1 = eval(p,major-1,success);
-	if(!*success) return 0;
-	word_t val2 = eval(major+1,q,success);
-	if(!*success) return 0;
-	
-	switch(tokens[major].type) {
+	bool success1,success2;
+	word_t val1 = eval(p,major-1,&success1);
+	word_t val2 = eval(major+1,q,&success2);
+
+	if(!success2){
+	  *success = false;
+	  return 0;
+	}	
+
+	if(success1) {
+	  word_t ret = calculate1(val1,tokens[major].type,val2,success);
+	  return ret;
+	} else {
+	  word_t ret = calculate2(tokens[major].type,val2,success);
+	  return ret;
+	}	
+  }
+}
+
+static word_t eval_operand(int i,bool *success) {
+	switch(tokens[i].type) {
+		case TK_NUM :
+		  if(strncmp("0x",tokens[i].str,2) == 0) {
+		  	return strtol(tokens[i].str,NULL,16);
+		  } else {
+			strtol(tokens[i].str,NULL,10);
+		  }
+		case TK_REG :
+		  	return isa_reg_str2val(tokens[i].str,success);
+		default:
+		  *success = false;
+		  return 0;
+	}
+}
+
+static word_t calculate1(word_t val1,int op,word_t val2,bool *success) {
+	switch(op) {
 		case '+' : return val1 + val2;
 		case '-' : return val1 - val2;
 		case '*' : return val1 * val2;
-		case '/' : 
-			   if(val2 == 0) {
+		case '/' : if(val2 == 0) {
 				*success = false;
 				return 0;
-			   } else {
-				return (sword_t)val1 / (sword_t)val2;//sword_t类型为有符号型，适应负数情况
-			   }
-		default:assert(0);
+			   } 
+		case TK_AND : return val1 && val2;
+		case TK_OR :  return val1 || val2;
+		case TK_EQ :  return val1 == val2;
+		case TK_NEQ : return val1 != val2;
+		case TK_GT :  return val1 > val2 ;
+		case TK_LT :  return val1 < val2 ;
+		case TK_GE :  return val1 >= val2;
+		case TK_LE :  return val1 <= val2;
+
+		default:*success = false ; return 0;
 	}
-  }
+} 
+
+static word_t calculate2(int op,word_t val,bool *success) {
+	switch(op) {
+		case TK_NEG : return -val;
+		case TK_DEREF:return vaddr_read(val,4);
+		default : *success = false;
+	}
+	return 0;
 }
 
 word_t expr(char *e, bool *success) {
@@ -224,6 +305,7 @@ word_t expr(char *e, bool *success) {
   }
 
   return eval(0,nr_token-1,success);
+
 }
 
 
