@@ -143,6 +143,7 @@ static bool make_token(char *e) {
 	if (rules[i].token_type == TK_NOTYPE) break;//丢弃空格
 
 	tokens[nr_token].type = rules[i].token_type;//记录类型
+
         switch (rules[i].token_type) {
 	  case TK_NUM : case TK_REG:
 		strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
