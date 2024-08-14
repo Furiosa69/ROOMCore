@@ -69,7 +69,7 @@ static struct rule {
   {"\\!\\=",TK_NEQ},
 
   {"(0x)?[0-9]+",TK_NUM},	//可以匹配0x开头的数字
-  {"\\$\\w*",TK_REG}		//匹配以$开头的regitser name
+  {"\\$\\w*",TK_REG},		//匹配以$开头的regitser name
 };
 
 
@@ -103,7 +103,7 @@ typedef struct token {
   char str[32];
 } Token;
 
-static Token tokens[65536] __attribute__((used)) = {};
+static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
 #define which_type(type,types) whichtype(type,types,ARRLEN(types))
