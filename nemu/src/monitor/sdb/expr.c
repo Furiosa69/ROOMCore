@@ -140,27 +140,36 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-	if (rules[i].token_type == TK_NOTYPE) break;//丢弃空格
 
-	tokens[nr_token].type = rules[i].token_type;//记录类型
+	//tokens[nr_token].type = rules[i].token_type;//记录类型
 
         switch (rules[i].token_type) {
-	  case TK_NUM : case TK_REG:
+	  case TK_NOTYPE : break;     //丢弃空格
+	  case TK_NUM : 
+  	  case TK_REG :
 		strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
 		tokens[nr_token].str[substr_len] = '\0';
+		nr_token ++;
 		break;
-	  case '*' : case '-' :
+	  case '*' : 
+	  case '-' :
 		if(nr_token == 0 || !which_type(tokens[nr_token-1].type,type2)){
-			switch(rules[i].token_type)
-			{
-			  case '*' :tokens[nr_token].type = TK_DEREF;break;
-			  case '-' :tokens[nr_token].type = TK_NEG;break;		
+			switch(rules[i].token_type){
+			  case '*' :tokens[nr_token].type = TK_DEREF;
+				    nr_token ++;
+				    break;
+			  case '-' :tokens[nr_token].type = TK_NEG;
+				    nr_token ++;
+				    break;
 			}
-		}
-	  break;
+		 }
+	  default : tokens[nr_token].type = rules[i].token_type;//记录类型
+		    nr_token ++;
+		    break;
+	  
         }
 
-	nr_token++;//已经被识别出的token数目+1
+//	nr_token++;//已经被识别出的token数目+1
 
         break;
       }
