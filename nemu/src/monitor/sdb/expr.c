@@ -129,12 +129,11 @@ static bool make_token(char *e) {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
-
+	char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
 //        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
 //            i, rules[i].regex, position, substr_len, substr_len, substr_start);
-
         position += substr_len;
 
         /* TODO: Now a new token is recognized with rules[i]. Add codes
@@ -144,10 +143,9 @@ static bool make_token(char *e) {
 	if (rules[i].token_type == TK_NOTYPE) break;//丢弃空格
 
 	tokens[nr_token].type = rules[i].token_type;//记录类型
-
         switch (rules[i].token_type) {
 	  case TK_NUM : case TK_REG:
-		strncpy(tokens[nr_token].str,&e[position - substr_len],substr_len);//将数字和字符内容记录在str中
+		strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
 		tokens[nr_token].str[substr_len] = '\0';
 		break;
 	  case '*' : case '-' :
