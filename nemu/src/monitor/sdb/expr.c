@@ -104,7 +104,7 @@ typedef struct token {
   char str[32];
 } Token;
 
-static Token tokens[32] __attribute__((used)) = {};
+static Token tokens[65536] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
 #define which_type(type,types) whichtype(type,types,ARRLEN(types))
@@ -283,7 +283,7 @@ static word_t return_num(int i,bool *success) {
 		  	return isa_reg_str2val(tokens[i].str,success);//根据讲义使用准备好的API,返回寄存器的值
 		default:
 		  *success = false;
-		  assert(0);
+		  return 0;
 	}
 }
 
