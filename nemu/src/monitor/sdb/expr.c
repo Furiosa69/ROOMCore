@@ -277,13 +277,13 @@ static word_t return_num(int i,bool *success) {
 		  if(strncmp("0x",tokens[i].str,2) == 0) {
 		  	return strtol(tokens[i].str,NULL,16);
 		  } else {
-			strtol(tokens[i].str,NULL,10);
+			return strtol(tokens[i].str,NULL,10);
 		  }
 		case TK_REG :
 		  	return isa_reg_str2val(tokens[i].str,success);//根据讲义使用准备好的API,返回寄存器的值
 		default:
 		  *success = false;
-		  return 0;
+		  assert(0);
 	}
 }
 
