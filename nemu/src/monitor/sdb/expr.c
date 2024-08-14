@@ -23,18 +23,18 @@
 
 enum {
   TK_NOTYPE = 256,
-  TK_EQ = 1,
-  TK_NUM = 2,
-  TK_NEQ = 3,
-  TK_AND = 4,
-  TK_OR = 5,
-  TK_LT = 6,
-  TK_GT = 7,
-  TK_LE = 8,
-  TK_GE = 9,
-  TK_REG = 10,
-  TK_NEG = 11,
-  TK_DEREF = 12
+  TK_EQ ,
+  TK_NUM ,
+  TK_NEQ ,
+  TK_AND ,
+  TK_OR ,
+  TK_LT ,
+  TK_GT ,
+  TK_LE ,
+  TK_GE ,
+  TK_REG ,
+  TK_NEG ,
+  TK_DEREF ,
   /* TODO: Add more token types */
 
 };
@@ -51,22 +51,22 @@ static struct rule {
   {" +", TK_NOTYPE},    //空格串
 
   {"\\+",'+'},		//四则运算
-  {"\\-",'-'},
-  {"\\/",'/'},
+  {"-",'-'},
+  {"/",'/'},
   {"\\*",'*'},
 
   {"\\(",'('},		//括号
   {"\\)",')'},
 
-  {"\\&\\&",TK_AND},	//逻辑
+  {"&&",TK_AND},	//逻辑
   {"\\|\\|",TK_OR},
 
-  {"\\<",TK_LT},
-  {"\\>",TK_GT},
-  {"\\<\\=",TK_LE},
-  {"\\>\\=",TK_GE},
-  {"\\=\\=", TK_EQ},
-  {"\\!\\=",TK_NEQ},
+  {"<",TK_LT},
+  {">",TK_GT},
+  {"<=",TK_LE},
+  {">=",TK_GE},
+  {"==", TK_EQ},
+  {"!=",TK_NEQ},
 
   {"(0x)?[0-9]+",TK_NUM},	//可以匹配0x开头的数字
   {"\\$\\w*",TK_REG},		//匹配以$开头的regitser name
@@ -118,13 +118,10 @@ static bool whichtype(int type,int types[],int size) {
 }
 
 static bool make_token(char *e) {
-
   int position = 0;//指示当前处理到的位置
   int i;
   regmatch_t pmatch;
-
   nr_token = 0;
-
   while (e[position] != '\0') {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
@@ -161,7 +158,6 @@ static bool make_token(char *e) {
         }
 
 	nr_token++;//已经被识别出的token数目+1
-
         break;
       }
     }
@@ -171,7 +167,6 @@ static bool make_token(char *e) {
       return false;
     }
   }
-
   return true;
 }
 
