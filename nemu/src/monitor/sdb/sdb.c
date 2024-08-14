@@ -167,7 +167,7 @@ static int cmd_x(char *args) {
 	  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
 	  for(j = 0;i<len&&j<5;j++,i++){
-		word_t data = vaddr_read(addr,4);
+		word_t data = vaddr_read(addr,4);//查看host_read函数定义后返回32位值
 		addr += 4;
 		printf("%#010x ",data);
   }
