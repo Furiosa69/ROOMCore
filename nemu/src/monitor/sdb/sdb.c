@@ -167,8 +167,8 @@ static int cmd_x(char *args) {
 	  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
 	  for(j = 0;i<len&&j<5;j++,i++){
-		word_t data = vaddr_read(addr,4);
-		addr += 4;
+		word_t data = vaddr_read(addr,8);
+		addr += 8;
 		printf("%#010x ",data);
   }
   puts("");
