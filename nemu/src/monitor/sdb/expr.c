@@ -35,6 +35,7 @@ enum {
   TK_REG ,
   TK_NEG ,
   TK_DEREF ,
+  TK_POS,
   /* TODO: Add more token types */
 
 };
@@ -107,7 +108,7 @@ static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
 #define which_type(type,types) whichtype(type,types,ARRLEN(types))
-static int type1[] = {TK_NEG,TK_DEREF};//-，*
+static int type1[] = {TK_NEG,TK_DEREF,TK_POS};//-，*,+
 static int type2[] = {')',TK_NUM,TK_REG};
 
 static bool whichtype(int type,int types[],int size) {
@@ -146,12 +147,13 @@ static bool make_token(char *e) {
 		strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
 		tokens[nr_token].str[substr_len] = '\0';
 		break;
-	  case '*' : case '-' :
+	  case '*' : case '-' : case '+':
 		if(nr_token == 0 || !which_type(tokens[nr_token-1].type,type2)){
 			switch(rules[i].token_type)
 			{
 			  case '*' :tokens[nr_token].type = TK_DEREF;break;
-			  case '-' :tokens[nr_token].type = TK_NEG;break;	
+			  case '-' :tokens[nr_token].type = TK_NEG;break;				 
+			  case '+' :tokens[nr_token].type = TK_POS;break;
 			}
 		}
 		break;
@@ -207,7 +209,7 @@ int find_major(int p ,int q) {
 		case '*': case '/' : case '+': case '-':
 		case TK_OR: case TK_AND : case TK_EQ : case TK_NEQ :
 		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  :
-		case TK_DEREF : case TK_NEG : 
+		case TK_DEREF : case TK_NEG : case TK_POS :
 		     tmp_type++;
 		     break;
 		default: assert(0);
@@ -314,6 +316,7 @@ static word_t calculate2(int op,word_t val,bool *success) {
 	switch(op) {
 		case TK_NEG : return -val;
 		case TK_DEREF:return vaddr_read(val,4);
+		case TK_POS : return val;
 		default : *success = false;
 	}
 	return 0;
