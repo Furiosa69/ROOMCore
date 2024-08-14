@@ -34,14 +34,16 @@ static char *code_format =
 "  return 0; "
 "}";
 
+//随机生成0-n-1的一个数
 static int choose(int n) {
   return rand() % n;
 }
 
+//随机生成一个空格
 static void gen_space() {
  int i = choose(3);
   if(start < end) {
-	int n = snprintf(start,end-start,"%*s",i,"");
+	int n = snprintf(start,end-start,"%*s",i,"");//使用snprintf函数写入缓冲区buf中
 	if(n > 0) {
 		start += n;
 	}
@@ -81,6 +83,17 @@ static void gen_rand_expr() {
   }
 }
 
+static int check_zero() {
+  char *p = buf;
+  while (*p) {
+	if( *p == '/' && * ( p + 1) == 0) {
+		return 1;
+	} 
+	p++;
+  }
+  return 0;
+}
+
 int main(int argc, char *argv[]) {
 
   int seed = time(0);
@@ -94,6 +107,12 @@ int main(int argc, char *argv[]) {
     start = buf;
 
     gen_rand_expr();
+
+    if(check_zero()){
+	memset(buf,'\0',sizeof(buf));//将所有元素设置为空字符
+	i--;
+	continue;
+    }
 
     sprintf(code_buf, code_format, buf);
 
