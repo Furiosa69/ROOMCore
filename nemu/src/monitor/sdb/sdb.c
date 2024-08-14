@@ -64,7 +64,6 @@ static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_d(char *args);
 static int cmd_w(char *args);
-static int cmd_p(char *args);
 
 static struct {
   const char *name;
@@ -169,7 +168,7 @@ static int cmd_x(char *args) {
 	  for(j = 0;i<len&&j<5;j++,i++){
 		word_t data = vaddr_read(addr,4);//查看host_read函数定义后返回32位值
 		addr += 4;
-		printf("%#010x ",data);
+		printf("%#010x ",data);//查看isa文件里面的init.c对照发现输出正确
   }
   puts("");
   }
