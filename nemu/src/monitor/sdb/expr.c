@@ -125,7 +125,7 @@ static bool make_token(char *e) {
 
   nr_token = 0;
 
-  while (e[position] != '\0') {
+  while (e[position] != '\000') {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
@@ -154,10 +154,10 @@ static bool make_token(char *e) {
 			switch(rules[i].token_type)
 			{
 			  case '*' :tokens[nr_token].type = TK_DEREF;break;
-			  case '-' :tokens[nr_token].type = TK_NEG;break;		
+			  case '-' :tokens[nr_token].type = TK_NEG;break;	
 			}
 		}
-	  break;
+		break;
         }
 
 	nr_token++;//已经被识别出的token数目+1
