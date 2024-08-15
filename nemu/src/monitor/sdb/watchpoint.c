@@ -103,6 +103,7 @@ void wp_difftest() {
 	word_t new = expr(h->expr,&success);
 	if(h->old != new) {
 	  printf("Watchpoint %d: %s\n""Old value = %u""New value = %u\n",h->NO,h->expr,h->old,new);
+	  nemu_state.state = NEMU_STOP;//触发监视点暂停
 	  h->old = new;
 	}
 	h = h->next;
