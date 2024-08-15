@@ -27,8 +27,8 @@ void test_expr() {
 
   for(int i = 0;i<30;i++){
         char buf[1024];
-        if(fscanf(fp,"%d",&test_res)==1)continue;
-        if(fscanf(fp,"%s ",buf))continue;
+        if(fscanf(fp,"%d",&test_res));
+        if(fscanf(fp,"%s ",buf));
 
         expr_res = expr(buf,&success);
 	if(!success) assert(0);
