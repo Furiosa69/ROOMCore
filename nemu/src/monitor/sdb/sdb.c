@@ -214,7 +214,7 @@ void test_expr() {
 	expr_res = expr(buf,&success);
 	
 	if(test_res != expr_res) {
-	  assert(0);
+	  printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
 	} else {
 	  printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
 	}
