@@ -110,6 +110,7 @@ static int nr_token __attribute__((used))  = 0;
 #define which_type(type,types) whichtype(type,types,ARRLEN(types))
 static int type1[] = {TK_NEG,TK_DEREF,TK_POS};//-，*,+
 static int type2[] = {')',TK_NUM,TK_REG};
+static int type3[] = {'(',')',TK_NUM,TK_REG};
 
 static bool whichtype(int type,int types[],int size) {
   for(int i = 0;i<size;i++){
@@ -191,20 +192,19 @@ int find_major(int p ,int q) {
   int ret = -1;
   int par = 0;	   //括号的数量
   int op_type = 0; //当前找到的最高优先级的运算符类型
-  int tmp_type = 0;//运算符的等级
 
   for (int i = p;i <= q; i++) {
-	if(tokens[i].type == TK_NUM) {
-		continue;
-	}
 	if(tokens[i].type == '(') {
 		par ++;
 	} else if (tokens[i].type == ')') {
 		if(par == 0){ return -1;}
 		par--;
+	} else if(which_type(tokens[i].type,type3)){
+		continue;
 	} else if (par > 0) {
 		continue;	//par>0说明在括号内
 	} else {//运算优先级
+  		int tmp_type = 0;//运算符的等级
 		switch(tokens[i].type) {
 		case TK_OR : tmp_type++;
 		case TK_AND : tmp_type++; 
