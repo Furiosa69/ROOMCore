@@ -16,56 +16,56 @@
 #include <common.h>
 #include "./monitor/sdb/sdb.h"
 
-//void test_expr() {
-//  word_t expr_res;
-//  word_t test_res;
-//  bool success;
-//  FILE *fp = NULL;
-//  char *buf = NULL;
-//  size_t len = 0;
-//  ssize_t read ;
-//
-//  fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
-//  if(fp == NULL) perror("fail to open file!\n");
-//
-//  for(int i = 0;i<30;i++){
-//        if(fscanf(fp,"%u",&test_res) == -1)break;
-//	read = getline(&buf,&len,fp);
-//	buf[read-1] = '\0';
-//
-//        expr_res = expr(buf,&success);
-//
-//	assert(success);
-//
-//        if(test_res != expr_res) {
-//          printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
-//        } else {
-//          printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
-//        }
-//  }
-//
-//  fclose(fp);
-//  free(buf); 
-//  Log("expr text success");
-//}
-
 void test_expr() {
-  FILE * fp = NULL;
-  int ref_res;
-  word_t dut_res;
+  word_t expr_res;
+  word_t test_res;
   bool success;
-  fp = fopen("./tools/gen-expr/input","r");
-  for(int i = 0;i<50;i++){
-	char buf[200];
-	if(fscanf(fp,"%d",&ref_res));
-	if(fscanf(fp,"%s",buf));
-	dut_res = expr(buf,&success);
-	if(!success) assert(0);
-	if(dut_res != ref_res) assert(0);
-	else printf("expr = %s dut = %d ref = %d \n",buf,dut_res,ref_res);
+  FILE *fp = NULL;
+  char *buf = NULL;
+  size_t len = 0;
+  ssize_t read ;
+
+  fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
+  if(fp == NULL) perror("fail to open file!\n");
+
+  for(int i = 0;i<30;i++){
+        if(fscanf(fp,"%u",&test_res) == -1)break;
+	read = getline(&buf,&len,fp);
+	buf[read-1] = '\0';
+
+        expr_res = expr(buf,&success);
+
+	assert(success);
+
+        if(test_res != expr_res) {
+          printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+        } else {
+          printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+        }
   }
+
   fclose(fp);
+  free(buf); 
+  Log("expr text success");
 }
+
+//void test_expr() {
+//  FILE * fp = NULL;
+//  int ref_res;
+//  word_t dut_res;
+//  bool success;
+//  fp = fopen("./tools/gen-expr/input","r");
+//  for(int i = 0;i<50;i++){
+//	char buf[200];
+//	if(fscanf(fp,"%d",&ref_res));
+//	if(fscanf(fp,"%s",buf));
+//	dut_res = expr(buf,&success);
+//	if(!success) assert(0);
+//	if(dut_res != ref_res) assert(0);
+//	else printf("expr = %s dut = %d ref = %d \n",buf,dut_res,ref_res);
+//  }
+//  fclose(fp);
+//}
 
 
 void init_monitor(int, char *[]);
