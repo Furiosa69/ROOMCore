@@ -23,19 +23,19 @@
 
 enum {
   TK_NOTYPE = 256,
-  TK_EQ ,
-  TK_NUM ,
-  TK_NEQ ,
-  TK_AND ,
-  TK_OR ,
-  TK_LT ,
-  TK_GT ,
-  TK_LE ,
-  TK_GE ,
-  TK_REG ,
-  TK_NEG ,
-  TK_DEREF ,
-  TK_POS,
+  TK_EQ    = 1,
+  TK_NUM   = 2,
+  TK_NEQ   = 3,
+  TK_AND   = 4,
+  TK_OR    = 5,
+  TK_LT    = 6,
+  TK_GT    = 7,
+  TK_LE    = 8,
+  TK_GE    = 9,
+  TK_REG   = 10,
+  TK_NEG   = 11,
+  TK_DEREF = 12,
+  TK_POS   = 13,
   /* TODO: Add more token types */
 
 };
@@ -152,7 +152,7 @@ static bool make_token(char *e) {
 			switch(rules[i].token_type)
 			{
 			  case '*' :tokens[nr_token].type = TK_DEREF;break;
-			  case '-' :tokens[nr_token].type = TK_NEG;break;				 
+			  case '-' :tokens[nr_token].type = TK_NEG;break; 
 			  case '+' :tokens[nr_token].type = TK_POS;break;
 			}
 		}
@@ -251,8 +251,9 @@ static word_t eval(int p,int q,bool *success){
 
 	//对分裂出来的两个子表达式进行递归求值
 	bool success1,success2;
-	word_t val1 = eval(p,major-1,&success1);
+	//右优先级
 	word_t val2 = eval(major+1,q,&success2);
+	word_t val1 = eval(p,major-1,&success1);
 
 	//整体表达式的success必须建立在右表达式的success上,左表达式false归入一元运算符中,如-1
 	if(!success2){
