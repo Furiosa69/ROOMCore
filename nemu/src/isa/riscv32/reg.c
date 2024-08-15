@@ -28,10 +28,22 @@ void isa_reg_display() {
 	int i;
 
 	for(i = 0;i<reg_num;i++) {
-		printf("%2d : %-8s%#-15x%-15d\n",i,regs[i],cpu.gpr[i],cpu.gpr[i]);
+		printf("%2d : %8s%#15x%15d\n",i,regs[i],cpu.gpr[i],cpu.gpr[i]);
 	}
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
+  int reg_num = ARRLEN(regs);
+  int i;
+
+  for(i = 0;i<reg_num;i++) {
+  int len1 = strlen(s);
+  int len2 = strlen(regs[i]);
+	if(strncmp( s+len1-2, regs[i]+len2-2,2)== 0){
+		return cpu.gpr[i];
+	}
+  }
+
   return 0;
 }
+

@@ -114,11 +114,11 @@ static int cmd_w(char *args){
 
 static int cmd_p(char *args){
   bool success;
-  word_t res = expr(args,&success);
+  int32_t res = expr(args,&success);
   if(!success) {
 	printf("invalid expression\n");
   } else {
-	printf("%u\n",res);
+	printf("%d\n",res);
   }
   return 0;
 }
@@ -199,41 +199,6 @@ static int cmd_help(char *args) {
 }
 
 
-//void test_expr() {
-//  word_t expr_res;
-//  word_t syst_res;
-//  bool ready = false;
-//  size_t len = 0;
-//  ssize_t read;
-//
-//  FILE *fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
-//
-//  if(fp == NULL) perror("fail to open file!\n");
-//
-//  char *buf = NULL;
-//
-//  while(true) {
-//	if(fscanf(fp,"%u ",&syst_res) == -1) break;
-//	read = getline(&buf,&len,fp);
-//	buf[read-1] = '\0';
-//
-//	expr_res = expr(buf,&ready);
-//
-////	assert(ready);
-//	
-//	if(syst_res != expr_res) {
-//		puts(buf);
-//		printf("syst_res: %u, expr_res: %u\n",syst_res,expr_res);
-////		assert(0);
-//	}
-//  }
-//	
-//  fclose(fp);
-//  if(buf) free(buf);
-//  Log("expr text success");
-//}
-//
-
 void sdb_set_batch_mode() {
   is_batch_mode = true;
 }
@@ -267,7 +232,7 @@ void sdb_mainloop() {
     int i;
     for (i = 0; i < NR_CMD; i ++) {
       if (strcmp(cmd, cmd_table[i].name) == 0) {
-        if (cmd_table[i].handler(args) < 0) {
+        if (cmd_table[i].handler(args) < 0) {//退出时返回0
 		 return;
 	 }
 
@@ -283,8 +248,6 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
   
-//  test_expr();
-
   /* Initialize the watchpoint pool. */
   init_wp_pool();
 }
