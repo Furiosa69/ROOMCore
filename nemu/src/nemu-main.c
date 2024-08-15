@@ -17,8 +17,8 @@
 #include "./monitor/sdb/sdb.h"
 
 void test_expr() {
-  word_t expr_res;
-  word_t test_res;
+  int32_t expr_res;
+  int32_t test_res;
   bool success;
   FILE *fp = NULL;
   char *buf = NULL;
@@ -38,9 +38,9 @@ void test_expr() {
 	assert(success);
 
         if(test_res != expr_res) {
-          printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+          printf("WRONG : expr = %s \ntest_result =  %d, expr_result =  %d\n",buf,test_res,expr_res);
         } else {
-          printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+          printf("expr = %s \ntest_result =  %d, expr_result =  %d\n",buf,test_res,expr_res);
         }
   }
 
