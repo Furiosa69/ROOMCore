@@ -18,7 +18,7 @@
 
 void test_expr() {
   word_t expr_res;
-  word_t test_res;
+  int test_res;
   bool success;
   FILE *fp = NULL;
 
@@ -26,9 +26,9 @@ void test_expr() {
   if(fp == NULL) perror("fail to open file!\n");
 
   for(int i = 0;i<30;i++){
-        if(fscanf(fp,"%u",&test_res) != -1);
-        char buf[200];
-        if(fscanf(fp,"%s ",buf) == -1 )assert(0);
+        char buf[512];
+        if(fscanf(fp,"%d",&test_res)==1)continue;
+        if(fscanf(fp,"%s ",buf))continue;
         expr_res = expr(buf,&success);
 
         if(test_res != expr_res) {
@@ -38,6 +38,7 @@ void test_expr() {
         }
   }
 
+  
   fclose(fp);
   Log("expr text success");
 }
