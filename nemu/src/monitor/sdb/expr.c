@@ -255,7 +255,7 @@ static word_t eval(int p,int q,bool *success){
 	bool success1,success2;
 	//右优先级
 	word_t val1 = eval(p,major-1,&success1);
-	word_t val2 = eval(major+1,q,&success2);
+	int32_t val2 = eval(major+1,q,&success2);
 
 	//整体表达式的success必须建立在右表达式的success上,左表达式false归入一元运算符中,如-1
 	if(!success2){
@@ -267,7 +267,7 @@ static word_t eval(int p,int q,bool *success){
 	  word_t ret = calculate1(val1,tokens[major].type,val2,success);//左T右T为二元运算
 	  return ret;
 	} else {
-	  int ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
+	  int32_t ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
 	  return ret;
 	}	
   }
