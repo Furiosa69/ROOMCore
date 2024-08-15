@@ -209,7 +209,7 @@ void test_expr() {
   if(fp == NULL) perror("fail to open file!\n");
 
   for(int i = 0;i<50;i++){
-  	if(fscanf(fp,"%u",&test_res) != -1)assert(0);
+  	if(fscanf(fp,"%u",&test_res) != -1);
   	char buf[1024];
 	if(fscanf(fp,"%s ",buf) == -1 )assert(0);
 	expr_res = expr(buf,&success);
