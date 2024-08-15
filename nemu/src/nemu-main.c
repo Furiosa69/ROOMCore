@@ -26,10 +26,12 @@ void test_expr() {
   if(fp == NULL) perror("fail to open file!\n");
 
   for(int i = 0;i<30;i++){
-        char buf[512];
+        char buf[1024];
         if(fscanf(fp,"%d",&test_res)==1)continue;
         if(fscanf(fp,"%s ",buf))continue;
+
         expr_res = expr(buf,&success);
+	if(!success) assert(0);
 
         if(test_res != expr_res) {
           printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
