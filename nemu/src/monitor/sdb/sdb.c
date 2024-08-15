@@ -210,13 +210,13 @@ void test_expr() {
 
   for(int i = 0;i < 100;i++) {
   	char buf[200];
-	if(fscanf(fp,"%u ",&test_res) == -1) break;
-	if(fscanf(fp,"%s ",buf) == -1 ) break;
+	if(fscanf(fp,"%u ",&test_res) == -1)assert(0);
+	if(fscanf(fp,"%s ",buf) == -1 )assert(0);
 	expr_res = expr(buf,&success);
 	
-	if(test_res != expr_res) 
+	if(test_res != expr_res) {
 	  assert(0);
-	else {
+	} else {
 	  printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
 	}
   }
