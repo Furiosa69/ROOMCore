@@ -254,8 +254,8 @@ static word_t eval(int p,int q,bool *success){
 	//对分裂出来的两个子表达式进行递归求值
 	bool success1,success2;
 	//右优先级
-	word_t val2 = eval(major+1,q,&success2);
 	word_t val1 = eval(p,major-1,&success1);
+	word_t val2 = eval(major+1,q,&success2);
 
 	//整体表达式的success必须建立在右表达式的success上,左表达式false归入一元运算符中,如-1
 	if(!success2){
