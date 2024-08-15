@@ -40,7 +40,7 @@ void test_expr() {
         if(test_res != expr_res) {
           printf("WRONG : expr = %s \ntest_result =  %d, expr_result =  %d\n",buf,test_res,expr_res);
         } else {
-          printf("expr = %s \ntest_result =  %d, expr_result =  %d\n",buf,test_res,expr_res);
+          printf("expr = %s \ntest_result =  %d, expr_result =  %d\n\n",buf,test_res,expr_res);
         }
   }
 
