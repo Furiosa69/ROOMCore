@@ -20,7 +20,7 @@
 typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
-  word_t old;
+  word_t old;//讲义默认32位无符号数
   char *expr;
 
   /* TODO: Add more members if necessary */
@@ -42,14 +42,20 @@ void init_wp_pool() {
 }
 
 /* TODO: Implement the functionality of watchpoint */
+//申请新监视点
 static WP* new_wp() {
-  assert(free_);
-  WP* ret = free_;
-  ret->next = head;
+  if(free_ == NULL) {
+	printf("没有空闲监视点");
+	assert(free_);
+  }
+  WP* ret = free_;//向free请求结点
+  free_ = free_->next;//free指向下一个结点
+  ret->next = head;//结点分配给head
   head = ret;
   return ret;
 }
 
+//归还监视点给free
 void free_wp(WP *wp) {
   WP* h = head;
   if(h == wp) head = NULL;
@@ -62,33 +68,34 @@ void free_wp(WP *wp) {
   free_ = wp;
 }
 
+//开启监视点
 void wp_watch(char *expr,word_t res) {
   WP* wp = new_wp();
   strcpy(wp->expr,expr);
   wp->old = res;
   printf("Watchpoint %d: %s\n",wp->NO,expr);
 }
-
+//删除监视点
 void wp_remove(int no) {
   assert (no < NR_WP);
   WP* wp = &wp_pool[no];
   free_wp(wp);
   printf("Delete watchpoint %d: %s\n",wp->NO,wp->expr);
 }
-
+//打印监视点
 void wp_iterate() {
   WP* h = head;
   if(!h) {
-	puts("No watchpoints.");
+	printf("No watchpoints.");
 	return;
   }
-  printf("%-8d%-8s\n",h->NO,h->expr);
+  printf("%8d %8s\n",h->NO,h->expr);
   while(h) {
-	printf("%-8d%-8s\n",h->NO,h->expr);
+	printf("%8d %8s\n",h->NO,h->expr);
 	h = h->next;
   }
 }
-
+//不相等则触发信息
 void wp_difftest() {
   WP* h = head;
   while (h) {
