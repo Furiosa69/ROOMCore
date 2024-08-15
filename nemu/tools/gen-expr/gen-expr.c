@@ -112,6 +112,7 @@ int main(int argc, char *argv[]) {
 
     int ret = system("gcc -Wall -Werror /tmp/.code.c -o /tmp/.expr");
     if (ret != 0) continue;
+    else  i--; 
 
     fp = popen("/tmp/.expr", "r");
     assert(fp != NULL);
