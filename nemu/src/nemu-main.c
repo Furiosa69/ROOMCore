@@ -18,20 +18,24 @@
 
 void test_expr() {
   word_t expr_res;
-  int test_res;
+  word_t test_res;
   bool success;
   FILE *fp = NULL;
+  char *buf = NULL;
+  size_t len = 0;
+  ssize_t read ;
 
   fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
   if(fp == NULL) perror("fail to open file!\n");
 
   for(int i = 0;i<30;i++){
-        char buf[1024];
-        if(fscanf(fp,"%d",&test_res));
-        if(fscanf(fp,"%s ",buf));
+        if(fscanf(fp,"%u",&test_res) == -1)break;
+	read = getline(&buf,&len,fp);
+	buf[read-1] = '\0';
 
         expr_res = expr(buf,&success);
-	if(!success) assert(0);
+
+	assert(success);
 
         if(test_res != expr_res) {
           printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
@@ -40,7 +44,7 @@ void test_expr() {
         }
   }
 
-  
+  if(buf) free(buf); 
   fclose(fp);
   Log("expr text success");
 }
