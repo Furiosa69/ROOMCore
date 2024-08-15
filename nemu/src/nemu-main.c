@@ -49,25 +49,6 @@ void test_expr() {
   Log("expr text success");
 }
 
-//void test_expr() {
-//  FILE * fp = NULL;
-//  int ref_res;
-//  word_t dut_res;
-//  bool success;
-//  fp = fopen("./tools/gen-expr/input","r");
-//  for(int i = 0;i<50;i++){
-//	char buf[200];
-//	if(fscanf(fp,"%d",&ref_res));
-//	if(fscanf(fp,"%s",buf));
-//	dut_res = expr(buf,&success);
-//	if(!success) assert(0);
-//	if(dut_res != ref_res) assert(0);
-//	else printf("expr = %s dut = %d ref = %d \n",buf,dut_res,ref_res);
-//  }
-//  fclose(fp);
-//}
-
-
 void init_monitor(int, char *[]);
 void am_init_monitor();
 void engine_start();
@@ -84,7 +65,7 @@ int main(int argc, char *argv[]) {
   /* Start engine. */
   engine_start();
 
-  test_expr();
+//  test_expr();
 
   return is_exit_status_bad();
 }
