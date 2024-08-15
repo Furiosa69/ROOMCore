@@ -267,7 +267,7 @@ static word_t eval(int p,int q,bool *success){
 	  word_t ret = calculate1(val1,tokens[major].type,val2,success);//左T右T为二元运算
 	  return ret;
 	} else {
-	  word_t ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
+	  int ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
 	  return ret;
 	}	
   }
