@@ -28,7 +28,7 @@ void test_expr() {
   fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
   if(fp == NULL) perror("fail to open file!\n");
 
-  for(int i = 0;i<10;i++){
+  for(int i = 0;i<30;i++){
         if(fscanf(fp,"%u",&test_res) == -1)break;
 	read = getline(&buf,&len,fp);
 	buf[read-1] = '\0';
