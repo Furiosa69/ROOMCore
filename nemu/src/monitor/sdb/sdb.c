@@ -114,11 +114,11 @@ static int cmd_w(char *args){
 
 static int cmd_p(char *args){
   bool success;
-  word_t res = expr(args,&success);
+  int32_t res = expr(args,&success);
   if(!success) {
 	printf("invalid expression\n");
   } else {
-	printf("%u\n",res);
+	printf("%d\n",res);
   }
   return 0;
 }
