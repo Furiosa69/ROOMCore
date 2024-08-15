@@ -199,30 +199,30 @@ static int cmd_help(char *args) {
 }
 
 
-//void test_expr() {
-//  word_t expr_res;
-//  word_t test_res;
-//  bool success;
-//  FILE *fp = NULL;
-//
-//  fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
-//  if(fp == NULL) perror("fail to open file!\n");
-//
-//  while(fscanf(fp,"%u",&test_res) != -1){
-//  	char buf[1024];
-//	if(fscanf(fp,"%s ",buf) == -1 )assert(0);
-//	expr_res = expr(buf,&success);
-//	
-//	if(test_res != expr_res) {
-//	  printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
-//	} else {
-//	  printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
-//	}
-//  }
-//	
-//  fclose(fp);
-//  Log("expr text success");
-//}
+void test_expr() {
+  word_t expr_res;
+  word_t test_res;
+  bool success;
+  FILE *fp = NULL;
+
+  fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
+  if(fp == NULL) perror("fail to open file!\n");
+
+  while(fscanf(fp,"%u",&test_res) != -1){
+  	char buf[1024];
+	if(fscanf(fp,"%s ",buf) == -1 )assert(0);
+	expr_res = expr(buf,&success);
+	
+	if(test_res != expr_res) {
+	  printf("WRONG : expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+	} else {
+	  printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
+	}
+  }
+	
+  fclose(fp);
+  Log("expr text success");
+}
 
 
 void sdb_set_batch_mode() {
@@ -274,7 +274,7 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
   
-//  test_expr();
+  test_expr();
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
