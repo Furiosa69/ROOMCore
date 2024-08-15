@@ -30,7 +30,9 @@ void test_expr() {
 
   for(int i = 0;i<30;i++){
         if(fscanf(fp,"%u",&test_res) == -1)break;
-	read = getline(&buf,&len,fp);
+	if((read = getline(&buf,&len,fp)) != -1){
+		printf("fail to read!\n");
+	}
 	buf[read-1] = '\0';
 
         expr_res = expr(buf,&success);
@@ -42,10 +44,10 @@ void test_expr() {
         } else {
           printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
         }
-  	if(buf) free(buf); 
   }
 
   fclose(fp);
+  if(buf) free(buf); 
   Log("expr text success");
 }
 
