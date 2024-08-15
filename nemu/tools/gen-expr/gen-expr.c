@@ -39,16 +39,6 @@ static int choose(int n) {
   return rand() % n;
 }
 
-//随机生成一个空格
-static void gen_space() {
- int i = choose(3);
-  if(start < end) {
-	int n = snprintf(start,end-start,"%*s",i,"");//使用snprintf函数写入缓冲区buf中
-	if(n > 0) {
-		start += n;
-	}
-  }
-}
 
 static void  gen_num() {
   int num = choose(INT8_MAX);
@@ -58,7 +48,6 @@ static void  gen_num() {
 		start += n;
 	}
   }
-  gen_space();
 }
 
 static void  gen_char(char c) {
@@ -83,16 +72,16 @@ static void gen_rand_expr() {
   }
 }
 
-static int check_zero() {
-  char *p = buf;
-  while (*p) {
-	if( *p == '/' && * ( p + 1) == 0) {
-		return 1;
-	} 
-	p++;
-  }
-  return 0;
-}
+//static int check_zero() {
+//  char *p = buf;
+//  while (*p) {
+//	if( *p == '/' && * ( p + 1) == 0) {
+//		return 1;
+//	} 
+//	p++;
+//  }
+//  return 0;
+//}
 
 int main(int argc, char *argv[]) {
 
@@ -108,11 +97,11 @@ int main(int argc, char *argv[]) {
 
     gen_rand_expr();
 
-    if(check_zero()){
-	memset(buf,'\0',sizeof(buf));//将所有元素设置为空字符
-	i--;
-	continue;
-    }
+//    if(check_zero()){
+//	memset(buf,'\0',sizeof(buf));//将所有元素设置为空字符
+//	i--;
+//	continue;
+//    }
 
     sprintf(code_buf, code_format, buf);
 
@@ -121,8 +110,9 @@ int main(int argc, char *argv[]) {
     fputs(code_buf, fp);
     fclose(fp);
 
-    int ret = system("gcc /tmp/.code.c -o /tmp/.expr");
+    int ret = system("gcc -Wall -Werror /tmp/.code.c -o /tmp/.expr");
     if (ret != 0) continue;
+    else  i--; 
 
     fp = popen("/tmp/.expr", "r");
     assert(fp != NULL);

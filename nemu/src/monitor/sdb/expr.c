@@ -23,19 +23,19 @@
 
 enum {
   TK_NOTYPE = 256,
-  TK_EQ ,
-  TK_NUM ,
-  TK_NEQ ,
-  TK_AND ,
-  TK_OR ,
-  TK_LT ,
-  TK_GT ,
-  TK_LE ,
-  TK_GE ,
-  TK_REG ,
-  TK_NEG ,
-  TK_DEREF ,
-  TK_POS,
+  TK_EQ    = 1,
+  TK_NUM   = 2,
+  TK_NEQ   = 3,
+  TK_AND   = 4,
+  TK_OR    = 5,
+  TK_LT    = 6,
+  TK_GT    = 7,
+  TK_LE    = 8,
+  TK_GE    = 9,
+  TK_REG   = 10,
+  TK_NEG   = 11,
+  TK_DEREF = 12,
+  TK_POS   = 13,
   /* TODO: Add more token types */
 
 };
@@ -104,12 +104,13 @@ typedef struct token {
   char str[32];
 } Token;
 
-static Token tokens[65536] __attribute__((used)) = {};
+static Token tokens[1024] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
 #define which_type(type,types) whichtype(type,types,ARRLEN(types))
 static int type1[] = {TK_NEG,TK_DEREF,TK_POS};//-，*,+
 static int type2[] = {')',TK_NUM,TK_REG};
+static int type3[] = {'(',')',TK_NUM,TK_REG};
 
 static bool whichtype(int type,int types[],int size) {
   for(int i = 0;i<size;i++){
@@ -152,7 +153,7 @@ static bool make_token(char *e) {
 			switch(rules[i].token_type)
 			{
 			  case '*' :tokens[nr_token].type = TK_DEREF;break;
-			  case '-' :tokens[nr_token].type = TK_NEG;break;				 
+			  case '-' :tokens[nr_token].type = TK_NEG;break; 
 			  case '+' :tokens[nr_token].type = TK_POS;break;
 			}
 		}
@@ -191,28 +192,29 @@ int find_major(int p ,int q) {
   int ret = -1;
   int par = 0;	   //括号的数量
   int op_type = 0; //当前找到的最高优先级的运算符类型
-  int tmp_type = 0;//运算符的等级
 
   for (int i = p;i <= q; i++) {
-	if(tokens[i].type == TK_NUM) {
-		continue;
-	}
 	if(tokens[i].type == '(') {
 		par ++;
 	} else if (tokens[i].type == ')') {
 		if(par == 0){ return -1;}
 		par--;
+	} else if(which_type(tokens[i].type,type3)){
+		continue;
 	} else if (par > 0) {
 		continue;	//par>0说明在括号内
-	} else {
+	} else {//运算优先级
+  		int tmp_type = 0;//运算符的等级
 		switch(tokens[i].type) {
-		case '*': case '/' : case '+': case '-':
-		case TK_OR: case TK_AND : case TK_EQ : case TK_NEQ :
-		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  :
-		case TK_DEREF : case TK_NEG : case TK_POS :
-		     tmp_type++;
+		case TK_OR : tmp_type++;
+		case TK_AND : tmp_type++; 
+		case TK_EQ : case TK_NEQ :tmp_type++;
+		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  : tmp_type++;
+		case '+': case '-':tmp_type++;
+		case '*': case '/' :tmp_type++;
+		case TK_DEREF : case TK_NEG : case TK_POS : tmp_type++;
 		     break;
-		default: assert(0);
+		default: return -1;
 		}
 		//非type中的指针解和负数类型
 		if(tmp_type > op_type || (tmp_type == op_type && !which_type(tokens[i].type,type1))) {
@@ -251,8 +253,9 @@ static word_t eval(int p,int q,bool *success){
 
 	//对分裂出来的两个子表达式进行递归求值
 	bool success1,success2;
+	//右优先级
+	int32_t val2 = eval(major+1,q,&success2);
 	word_t val1 = eval(p,major-1,&success1);
-	word_t val2 = eval(major+1,q,&success2);
 
 	//整体表达式的success必须建立在右表达式的success上,左表达式false归入一元运算符中,如-1
 	if(!success2){
@@ -264,7 +267,7 @@ static word_t eval(int p,int q,bool *success){
 	  word_t ret = calculate1(val1,tokens[major].type,val2,success);//左T右T为二元运算
 	  return ret;
 	} else {
-	  word_t ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
+	  int32_t ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
 	  return ret;
 	}	
   }
@@ -297,6 +300,7 @@ static word_t calculate1(word_t val1,int op,word_t val2,bool *success) {
 				*success = false;
 				return 0;
 			   } 
+		return (sword_t)val1 / (sword_t)val2;
 		case TK_AND : return val1 && val2;
 		case TK_OR :  return val1 || val2;
 		case TK_EQ :  return val1 == val2;
