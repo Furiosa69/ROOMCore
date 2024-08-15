@@ -204,15 +204,17 @@ int find_major(int p ,int q) {
 		par--;
 	} else if (par > 0) {
 		continue;	//par>0说明在括号内
-	} else {
+	} else {//运算优先级
 		switch(tokens[i].type) {
-		case '*': case '/' : case '+': case '-':
-		case TK_OR: case TK_AND : case TK_EQ : case TK_NEQ :
-		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  :
-		case TK_DEREF : case TK_NEG : case TK_POS :
-		     tmp_type++;
+		case TK_OR : tmp_type++;
+		case TK_AND : tmp_type++; 
+		case TK_EQ : case TK_NEQ :tmp_type++;
+		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  : tmp_type++;
+		case '+': case '-':tmp_type++;
+		case '*': case '/' :tmp_type++;
+		case TK_DEREF : case TK_NEG : case TK_POS : tmp_type++;
 		     break;
-		default: assert(0);
+		default: return -1;
 		}
 		//非type中的指针解和负数类型
 		if(tmp_type > op_type || (tmp_type == op_type && !which_type(tokens[i].type,type1))) {
