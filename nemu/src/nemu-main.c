@@ -42,9 +42,9 @@ void test_expr() {
         } else {
           printf("expr = %s \ntest_result =  %u, expr_result =  %u\n",buf,test_res,expr_res);
         }
+  	if(buf) free(buf); 
   }
 
-  if(buf) free(buf); 
   fclose(fp);
   Log("expr text success");
 }
