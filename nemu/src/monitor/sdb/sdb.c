@@ -208,9 +208,8 @@ void test_expr() {
   fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
   if(fp == NULL) perror("fail to open file!\n");
 
-  for(int i = 0;i < 100;i++) {
-  	char buf[200];
-	if(fscanf(fp,"%u ",&test_res) == -1)assert(0);
+  while(fscanf(fp,"%u",&test_res) != -1){
+  	char buf[1024];
 	if(fscanf(fp,"%s ",buf) == -1 )assert(0);
 	expr_res = expr(buf,&success);
 	
