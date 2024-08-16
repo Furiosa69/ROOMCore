@@ -22,7 +22,7 @@ typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
   word_t old;//讲义默认32位无符号数
-  char *expr;
+  char expr[512];
 
   /* TODO: Add more members if necessary */
 
