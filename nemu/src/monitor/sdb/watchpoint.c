@@ -70,11 +70,11 @@ void free_wp(WP *wp) {
 }
 
 //开启监视点
-void wp_watch(char *argc,word_t res) {
+void wp_watch(char *args,int32_t res) {
   WP* wp = new_wp();
-  strcpy(wp->expr,argc);
+  strcpy(wp->expr,args);
   wp->old = res;
-  printf("Watchpoint %d: %s\n",wp->NO,argc);
+  printf("Watchpoint %d: %s\n",wp->NO,wp->expr);
 }
 //删除监视点
 void wp_remove(int no) {

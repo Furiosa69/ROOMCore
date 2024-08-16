@@ -24,7 +24,7 @@ static int is_batch_mode = false;
 
 void init_regex();
 void init_wp_pool();
-void wp_watch(char *expr,word_t res);
+void wp_watch(char *expr,int32_t res);
 void wp_remove(int no);
 void wp_iterate();
 
