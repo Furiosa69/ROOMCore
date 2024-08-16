@@ -70,7 +70,7 @@ void free_wp(WP *wp) {
 }
 
 //开启监视点
-void wp_watch(char *args,int32_t res) {
+void wp_watch(char *args,word_t res) {
   WP* wp = new_wp();
   strcpy(wp->expr,args);
   wp->old = res;
