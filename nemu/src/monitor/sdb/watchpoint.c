@@ -86,7 +86,7 @@ void wp_remove(int no) {
 void wp_iterate() {
   WP* h = head;
   if(!h) {
-	printf("No watchpoints.");
+	printf("No watchpoints.\n");
 	return;
   }
   printf("%8d %8s\n",h->NO,h->expr);
@@ -96,13 +96,13 @@ void wp_iterate() {
   }
 }
 //不相等则触发信息
-void wp_difftest() {
+void wp_check() {
   WP* h = head;
   while (h) {
 	bool success;
 	word_t new = expr(h->expr,&success);
 	if(h->old != new) {
-	  printf("Watchpoint %d: %s\n""Old value = %u""New value = %u\n",h->NO,h->expr,h->old,new);
+	  printf("Watchpoint %d: %s \tOld value = %u \tNew value = %u\n",h->NO,h->expr,h->old,new);
 	  nemu_state.state = NEMU_STOP;//触发监视点暂停
 	  h->old = new;
 	}
