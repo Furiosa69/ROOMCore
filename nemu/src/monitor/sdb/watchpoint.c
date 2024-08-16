@@ -86,7 +86,7 @@ void wp_remove(int no) {
 void wp_iterate() {
   WP* h = head;
   if(!h) {
-	printf("No watchpoints.");
+	printf("No watchpoints.\n");
 	return;
   }
   printf("%8d %8s\n",h->NO,h->expr);
