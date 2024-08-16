@@ -14,6 +14,7 @@
 ***************************************************************************************/
 
 #include "sdb.h"
+#include <string.h>
 
 #define NR_WP 32
 
@@ -21,7 +22,7 @@ typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
   word_t old;//讲义默认32位无符号数
-  char *expr;
+  char expr[512];
 
   /* TODO: Add more members if necessary */
 
@@ -69,11 +70,11 @@ void free_wp(WP *wp) {
 }
 
 //开启监视点
-void wp_watch(char *expr,word_t res) {
+void wp_watch(char *args,word_t res) {
   WP* wp = new_wp();
-  strcpy(wp->expr,expr);
+  strcpy(wp->expr,args);
   wp->old = res;
-  printf("Watchpoint %d: %s\n",wp->NO,expr);
+  printf("Watchpoint %d: %s\n",wp->NO,wp->expr);
 }
 //删除监视点
 void wp_remove(int no) {
@@ -89,7 +90,6 @@ void wp_iterate() {
 	printf("No watchpoints.\n");
 	return;
   }
-  printf("%8d %8s\n",h->NO,h->expr);
   while(h) {
 	printf("%8d %8s\n",h->NO,h->expr);
 	h = h->next;
