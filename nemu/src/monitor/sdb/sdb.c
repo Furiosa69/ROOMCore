@@ -76,9 +76,9 @@ static struct {
   { "si","Continue the execution in N steps,default 1",cmd_si },
   { "info","Display the info of registers & watchpoints",cmd_info },
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
-  { "p","Usage: p EXPR, Calcalate the expression, e.g. p $eax + 1",cmd_p},
+  { "p","Usage: p EXPR, Calcalate the expression",cmd_p},
   { "w","Usage:w EXPR, Watch for the variation of the result of EXPR,pause at variation point",cmd_w},
-  { "d","Usage:d N. Delete watchpoint of wp.NO=N",cmd_d}
+  { "d","Usage:d N. Delete watchpoint ",cmd_d}
 
   /* TODO: Add more commands */
 
