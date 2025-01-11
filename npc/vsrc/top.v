@@ -30,7 +30,7 @@ module top(
 //		fun1[6:0] <= ins[6:0];
 	end
 
-	import "DPI-C" function int pmem_read(int rs1);
+	import "DPI-C" function void pmem_read(input bit re, input int addr, input int mask,output int rword);
 
   always @(posedge clk ) begin
 		if(rst) begin
