@@ -74,8 +74,8 @@ static struct rule {
 };
 
 
-static word_t calculate1(word_t val1,int op,word_t val2,bool *success);
-static word_t calculate2(int op,word_t val,bool *success);
+static word_t Count2(word_t val1,int op,word_t val2,bool *success);
+static word_t Count1(int op,word_t val,bool *success);
 static word_t return_num(int i,bool *success);
 
 #define NR_REGEX ARRLEN(rules)
@@ -107,12 +107,12 @@ typedef struct token {
 static Token tokens[1024] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
-#define which_type(type,types) whichtype(type,types,ARRLEN(types))
+#define special_type(type,types) specialtype(type,types,ARRLEN(types))
 static int type1[] = {TK_NEG,TK_DEREF,TK_POS};//-，*,+
 static int type2[] = {')',TK_NUM,TK_REG};
 static int type3[] = {'(',')',TK_NUM,TK_REG};
 
-static bool whichtype(int type,int types[],int size) {
+static bool specialtype(int type,int types[],int size) {
   for(int i = 0;i<size;i++){
 	if(type == types[i]) return true;
   }
@@ -128,7 +128,7 @@ static bool make_token(char *e) {
     /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
-	char *substr_start = e + position;
+				char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
 //        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
@@ -139,17 +139,17 @@ static bool make_token(char *e) {
          * to record the token in the array `tokens'. For certain types
          * of tokens, some extra actions should be performed.
          */
-	if (rules[i].token_type == TK_NOTYPE) break;//丢弃空格
+		if (rules[i].token_type == TK_NOTYPE) break;//丢弃空格
 
-	tokens[nr_token].type = rules[i].token_type;//记录类型
+		tokens[nr_token].type = rules[i].token_type;//记录类型
 
-        switch (rules[i].token_type) {
-	  case TK_NUM : case TK_REG:
-		strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
-		tokens[nr_token].str[substr_len] = '\0';
-		break;
-	  case '*' : case '-' : case '+':
-		if(nr_token == 0 || !which_type(tokens[nr_token-1].type,type2)){
+    switch (rules[i].token_type) {
+	    case TK_NUM : case TK_REG:
+	  	strncpy(tokens[nr_token].str,substr_start,substr_len);//将数字和字符内容记录在str中
+	  	tokens[nr_token].str[substr_len] = '\0';
+	  	break;
+	  	case '*' : case '-' : case '+':
+			if(nr_token == 0 || !special_type(tokens[nr_token-1].type,type2)){
 			switch(rules[i].token_type)
 			{
 			  case '*' :tokens[nr_token].type = TK_DEREF;break;
@@ -160,7 +160,7 @@ static bool make_token(char *e) {
 		break;
         }
 
-	nr_token++;//已经被识别出的token数目+1
+		nr_token++;//已经被识别出的token数目+1
         break;
       }
     }
@@ -199,25 +199,25 @@ int find_major(int p ,int q) {
 	} else if (tokens[i].type == ')') {
 		if(par == 0){ return -1;}
 		par--;
-	} else if(which_type(tokens[i].type,type3)){
+	} else if(special_type(tokens[i].type,type3)){
 		continue;
 	} else if (par > 0) {
 		continue;	//par>0说明在括号内
 	} else {//运算优先级
-  		int tmp_type = 0;//运算符的等级
+  	int tmp_type = 0;//运算符的等级
 		switch(tokens[i].type) {
-		case TK_OR : tmp_type++;
-		case TK_AND : tmp_type++; 
-		case TK_EQ : case TK_NEQ :tmp_type++;
-		case TK_LT: case TK_GT  : case TK_GE : case TK_LE  : tmp_type++;
-		case '+': case '-':tmp_type++;
-		case '*': case '/' :tmp_type++;
-		case TK_DEREF : case TK_NEG : case TK_POS : tmp_type++;
-		     break;
-		default: return -1;
+				case TK_OR : tmp_type++;
+				case TK_AND : tmp_type++; 
+				case TK_EQ : case TK_NEQ :tmp_type++;
+				case TK_LT: case TK_GT  : case TK_GE : case TK_LE  : tmp_type++;
+				case '+': case '-':tmp_type++;
+				case '*': case '/' :tmp_type++;
+				case TK_DEREF : case TK_NEG : case TK_POS : tmp_type++;
+				     break;
+				default: return -1;
 		}
 		//非type中的指针解和负数类型
-		if(tmp_type > op_type || (tmp_type == op_type && !which_type(tokens[i].type,type1))) {
+		if(tmp_type > op_type || (tmp_type == op_type && !special_type(tokens[i].type,type1))) {
 			op_type = tmp_type;
 			ret = i;
 		}
@@ -264,10 +264,10 @@ static word_t eval(int p,int q,bool *success){
 	}	
 
 	if(success1) {
-	  word_t ret = calculate1(val1,tokens[major].type,val2,success);//左T右T为二元运算
+	  word_t ret = Count2(val1,tokens[major].type,val2,success);//左T右T为二元运算
 	  return ret;
 	} else {
-	  int32_t ret = calculate2(tokens[major].type,val2,success);//左F右T为一元运算
+	  int32_t ret = Count1(tokens[major].type,val2,success);//左F右T为一元运算
 	  return ret;
 	}	
   }
@@ -290,8 +290,19 @@ static word_t return_num(int i,bool *success) {
 	}
 }
 
+//一元运算
+static word_t Count1(int op,word_t val,bool *success) {
+	switch(op) {
+		case TK_NEG : return -val;
+		case TK_DEREF:return vaddr_read(val,4);
+		case TK_POS : return val;
+		default : *success = false;
+	}
+	return 0;
+}
+
 //二元运算
-static word_t calculate1(word_t val1,int op,word_t val2,bool *success) {
+static word_t Count2(word_t val1,int op,word_t val2,bool *success) {
 	switch(op) {
 		case '+' : return val1 + val2;
 		case '-' : return val1 - val2;
@@ -299,7 +310,7 @@ static word_t calculate1(word_t val1,int op,word_t val2,bool *success) {
 		case '/' : if(val2 == 0) {
 				*success = false;
 				return 0;
-			   } 
+		} 
 		return (sword_t)val1 / (sword_t)val2;
 		case TK_AND : return val1 && val2;
 		case TK_OR :  return val1 || val2;
@@ -315,16 +326,6 @@ static word_t calculate1(word_t val1,int op,word_t val2,bool *success) {
 	}
 } 
 
-//一元运算
-static word_t calculate2(int op,word_t val,bool *success) {
-	switch(op) {
-		case TK_NEG : return -val;
-		case TK_DEREF:return vaddr_read(val,4);
-		case TK_POS : return val;
-		default : *success = false;
-	}
-	return 0;
-}
 
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {

@@ -46,8 +46,8 @@ run:
 	@echo "-- VERILATE ----------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT)
 
-	@echo
-	@echo "-- BUILD -------------------"
+#	@echo
+#	@echo "-- BUILD -------------------"
 # To compile, we can either
 # 1. Pass --build to Verilator by editing VERILATOR_FLAGS above.
 # 2. Or, run the make rules Verilator does:
@@ -61,9 +61,9 @@ run:
 	@mkdir -p logs
 	obj_dir/Vtop +trace
 
-	@echo
-	@echo "-- COVERAGE ----------------"
-	@rm -rf logs/annotated
+#	@echo
+#	@echo "-- COVERAGE ----------------"
+#	@rm -rf logs/annotated
 #	$(VERILATOR_COVERAGE) --annotate logs/annotated logs/coverage.dat
 
 	@echo
