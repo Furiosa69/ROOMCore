@@ -46,7 +46,7 @@ void init_wp_pool() {
 //申请新监视点
 static WP* new_wp() {
   if(free_ == NULL) {
-	printf("没有空闲监视点");
+	printf("No free watchpoint!");
 	assert(free_);
   }
   WP* ret = free_;//向free请求结点
@@ -61,9 +61,9 @@ void free_wp(WP *wp) {
   WP* h = head;
   if(h == wp) head = NULL;
   else {
-	while(h && h->next != wp) h = h->next;
-	assert(h);
-	h->next = wp->next;
+			while(h && h->next != wp) h = h->next;
+			assert(h);
+			h->next = wp->next;
   }
   wp->next = free_;
   free_ = wp;

@@ -17,8 +17,8 @@
 #include "./monitor/sdb/sdb.h"
 
 void test_expr() {
-  int32_t expr_res;
-  int32_t test_res;
+  int32_t EXPR ;
+  int32_t TEST;
   bool success;
   FILE *fp = NULL;
   char *buf = NULL;
@@ -26,27 +26,26 @@ void test_expr() {
   ssize_t read ;
 
   fp = fopen("/home/furiosa/ysyx-workbench/nemu/tools/gen-expr/input","r");
-  if(fp == NULL) perror("fail to open file!\n");
+  if(fp == NULL) perror("file open fail!\n");
 
   for(int i = 0;i<30;i++){
-        if(fscanf(fp,"%u",&test_res) == -1)break;
+        if(fscanf(fp,"%u",&TEST) == -1)break;
 	read = getline(&buf,&len,fp);
 	buf[read-1] = '\0';
 
-        expr_res = expr(buf,&success);
+  EXPR = expr(buf,&success);
 
 	assert(success);
 
-        if(test_res != expr_res) {
-          printf("WRONG : expr = %s \ntest_result =  %d, expr_result =  %d\n",buf,test_res,expr_res);
-        } else {
-          printf("expr = %s \ntest_result =  %d, expr_result =  %d\n\n",buf,test_res,expr_res);
-        }
+  if( TEST != EXPR) {
+     printf("wrong: expr = %s \nTEST =  %d, EXPR =  %d\n",buf,TEST,EXPR);
+  } else {
+     printf("right: expr = %s \nTEST =  %d, EXPR =  %d\n\n",buf,TEST,EXPR);
+  }
   }
 
   fclose(fp);
   free(buf); 
-  Log("expr text success");
 }
 
 void init_monitor(int, char *[]);

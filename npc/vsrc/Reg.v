@@ -19,7 +19,7 @@ module Reg #(WIDTH = 1, RESET_VAL = 0) (
 
   always @(posedge clk) begin
       if (rst) dout <= RESET_VAL;
-      else if (wen) dout <= din;
+      else if (wen) dout <= din + 4;//pc+4
   end
 
 endmodule
