@@ -20,7 +20,7 @@ VERILATOR_FLAGS += -x-assign fast
 # Warn abount lint issues; may not want this on less solid designs
 VERILATOR_FLAGS += -Wall
 # Make waveforms
-VERILATOR_FLAGS += --trace
+VERILATOR_FLAGS += --trace 
 # Check SystemVerilog assertions
 #VERILATOR_FLAGS += --assert
 # Generate coverage analysis
@@ -40,14 +40,11 @@ default: run
 
 run:
 	@echo
-	@echo "-- Verilator tracing example"
-
-	@echo
 	@echo "-- VERILATE ----------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT)
 
-	@echo
-	@echo "-- BUILD -------------------"
+#	@echo
+#	@echo "-- BUILD -------------------"
 # To compile, we can either
 # 1. Pass --build to Verilator by editing VERILATOR_FLAGS above.
 # 2. Or, run the make rules Verilator does:
@@ -61,9 +58,9 @@ run:
 #	@mkdir -p logs
 	obj_dir/Vysyx_24080018_cpu +trace
 
-	@echo
-	@echo "-- COVERAGE ----------------"
-	@rm -rf logs/annotated
+#	@echo
+#	@echo "-- COVERAGE ----------------"
+#	@rm -rf logs/annotated
 #	$(VERILATOR_COVERAGE) --annotate logs/annotated logs/coverage.dat
 
 	@echo
