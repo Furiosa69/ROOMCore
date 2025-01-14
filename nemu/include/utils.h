@@ -34,6 +34,29 @@ extern NEMUState nemu_state;
 
 uint64_t get_time();
 
+// ----------- iringbuf --------
+#define RING_BUFFER_SIZE 20 //定义环形缓冲区大小
+														
+typedef struct {
+		uint64_t pc;
+		uint32_t inst;
+		char inst_str[128];
+} RingBufferEntry;
+
+typedef struct {
+		int head;
+		int tail;
+		int count;
+		int current_index;
+		RingBufferEntry entries[RING_BUFFER_SIZE];
+} RingBuffer;
+
+extern RingBuffer ringbuf;
+
+void init_ring_buffer(RingBuffer *rf);
+void add_to_ringbuffer(RingBuffer*rb,uint64_t pc ,uint32_t inst);
+void print_ringbuffer(RingBuffer *rb);
+
 // ----------- log -----------
 
 #define ANSI_FG_BLACK   "\33[1;30m"
@@ -75,3 +98,5 @@ uint64_t get_time();
 
 
 #endif
+
+

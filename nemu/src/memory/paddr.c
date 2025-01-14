@@ -18,6 +18,26 @@
 #include <device/mmio.h>
 #include <isa.h>
 
+//------------------------change------------------------------------
+#define LOG_FILE "memory_trace.log"
+
+FILE *log_file = fopen(LOG_FILE,"w");
+if (log_file == NULL) {
+	perror("Erroe opening log file");
+	exit(EXIT_FAILURE);
+}
+
+#define LOG_TRACE_READ(addr ,len, data) fprintf(log_file, "TRACE:Read %d bytes from 0x%081x, data = 0x%lx\n", len, addr, data)
+#define LOG_TRACE_WRITE(addr, len, data) fprintf(log_file, "TRACE:Write %d bytes to 0x%081x, data = 0x%lx\n", len, addr, data)
+
+void close_mtracelog_file(){
+	if(log_file != NULL) {
+		fclose(log_file);
+	}
+}
+
+//--------------------------------------------------------------------
+
 #if   defined(CONFIG_PMEM_MALLOC)
 static uint8_t *pmem = NULL;
 #else // CONFIG_PMEM_GARRAY
@@ -51,14 +71,22 @@ void init_mem() {
 }
 
 word_t paddr_read(paddr_t addr, int len) {
-  if (likely(in_pmem(addr))) return pmem_read(addr, len);
-  IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
+  if (likely(in_pmem(addr))) {
+		word_t data = pmem_read(addr, len);
+		LOG_TRACE_READ(addr, len, data);
+		return data;
+	}
+  IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));//内存映射IO口的读取暂时不管
   out_of_bound(addr);
   return 0;
 }
 
 void paddr_write(paddr_t addr, int len, word_t data) {
-  if (likely(in_pmem(addr))) { pmem_write(addr, len, data); return; }
-  IFDEF(CONFIG_DEVICE, mmio_write(addr, len, data); return);
+  if (likely(in_pmem(addr))) { 
+		pmem_write(addr, len, data); 
+		LOG_TRECE_WRITE(addr, len, data);
+		return; 
+	}
+  IFDEF(CONFIG_DEVICE, mmio_write(addr, len, data); return);//同样不管
   out_of_bound(addr);
 }

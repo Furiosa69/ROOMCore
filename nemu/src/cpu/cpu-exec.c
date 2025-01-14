@@ -18,6 +18,7 @@
 #include <cpu/difftest.h>
 #include <locale.h>
 #include "../include/config/watchpoint.h"
+#include "../include/utils.h"//change
 
 /* The assembly code of instructions executed is only output to the screen
  * when the number of instructions executed is less than this value.
@@ -78,6 +79,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
 }
 
 static void execute(uint64_t n) {
+	init_ring_buffer(&ringbuf);//change
   Decode s;
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
@@ -110,6 +112,7 @@ void cpu_exec(uint64_t n) {
       printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
       return;
     default: nemu_state.state = NEMU_RUNNING;
+        print_ringbuffer(&ringbuf); //单步测试检验是否正确 
   }
 
   uint64_t timer_start = get_time();
@@ -119,16 +122,45 @@ void cpu_exec(uint64_t n) {
   uint64_t timer_end = get_time();
   g_timer += timer_end - timer_start;
 
-  switch (nemu_state.state) {
-    case NEMU_RUNNING: nemu_state.state = NEMU_STOP; break;
-
-    case NEMU_END: case NEMU_ABORT:
-      Log("nemu: %s at pc = " FMT_WORD,
-          (nemu_state.state == NEMU_ABORT ? ANSI_FMT("ABORT", ANSI_FG_RED) :
-           (nemu_state.halt_ret == 0 ? ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN) :
-            ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED))),
-          nemu_state.halt_pc);
-      // fall through
+//-----------------------------change----------------------------------------
+//  switch (nemu_state.state) {
+//    case NEMU_RUNNING: nemu_state.state = NEMU_STOP; break;
+//
+//    case NEMU_END: case NEMU_ABORT:
+//      Log("nemu: %s at pc = " FMT_WORD,
+//          (nemu_state.state == NEMU_ABORT ? ANSI_FMT("ABORT", ANSI_FG_RED) :
+//           (nemu_state.halt_ret == 0 ? ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN) :
+//            ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED))),
+//          nemu_state.halt_pc);
+//      // fall through
+//    case NEMU_QUIT: statistic();
+//  }
+	switch (nemu_state.state) {
+    case NEMU_RUNNING:
+				nemu_state.state = NEMU_STOP;
+				break;
+    case NEMU_ABORT:
+        Log("nemu: %s at pc " FMT_WORD,
+            ANSI_FMT("ABORT", ANSI_FG_RED),
+            nemu_state.halt_pc);
+        print_ringbuffer(&ringbuf); // 当输出 "ABORT" 时同时执行 print_ring_buffer
+				close_mtracelog_file_file();
+    case NEMU_END:
+        if (nemu_state.halt_ret != 0) {
+            Log("nemu: %s at pc " FMT_WORD,
+                ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED),
+                nemu_state.halt_pc);
+            print_ringbuffer(&ringbuf); // 当输出 "HIT BAD TRAP" 时同时执行 print_ring_buffer
+				close_mtracelog_file_file();
+        } else {
+            Log("nemu: %s at pc " FMT_WORD,
+                ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN),
+                nemu_state.halt_pc);
+				close_mtracelog_file_file();
+        }
+        // fall through
     case NEMU_QUIT: statistic();
-  }
+	}
+//-----------------------------change----------------------------------------
+
 }
