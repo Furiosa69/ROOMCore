@@ -78,8 +78,10 @@ static void exec_once(Decode *s, vaddr_t pc) {
 #endif
 #endif
 //--------------------change-----------------------------
+#ifdef CONFIG_FTRACE
 	int jal_jalr_flag = check_jal_or_jalr(s->isa.inst.val);
 	print_all_function_names(cpu.pc,jal_jalr_flag);
+#endif
 //-------------------------------------------------------
 
 }
@@ -88,7 +90,9 @@ static void exec_once(Decode *s, vaddr_t pc) {
 FILE *mtrace_log_file = NULL;
 static void execute(uint64_t n) {
 	//-----------------change------------------------
+#ifdef CONFIG_IRINGBUF
 	init_ring_buffer(&ringbuf);//iringbuf
+#endif
 														 
 #ifdef CONFIG_MTRACE_COND		 //mtrace
 	const char *log_file_path = "/home/furiosa/ysyx-workbench/nemu/build/memory_trace.log";
@@ -98,7 +102,9 @@ static void execute(uint64_t n) {
 	}
 #endif
 
+#ifdef CONFIG_FTRACE_COND
 	init_ftrace();						 //ftrace
+#endif
 	//----------------------------------------------
   Decode s;
   for (;n > 0; n --) {
@@ -163,8 +169,12 @@ void cpu_exec(uint64_t n) {
         Log("nemu: %s at pc " FMT_WORD,
             ANSI_FMT("ABORT", ANSI_FG_RED),
             nemu_state.halt_pc);
+#ifdef CONFIG_IRINGBUF
         print_ringbuffer(&ringbuf); // 当输出 "ABORT" 时同时执行 print_ring_buffer
+#endif
+#ifdef CONFIG_FTRACE_COND
 				end_ftrace();//change
+#endif
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
 #endif
@@ -173,8 +183,12 @@ void cpu_exec(uint64_t n) {
             Log("nemu: %s at pc " FMT_WORD,
                 ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED),
                 nemu_state.halt_pc);
+#ifdef CONFIG_IRINGBUF
             print_ringbuffer(&ringbuf); // 当输出 "HIT BAD TRAP" 时同时执行 print_ring_buffer
+#endif
+#ifdef CONFIG_FTRACE_COND
 				end_ftrace();
+#endif
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
 #endif
@@ -182,7 +196,9 @@ void cpu_exec(uint64_t n) {
             Log("nemu: %s at pc " FMT_WORD,
                 ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN),
                 nemu_state.halt_pc);
+#ifdef CONFIG_FTRACE_COND
 				end_ftrace();
+#endif
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
 #endif

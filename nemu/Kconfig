@@ -144,6 +144,16 @@ config TRACE_END
   int "When tracing is disabled (unit: number of instructions)"
   default 10000
 
+config IRINGBUF
+  depends on TRACE && TARGET_NATIVE_ELF && ENGINE_INTERPRETER
+  bool "Enable iringbuf"
+  default y
+
+config IRINGBUF_COND
+  depends on IRINGBUF 
+  string "Only IRINGBUF when the condition is true"
+  default "true"
+
 config ITRACE
   depends on TRACE && TARGET_NATIVE_ELF && ENGINE_INTERPRETER
   bool "Enable instruction tracer"
@@ -162,6 +172,16 @@ config MTRACE
 config MTRACE_COND 
 	depends on MTRACE
 	string "Only trace menory when the condition is true"
+	default "true"
+
+config FTRACE
+  depends on TRACE && TARGET_NATIVE_ELF 
+  bool "Enable function tracer"
+  default y
+
+config FTRACE_COND 
+	depends on FTRACE
+	string "Only trace function when the condition is true"
 	default "true"
 
 config DIFFTEST
