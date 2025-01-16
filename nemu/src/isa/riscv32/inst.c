@@ -126,6 +126,8 @@ static int decode_exec(Decode *s) {
 RingBuffer ringbuf;
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
+#ifdef CONFIG_IRINGBUF
 	add_to_ringbuffer(&ringbuf, s->snpc, s->isa.inst.val);
+#endif
   return decode_exec(s);
 }

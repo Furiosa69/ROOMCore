@@ -21,7 +21,6 @@ int check_jal_or_jalr(uint32_t inst){
 	return flag ;
 }
 
-
 //------------------------------------------------------------------------------------------------
 void init_ring_buffer(RingBuffer *rb) {
     rb->head = 0;
@@ -35,7 +34,6 @@ void init_ring_buffer(RingBuffer *rb) {
     }
 }
 
-void disassemble(char *str,int size,uint64_t pc,uint8_t *code,int nbyte);
 void add_to_ringbuffer(RingBuffer *rb, uint64_t pc, uint32_t inst) {
     if (rb->count == RING_BUFFER_SIZE) {
         rb->tail = (rb->tail + 1) % RING_BUFFER_SIZE;
@@ -56,6 +54,7 @@ void add_to_ringbuffer(RingBuffer *rb, uint64_t pc, uint32_t inst) {
     memcpy(code, &inst, sizeof(inst)); // 使用 memcpy 来复制指令到字节序列
 
     // 存储反汇编后的指令字符串
+		void disassemble(char *str,int size,uint64_t pc ,uint8_t *code,int nbype);
     disassemble(rb->entries[index].inst_str, sizeof(rb->entries[index].inst_str), pc, code, sizeof(code));
 }
 

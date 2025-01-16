@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: %.c
 	@echo + CC $<
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c -o $@ $<
-	@$(CC) $(CFLAGS) -E -MF /dev/null $< | clang-format > $@.i #输出预处理宏展开结果
+#	@$(CC) $(CFLAGS) -E -MF /dev/null $< | clang-format > $@.i #输出预处理宏展开结果
 	$(call call_fixdep, $(@:.o=.d), $@)
 
 $(OBJ_DIR)/%.o: %.cc
