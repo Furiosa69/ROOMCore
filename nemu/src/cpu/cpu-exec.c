@@ -19,6 +19,7 @@
 #include <locale.h>
 #include "../include/config/watchpoint.h"
 #include "../include/utils.h"//change
+#include "../../include/memory/paddr.h"
 
 /* The assembly code of instructions executed is only output to the screen
  * when the number of instructions executed is less than this value.
@@ -76,10 +77,29 @@ static void exec_once(Decode *s, vaddr_t pc) {
   p[0] = '\0'; // the upstream llvm does not support loongarch32r
 #endif
 #endif
+//--------------------change-----------------------------
+	int jal_jalr_flag = check_jal_or_jalr(s->isa.inst.val);
+	print_all_function_names(cpu.pc,jal_jalr_flag);
+//-------------------------------------------------------
+
 }
 
+
+FILE *mtrace_log_file = NULL;
 static void execute(uint64_t n) {
-	init_ring_buffer(&ringbuf);//change
+	//-----------------change------------------------
+	init_ring_buffer(&ringbuf);//iringbuf
+														 
+#ifdef CONFIG_MTRACE_COND		 //mtrace
+	const char *log_file_path = "/home/furiosa/ysyx-workbench/nemu/build/memory_trace.log";
+	mtrace_log_file = fopen(log_file_path,"w");
+	if(mtrace_log_file == NULL){
+			perror("Error opening log file!");
+	}
+#endif
+
+	init_ftrace();						 //ftrace
+	//----------------------------------------------
   Decode s;
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
@@ -112,7 +132,7 @@ void cpu_exec(uint64_t n) {
       printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
       return;
     default: nemu_state.state = NEMU_RUNNING;
-        print_ringbuffer(&ringbuf); //单步测试检验是否正确 
+//        print_ringbuffer(&ringbuf); //单步测试检验是否正确 
   }
 
   uint64_t timer_start = get_time();
@@ -144,19 +164,28 @@ void cpu_exec(uint64_t n) {
             ANSI_FMT("ABORT", ANSI_FG_RED),
             nemu_state.halt_pc);
         print_ringbuffer(&ringbuf); // 当输出 "ABORT" 时同时执行 print_ring_buffer
-				close_mtracelog_file_file();
+				end_ftrace();//change
+#ifdef CONFIG_MTRACE_COND
+				close_mtracelog_file();
+#endif
     case NEMU_END:
         if (nemu_state.halt_ret != 0) {
             Log("nemu: %s at pc " FMT_WORD,
                 ANSI_FMT("HIT BAD TRAP", ANSI_FG_RED),
                 nemu_state.halt_pc);
             print_ringbuffer(&ringbuf); // 当输出 "HIT BAD TRAP" 时同时执行 print_ring_buffer
-				close_mtracelog_file_file();
+				end_ftrace();
+#ifdef CONFIG_MTRACE_COND
+				close_mtracelog_file();
+#endif
         } else {
             Log("nemu: %s at pc " FMT_WORD,
                 ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN),
                 nemu_state.halt_pc);
-				close_mtracelog_file_file();
+				end_ftrace();
+#ifdef CONFIG_MTRACE_COND
+				close_mtracelog_file();
+#endif
         }
         // fall through
     case NEMU_QUIT: statistic();

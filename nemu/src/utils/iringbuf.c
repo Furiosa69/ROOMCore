@@ -1,5 +1,28 @@
 #include <utils.h>
 
+//--------------------------------ftrace(jal/jalr识别相关)-----------------------------------------
+#define OPCODE_JAL 0x6f
+#define OPCODE_JALR 0x67
+
+int jal_or_jalr(uint32_t inst) {
+	uint32_t opcode = (inst & 0x7f);
+	return (opcode == OPCODE_JAL) || (opcode == OPCODE_JALR);
+}
+
+int check_jal_or_jalr(uint32_t inst){
+	int flag = 0;
+  if (jal_or_jalr(inst)) {
+      if ((inst & 0x7f) == OPCODE_JAL) {
+					flag = 1;
+      } else if ((inst & 0x7f) == OPCODE_JALR) {
+					flag = 2;
+      }
+  }
+	return flag ;
+}
+
+
+//------------------------------------------------------------------------------------------------
 void init_ring_buffer(RingBuffer *rb) {
     rb->head = 0;
     rb->tail = 0;
@@ -39,11 +62,10 @@ void add_to_ringbuffer(RingBuffer *rb, uint64_t pc, uint32_t inst) {
 void print_ringbuffer(RingBuffer *rb) {
     int index = rb->tail;
     for (int i = 0; i < rb->count; ++i) {
-        // 打印箭头符号 "->" 如果这是当前执行的代码
         if (index == rb->current_index) {
             printf("\t-->| ");
         } else {
-            printf("\t   | "); // 保持对齐，打印空格
+            printf("\t   | "); 
         }
 
         // 打印程序计数器和反汇编后的指令
