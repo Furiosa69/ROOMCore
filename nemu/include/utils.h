@@ -17,6 +17,7 @@
 #define __UTILS_H__
 
 #include <common.h>
+#include <elf.h>
 
 // ----------- state -----------
 
@@ -56,6 +57,12 @@ extern RingBuffer ringbuf;
 void init_ring_buffer(RingBuffer *rf);
 void add_to_ringbuffer(RingBuffer*rb,uint64_t pc ,uint32_t inst);
 void print_ringbuffer(RingBuffer *rb);
+
+// ----------- ftrace --------
+int check_jal_or_jalr(uint32_t inst);
+void init_ftrace();
+void print_all_function_names(uint32_t pc,int jal_jalr_flag);
+void end_ftrace();
 
 // ----------- log -----------
 
@@ -98,5 +105,6 @@ void print_ringbuffer(RingBuffer *rb);
 
 
 #endif
+
 
 

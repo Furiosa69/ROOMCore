@@ -22,6 +22,16 @@
 #define PMEM_RIGHT ((paddr_t)CONFIG_MBASE + CONFIG_MSIZE - 1)
 #define RESET_VECTOR (PMEM_LEFT + CONFIG_PC_RESET_OFFSET)
 
+//-------------------change(mtraec)------------------------------
+extern FILE *mtrace_log_file;
+#define LOG_TRACE_READ(addr ,len, data) fprintf(mtrace_log_file, 	"TRACE:Read  %d bytes from 0x%x, data = 0x%x\n", len, addr, data)
+#define LOG_TRACE_WRITE(addr, len, data) fprintf(mtrace_log_file, "TRACE:Write %d bytes to 	 0x%x, data = 0x%x\n", len, addr, data)
+
+#ifdef CONFIG_MTRACE_COND
+void close_mtracelog_file();
+#endif
+//--------------------------------------------------------------
+
 /* convert the guest physical address in the guest program to host virtual address in NEMU */
 uint8_t* guest_to_host(paddr_t paddr);
 /* convert the host virtual address in NEMU to guest physical address in the guest program */
@@ -33,7 +43,5 @@ static inline bool in_pmem(paddr_t addr) {
 
 word_t paddr_read(paddr_t addr, int len);
 void paddr_write(paddr_t addr, int len, word_t data);
-
-void close_mtracelog_file();//change
 
 #endif
