@@ -23,7 +23,6 @@ void halt(int code) {
     putch(ch);
   }
 
-	asm volatile("ebreak");
 
   __am_exit_platform(code);
   putstr("Should not reach here!\n");
