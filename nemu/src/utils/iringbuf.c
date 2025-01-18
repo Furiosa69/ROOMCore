@@ -54,8 +54,10 @@ void add_to_ringbuffer(RingBuffer *rb, uint64_t pc, uint32_t inst) {
     memcpy(code, &inst, sizeof(inst)); // 使用 memcpy 来复制指令到字节序列
 
     // 存储反汇编后的指令字符串
+#ifdef CONFIG_IRINGBUF
 		void disassemble(char *str,int size,uint64_t pc ,uint8_t *code,int nbype);
     disassemble(rb->entries[index].inst_str, sizeof(rb->entries[index].inst_str), pc, code, sizeof(code));
+#endif
 }
 
 void print_ringbuffer(RingBuffer *rb) {
@@ -67,7 +69,7 @@ void print_ringbuffer(RingBuffer *rb) {
             printf("\t   | "); 
         }
 
-        // 打印程序计数器和反汇编后的指令
+        // 打印pc和inst
         printf("0x%08lx: %s\n", rb->entries[index].pc, rb->entries[index].inst_str);
 
         // 移动到下一个条目
