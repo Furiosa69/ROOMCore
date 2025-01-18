@@ -11,7 +11,6 @@ VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
 endif
 
-PROGRAM_PATH ?= /home/furiosa/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv32e-npc.bin
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
 # Generate makefile dependencies (not shown as complicates the Makefile)
@@ -34,7 +33,7 @@ VERILATOR_FLAGS += --build
 VERILATOR_FLAGS += --top-module ysyx_24080018_cpu
 
 # Input files for Verilator
-VERILATOR_INPUT = ./vsrc/*.v ./csrc/*.cpp
+VERILATOR_INPUT = /home/furiosa/ysyx-workbench/npc/csrc/*.cpp /home/furiosa/ysyx-workbench/npc/vsrc/*.v
 
 ######################################################################
 default: run
@@ -44,7 +43,7 @@ run:
 	@echo "-- VERILATE ----------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT)
 
-	obj_dir/Vysyx_24080018_cpu $(PROGRAM_PATH)
+	obj_dir/Vysyx_24080018_cpu $(NPC_BIN)
 
 	@echo
 	@echo "-- DONE --------------------"
