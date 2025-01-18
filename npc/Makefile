@@ -11,6 +11,7 @@ VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
 endif
 
+PROGRAM_PATH ?= /home/furiosa/ysyx-workbench/am-kernels/tests/cpu-tests/build/dummy-riscv32e-npc.bin
 # Generate C++ in executable form
 VERILATOR_FLAGS += -cc --exe
 # Generate makefile dependencies (not shown as complicates the Makefile)
@@ -43,25 +44,7 @@ run:
 	@echo "-- VERILATE ----------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT)
 
-#	@echo
-#	@echo "-- BUILD -------------------"
-# To compile, we can either
-# 1. Pass --build to Verilator by editing VERILATOR_FLAGS above.
-# 2. Or, run the make rules Verilator does:
-#	$(MAKE) -j -C obj_dir -f Vtop.mk
-# 3. Or, call a submakefile where we can override the rules ourselves:
-#	$(MAKE) -j -C obj_dir -f ../Makefile_obj
-
-#	@echo
-#	@echo "-- RUN ---------------------"
-#	@rm -rf logs
-#	@mkdir -p logs
-	obj_dir/Vysyx_24080018_cpu +trace
-
-#	@echo
-#	@echo "-- COVERAGE ----------------"
-#	@rm -rf logs/annotated
-#	$(VERILATOR_COVERAGE) --annotate logs/annotated logs/coverage.dat
+	obj_dir/Vysyx_24080018_cpu $(PROGRAM_PATH)
 
 	@echo
 	@echo "-- DONE --------------------"
