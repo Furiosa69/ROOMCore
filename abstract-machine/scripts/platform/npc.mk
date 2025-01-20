@@ -16,6 +16,7 @@ LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
 NPC_MAKEFILE := /home/furiosa/ysyx-workbench/npc/Makefile
+LDLIBS += -lreadline
 
 image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
@@ -24,11 +25,13 @@ image: $(IMAGE).elf
 
 run: image $(NPC_MAKEFILE)
 	@echo "Running $(IMAGE).bin on NPC "
-	$(MAKE) -f$(NPC_MAKEFILE) NPC_BIN=$(IMAGE).bin
+	$(MAKE) -f$(NPC_MAKEFILE) NPC_BIN=$(IMAGE).bin LDLIBS="$(LDLIBS)"
 
 $(NPC_MAKEFILE):
-	$(MAKE) -f$(NPC_MAKEFILE)
+	$(MAKE) -f$(NPC_MAKEFILE) 
 
+#clean: 
+#	rm -rf *.vcd obj_dir/* build/*
 	
 
 

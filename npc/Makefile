@@ -11,52 +11,37 @@ VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
 endif
 
-# Generate C++ in executable form
-VERILATOR_FLAGS += -cc --exe
-# Generate makefile dependencies (not shown as complicates the Makefile)
-VERILATOR_FLAGS += -MMD
-# Optimize
+
+################# 一些选项和定义 ###########################################
+WORK_DIR = /home/furiosa/ysyx-workbench/npc
+
+VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
 VERILATOR_FLAGS += -x-assign fast
-# Warn abount lint issues; may not want this on less solid designs
-VERILATOR_FLAGS += -Wall
-# Make waveforms
-VERILATOR_FLAGS += --trace 
-# Check SystemVerilog assertions
 #VERILATOR_FLAGS += --assert
-# Generate coverage analysis
 #VERILATOR_FLAGS += --coverage
-# Run Verilator in debug mode
-# VERILATOR_FLAGS += --debug
-# Add this trace to get a backtrace in gdb
-# VERILATOR_FLAGS += --gdbbt
-VERILATOR_FLAGS += --build
-VERILATOR_FLAGS += --top-module ysyx_24080018_cpu
+VERILATOR_FLAGS += --debug --gdbbt
+VERILATOR_FLAGS += --top-module ysyx_24080018_cpu -Icsrc
+
+CXXFLAGS += -g
 
 # Input files for Verilator
-VERILATOR_INPUT = /home/furiosa/ysyx-workbench/npc/csrc/*.cpp /home/furiosa/ysyx-workbench/npc/vsrc/*.v
+CXX_SRC += $(wildcard $(WORK_DIR)/csrc/*.cpp)
+CXX_SRC += $(wildcard $(WORK_DIR)/csrc/sdb/*.cpp)
+CXX_DEP = $(wildcard $(WORK_DIR)/csrc/*.h)
+V_SRC   = $(wildcard $(WORK_DIR)/vsrc/*.v)
 
-######################################################################
+################# 构建依赖项 ################################################
 default: run
 
-run:
-	@echo
-	@echo "-- VERILATE ----------------"
-	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT)
-
-	obj_dir/Vysyx_24080018_cpu $(NPC_BIN)
-
-	@echo
+run: obj_dir/Vysyx_24080018_cpu
+	@echo "-- RUNNING  ---------------"
+	obj_dir/Vysyx_24080018_cpu $(NPC_BIN) 
 	@echo "-- DONE --------------------"
 	@echo "To see waveforms, open vlt_dump.vcd in a waveform viewer"
-	@echo
 
+obj_dir/Vysyx_24080018_cpu: $(CXX_SRC) $(V_SRC)
+	@echo "-- VERILATE ---------------"
+	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)"
+	$(MAKE) -C obj_dir -f Vysyx_24080018_cpu.mk $(LDLIBS)
 
-######################################################################
-# Other targets
-
-show-config:
-	$(VERILATOR) -V
-
-maintainer-copy::
-clean mostlyclean distclean maintainer-clean::
-	-rm -rf obj_dir logs *.log *.dmp *.vpd *.vcd coverage.dat core
+-include $(CXX_DRP:.h=.d)

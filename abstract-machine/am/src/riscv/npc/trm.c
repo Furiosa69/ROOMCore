@@ -1,4 +1,5 @@
 #include <am.h>
+#include <stdio.h>
 #include <klib-macros.h>
 
 extern char _heap_start;
@@ -14,10 +15,13 @@ Area heap = RANGE(&_heap_start, PMEM_END);
 #endif
 static const char mainargs[] = MAINARGS;
 
+volatile int halt_flag = 0;
+
 void putch(char ch) {
 }
 
 void halt(int code) {
+	asm volatile("ebreak");
   while (1);
 }
 
