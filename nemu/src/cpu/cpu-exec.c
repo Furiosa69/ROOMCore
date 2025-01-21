@@ -95,7 +95,7 @@ static void execute(uint64_t n) {
 #endif
 														 
 #ifdef CONFIG_MTRACE_COND		 //mtrace
-	const char *log_file_path = "/home/furiosa/ysyx-workbench/nemu/build/memory_trace.log";
+	const char *log_file_path = "/home/furiosa/ysyx-workbench/nemu2/build/memory_trace.log";
 	mtrace_log_file = fopen(log_file_path,"w");
 	if(mtrace_log_file == NULL){
 			perror("Error opening log file!");

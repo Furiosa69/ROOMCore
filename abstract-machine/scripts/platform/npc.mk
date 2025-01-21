@@ -6,17 +6,18 @@ AM_SRCS := riscv/npc/start.S \
            riscv/npc/cte.c \
            riscv/npc/trap.S \
            platform/dummy/vme.c \
-           platform/dummy/mpe.c
-
+           platform/dummy/mpe.c 
 
 CFLAGS    += -fdata-sections -ffunction-sections
 LDFLAGS   += -T $(AM_HOME)/scripts/linker.ld \
-						 --defsym=_pmem_start=0x80000000 --defsym=_entry_offset=0x0
+             --defsym=_pmem_start=0x80000000 --defsym=_entry_offset=0x0
 LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
 NPC_MAKEFILE := /home/furiosa/ysyx-workbench/npc/Makefile
-LDLIBS += -lreadline
+
+# 添加 LLVM 库
+LDLIBS += -lreadline $(shell llvm-config --libs all) $(shell llvm-config --ldflags)
 
 image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
@@ -28,10 +29,4 @@ run: image $(NPC_MAKEFILE)
 	$(MAKE) -f$(NPC_MAKEFILE) NPC_BIN=$(IMAGE).bin LDLIBS="$(LDLIBS)"
 
 $(NPC_MAKEFILE):
-	$(MAKE) -f$(NPC_MAKEFILE) 
-
-#clean: 
-#	rm -rf *.vcd obj_dir/* build/*
-	
-
-
+	$(MAKE) -f$(NPC_MAKEFILE)
