@@ -24,13 +24,6 @@ void init_ftrace() {
 				exit(1);
 		}
 
-    // 确定是32位还是64位ELF文件
-    if (ehdr.e_ident[EI_CLASS] != ELFCLASS32) {
-        fprintf(stderr, "Only 32-bit ELF is supported.\n");
-        close(fd);
-        exit(1);
-    }
-
     // 读取节头表
 		shdrs = (Elf32_Shdr *)malloc(ehdr.e_shentsize * ehdr.e_shnum);
     lseek(fd, ehdr.e_shoff, SEEK_SET);
