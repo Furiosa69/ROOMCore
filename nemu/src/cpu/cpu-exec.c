@@ -20,6 +20,7 @@
 #include "../include/config/watchpoint.h"
 #include "../include/utils.h"//change
 #include "../../include/memory/paddr.h"
+#include <device/map.h>
 
 /* The assembly code of instructions executed is only output to the screen
  * when the number of instructions executed is less than this value.
@@ -165,6 +166,9 @@ void cpu_exec(uint64_t n) {
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
 #endif
+#ifdef CONFIG_DTTACE_COND
+				close_dtrace_log();
+#endif
     case NEMU_END:
         if (nemu_state.halt_ret != 0) {
             Log("nemu: %s at pc " FMT_WORD,
@@ -179,6 +183,9 @@ void cpu_exec(uint64_t n) {
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
 #endif
+#ifdef CONFIG_DTTACE_COND
+				close_dtrace_log();
+#endif
         } else {
             Log("nemu: %s at pc " FMT_WORD,
                 ANSI_FMT("HIT GOOD TRAP", ANSI_FG_GREEN),
@@ -188,6 +195,9 @@ void cpu_exec(uint64_t n) {
 #endif
 #ifdef CONFIG_MTRACE_COND
 				close_mtracelog_file();
+#endif
+#ifdef CONFIG_DTTACE_COND
+				close_dtrace_log();
 #endif
         }
         // fall through
