@@ -7,16 +7,22 @@ static Context* (*user_handler)(Event, Context*) = NULL;
 Context* __am_irq_handle(Context *c) {
   if (user_handler) {
     Event ev = {0};
+//		printf("c->GPR1 is %d \n",c->GPR1);
+//		printf("c->mcause is %d \n",c->mcause);
     switch (c->mcause) {
+					case 0 :ev.event = EVENT_SYSCALL;break;
+					case 11:ev.event = EVENT_YIELD;break;
       default: ev.event = EVENT_ERROR; break;
     }
-
     c = user_handler(ev, c);
     assert(c != NULL);
   }
 
+//  c->mepc+=4;
+
   return c;
 }
+
 
 extern void __am_asm_trap(void);
 
@@ -31,14 +37,28 @@ bool cte_init(Context*(*handler)(Event, Context*)) {
 }
 
 Context *kcontext(Area kstack, void (*entry)(void *), void *arg) {
-  return NULL;
+    uintptr_t *stack_top = (uintptr_t *)(kstack.end);
+
+    Context *ctx = (Context *)(stack_top) - 1;
+
+    for (int i = 0; i < NR_REGS; i++) {
+        ctx->gpr[i] = 0;
+    }
+
+		ctx->gpr[10] = (uintptr_t)arg;
+    ctx->mcause = 0;
+    ctx->mstatus = 0x1800;
+    ctx->mepc = (uintptr_t)entry; 
+    ctx->pdir = NULL;
+
+    return ctx;
 }
 
 void yield() {
 #ifdef __riscv_e
   asm volatile("li a5, -1; ecall");
 #else
-  asm volatile("li a7, -1; ecall");
+  asm volatile("li a7, 11; ecall");
 #endif
 }
 

@@ -20,7 +20,14 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc) {
    * Then return the address of the interrupt/exception vector.
    */
 
-  return 0;
+#ifdef CONFIG_ETRACE
+    printf("mtvec = 0x%x, mepc = 0x%x, mstatus = 0x%x, mcause = 0x%x\n",
+    cpu.csr[mtvec], cpu.csr[mepc], cpu.csr[mstatus], cpu.csr[mcause]);
+#endif
+
+	cpu.csr[mepc] = epc;
+  cpu.csr[mcause] = NO;
+  return cpu.csr[mtvec];
 }
 
 word_t isa_query_intr() {
