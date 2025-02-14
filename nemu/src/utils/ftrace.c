@@ -11,9 +11,6 @@ extern char* ftrace_elf_file;
 
 void init_ftrace() {
     int fd = open(ftrace_elf_file, O_RDONLY);
-    if (fd >= 0) {
-        printf("open elf file");
-    }
 
     // 读取ELF文件头
     Elf32_Ehdr ehdr;
