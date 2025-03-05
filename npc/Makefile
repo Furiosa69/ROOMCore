@@ -1,43 +1,37 @@
-ifneq ($(words $(CURDIR)),1)
- $(error Unsupported: GNU Make cannot build in directories containing spaces, build elsewhere: '$(CURDIR)')
-endif
+BUILD_DIR = ./build
 
-ifeq ($(VERILATOR_ROOT),)
-VERILATOR = verilator
-VERILATOR_COVERAGE = verilator_coverage
-else
-export VERILATOR_ROOT
-VERILATOR = $(VERILATOR_ROOT)/bin/verilator
-VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
-endif
+PRJ = playground
 
-WORK_DIR = /home/furiosa/ysyx-workbench/npc
+test:
+	mill -i $(PRJ).test
 
-VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
-VERILATOR_FLAGS += -x-assign fast
-VERILATOR_FLAGS += --top-module ysyx_24080018_cpu -Icsrc
+verilog:
+	$(call git_commit, "generate verilog")
+	mkdir -p $(BUILD_DIR)
+	mill -i $(PRJ).runMain Elaborate --target-dir $(BUILD_DIR)
 
-CXXFLAGS += -g -fexceptions
-CXXFLAGS += $(shell llvm-config --cxxflags) -fPIE
-CFLAGS += -Wall -O2 -I$(WORK_DIR)/csrc
-LIBS += $(shell llvm-config --libs all) -lpthread -lrt
+help:
+	mill -i $(PRJ).runMain Elaborate --help
 
-CXX_SRC += $(wildcard $(WORK_DIR)/csrc/*.cpp)
-CXX_SRC += $(wildcard $(WORK_DIR)/csrc/sdb/*.cpp)
-CXX_DEP = $(wildcard $(WORK_DIR)/csrc/*.h)
-V_SRC   = $(wildcard $(WORK_DIR)/vsrc/*.v)
+reformat:
+	mill -i __.reformat
 
-default: run
+checkformat:
+	mill -i __.checkFormat
 
-run: obj_dir/Vysyx_24080018_cpu
-	@echo "-- RUNNING  ---------------"
-	obj_dir/Vysyx_24080018_cpu $(NPC_BIN)
-	@echo "-- DONE --------------------"
-	@echo "To see waveforms, open vlt_dump.vcd in a waveform viewer"
+bsp:
+	mill -i mill.bsp.BSP/install
 
-obj_dir/Vysyx_24080018_cpu: $(CXX_SRC) $(V_SRC)
-	@echo "-- VERILATE ---------------"
-	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)" --LDFLAGS "$(LIBS)"
-	$(MAKE) -C obj_dir -f Vysyx_24080018_cpu.mk LDLIBS="$(LDLIBS)"
+idea:
+	mill -i mill.idea.GenIdea/idea
 
--include $(CXX_DEP:.h=.d)
+clean:
+	-rm -rf $(BUILD_DIR)
+
+.PHONY: test verilog help reformat checkformat clean
+
+sim:
+	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	@echo "Write this Makefile by yourself."
+
+-include ../Makefile
