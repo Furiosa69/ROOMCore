@@ -24,31 +24,31 @@
 __EXPORT void difftest_memcpy(uint32_t addr, void *buf, size_t n, bool direction) {
     if (direction == DIFFTEST_TO_REF) {
         memcpy(guest_to_host(addr), buf, n);
+    } else if(direction == DIFFTEST_TO_DUT){
+			paddr_read(addr,n);
     } else {
-        memcpy(buf, guest_to_host(addr), n);
-    }
+			assert(0);
+		}
 }
 
 __EXPORT void difftest_regcpy(void *dut, bool direction) {
     if (direction == DIFFTEST_TO_REF) {
-        memcpy(&cpu, dut, sizeof(CPU_state));
+			for (int i = 0; i<32;i++){
+				cpu.gpr[i] = dut->gpr[i];
+			}
+			cpu.pc = dut->pc;
+    } else if(direction == DIFFTEST_TO_DUT){
+			for (int i = 0; i<32;i++){
+				dut->gpr[i] = cpu.gpr[i];
+			}
+			dut->pc = cpu.pc;
     } else {
-        memcpy(dut, &cpu, sizeof(CPU_state));
-    }
+			assert(0);
+		}
 }
 
 __EXPORT void difftest_exec(uint64_t n) {
-    for (uint64_t i = 0; i < n; i++) {
-        cpu_exec(1);
-
-        CPU_state dut_cpu;
-        difftest_regcpy(&dut_cpu, DIFFTEST_TO_DUT);
-
-        if (memcmp(&cpu, &dut_cpu, sizeof(CPU_state)) != 0) {
-            printf("DiffTest failed!\n");
-            exit(1);
-        }
-    }
+	   cpu_exec(n);
 }
 
 __EXPORT void difftest_raise_intr(word_t NO) {
@@ -61,7 +61,4 @@ __EXPORT void difftest_init(int port) {
     init_mem();
 
     init_isa();
-
-    // 初始化 NEMU 的 CPU 状态
-    memset(&cpu, 0, sizeof(CPU_state));
 }

@@ -14,11 +14,11 @@ LDFLAGS   += -T $(AM_HOME)/scripts/linker.ld \
 LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
+
 NPC_MAKEFILE := /home/furiosa/ysyx-workbench/npc4/Makefile
 
 # 添加 LLVM 库
 LDLIBS += -lreadline $(shell llvm-config --libs all) $(shell llvm-config --ldflags)
-$(info IMAGE is $(IMAGE))
 
 image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
@@ -26,8 +26,8 @@ image: $(IMAGE).elf
 	@$(OBJCOPY) -S --set-section-flags .bss=alloc,contents -O binary $(IMAGE).elf $(IMAGE).bin
 
 run: image $(NPC_MAKEFILE)
-	@echo "Running $(IMAGE).bin on NPC "
-	$(MAKE) -f$(NPC_MAKEFILE)
+	@echo "Running $(IMAGE).bin on NPC " 
+	$(MAKE) -f$(NPC_MAKEFILE) IMG=$(IMAGE).bin
 
 $(NPC_MAKEFILE):
 	$(MAKE) -f$(NPC_MAKEFILE)
