@@ -17,6 +17,7 @@ BINARY   = $(BUILD_DIR)/$(NAME)$(SO)
 # Compilation flags
 ifeq ($(CC),clang)
 CXX := clang++
+CXX := g++
 else
 CXX := g++
 endif

@@ -16,7 +16,7 @@ V_FILE = $(shell find ./src/vsrc -name "*.v" -o -name "*.sv")
 C_FILE += $(shell find ./src/csrc -name "*.cpp" -o -name "*.c")
 
 sim:
-	$(call git_commit, "sim RTL")
+#	$(call git_commit, "sim RTL")
 	$(VERILATOR) $(C_F) $(VERI_F) $(C_FILE) $(V_FILE) --LDFLAGS "$(LDFLAGS)"
 	$(OBJ_DIR)/Vysyx_24080018_cpu
 

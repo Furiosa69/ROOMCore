@@ -9,21 +9,26 @@ AM_SRCS := riscv/npc/start.S \
            platform/dummy/mpe.c
 
 CFLAGS    += -fdata-sections -ffunction-sections
-LDFLAGS   += -T $(AM_HOME)/scripts/npc.ld \
-						 --defsym=_pmem_start=0x80000000 --defsym=_entry_offset=0x0
+LDFLAGS   += -T $(AM_HOME)/scripts/linker.ld \
+             --defsym=_pmem_start=0x80000000 --defsym=_entry_offset=0x0
 LDFLAGS   += --gc-sections -e _start
-#LDFLAGS   += --print-map
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
-CFLAGS += -I$(AM_HOME)/am/src/riscv/npc
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
 
-DIFF_REF_SO = $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
+NPC_MAKEFILE := /home/furiosa/ysyx-workbench/npc/Makefile
+
+# 添加 LLVM 库
+LDLIBS += -lreadline $(shell llvm-config --libs all) $(shell llvm-config --ldflags)
 
 image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
 	@echo + OBJCOPY "->" $(IMAGE_REL).bin
 	@$(OBJCOPY) -S --set-section-flags .bss=alloc,contents -O binary $(IMAGE).elf $(IMAGE).bin
 
-run: image
-	@$(NPC_HOME)/build/ysyx_23060336 $(IMAGE).bin $(DIFF_REF_SO)
-	
+run: image $(NPC_MAKEFILE)
+	@echo "Running $(IMAGE).bin on NPC " 
+	$(MAKE) -f$(NPC_MAKEFILE) IMG=$(IMAGE).bin
+
+$(NPC_MAKEFILE):
+	$(MAKE) -f$(NPC_MAKEFILE)
+
