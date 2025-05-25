@@ -1,37 +1,51 @@
-BUILD_DIR = ./build
+ifeq ($(VERILATOR_ROOT),)
+VERILATOR = verilator
+VERILATOR_COVERAGE = verilator_coverage
+else
+export VERILATOR_ROOT
+VERILATOR = $(VERILATOR_ROOT)/bin/verilator
+VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
+endif
 
-PRJ = playground
+TOP_MODULE := top
+OBJ_DIR := ./obj_dir
 
-test:
-	mill -i $(PRJ).test
+VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
+VERILATOR_FLAGS += -x-assign fast
+VERILATOR_FLAGS += --top-module $(TOP_MODULE)\
+                  -I$(NPC_HOME)/vsrc 
 
-verilog:
-	$(call git_commit, "generate verilog")
-	mkdir -p $(BUILD_DIR)
-	mill -i $(PRJ).runMain Elaborate --target-dir $(BUILD_DIR)
+CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fPIE \
+            -I$(NPC_HOME)/csrc/include \
+            -I$(NPC_HOME)/csrc/mem \
+            -I$(NPC_HOME)/csrc/sim \
+						-I$(OBJ_DIR) \
+            -I/usr/local/share/verilator/include
 
-help:
-	mill -i $(PRJ).runMain Elaborate --help
+CFLAGS += -Wall -O2 -I$(NPC_HOME)/csrc
 
-reformat:
-	mill -i __.reformat
+LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic
 
-checkformat:
-	mill -i __.checkFormat
+CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp")
+V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 
-bsp:
-	mill -i mill.bsp.BSP/install
+RUN_FLAGS := ${IMG} 
 
-idea:
-	mill -i mill.idea.GenIdea/idea
+BIN  		 := $(OBJ_DIR)/V$(TOP_MODULE) 
+NPC_EXEC := ${BIN} ${RUN_FLAGS}
 
-clean:
-	-rm -rf $(BUILD_DIR)
+default: run
 
-.PHONY: test verilog help reformat checkformat clean
+run: obj_dir/Vtop
+	@echo "-- RUNNING  ---------------"
+	${NPC_EXEC}
+	@echo "-- DONE --------------------"
 
-sim:
-	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	@echo "Write this Makefile by yourself."
+obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
+	@echo "-- VERILATE ---------------"
+	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)" --LDFLAGS "$(LIBS)"
+	$(MAKE) -C obj_dir -f Vtop.mk LDLIBS="$(LDLIBS)"
 
--include ../Makefile
+clean: 
+	rm -r ./obj_dir/*  *.vcd
+

@@ -32,7 +32,7 @@ C_FLAGS += -CFLAGS "-DCONFIG_VCD_TRACE_COND"
 #C_FLAGS += -CFLAGS "-DCONFIG_ITRACE"
 
 # --------------------- build ------------------------
-.PHONY: run gdb gtk clean
+.PHONY: run 
 
 run:
 	$(VERILATOR) $(C_FLAGS) $(V_FLAGS) $(C_SRC) $(V_SRC) --LDFLAGS "$(LDFLAGS)" $(NEMU_EXEC)
