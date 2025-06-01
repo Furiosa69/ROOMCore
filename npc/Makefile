@@ -1,51 +1,62 @@
-ifeq ($(VERILATOR_ROOT),)
-VERILATOR = verilator
-VERILATOR_COVERAGE = verilator_coverage
-else
-export VERILATOR_ROOT
-VERILATOR = $(VERILATOR_ROOT)/bin/verilator
-VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
-endif
-
+# -------------------- Basic Setup --------------------
 TOP_MODULE := top
 OBJ_DIR := ./obj_dir
 
-VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
-VERILATOR_FLAGS += -x-assign fast
-VERILATOR_FLAGS += --top-module $(TOP_MODULE)\
-                  -I$(NPC_HOME)/vsrc 
+# -------------------- File Lists --------------------
+V_SRC := $(shell find $(NPC_HOME)/vsrc -name "*.v")
+C_SRC += $(shell find $(NPC_HOME)/csrc -name "*.cpp")
+C_SRC += $(shell find $(NPC_HOME)/csrc -name "*.c")
+C_SRC += $(shell find $(NPC_HOME)/csrc -name "*.cc")
 
-CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fPIE \
-            -I$(NPC_HOME)/csrc/include \
-            -I$(NPC_HOME)/csrc/mem \
-            -I$(NPC_HOME)/csrc/sim \
-						-I$(OBJ_DIR) \
-            -I/usr/local/share/verilator/include
+# -------------------- Verilator Flags ----------------
+V_FLAGS += --cc --exe --build
+V_FLAGS += --Wall --trace
+V_FLAGS += -x-assign fast
+V_FLAGS += --top-module $(TOP_MODULE)
+V_FLAGS += -I$(NPC_HOME)/vsrc
+V_FLAGS += -MMD 
 
-CFLAGS += -Wall -O2 -I$(NPC_HOME)/csrc
+# -------------------- Compiler Flags ----------------
+INC_PATH := $(NPC_HOME)/csrc/include
+INCLUDES := $(addprefix -I, $(INC_PATH))
 
-LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic
+# C++ Compiler Flags (passed via -CFLAGS)
+CXXFLAGS += $(INCLUDES)
+CXXFLAGS += -g
+#CXXFLAGS += -DCONFIG_TARGET_AM
+CXXFLAGS += -DCONFIG_TIMER_CLOCK_GETTIME
+CXXFLAGS += $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g')
+CXXFLAGS += -fPIE
+C_FLAGS += -CFLAGS "-DCONFIG_VCD_TRACE_COND"
+_FLAGS += -CFLAGS "-DCONFIG_ITRACE"
 
-CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp")
-V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
+# Linker Flags
+LDFLAGS += -L/usr/lib/x86_64-linux-gnu
+LDFLAGS += -lreadline -lhistory -lncurses -lrt
+LDFLAGS += $(shell llvm-config --ldflags --libs all)
 
-RUN_FLAGS := ${IMG} 
+# -------------------- Build Targets -----------------
+BIN := $(OBJ_DIR)/V$(TOP_MODULE)
+#LOG ?= $(NPC_HOME)/obj_dir/log.txt
+DIFFTEST := $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
+RUN_FLAGS := --img=$(IMG) --diff=$(DIFFTEST) 
+NPC_EXEC := $(BIN) $(RUN_FLAGS)
 
-BIN  		 := $(OBJ_DIR)/V$(TOP_MODULE) 
-NPC_EXEC := ${BIN} ${RUN_FLAGS}
+.PHONY: all run clean debug
 
-default: run
+all: run
 
-run: obj_dir/Vtop
-	@echo "-- RUNNING  ---------------"
-	${NPC_EXEC}
-	@echo "-- DONE --------------------"
+run:
+	verilator $(V_FLAGS) \
+	-CFLAGS "$(CXXFLAGS)" \
+	-LDFLAGS "$(LDFLAGS)" \
+	$(C_SRC) $(V_SRC)
+	$(NPC_EXEC)
 
-obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
-	@echo "-- VERILATE ---------------"
-	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)" --LDFLAGS "$(LIBS)"
-	$(MAKE) -C obj_dir -f Vtop.mk LDLIBS="$(LDLIBS)"
+debug: 
+	CXXFLAGS += -O0 -ggdb3
+debug: run
 
-clean: 
-	rm -r ./obj_dir/*  *.vcd
-
+clean:
+	rm -rf $(OBJ_DIR) $(LOG)
+	rm -r $(OBJ_DIR) *.vcd       
