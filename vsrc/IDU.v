@@ -1,8 +1,4 @@
 module IDU (
-	input  			  clk,
-	input  			  reset,
-	input  [31:0] pc_in,
-	output reg [31:0] pc_out,
 	input  [31:0] inst,
 	output [ 3:0] pc_cnt,
 	output [ 3:0] lsu_cnt,
@@ -17,11 +13,9 @@ module IDU (
 	output 				lui,
 	output				ebreak,
 	output				load,
+	output				jal,
+	output 				jalr 
 
-	input 				ifu_idu_valid,
-	output 				idu_ifu_ready,
-	output 				idu_exu_valid,
-	input 				exu_idu_ready
 );
 
 	wire [6:0] opcode;
@@ -45,8 +39,8 @@ module IDU (
   assign UType  = ( auipc | lui );
   // J Type
   assign JType  = ( opcode == 7'b1101111 ); // jal
+	assign jal    = JType;
   // I Type
-	wire jalr;
 	assign jalr		= ( opcode == 7'b1100111 );
 	assign load   = ( opcode == 7'b0000011 );
 	wire 	 I_imm  = ( opcode == 7'b0010011 );
@@ -86,11 +80,6 @@ module IDU (
 													  ( fun3 === 3'b101 ) ? 4'b1000 : 4'b0000):// lhu
 									 4'b0000; 
 
-//	assign mem_cnt = UType | JType ? 3'b001 :
-//									 IType 				 ? 3'b011 :
-//									 SType | BType ? 3'b110 :
-//									 RType         ? 3'b111 :
-//									 3'b000;
 	assign mem_cnt = UType | JType | IType | RType ;
 
 	assign alu_cnt = ( RType ) ? (( fun3 === 3'b000 ) ? ((fun7 === 7'b0000000 ) ? 4'b0001 : 4'b0010): // + (add) / - (sub)
@@ -109,42 +98,8 @@ module IDU (
 															  ( fun3 === 3'b100 ) ? 4'b0111 : // ^ (xori)
 															  ( fun3 === 3'b001 ) ? 4'b1000 : // <<0 (slli)
 															  ( fun3 === 3'b101 ) ? ((fun7 === 7'b0000000 ) ? 4'b1001 : 4'b1010): 4'b0000):// 0>> (srli) / sign>> (srai)
+									 ( jalr ) ?                         4'b0001 :
+									 ( jal  ) ? 												4'b0001 :
 									 4'b0000;
 									 
-	reg [31:0] pc_idu;
-
-	localparam IDLE  = 1'b0;
-	localparam READY = 1'b1;
-
-	reg c_state,n_state;
-	
-	always @(posedge clk or posedge reset) begin
-		if(reset)begin
-			pc_idu <= 32'h80000000;
-			c_state <= IDLE;
-		end else begin
-			c_state <= n_state;
-			case (c_state)
-				IDLE : if(ifu_idu_valid) begin
-									pc_idu <= pc_in;
-							 end
-				READY: if(exu_idu_ready) pc_out <= pc_idu;
-				default : ;
-			endcase
-		end
-	end
-
-	always @(*) begin
-		case (c_state)
-			IDLE  : if(ifu_idu_valid) n_state = READY;
-							else 						  n_state = IDLE;
-		  READY : if(exu_idu_ready) n_state = IDLE;
-							else							n_state = READY;
-			default: 									n_state = IDLE;
-		endcase
-	end
-
-	assign idu_exu_valid = ( c_state == READY);
-	assign idu_ifu_ready = ( c_state == IDLE );
-									
 endmodule

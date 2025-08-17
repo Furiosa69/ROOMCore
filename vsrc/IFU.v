@@ -1,42 +1,33 @@
 module IFU(
 	input 				clk,
 	input 				reset,
-	input  [31:0] pc_in,
-	output reg [31:0] pc_out,
-	output 				ifu_idu_valid,
-	input					idu_ifu_ready
+	input [31:0]	imm,
+	input					br_taken,
+	output reg [31:0] inst,
+	output reg [31:0] pc_out ,
+	input [31:0]  ret,
+	input [ 3:0] 	pc_cnt 
+//	output 				ifu_idu_valid,
+//	input					idu_ifu_ready
 );
 
-	localparam IDLE  = 1'b0;
-	localparam READY = 1'b1;
+	wire jalr  = pc_cnt[3];
+	wire jal   = pc_cnt[2] & pc_cnt[1] & pc_cnt[0];
+	wire bxx   = (|pc_cnt) & (!jalr) & (!jal);
 
-	reg [31:0] pc_ifu;
-	reg c_state,n_state;
-
-	always @(posedge clk or posedge reset) begin
+	always @(posedge clk) begin
 		if(reset) begin
-			pc_ifu <= 32'h80000000;
-			c_state <= IDLE;
+			pc_out <= 32'h80000000;
 		end else begin
-			c_state <= n_state;
-			case(c_state)
-				IDLE : pc_ifu <= pc_in;
-				READY: if (idu_ifu_ready) pc_out <= pc_ifu;
-				default : ;
-			endcase
+   	  pc_out 	<= (bxx && br_taken) ? pc_out + imm : 
+                 (jal						 ) ? pc_out + imm :
+		  				 	 (jalr 					 ) ? ret          : pc_out + 32'd4;
 		end
 	end
 
 	always @(*) begin
-		case(c_state)
-			IDLE	:if(idu_ifu_ready) n_state = READY;
-						 else 						 n_state = IDLE;
-			READY : 								 n_state = IDLE; 
-			default : 							 n_state = IDLE;
-		endcase
+		inst = pmem_read(pc_out, 4);
 	end
-
-	assign ifu_idu_valid = ( c_state == READY) ;
 
 endmodule
 

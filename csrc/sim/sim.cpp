@@ -56,7 +56,7 @@ void rst_begin(){
 
     top->reset   = 0;
     top->clk   = !top->clk;
-    top->ifu_idu_inst = pmem_read(top->lsu_pc, 4);
+//    top->ifu_idu_inst = pmem_read(top->fetch_pc, 4);
     step_and_dump_wave();
     
     top->clk = !top->clk;
@@ -65,7 +65,7 @@ void rst_begin(){
 
 void read_1inst(){
     top->clk = !top->clk;
-    top->ifu_idu_inst = pmem_read(top->lsu_pc, 4);
+//    top->ifu_idu_inst = pmem_read(top->fetch_pc, 4);
     step_and_dump_wave();
 
     top->clk = !top->clk;

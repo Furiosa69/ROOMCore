@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Aug 17 07:30:18 2025
+[*]
+[dumpfile] "/home/furiosa/my_cpu/wave.vcd"
+[dumpfile_mtime] "Sun Aug 17 07:29:31 2025"
+[dumpfile_size] 11714
+[savefile] "/home/furiosa/my_cpu/debug.gtkw"
+[timestart] 14
+[size] 2279 600
+[pos] -1 -1
+*-1.013917 28 24 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[sst_width] 250
+[signals_width] 241
+[sst_expanded] 1
+[sst_vpaned_height] 140
+@28
+TOP.top.clk
+TOP.top.reset
+@22
+TOP.top.ifu_t0.inst[31:0]
+TOP.top.idu_t0.inst[31:0]
+@28
+TOP.top.ebreak
+@22
+TOP.top.ifu_t0.pc_out[31:0]
+TOP.top.idu_t0.inst[31:0]
+@28
+TOP.top.exu_t0.ebreak
+TOP.top.idu_t0.IType
+TOP.top.idu_t0.jalr
+TOP.top.ifu_t0.jalr
+@22
+TOP.top.ifu_t0.pc_out[31:0]
+TOP.top.ifu_t0.ret[31:0]
+TOP.top.exu_t0.alu_result[31:0]
+TOP.top.exu_t0.alu_a[31:0]
+TOP.top.exu_t0.alu_b[31:0]
+TOP.top.mem_t0.rf[1][31:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -40,6 +40,9 @@ run: obj_dir/Vtop
 	${NPC_EXEC}
 	@echo "-- DONE --------------------"
 
+wave:
+	gtkwave wave.vcd
+
 obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
 	@echo "-- VERILATE ---------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)" --LDFLAGS "$(LIBS)"
