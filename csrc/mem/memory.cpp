@@ -13,9 +13,9 @@ int32_t pmem_read(int32_t addr, int size) {
     size_t offset = (addr - 0x80000000);
 
     if (offset + size > sizeof(memory)) {
-        std::cerr << "Error: Address 0x" << std::hex << addr
-                  << " out of range "
-          			  << std::endl;
+//        std::cerr << "Error: Address 0x" << std::hex << addr
+//                  << " out of range "
+//          			  << std::endl;
         return 0;
     }
 
@@ -41,10 +41,10 @@ void pmem_write(int32_t addr, int32_t data, int size) {
 
     size_t offset = (addr - 0x80000000);
     
-    if (offset + size > sizeof(memory)) {
-        std::cerr << "Error: Address 0x" << std::hex << addr
-                  << " out of range "
-                  << std::endl;
+		if (offset + size > sizeof(memory)) {
+//        std::cerr << "Error: Address 0x" << std::hex << addr
+//                  << " out of range "
+//                  << std::endl;
         return;
     }
 

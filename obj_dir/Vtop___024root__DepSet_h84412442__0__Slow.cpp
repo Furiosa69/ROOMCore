@@ -26,7 +26,7 @@ VL_ATTR_COLD void Vtop___024root___eval_triggers__stl(Vtop___024root* vlSelf) {
 }
 
 void Vtop___024unit____Vdpiimwrap_pmem_read_TOP____024unit(IData/*31:0*/ addr, IData/*31:0*/ size, IData/*31:0*/ &pmem_read__Vfuncrtn);
-void Vtop___024unit____Vdpiimwrap_npctrap_TOP____024unit();
+void Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit(IData/*31:0*/ pc, IData/*31:0*/ x10);
 void Vtop___024unit____Vdpiimwrap_pmem_write_TOP____024unit(IData/*31:0*/ addr, IData/*31:0*/ data, IData/*31:0*/ size);
 
 VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
@@ -37,7 +37,9 @@ VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
     Vtop___024unit____Vdpiimwrap_pmem_read_TOP____024unit(vlSelf->top__DOT__ifu_pc, 4U, vlSelf->__Vfunc_pmem_read__0__Vfuncout);
     vlSelf->top__DOT__inst = vlSelf->__Vfunc_pmem_read__0__Vfuncout;
     if ((0x100073U == vlSelf->top__DOT__inst)) {
-        Vtop___024unit____Vdpiimwrap_npctrap_TOP____024unit();
+        Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit(vlSelf->top__DOT__ifu_pc, 
+                                                            vlSelf->top__DOT__mem_t0__DOT__rf
+                                                            [0xaU]);
     }
     vlSelf->top__DOT__pc_cnt = ((0x63U == (0x7fU & vlSelf->top__DOT__inst))
                                  ? ((0U == (7U & (vlSelf->top__DOT__inst 

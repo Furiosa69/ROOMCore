@@ -47,6 +47,8 @@ VM_USER_CLASSES = \
 	memory \
 	sim \
 	debug \
+	disasm \
+	iring \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
@@ -72,6 +74,10 @@ memory.o: /home/furiosa/my_cpu/csrc/mem/memory.cpp
 sim.o: /home/furiosa/my_cpu/csrc/sim/sim.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 debug.o: /home/furiosa/my_cpu/csrc/utils/debug.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+disasm.o: /home/furiosa/my_cpu/csrc/utils/disasm.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+iring.o: /home/furiosa/my_cpu/csrc/utils/iring.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)

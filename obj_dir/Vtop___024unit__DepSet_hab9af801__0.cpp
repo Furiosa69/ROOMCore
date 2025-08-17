@@ -8,12 +8,16 @@
 #include "Vtop__Syms.h"
 #include "Vtop___024unit.h"
 
-extern "C" void npctrap();
+extern "C" void NPCTRAP(int pc, int x10);
 
-VL_INLINE_OPT void Vtop___024unit____Vdpiimwrap_npctrap_TOP____024unit() {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop___024unit____Vdpiimwrap_npctrap_TOP____024unit\n"); );
+VL_INLINE_OPT void Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit(IData/*31:0*/ pc, IData/*31:0*/ x10) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit\n"); );
     // Body
-    npctrap();
+    int pc__Vcvt;
+    for (size_t pc__Vidx = 0; pc__Vidx < 1; ++pc__Vidx) pc__Vcvt = pc;
+    int x10__Vcvt;
+    for (size_t x10__Vidx = 0; x10__Vidx < 1; ++x10__Vidx) x10__Vcvt = x10;
+    NPCTRAP(pc__Vcvt, x10__Vcvt);
 }
 
 extern "C" void pmem_write(int addr, int data, int size);

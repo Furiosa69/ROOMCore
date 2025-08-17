@@ -21,11 +21,11 @@ CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fP
             -I$(NPC_HOME)/csrc/sim \
             -I/usr/local/share/verilator/include
 
-CFLAGS += -Wall -O2 -I$(NPC_HOME)/csrc
+CFLAGS += -Wall -O0 -I$(NPC_HOME)/csrc
 
 LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic
 
-CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp")
+CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp" -o -name "*.c")
 V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 
 #RUN_FLAGS := ${IMG} 
@@ -39,6 +39,12 @@ run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
 	${NPC_EXEC}
 	@echo "-- DONE --------------------"
+
+gdb:CXXFLAGS += -O0 -ggdb3  
+gdb:CFLAGS += -O0 -ggdb3
+gdb: clean obj_dir/Vtop
+	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
+	gdb --args ${NPC_EXEC}
 
 wave:
 	gtkwave wave.vcd

@@ -15,7 +15,7 @@ extern Vtop* top;
 void step_and_dump_wave();
 void sim_init();
 void sim_exit();
-void npctrap();
+void NPCTRAP(int pc,int x10);
 void clock_tick();
 void rst_begin();
 void read_1inst();

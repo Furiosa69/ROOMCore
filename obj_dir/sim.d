@@ -11,5 +11,7 @@ sim.o: /home/furiosa/my_cpu/csrc/sim/sim.cpp \
  /usr/local/share/verilator/include/verilated_trace_defs.h Vtop.h \
  /usr/local/share/verilator/include/vltstd/svdpi.h Vtop__Dpi.h \
  /home/furiosa/my_cpu/csrc/include/mem/memory.h \
+ /home/furiosa/my_cpu/csrc/include/utils/debug.h \
  /home/furiosa/my_cpu/csrc/include/common.h \
- /home/furiosa/my_cpu/csrc/include/utils/color.h
+ /home/furiosa/my_cpu/csrc/include/utils/color.h \
+ /home/furiosa/my_cpu/csrc/include/utils/iringbuf.h Vtop___024root.h

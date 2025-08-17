@@ -1,12 +1,14 @@
 module MEM(
 	input 				clk,
 	input 				reset,
+	input  [31:0] pc_in,
 	input  [ 4:0] raddr1,
 	input  [ 4:0] raddr2,
 	output [31:0] rdata1,
 	output [31:0] rdata2,
 	input  [ 4:0] waddr,
 	input	 [31:0] wdata,
+	input 				ebreak,
 	input         mem_cnt 
 );
 
@@ -22,6 +24,10 @@ module MEM(
 		end else begin
 			if(wen && (waddr != 0)) rf[waddr] <= wdata;
 		end
+	end
+
+	always @(*) begin
+		if(ebreak) NPCTRAP(pc_in,rf[10]);
 	end
 
 	assign rdata1 = raddr1 == 0 ? 0 :rf[raddr1];

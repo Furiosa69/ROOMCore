@@ -5,7 +5,6 @@ module EXU(
 	input 				auipc,
 	input 				lui,
 	input 				jalr,
-	input 				ebreak,
 	input					load,
 	input					jal,
 	input  [31:0] imm,
@@ -40,10 +39,6 @@ module EXU(
 										( pc_cnt == 4'b0101 ) ? (        alu_a  <          alu_b ) :
 										( pc_cnt == 4'b0110 ) ? (        alu_a  >=         alu_b ) : 
 										1'b0;
-
-	always @(*) begin
-		if(ebreak) npctrap();
-	end
 
 	wire  [31:0]  _alu_result;
 	assign _alu_result = ( alu_cnt === 4'b0001 ) ? (  			 alu_a  + 				 alu_b ): // + (add/addi/jalr)

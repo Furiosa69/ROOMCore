@@ -1,13 +1,14 @@
 #include "common.h"
 #include "main.h"
 
+
 int main(int argc, char *argv[]) {
     Verilated::commandArgs(argc, argv);
 
 		printf("Command \n");
   	for (int i = 0; i < argc; i++)
   	{
-    	printf( BLUE "arg %d: %s\n" NONE ,i,argv[i]);
+    	printf(ANSI_FG_BLUE "arg %d: %s\n" ANSI_NONE,i,argv[i]);
   	}
 
     sim_init();

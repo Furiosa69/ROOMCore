@@ -1,4 +1,4 @@
-import "DPI-C" function void npctrap();
+import "DPI-C" function void NPCTRAP(input int pc, input int x10);
 import "DPI-C" function void pmem_write(input int addr, input int data, input int size);
 import "DPI-C" function int  pmem_read(input int addr, input int size);
 
@@ -62,7 +62,6 @@ EXU exu_t0(
 	.ins_cnt(ins_cnt),
 	.auipc(auipc),
 	.lui(lui),
-	.ebreak(ebreak),
 	.load(load),
 	.jalr(jalr),
 	.jal(jal),
@@ -77,7 +76,9 @@ EXU exu_t0(
 MEM mem_t0(
 	.clk(clk),
 	.reset(reset),
+	.pc_in(ifu_pc),
 	.mem_cnt(mem_cnt),
+	.ebreak(ebreak),
 	.raddr1(raddr1),
 	.raddr2(raddr2),
 	.rdata1(rdata1),

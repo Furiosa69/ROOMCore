@@ -17,7 +17,7 @@ extern "C" {
 
     // DPI IMPORTS
     // DPI import at /home/furiosa/my_cpu/vsrc/top.v:1:30
-    extern void npctrap();
+    extern void NPCTRAP(int pc, int x10);
     // DPI import at /home/furiosa/my_cpu/vsrc/top.v:3:30
     extern int pmem_read(int addr, int size);
     // DPI import at /home/furiosa/my_cpu/vsrc/top.v:2:30

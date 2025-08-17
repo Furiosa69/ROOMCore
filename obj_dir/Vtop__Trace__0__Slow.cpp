@@ -48,7 +48,6 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+18,"auipc", false,-1);
     tracep->declBit(c+19,"lui", false,-1);
     tracep->declBit(c+22,"jalr", false,-1);
-    tracep->declBit(c+20,"ebreak", false,-1);
     tracep->declBit(c+21,"load", false,-1);
     tracep->declBit(c+23,"jal", false,-1);
     tracep->declBus(c+16,"imm", false,-1, 31,0);
@@ -119,12 +118,14 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->pushNamePrefix("mem_t0 ");
     tracep->declBit(c+72,"clk", false,-1);
     tracep->declBit(c+73,"reset", false,-1);
+    tracep->declBus(c+1,"pc_in", false,-1, 31,0);
     tracep->declBus(c+8,"raddr1", false,-1, 4,0);
     tracep->declBus(c+9,"raddr2", false,-1, 4,0);
     tracep->declBus(c+11,"rdata1", false,-1, 31,0);
     tracep->declBus(c+12,"rdata2", false,-1, 31,0);
     tracep->declBus(c+10,"waddr", false,-1, 4,0);
     tracep->declBus(c+13,"wdata", false,-1, 31,0);
+    tracep->declBit(c+20,"ebreak", false,-1);
     tracep->declBit(c+4,"mem_cnt", false,-1);
     for (int i = 0; i < 32; ++i) {
         tracep->declBus(c+39+i*1,"rf", true,(i+0), 31,0);

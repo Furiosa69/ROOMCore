@@ -3,5 +3,4 @@
 
 #include "mem/memory.h"
 void dump_memory();
-
 #endif
