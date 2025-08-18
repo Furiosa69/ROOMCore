@@ -1,4 +1,5 @@
 #include "sim/sim.h"
+#include "utils/sdb.h"
 #include "utils/debug.h"
 #include "common.h"
 #include "utils/iringbuf.h"
@@ -37,6 +38,7 @@ void sim_init(){
   tfp ->open("wave.vcd");
 
 	// -------------- Trace Init -----------------
+	load_img();
 	init_disasm("riscv32-pc-linux-gnu");
 	init_ringbuf(&ringbuf);
 	init_ftrace();

@@ -1,4 +1,4 @@
-ifeq ($(VERILATOR_ROOT),)                                                                                                                                                                                                              
+ifeq ($(VERILATOR_ROOT),)   
 VERILATOR = verilator
 VERILATOR_COVERAGE = verilator_coverage
 else
@@ -28,13 +28,14 @@ LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic -ledit
 CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp" -o -name "*.c")
 V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 
-#RUN_FLAGS := ${IMG} 
 
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
+IMG 		 := bin/dummy-riscv32e-npc.bin
 
 # Trace
-ARGS		 := -f bin/dummy-riscv32e-npc.elf
+ARGS ?= -f bin/dummy-riscv32e-npc.elf
+ARGC ?= ${IMG} 
 TRACE_DIR := ./trace
 
 default: run
@@ -42,7 +43,7 @@ default: run
 run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
-	${NPC_EXEC} ${ARGS}
+	${NPC_EXEC} ${ARGS} ${ARGC}
 	@echo "-- DONE --------------------"
 
 gdb:CXXFLAGS += -ggdb3  

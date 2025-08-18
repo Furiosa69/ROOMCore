@@ -3,6 +3,7 @@
 #include <getopt.h>
 #include "utils/sdb.h"
 #include "utils/reg.h"
+#include "mem/memory.h"
 #include "sim/sim.h"
 
 static int is_batch_mode = false;
@@ -19,9 +20,20 @@ static char *img_file = NULL;
 static int difftest_port = 1234;
 char *ftrace_elf_file = NULL;
 
+void load_img() {
+  if (img_file == NULL) {  
+    return ; 
+  }
+  loadFileToMemory(img_file, memory, MEMORY_SIZE);
+}
+
+void sdb_set_batch_mode() {
+  is_batch_mode = true;
+}
+
 int parse_args(int argc, char *argv[]) {
   const struct option table[] = {
-//    {"batch"    , no_argument      , NULL, 'b'},
+		{"batch"    , no_argument      , NULL, 'b'},
     {"log"      , required_argument, NULL, 'l'},
     {"diff"     , required_argument, NULL, 'd'},
     {"port"     , required_argument, NULL, 'p'},
@@ -32,7 +44,7 @@ int parse_args(int argc, char *argv[]) {
   int o;
   while ( (o = getopt_long(argc, argv, "-bhl:d:p:f:", table, NULL)) != -1) {
     switch (o) {
-//      case 'b': sdb_set_batch_mode(); break;
+      case 'b': sdb_set_batch_mode(); break;
       case 'p': sscanf(optarg, "%d", &difftest_port); break;
       case 'l': log_file = optarg; break;
       case 'd': diff_so_file = optarg; break;
@@ -223,9 +235,6 @@ static int cmd_help(char *args) {
 }
 
 
-void sdb_set_batch_mode() {
-  is_batch_mode = true;
-}
 
 void sdb_mainloop() {
   if (is_batch_mode) {
@@ -236,13 +245,9 @@ void sdb_mainloop() {
   for (char *str; (str = rl_gets()) != NULL; ) {
     char *str_end = str + strlen(str);
 
-    /* extract the first token as the command */
     char *cmd = strtok(str, " ");
     if (cmd == NULL) { continue; }
 
-    /* treat the remaining string as the arguments,
-     * which may need further parsing
-     */
     char *args = cmd + strlen(cmd) + 1;
     if (args >= str_end) {
       args = NULL;

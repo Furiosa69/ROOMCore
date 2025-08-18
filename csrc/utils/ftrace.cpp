@@ -118,14 +118,14 @@ static int jal_count = 0;
 #define GET_RD(inst)     (((inst) & RD_MASK) >> 7)
 #define GET_RS1(inst)    (((inst) & RS1_MASK) >> 15)
 
-FILE *file = fopen(TRACE_DIR "trace_ftrace.txt", "a");
+FILE *ftrace_file = fopen(TRACE_DIR "trace_ftrace.txt", "a");
 void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, uint32_t inst) {
 
 		bool call = (GET_OPCODE(inst) == 0x6F) && (GET_RD(inst) == 1);
     bool ret  = (GET_OPCODE(inst) == 0x67) && (GET_RS1(inst) == 1) && (GET_RD(inst) == 0);
 
-    if (file == NULL) {
-        perror("Error opening file");
+    if (ftrace_file == NULL) {
+        perror("Error opening ftrace file");
         return;
     }
 
@@ -135,14 +135,14 @@ void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, uint32_t 
 
         if (call) {
             jal_count++;
-            fprintf(file, "PC:0x%08x | call[%d] @func:<%s : 0x%08x>\n", current_pc,jal_count,target_fname,target_pc);
+            fprintf(ftrace_file, "PC:0x%08x | call[%d] @func:<%s : 0x%08x>\n", current_pc,jal_count,target_fname,target_pc);
         } 
 
 				if (ret) {
             if (jal_count > 0) {
                 jal_count--;
             }
-            fprintf(file, "PC:0x%08x | ret[%d] @func:<%s : 0x%08x>\n", current_pc,jal_count,target_fname,target_pc);
+            fprintf(ftrace_file, "PC:0x%08x | ret[%d]  @func:<%s : 0x%08x>\n", current_pc,jal_count,target_fname,target_pc);
         } 
 
         free(last_fname);
@@ -151,7 +151,7 @@ void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, uint32_t 
 }
 //------------------------------------End-----------------------------------------------------------
 void end_ftrace(){
-  fclose(file);
+  fclose(ftrace_file);
 	free(symtab);
 	free(strtab);
 	symtab = NULL;
