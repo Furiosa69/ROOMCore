@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[]) {
     Verilated::commandArgs(argc, argv);
+		parse_args(argc,argv);
 
 		std::string img= "/home/furiosa/riscv-cpu/bin/dummy-riscv32e-npc.bin" ;
 		loadFileToMemory(img,memory, MEMORY_SIZE);
@@ -15,11 +16,10 @@ int main(int argc, char *argv[]) {
     	printf(ANSI_FG_BLUE "arg %d: %s\n" ANSI_NONE,i,argv[i]);
   	}
 
+
     sim_init();
 
 		rst_begin();
-
-		parse_args(argc,argv);
 
 		init_sdb();
 

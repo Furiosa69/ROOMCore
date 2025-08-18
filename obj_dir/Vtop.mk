@@ -48,6 +48,7 @@ VM_USER_CLASSES = \
 	sim \
 	debug \
 	disasm \
+	ftrace \
 	iring \
 	reg \
 	expr \
@@ -81,6 +82,8 @@ sim.o: /home/furiosa/my_cpu/csrc/sim/sim.cpp
 debug.o: /home/furiosa/my_cpu/csrc/utils/debug.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 disasm.o: /home/furiosa/my_cpu/csrc/utils/disasm.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+ftrace.o: /home/furiosa/my_cpu/csrc/utils/ftrace.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 iring.o: /home/furiosa/my_cpu/csrc/utils/iring.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

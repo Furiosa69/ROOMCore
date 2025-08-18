@@ -14,4 +14,5 @@ sim.o: /home/furiosa/my_cpu/csrc/sim/sim.cpp \
  /home/furiosa/my_cpu/csrc/include/utils/debug.h \
  /home/furiosa/my_cpu/csrc/include/common.h \
  /home/furiosa/my_cpu/csrc/include/utils/color.h \
- /home/furiosa/my_cpu/csrc/include/utils/iringbuf.h Vtop___024root.h
+ /home/furiosa/my_cpu/csrc/include/utils/iringbuf.h \
+ /home/furiosa/my_cpu/csrc/include/utils/ftrace.h Vtop___024root.h

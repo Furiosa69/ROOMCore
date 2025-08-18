@@ -2,6 +2,7 @@
 #include "utils/debug.h"
 #include "common.h"
 #include "utils/iringbuf.h"
+#include "utils/ftrace.h"
 #include "Vtop___024root.h"
 
 VerilatedContext* contextp ;
@@ -14,7 +15,8 @@ CPU_state  cpu = {};
 
 NEMUState nemu_state = { .state = NEMU_STOP };  
 
-#define  PC  root->top__DOT__ifu_pc
+#define  PC   root->top__DOT__ifu_pc
+#define  DNPC root->top__DOT__ifu_t0__DOT__target_pc
 #define  INST root->top__DOT__inst
 
 void wp_check();
@@ -34,12 +36,14 @@ void sim_init(){
   top ->trace(tfp,99);
   tfp ->open("wave.vcd");
 
-	// -------------- iringbuf init -----------------
+	// -------------- Trace Init -----------------
 	init_disasm("riscv32-pc-linux-gnu");
 	init_ringbuf(&ringbuf);
+	init_ftrace();
 }
 
 void sim_exit(){
+	end_ftrace();
   tfp->close(); 
   delete top;
   delete tfp;
@@ -66,20 +70,13 @@ void clock_tick() {
 
 void rst_begin(){
     top->clk   = 0;
-
     top->reset   = 1;
 		clock_tick();
-
 		clock_tick();
-
 		clock_tick();
-
 		clock_tick();
-
     top->reset   = 0;
-    
 		clock_tick();
-		
 		clock_tick();
 }
 
@@ -104,6 +101,8 @@ static void exec_once(Decode *s, uint32_t pc) {
 	for(int i = 0; i<32 ; ++i){
 		cpu.gpr[i] = root->top__DOT__mem_t0__DOT__rf[i];
 	}
+	// ------ ftrace --------
+	print_all_function_names(PC,DNPC,INST);
 }
 
 static void execute(uint64_t n) {

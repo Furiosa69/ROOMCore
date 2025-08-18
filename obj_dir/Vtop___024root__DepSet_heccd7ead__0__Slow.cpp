@@ -136,6 +136,8 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__addr_load = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__imm = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__ifu_t0__DOT__jal = VL_RAND_RESET_I(1);
+    vlSelf->top__DOT__ifu_t0__DOT__target_pc = VL_RAND_RESET_I(32);
+    vlSelf->top__DOT__ifu_t0__DOT____VdfgTmp_hbd6b7a64__0 = 0;
     vlSelf->top__DOT__idu_t0__DOT____VdfgTmp_h5d003edb__0 = 0;
     vlSelf->top__DOT__exu_t0__DOT__UType = VL_RAND_RESET_I(1);
     vlSelf->top__DOT__exu_t0__DOT__IType = VL_RAND_RESET_I(1);

@@ -33,18 +33,24 @@ V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
+# Trace
+ARGS		 := -f bin/dummy-riscv32e-npc.elf
+TRACE_DIR := ./trace
+
 default: run
 
 run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
-	${NPC_EXEC}
+	@mkdir -p $(TRACE_DIR)
+	${NPC_EXEC} ${ARGS}
 	@echo "-- DONE --------------------"
 
-gdb:CXXFLAGS += -O0 -ggdb3  
-gdb:CFLAGS += -O0 -ggdb3
+gdb:CXXFLAGS += -ggdb3  
+gdb:CFLAGS += -ggdb3
 gdb: clean obj_dir/Vtop
 	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
-	gdb --args ${NPC_EXEC}
+	@mkdir -p $(TRACE_DIR)
+	gdb --args ${NPC_EXEC} ${ARGS}
 
 wave:
 	gtkwave wave.vcd
@@ -55,5 +61,5 @@ obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
 	$(MAKE) -C obj_dir -f Vtop.mk LDLIBS="$(LDLIBS)"
 
 clean: 
-	rm -r  $(OBJ_DIR)
+	rm -r  $(OBJ_DIR) $(TRACE_DIR)
 

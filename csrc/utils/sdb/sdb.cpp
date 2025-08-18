@@ -17,7 +17,7 @@ static char *log_file = NULL;
 static char *diff_so_file = NULL;
 static char *img_file = NULL;
 static int difftest_port = 1234;
-static char *ftrace_elf_file = NULL;
+char *ftrace_elf_file = NULL;
 
 int parse_args(int argc, char *argv[]) {
   const struct option table[] = {

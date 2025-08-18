@@ -11,11 +11,11 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     // Init
     const int c = vlSymsp->__Vm_baseCode;
     // Body
-    tracep->declBit(c+72,"clk", false,-1);
-    tracep->declBit(c+73,"reset", false,-1);
+    tracep->declBit(c+73,"clk", false,-1);
+    tracep->declBit(c+74,"reset", false,-1);
     tracep->pushNamePrefix("top ");
-    tracep->declBit(c+72,"clk", false,-1);
-    tracep->declBit(c+73,"reset", false,-1);
+    tracep->declBit(c+73,"clk", false,-1);
+    tracep->declBit(c+74,"reset", false,-1);
     tracep->declBus(c+1,"ifu_pc", false,-1, 31,0);
     tracep->declBus(c+2,"inst", false,-1, 31,0);
     tracep->declBus(c+3,"lsu_cnt", false,-1, 3,0);
@@ -95,8 +95,8 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+34,"I_imm", false,-1);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("ifu_t0 ");
-    tracep->declBit(c+72,"clk", false,-1);
-    tracep->declBit(c+73,"reset", false,-1);
+    tracep->declBit(c+73,"clk", false,-1);
+    tracep->declBit(c+74,"reset", false,-1);
     tracep->declBus(c+16,"imm", false,-1, 31,0);
     tracep->declBit(c+17,"br_taken", false,-1);
     tracep->declBus(c+2,"inst", false,-1, 31,0);
@@ -106,6 +106,7 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+35,"jalr", false,-1);
     tracep->declBit(c+36,"jal", false,-1);
     tracep->declBit(c+37,"bxx", false,-1);
+    tracep->declBus(c+38,"target_pc", false,-1, 31,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("lsu_t0 ");
     tracep->declBus(c+3,"lsu_cnt", false,-1, 3,0);
@@ -113,11 +114,11 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBus(c+12,"data_store", false,-1, 31,0);
     tracep->declBus(c+14,"addr_load", false,-1, 31,0);
     tracep->declBus(c+14,"addr_store", false,-1, 31,0);
-    tracep->declBus(c+38,"temp", false,-1, 31,0);
+    tracep->declBus(c+39,"temp", false,-1, 31,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("mem_t0 ");
-    tracep->declBit(c+72,"clk", false,-1);
-    tracep->declBit(c+73,"reset", false,-1);
+    tracep->declBit(c+73,"clk", false,-1);
+    tracep->declBit(c+74,"reset", false,-1);
     tracep->declBus(c+1,"pc_in", false,-1, 31,0);
     tracep->declBus(c+8,"raddr1", false,-1, 4,0);
     tracep->declBus(c+9,"raddr2", false,-1, 4,0);
@@ -128,11 +129,11 @@ VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf,
     tracep->declBit(c+20,"ebreak", false,-1);
     tracep->declBit(c+4,"mem_cnt", false,-1);
     for (int i = 0; i < 32; ++i) {
-        tracep->declBus(c+39+i*1,"rf", true,(i+0), 31,0);
+        tracep->declBus(c+40+i*1,"rf", true,(i+0), 31,0);
     }
     tracep->declBit(c+4,"wen", false,-1);
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+71,"i", false,-1, 31,0);
+    tracep->declBus(c+72,"i", false,-1, 31,0);
     tracep->popNamePrefix(3);
 }
 
@@ -350,40 +351,68 @@ VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, Veril
     bufp->fullBit(oldp+37,(((~ (((IData)(vlSelf->top__DOT__pc_cnt) 
                                  >> 3U) | (IData)(vlSelf->top__DOT__ifu_t0__DOT__jal))) 
                             & (0U != (IData)(vlSelf->top__DOT__pc_cnt)))));
-    bufp->fullIData(oldp+38,(vlSelf->top__DOT__lsu_t0__DOT__temp),32);
-    bufp->fullIData(oldp+39,(vlSelf->top__DOT__mem_t0__DOT__rf[0]),32);
-    bufp->fullIData(oldp+40,(vlSelf->top__DOT__mem_t0__DOT__rf[1]),32);
-    bufp->fullIData(oldp+41,(vlSelf->top__DOT__mem_t0__DOT__rf[2]),32);
-    bufp->fullIData(oldp+42,(vlSelf->top__DOT__mem_t0__DOT__rf[3]),32);
-    bufp->fullIData(oldp+43,(vlSelf->top__DOT__mem_t0__DOT__rf[4]),32);
-    bufp->fullIData(oldp+44,(vlSelf->top__DOT__mem_t0__DOT__rf[5]),32);
-    bufp->fullIData(oldp+45,(vlSelf->top__DOT__mem_t0__DOT__rf[6]),32);
-    bufp->fullIData(oldp+46,(vlSelf->top__DOT__mem_t0__DOT__rf[7]),32);
-    bufp->fullIData(oldp+47,(vlSelf->top__DOT__mem_t0__DOT__rf[8]),32);
-    bufp->fullIData(oldp+48,(vlSelf->top__DOT__mem_t0__DOT__rf[9]),32);
-    bufp->fullIData(oldp+49,(vlSelf->top__DOT__mem_t0__DOT__rf[10]),32);
-    bufp->fullIData(oldp+50,(vlSelf->top__DOT__mem_t0__DOT__rf[11]),32);
-    bufp->fullIData(oldp+51,(vlSelf->top__DOT__mem_t0__DOT__rf[12]),32);
-    bufp->fullIData(oldp+52,(vlSelf->top__DOT__mem_t0__DOT__rf[13]),32);
-    bufp->fullIData(oldp+53,(vlSelf->top__DOT__mem_t0__DOT__rf[14]),32);
-    bufp->fullIData(oldp+54,(vlSelf->top__DOT__mem_t0__DOT__rf[15]),32);
-    bufp->fullIData(oldp+55,(vlSelf->top__DOT__mem_t0__DOT__rf[16]),32);
-    bufp->fullIData(oldp+56,(vlSelf->top__DOT__mem_t0__DOT__rf[17]),32);
-    bufp->fullIData(oldp+57,(vlSelf->top__DOT__mem_t0__DOT__rf[18]),32);
-    bufp->fullIData(oldp+58,(vlSelf->top__DOT__mem_t0__DOT__rf[19]),32);
-    bufp->fullIData(oldp+59,(vlSelf->top__DOT__mem_t0__DOT__rf[20]),32);
-    bufp->fullIData(oldp+60,(vlSelf->top__DOT__mem_t0__DOT__rf[21]),32);
-    bufp->fullIData(oldp+61,(vlSelf->top__DOT__mem_t0__DOT__rf[22]),32);
-    bufp->fullIData(oldp+62,(vlSelf->top__DOT__mem_t0__DOT__rf[23]),32);
-    bufp->fullIData(oldp+63,(vlSelf->top__DOT__mem_t0__DOT__rf[24]),32);
-    bufp->fullIData(oldp+64,(vlSelf->top__DOT__mem_t0__DOT__rf[25]),32);
-    bufp->fullIData(oldp+65,(vlSelf->top__DOT__mem_t0__DOT__rf[26]),32);
-    bufp->fullIData(oldp+66,(vlSelf->top__DOT__mem_t0__DOT__rf[27]),32);
-    bufp->fullIData(oldp+67,(vlSelf->top__DOT__mem_t0__DOT__rf[28]),32);
-    bufp->fullIData(oldp+68,(vlSelf->top__DOT__mem_t0__DOT__rf[29]),32);
-    bufp->fullIData(oldp+69,(vlSelf->top__DOT__mem_t0__DOT__rf[30]),32);
-    bufp->fullIData(oldp+70,(vlSelf->top__DOT__mem_t0__DOT__rf[31]),32);
-    bufp->fullIData(oldp+71,(vlSelf->top__DOT__mem_t0__DOT__unnamedblk1__DOT__i),32);
-    bufp->fullBit(oldp+72,(vlSelf->clk));
-    bufp->fullBit(oldp+73,(vlSelf->reset));
+    bufp->fullIData(oldp+38,(((((~ (((IData)(vlSelf->top__DOT__pc_cnt) 
+                                     >> 3U) | (IData)(vlSelf->top__DOT__ifu_t0__DOT__jal))) 
+                                & (0U != (IData)(vlSelf->top__DOT__pc_cnt))) 
+                               & ((1U == (IData)(vlSelf->top__DOT__pc_cnt))
+                                   ? (vlSelf->top__DOT__exu_t0__DOT__alu_a 
+                                      == vlSelf->top__DOT__exu_t0__DOT__alu_b)
+                                   : ((2U == (IData)(vlSelf->top__DOT__pc_cnt))
+                                       ? (vlSelf->top__DOT__exu_t0__DOT__alu_a 
+                                          != vlSelf->top__DOT__exu_t0__DOT__alu_b)
+                                       : ((3U == (IData)(vlSelf->top__DOT__pc_cnt))
+                                           ? (IData)(vlSelf->top__DOT__exu_t0__DOT____VdfgTmp_h800671aa__0)
+                                           : ((4U == (IData)(vlSelf->top__DOT__pc_cnt))
+                                               ? VL_GTES_III(32, vlSelf->top__DOT__exu_t0__DOT__alu_a, vlSelf->top__DOT__exu_t0__DOT__alu_b)
+                                               : ((5U 
+                                                   == (IData)(vlSelf->top__DOT__pc_cnt))
+                                                   ? (IData)(vlSelf->top__DOT__exu_t0__DOT____VdfgTmp_h8052707d__0)
+                                                   : 
+                                                  ((6U 
+                                                    == (IData)(vlSelf->top__DOT__pc_cnt)) 
+                                                   & (vlSelf->top__DOT__exu_t0__DOT__alu_a 
+                                                      >= vlSelf->top__DOT__exu_t0__DOT__alu_b))))))))
+                               ? vlSelf->top__DOT__ifu_t0__DOT____VdfgTmp_hbd6b7a64__0
+                               : ((IData)(vlSelf->top__DOT__ifu_t0__DOT__jal)
+                                   ? vlSelf->top__DOT__ifu_t0__DOT____VdfgTmp_hbd6b7a64__0
+                                   : ((8U & (IData)(vlSelf->top__DOT__pc_cnt))
+                                       ? vlSelf->top__DOT__rdata1
+                                       : ((IData)(4U) 
+                                          + vlSelf->top__DOT__ifu_pc))))),32);
+    bufp->fullIData(oldp+39,(vlSelf->top__DOT__lsu_t0__DOT__temp),32);
+    bufp->fullIData(oldp+40,(vlSelf->top__DOT__mem_t0__DOT__rf[0]),32);
+    bufp->fullIData(oldp+41,(vlSelf->top__DOT__mem_t0__DOT__rf[1]),32);
+    bufp->fullIData(oldp+42,(vlSelf->top__DOT__mem_t0__DOT__rf[2]),32);
+    bufp->fullIData(oldp+43,(vlSelf->top__DOT__mem_t0__DOT__rf[3]),32);
+    bufp->fullIData(oldp+44,(vlSelf->top__DOT__mem_t0__DOT__rf[4]),32);
+    bufp->fullIData(oldp+45,(vlSelf->top__DOT__mem_t0__DOT__rf[5]),32);
+    bufp->fullIData(oldp+46,(vlSelf->top__DOT__mem_t0__DOT__rf[6]),32);
+    bufp->fullIData(oldp+47,(vlSelf->top__DOT__mem_t0__DOT__rf[7]),32);
+    bufp->fullIData(oldp+48,(vlSelf->top__DOT__mem_t0__DOT__rf[8]),32);
+    bufp->fullIData(oldp+49,(vlSelf->top__DOT__mem_t0__DOT__rf[9]),32);
+    bufp->fullIData(oldp+50,(vlSelf->top__DOT__mem_t0__DOT__rf[10]),32);
+    bufp->fullIData(oldp+51,(vlSelf->top__DOT__mem_t0__DOT__rf[11]),32);
+    bufp->fullIData(oldp+52,(vlSelf->top__DOT__mem_t0__DOT__rf[12]),32);
+    bufp->fullIData(oldp+53,(vlSelf->top__DOT__mem_t0__DOT__rf[13]),32);
+    bufp->fullIData(oldp+54,(vlSelf->top__DOT__mem_t0__DOT__rf[14]),32);
+    bufp->fullIData(oldp+55,(vlSelf->top__DOT__mem_t0__DOT__rf[15]),32);
+    bufp->fullIData(oldp+56,(vlSelf->top__DOT__mem_t0__DOT__rf[16]),32);
+    bufp->fullIData(oldp+57,(vlSelf->top__DOT__mem_t0__DOT__rf[17]),32);
+    bufp->fullIData(oldp+58,(vlSelf->top__DOT__mem_t0__DOT__rf[18]),32);
+    bufp->fullIData(oldp+59,(vlSelf->top__DOT__mem_t0__DOT__rf[19]),32);
+    bufp->fullIData(oldp+60,(vlSelf->top__DOT__mem_t0__DOT__rf[20]),32);
+    bufp->fullIData(oldp+61,(vlSelf->top__DOT__mem_t0__DOT__rf[21]),32);
+    bufp->fullIData(oldp+62,(vlSelf->top__DOT__mem_t0__DOT__rf[22]),32);
+    bufp->fullIData(oldp+63,(vlSelf->top__DOT__mem_t0__DOT__rf[23]),32);
+    bufp->fullIData(oldp+64,(vlSelf->top__DOT__mem_t0__DOT__rf[24]),32);
+    bufp->fullIData(oldp+65,(vlSelf->top__DOT__mem_t0__DOT__rf[25]),32);
+    bufp->fullIData(oldp+66,(vlSelf->top__DOT__mem_t0__DOT__rf[26]),32);
+    bufp->fullIData(oldp+67,(vlSelf->top__DOT__mem_t0__DOT__rf[27]),32);
+    bufp->fullIData(oldp+68,(vlSelf->top__DOT__mem_t0__DOT__rf[28]),32);
+    bufp->fullIData(oldp+69,(vlSelf->top__DOT__mem_t0__DOT__rf[29]),32);
+    bufp->fullIData(oldp+70,(vlSelf->top__DOT__mem_t0__DOT__rf[30]),32);
+    bufp->fullIData(oldp+71,(vlSelf->top__DOT__mem_t0__DOT__rf[31]),32);
+    bufp->fullIData(oldp+72,(vlSelf->top__DOT__mem_t0__DOT__unnamedblk1__DOT__i),32);
+    bufp->fullBit(oldp+73,(vlSelf->clk));
+    bufp->fullBit(oldp+74,(vlSelf->reset));
 }
