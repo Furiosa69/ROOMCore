@@ -17,6 +17,8 @@ NEMUState nemu_state = { .state = NEMU_STOP };
 #define  PC  root->top__DOT__ifu_pc
 #define  INST root->top__DOT__inst
 
+void wp_check();
+
 void step_and_dump_wave(){
   top->eval();
   contextp->timeInc(1);
@@ -99,12 +101,16 @@ static void exec_once(Decode *s, uint32_t pc) {
   s->snpc = pc;
   isa_exec_once(s);
   cpu.pc = s->dnpc;
+	for(int i = 0; i<32 ; ++i){
+		cpu.gpr[i] = root->top__DOT__mem_t0__DOT__rf[i];
+	}
 }
 
 static void execute(uint64_t n) {
 	Decode s;
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
+		wp_check();
     if (nemu_state.state != NEMU_RUNNING) break;
   }
 }

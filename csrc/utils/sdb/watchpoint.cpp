@@ -62,6 +62,7 @@ void wp_watch(char *args,uint32_t res) {
   wp->old = res;
   printf("Watchpoint %d: %s\n",wp->NO,wp->expr);
 }
+
 //删除监视点
 void wp_remove(int no) {
   assert (no < NR_WP);
@@ -69,6 +70,7 @@ void wp_remove(int no) {
   free_wp(wp);
   printf("Delete watchpoint %d: %s\n",wp->NO,wp->expr);
 }
+
 //打印监视点
 void wp_iterate() {
   WP* h = head;
@@ -88,7 +90,7 @@ void wp_check() {
 	bool success;
 	uint32_t new_one = expr(h->expr,&success);
 	if(h->old != new_one) {
-	  printf("Watchpoint %d: %s \tOld value = %u \tNew value = %u\n",h->NO,h->expr,h->old,new_one);
+	  printf("Watchpoint %d: %s \tOld value = %x \tNew value = %x\n",h->NO,h->expr,h->old,new_one);
 	  nemu_state.state = NEMU_STOP;//触发监视点暂停
 	  h->old = new_one;
 	}

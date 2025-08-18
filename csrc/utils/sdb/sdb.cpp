@@ -2,6 +2,7 @@
 #include <readline/history.h>
 #include <getopt.h>
 #include "utils/sdb.h"
+#include "utils/reg.h"
 #include "sim/sim.h"
 
 static int is_batch_mode = false;
@@ -151,9 +152,9 @@ static int cmd_si(char *args){
   int n;
 
   if(arg == NULL) {
-	n = 1;
+		n = 1;
   } else {
-	n = strtol(arg,NULL,10);
+		n = strtol(arg,NULL,10);
   }
  
   cpu_exec(n);
@@ -164,10 +165,10 @@ static int cmd_info(char *args){
   char *arg = strtok(NULL," ");
 
   if(arg == NULL) {
-	printf("Usage: info r(registers) or info w(watchpoints)\n");
+		printf("Usage: info r(registers) or info w(watchpoints)\n");
   } else {
 	if(strcmp(arg,"r")==0) {
-//		isa_reg_display();
+		isa_reg_display();
 	} else if(strcmp(arg,"w")==0) {
 		wp_iterate();
 	} else {
@@ -265,6 +266,6 @@ void sdb_mainloop() {
 void init_sdb() {
   init_regex();
   
-//  init_wp_pool();
+  init_wp_pool();
 }
 		
