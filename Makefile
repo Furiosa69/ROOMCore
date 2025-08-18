@@ -23,7 +23,7 @@ CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fP
 
 CFLAGS += -Wall -O0 -I$(NPC_HOME)/csrc
 
-LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic
+LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic -ledit
 
 CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp" -o -name "*.c")
 V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")

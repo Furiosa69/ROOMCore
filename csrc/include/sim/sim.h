@@ -12,12 +12,53 @@ extern VerilatedContext* contextp ;
 extern VerilatedVcdC* tfp ;
 extern Vtop* top;
 
+enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
+
+
+typedef struct {
+  uint32_t gpr[32];
+  uint32_t pc;
+  uint32_t csr[4];
+} riscv32_CPU_state;
+
+// decode
+typedef struct {
+  union {
+    uint32_t val;
+  } inst;
+} riscv32_ISADecodeInfo;
+
+typedef riscv32_CPU_state CPU_state;
+typedef riscv32_ISADecodeInfo ISADecodeInfo;
+
+typedef struct {
+  int state;
+  uint32_t halt_pc;
+  uint32_t halt_ret;
+} NEMUState;
+
+typedef struct Decode {
+  uint32_t pc;
+  uint32_t snpc; 
+  uint32_t dnpc; 
+  ISADecodeInfo isa;
+} Decode;
+
+
+extern CPU_state cpu;
+
+extern NEMUState nemu_state;
+
+
 void step_and_dump_wave();
 void sim_init();
 void sim_exit();
 void NPCTRAP(int pc,int x10);
 void clock_tick();
 void rst_begin();
-void read_1inst();
+void set_nemu_state(int state, uint32_t pc,int halt_ret);
+int  isa_exec_once(Decode *s);
+void cpu_exec(uint64_t n);
+
 
 #endif

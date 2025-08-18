@@ -4,5 +4,6 @@
 #include "sim/sim.h"
 #include "mem/memory.h"
 #include "utils/debug.h"
+#include "utils/sdb.h"
 
 #endif

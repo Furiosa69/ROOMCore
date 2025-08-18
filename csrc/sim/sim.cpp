@@ -10,6 +10,9 @@ Vtop* top;
 Vtop___024root* root;
 
 RingBuffer  ringbuf;
+CPU_state  cpu = {};
+
+NEMUState nemu_state = { .state = NEMU_STOP };  
 
 #define  PC  root->top__DOT__ifu_pc
 #define  INST root->top__DOT__inst
@@ -43,18 +46,15 @@ void sim_exit(){
   exit(EXIT_SUCCESS);
 }
 
-void NPCTRAP(int pc,int x10){
+void set_nemu_state(int state, uint32_t pc, int halt_ret) {
+//  difftest_skip_ref();
+  nemu_state.state = state;
+  nemu_state.halt_pc = pc;
+  nemu_state.halt_ret = halt_ret;
+}
 
-	print_ringbuf(&ringbuf);
-
-	// ------------------------------------------------------------
-	if(x10 == 0){
-		printf(ANSI_FG_GREEN "HIT GOOD TRAP at %08x\n" ANSI_NONE,pc);
-	}else{
-		printf(ANSI_FG_RED "HIT BAD TRAP at %08x\n" ANSI_NONE,pc);
-	}
-
-  Verilated::gotFinish(true);
+void NPCTRAP(uint32_t pc ,int halt_ret){
+	set_nemu_state(NEMU_END,pc,halt_ret);
 }
 
 void clock_tick() {
@@ -66,32 +66,80 @@ void rst_begin(){
     top->clk   = 0;
 
     top->reset   = 1;
-    top->clk   = !top->clk;
-    step_and_dump_wave();
+		clock_tick();
 
-    top->clk   = !top->clk;
-    step_and_dump_wave();
+		clock_tick();
 
-    top->clk   = !top->clk;
-    step_and_dump_wave();
+		clock_tick();
 
-    top->clk   = !top->clk;
-    step_and_dump_wave();
+		clock_tick();
 
     top->reset   = 0;
-    top->clk   = !top->clk;
-    step_and_dump_wave();
     
-    top->clk = !top->clk;
-    step_and_dump_wave();
+		clock_tick();
+		
+		clock_tick();
 }
 
-void read_1inst(){
-    top->clk = !top->clk;
-    step_and_dump_wave();
+static int decode_exec(Decode *s){
+	s->dnpc = PC;
+	return 0;
+}
 
-		add_to_ringbuffer(&ringbuf,PC,INST);
+int isa_exec_once(Decode *s){
+	clock_tick();
+	s->isa.inst.val = INST;
+	add_to_ringbuffer(&ringbuf,PC,INST);
+	clock_tick();
+	return decode_exec(s);
+}
 
-    top->clk = !top->clk;
-    step_and_dump_wave();
-}                
+static void exec_once(Decode *s, uint32_t pc) {
+  s->pc = pc;
+  s->snpc = pc;
+  isa_exec_once(s);
+  cpu.pc = s->dnpc;
+}
+
+static void execute(uint64_t n) {
+	Decode s;
+  for (;n > 0; n --) {
+    exec_once(&s, cpu.pc);
+    if (nemu_state.state != NEMU_RUNNING) break;
+  }
+}
+
+void cpu_exec(uint64_t n){
+		switch (nemu_state.state) {
+    case NEMU_END: case NEMU_ABORT:    
+      printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
+      return;
+    default: nemu_state.state = NEMU_RUNNING;
+  }
+
+	execute(n);
+
+switch (nemu_state.state) {
+    case NEMU_RUNNING:
+        nemu_state.state = NEMU_STOP;
+        break;
+
+    case NEMU_ABORT:
+				printf("npc: %x at pc ABORT\n",nemu_state.halt_pc);
+				print_ringbuf(&ringbuf);
+  			Verilated::gotFinish(true);
+
+    case NEMU_END:
+        if (nemu_state.halt_ret != 0) {
+					print_ringbuf(&ringbuf);
+					printf("npc: %x at pc HIT BAD TRAP\n" ,nemu_state.halt_pc);
+        } else {
+					printf("npc: %x at pc HIT GOOD TRAP\n" ,nemu_state.halt_pc);
+        }
+  			Verilated::gotFinish(true);
+
+    case NEMU_QUIT: 
+  			Verilated::gotFinish(true);
+  }
+}
+

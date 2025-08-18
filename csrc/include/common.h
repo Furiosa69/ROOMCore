@@ -7,5 +7,10 @@
 #include <cstring>  // memcpy
 #include "utils/color.h"  // color
 
+#define Log(format, ...) \
+    _Log(ANSI_FMT("[%s:%d %s] " format, ANSI_FG_BLUE) "\n", \
+        __FILE__, __LINE__, __func__, ## __VA_ARGS__)
+
+#define ARRLEN(arr) (int)(sizeof(arr) / sizeof(arr[0]))
 
 #endif

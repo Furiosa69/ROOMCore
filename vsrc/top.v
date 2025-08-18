@@ -1,6 +1,6 @@
-import "DPI-C" function void NPCTRAP(input int pc, input int x10);
-import "DPI-C" function void pmem_write(input int addr, input int data, input int size);
-import "DPI-C" function int  pmem_read(input int addr, input int size);
+import "DPI-C" function void NPCTRAP(input int unsigned pc, input int x10);
+import "DPI-C" function void pmem_write(input int unsigned addr, input int unsigned data, input int size);
+import "DPI-C" function int unsigned pmem_read(input int unsigned addr, input int size);
 
 module top(
 	input 			  clk,

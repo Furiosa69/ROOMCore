@@ -4,7 +4,19 @@
 
 uint8_t memory[MEMORY_SIZE];
 
-int32_t pmem_read(int32_t addr, int size) {
+uint32_t vaddr_ifetch(uint32_t addr, int len) {
+  return pmem_read(addr, len);
+}
+
+uint32_t vaddr_read(uint32_t addr, int len) {
+  return pmem_read(addr, len);
+}
+
+void vaddr_write(uint32_t addr, int len, uint32_t data) {
+  pmem_write(addr, data,len );
+}                
+
+uint32_t pmem_read(uint32_t addr, int size) {
     if ((size == 2 && addr % 2 != 0) || (size == 4 && addr % 4 != 0)) {
         std::cerr << "Error: Read Address is not " << size << "-byte aligned" << std::endl;
         return 0;
@@ -33,7 +45,7 @@ int32_t pmem_read(int32_t addr, int size) {
 }
 
 
-void pmem_write(int32_t addr, int32_t data, int size) {
+void pmem_write(uint32_t addr, uint32_t data, int size) {
     if ((size == 2 && addr % 2 != 0) || (size == 4 && addr % 4 != 0)) {
         std::cerr << "Error: Write Address is not " << size << "-byte aligned" << std::endl;
         return;

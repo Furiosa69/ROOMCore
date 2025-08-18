@@ -39,7 +39,7 @@ VM_USER_CFLAGS = \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
-	-lLLVM-14 -lpthread -lrt -ldl -latomic \
+	-lLLVM-14 -lpthread -lrt -ldl -latomic -ledit \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
@@ -49,6 +49,10 @@ VM_USER_CLASSES = \
 	debug \
 	disasm \
 	iring \
+	reg \
+	expr \
+	sdb \
+	watchpoint \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
@@ -56,6 +60,7 @@ VM_USER_DIR = \
 	/home/furiosa/my_cpu/csrc/mem \
 	/home/furiosa/my_cpu/csrc/sim \
 	/home/furiosa/my_cpu/csrc/utils \
+	/home/furiosa/my_cpu/csrc/utils/sdb \
 
 
 ### Default rules...
@@ -78,6 +83,14 @@ debug.o: /home/furiosa/my_cpu/csrc/utils/debug.cpp
 disasm.o: /home/furiosa/my_cpu/csrc/utils/disasm.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 iring.o: /home/furiosa/my_cpu/csrc/utils/iring.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+reg.o: /home/furiosa/my_cpu/csrc/utils/reg.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+expr.o: /home/furiosa/my_cpu/csrc/utils/sdb/expr.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+sdb.o: /home/furiosa/my_cpu/csrc/utils/sdb/sdb.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+watchpoint.o: /home/furiosa/my_cpu/csrc/utils/sdb/watchpoint.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)

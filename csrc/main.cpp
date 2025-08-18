@@ -1,9 +1,13 @@
 #include "common.h"
+#include "utils/sdb.h"
 #include "main.h"
 
 
 int main(int argc, char *argv[]) {
     Verilated::commandArgs(argc, argv);
+
+		std::string img= "/home/furiosa/riscv-cpu/bin/dummy-riscv32e-npc.bin" ;
+		loadFileToMemory(img,memory, MEMORY_SIZE);
 
 		printf("Command \n");
   	for (int i = 0; i < argc; i++)
@@ -13,14 +17,14 @@ int main(int argc, char *argv[]) {
 
     sim_init();
 
-		std::string img= "/home/furiosa/riscv-cpu/bin/dummy-riscv32e-npc.bin" ;
-		loadFileToMemory(img,memory, MEMORY_SIZE);
-
 		rst_begin();
 
-    while (!Verilated::gotFinish() && contextp->time() < 100) {
-			read_1inst();
-    }
+		parse_args(argc,argv);
+
+		init_sdb();
+
+		// engine start
+		sdb_mainloop();
 
     sim_exit();
 }

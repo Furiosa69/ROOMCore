@@ -1,6 +1,7 @@
 main.o: /home/furiosa/my_cpu/csrc/main.cpp \
  /home/furiosa/my_cpu/csrc/include/common.h \
  /home/furiosa/my_cpu/csrc/include/utils/color.h \
+ /home/furiosa/my_cpu/csrc/include/utils/sdb.h \
  /home/furiosa/my_cpu/csrc/include/main.h \
  /home/furiosa/my_cpu/csrc/include/sim/sim.h \
  /usr/local/share/verilator/include/verilated.h \
@@ -15,4 +16,5 @@ main.o: /home/furiosa/my_cpu/csrc/main.cpp \
  /usr/local/share/verilator/include/vltstd/svdpi.h Vtop__Dpi.h \
  /home/furiosa/my_cpu/csrc/include/mem/memory.h \
  /home/furiosa/my_cpu/csrc/include/mem/memory.h \
- /home/furiosa/my_cpu/csrc/include/utils/debug.h
+ /home/furiosa/my_cpu/csrc/include/utils/debug.h \
+ /home/furiosa/my_cpu/csrc/include/utils/sdb.h

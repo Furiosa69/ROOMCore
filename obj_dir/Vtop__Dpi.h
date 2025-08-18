@@ -17,11 +17,11 @@ extern "C" {
 
     // DPI IMPORTS
     // DPI import at /home/furiosa/my_cpu/vsrc/top.v:1:30
-    extern void NPCTRAP(int pc, int x10);
-    // DPI import at /home/furiosa/my_cpu/vsrc/top.v:3:30
-    extern int pmem_read(int addr, int size);
+    extern void NPCTRAP(unsigned int pc, int x10);
+    // DPI import at /home/furiosa/my_cpu/vsrc/top.v:3:38
+    extern unsigned int pmem_read(unsigned int addr, int size);
     // DPI import at /home/furiosa/my_cpu/vsrc/top.v:2:30
-    extern void pmem_write(int addr, int data, int size);
+    extern void pmem_write(unsigned int addr, unsigned int data, int size);
 
 #ifdef __cplusplus
 }

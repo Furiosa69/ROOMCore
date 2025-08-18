@@ -6,8 +6,12 @@
 #define MEMORY_SIZE (1024 * 1024)
 extern uint8_t memory[MEMORY_SIZE];
 
-extern "C" int32_t pmem_read(int32_t addr, int size);
-extern "C" void pmem_write(int32_t addr, int32_t data, int size);
+uint32_t vaddr_ifetch(uint32_t addr ,int len);
+uint32_t vaddr_read(uint32_t addr , int len);
+void vaddr_write(uint32_t addr, int len, uint32_t data);
+
+extern "C" uint32_t pmem_read(uint32_t addr, int size);
+extern "C" void pmem_write(uint32_t addr, uint32_t data, int size);
 
 bool loadFileToMemory(const std::string& path, uint8_t* mem, size_t size);
 
