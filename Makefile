@@ -31,10 +31,11 @@ V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
-IMG 		 := bin/dummy-riscv32e-npc.bin
+IMG 		 := bin/shift-riscv32e-npc.bin
 
 # Trace
-ARGS ?= -f bin/dummy-riscv32e-npc.elf
+#ARGS ?= -f bin/dummy-riscv32e-npc.elf
+ARGS ?= -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 ARGC ?= ${IMG} 
 TRACE_DIR := ./trace
 
@@ -47,11 +48,11 @@ run: obj_dir/Vtop
 	@echo "-- DONE --------------------"
 
 gdb:CXXFLAGS += -ggdb3  
-gdb:CFLAGS += -ggdb3
-gdb: clean obj_dir/Vtop
+gdb:CFLAGS 	 += -ggdb3
+gdb: 
 	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
 	@mkdir -p $(TRACE_DIR)
-	gdb --args ${NPC_EXEC} ${ARGS}
+	gdb --args ${NPC_EXEC} ${ARGS} ${ARGC}
 
 wave:
 	gtkwave wave.vcd

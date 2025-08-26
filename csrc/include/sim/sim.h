@@ -5,12 +5,19 @@
 #include <verilated_vcd_c.h>
 #include <Vtop.h>
 #include "Vtop__Dpi.h"
+#include "Vtop___024root.h"
 
 #include "mem/memory.h"  
 
 extern VerilatedContext* contextp ;
 extern VerilatedVcdC* tfp ;
 extern Vtop* top;
+extern Vtop___024root* root;
+
+#define  PC   root->top__DOT__ifu_pc
+#define  DNPC root->top__DOT__ifu_t0__DOT__target_pc
+#define  INST root->top__DOT__inst
+#define  GPR  root->top__DOT__mem_t0__DOT__rf
 
 enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };
 

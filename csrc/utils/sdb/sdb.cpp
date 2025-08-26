@@ -1,5 +1,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
+#include "utils/difftest.h"
+#include "utils/iringbuf.h"
 #include <getopt.h>
 #include "utils/sdb.h"
 #include "utils/reg.h"
@@ -15,16 +17,29 @@ void wp_remove(int no);
 void wp_iterate();
 
 static char *log_file = NULL;
-static char *diff_so_file = NULL;
+char *diff_so_file = NULL;
 static char *img_file = NULL;
-static int difftest_port = 1234;
+int difftest_port = 1234;
 char *ftrace_elf_file = NULL;
 
-void load_img() {
-  if (img_file == NULL) {  
-    return ; 
+long load_img() {
+  FILE *fp = fopen(img_file, "rb");
+
+  fseek(fp, 0, SEEK_END);
+  long file_size = ftell(fp);
+  fseek(fp, 0, SEEK_SET);
+
+  if (file_size > MEMORY_SIZE) {
+    fprintf(stderr, "Image file too large (%lu > %u)\n", file_size, MEMORY_SIZE);
+    fclose(fp);
+    return 0;  
   }
-  loadFileToMemory(img_file, memory, MEMORY_SIZE);
+
+  size_t read_size = fread(memory, 1, file_size, fp);
+  fclose(fp);
+
+  return file_size;
+//  loadFileToMemory(img_file, memory, MEMORY_SIZE);
 }
 
 void sdb_set_batch_mode() {
@@ -100,6 +115,7 @@ static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_d(char *args);
 static int cmd_w(char *args);
+static int cmd_rst(char *args);
 
 static struct {
   const char *name;
@@ -114,7 +130,8 @@ static struct {
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
   { "p","Usage: p EXPR, Calcalate the expression",cmd_p},
   { "w","Usage:w EXPR, Watch for the variation of the result of EXPR,pause at variation point",cmd_w},
-  { "d","Usage:d N. Delete watchpoint ",cmd_d}
+  { "d","Usage:d N. Delete watchpoint ",cmd_d},
+  { "rst","Usage:rst . Restart CPU",cmd_rst}
 
   /* TODO: Add more commands */
 
@@ -234,6 +251,10 @@ static int cmd_help(char *args) {
   return 0;
 }
 
+static int cmd_rst(char *args){
+	rst_begin();
+  return 0;
+}
 
 
 void sdb_mainloop() {
@@ -273,4 +294,26 @@ void init_sdb() {
   
   init_wp_pool();
 }
-		
+
+void init_isa(){
+	sim_init();
+	rst_begin();
+}
+
+void init_monitor(int argc,char *argv[]){
+	parse_args(argc, argv);
+
+	long img_size = load_img();
+
+	init_isa();
+
+	init_difftest(diff_so_file, img_size, difftest_port);
+
+	init_sdb();
+
+	init_disasm("riscv32-pc-linux-gnu");
+}
+
+void engine_start(){
+	sdb_mainloop();
+}

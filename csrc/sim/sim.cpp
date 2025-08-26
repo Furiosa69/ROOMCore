@@ -4,7 +4,7 @@
 #include "common.h"
 #include "utils/iringbuf.h"
 #include "utils/ftrace.h"
-#include "Vtop___024root.h"
+#include "utils/difftest.h"
 
 VerilatedContext* contextp ;
 VerilatedVcdC* tfp ;
@@ -15,10 +15,6 @@ RingBuffer  ringbuf;
 CPU_state  cpu = {};
 
 NEMUState nemu_state = { .state = NEMU_STOP };  
-
-#define  PC   root->top__DOT__ifu_pc
-#define  DNPC root->top__DOT__ifu_t0__DOT__target_pc
-#define  INST root->top__DOT__inst
 
 void wp_check();
 
@@ -36,12 +32,6 @@ void sim_init(){
   contextp -> traceEverOn(true);
   top ->trace(tfp,99);
   tfp ->open("wave.vcd");
-
-	// -------------- Trace Init -----------------
-	load_img();
-	init_disasm("riscv32-pc-linux-gnu");
-	init_ringbuf(&ringbuf);
-	init_ftrace();
 }
 
 void sim_exit(){
@@ -55,7 +45,7 @@ void sim_exit(){
 }
 
 void set_nemu_state(int state, uint32_t pc, int halt_ret) {
-//  difftest_skip_ref();
+	difftest_skip_ref();
   nemu_state.state = state;
   nemu_state.halt_pc = pc;
   nemu_state.halt_ret = halt_ret;
@@ -80,6 +70,19 @@ void rst_begin(){
     top->reset   = 0;
 		clock_tick();
 		clock_tick();
+
+  	cpu.pc = root->top__DOT__ifu_pc;
+
+		for(int i = 0; i<32 ; ++i){
+			cpu.gpr[i] = GPR[i];
+		}
+
+		// Init begin
+/*
+	init_ringbuf(&ringbuf);
+	init_ftrace();
+*/
+
 }
 
 static int decode_exec(Decode *s){
@@ -90,7 +93,7 @@ static int decode_exec(Decode *s){
 int isa_exec_once(Decode *s){
 	clock_tick();
 	s->isa.inst.val = INST;
-	add_to_ringbuffer(&ringbuf,PC,INST);
+//	add_to_ringbuffer(&ringbuf,PC,INST);
 	clock_tick();
 	return decode_exec(s);
 }
@@ -101,10 +104,12 @@ static void exec_once(Decode *s, uint32_t pc) {
   isa_exec_once(s);
   cpu.pc = s->dnpc;
 	for(int i = 0; i<32 ; ++i){
-		cpu.gpr[i] = root->top__DOT__mem_t0__DOT__rf[i];
+		cpu.gpr[i] = GPR[i];
 	}
 	// ------ ftrace --------
+/*
 	print_all_function_names(PC,DNPC,INST);
+*/
 }
 
 static void execute(uint64_t n) {
@@ -112,6 +117,7 @@ static void execute(uint64_t n) {
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
 		wp_check();
+		difftest_step(PC,DNPC);
     if (nemu_state.state != NEMU_RUNNING) break;
   }
 }
@@ -133,20 +139,21 @@ switch (nemu_state.state) {
 
     case NEMU_ABORT:
 				printf("npc: %x at pc ABORT\n",nemu_state.halt_pc);
-				print_ringbuf(&ringbuf);
+//				print_ringbuf(&ringbuf);
   			Verilated::gotFinish(true);
-
+				break;
     case NEMU_END:
         if (nemu_state.halt_ret != 0) {
-					print_ringbuf(&ringbuf);
+//					print_ringbuf(&ringbuf);
 					printf("npc: %x at pc HIT BAD TRAP\n" ,nemu_state.halt_pc);
         } else {
 					printf("npc: %x at pc HIT GOOD TRAP\n" ,nemu_state.halt_pc);
         }
   			Verilated::gotFinish(true);
-
+				break;
     case NEMU_QUIT: 
   			Verilated::gotFinish(true);
+				break;
   }
 }
 

@@ -100,6 +100,7 @@ module IDU (
 															  ( fun3 === 3'b101 ) ? ((fun7 === 7'b0000000 ) ? 4'b1001 : 4'b1010): 4'b0000):// 0>> (srli) / sign>> (srai)
 									 ( jalr ) ?                         4'b0001 :
 									 ( jal  ) ? 												4'b0001 :
+									 ( auipc) ? 												4'b0001 :
 									 4'b0000;
 									 
 endmodule

@@ -1,5 +1,4 @@
-#include "common.h"
-#include "sim/sim.h"
+#include "utils/reg.h"
 
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -28,6 +27,23 @@ uint32_t isa_reg_str2val(const char *s, bool *success) {
     return cpu.gpr[i];
   }
   }
+
+  return 0;
+}
+
+uint32_t diff_isa_reg_display(CPU_state *ref,CPU_state *dut) {
+  int reg_num = ARRLEN(regs);
+  int i;
+
+	if(ref->pc != root->top__DOT__ifu_pc){
+		printf("ref.pc -> 0x%08x , dut.pc -> 0x%08x\n",ref->pc,dut->pc);
+	}
+
+  for(i = 0;i<reg_num;i++) {
+		if(ref->gpr[i] != root->top__DOT__mem_t0__DOT__rf[i]){
+    	printf("%2d | ref->%s = 0x%08x, dut->%s = 0x%08x\n",i,regs[i],ref->gpr[i],regs[i],root->top__DOT__mem_t0__DOT__rf[i]);
+		}
+	}
 
   return 0;
 }

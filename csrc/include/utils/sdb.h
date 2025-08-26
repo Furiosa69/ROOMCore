@@ -8,6 +8,8 @@ uint32_t expr(char *e, bool *success);
 int parse_args(int argc,char *grgv[]);
 void sdb_mainloop();
 void init_sdb();
-void load_img();
+long load_img();
+void init_monitor(int argc, char *argv[]);
+void engine_start();
 
 #endif

@@ -9,6 +9,9 @@ FILE *mtrace_file= fopen(TRACE_DIR "trace_mtrace.txt","a");
 #define LOG_TRACE_READ(addr ,len, data)  fprintf(mtrace_file,  "TRACE:Read  %d bytes from 0x%x, data = 0x%x\n", len, addr, data)
 #define LOG_TRACE_WRITE(addr, len, data) fprintf(mtrace_file, "TRACE:Write %d bytes to   0x%x, data = 0x%x\n", len, addr, data)
 
+uint8_t* guest_to_host(uint32_t paddr) { return memory + paddr - CONFIG_MBASE; }
+uint32_t host_to_guest(uint8_t *haddr) { return haddr - memory + CONFIG_MBASE; }
+
 uint32_t vaddr_ifetch(uint32_t addr, int len) {
   return pmem_read(addr, len);
 }
@@ -115,4 +118,8 @@ void close_mtracelog_file(){
   }
 }
 
+
+void init_mem() {
+  memset(memory, rand(), MEMORY_SIZE);
+}
 

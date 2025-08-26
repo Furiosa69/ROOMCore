@@ -3,12 +3,20 @@
 
 #include <fstream>
 
-#define MEMORY_SIZE (1024 * 1024)
+#define MEMORY_SIZE 					 (1024 * 1024)
+#define CONFIG_PC_RESET_OFFSET 0
+#define CONFIG_MBASE  				 0x80000000
+#define PMEM_LEFT  						 ((uint32_t)CONFIG_MBASE)
+#define PMEM_RIGHT 						 ((uint32_t)CONFIG_MBASE + MEMORY_SIZE - 1)
+#define RESET_VECTOR 					 (PMEM_LEFT + CONFIG_PC_RESET_OFFSET)      
+
 extern uint8_t memory[MEMORY_SIZE];
 
 uint32_t vaddr_ifetch(uint32_t addr ,int len);
 uint32_t vaddr_read(uint32_t addr , int len);
 void vaddr_write(uint32_t addr, int len, uint32_t data);
+uint8_t* guest_to_host(uint32_t paddr);
+uint32_t host_to_guest(uint8_t *haddr);
 
 extern "C" uint32_t pmem_read(uint32_t addr, int size);
 extern "C" void pmem_write(uint32_t addr, uint32_t data, int size);
