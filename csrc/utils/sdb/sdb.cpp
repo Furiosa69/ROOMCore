@@ -7,6 +7,7 @@
 #include "utils/reg.h"
 #include "mem/memory.h"
 #include "sim/sim.h"
+#include "main.h"
 
 static int is_batch_mode = false;
 

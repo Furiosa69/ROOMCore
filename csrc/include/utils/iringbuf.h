@@ -1,7 +1,7 @@
 #ifndef __IRINGBUF_H__
 #define __IRINGBUF_H__
 
-#define RING_BUFFER_SIZE 128
+#define RING_BUFFER_SIZE 16
 #include <cstdint>
 
 void init_disasm(const char *triple);
@@ -9,7 +9,7 @@ void init_disasm(const char *triple);
 typedef struct {  
   uint32_t pc;
   uint32_t inst;
-  char inst_str[128];
+  char inst_str[16];
 } RingBufferEntry;
 
 typedef struct {

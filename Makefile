@@ -8,7 +8,7 @@ VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
 endif
 
 TOP_MODULE := top
-OBJ_DIR := ./obj_dir
+OBJ_DIR := $(NPC_HOME)/obj_dir
 
 VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
 VERILATOR_FLAGS += -x-assign fast
@@ -31,11 +31,11 @@ V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
 
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
-IMG 		 := bin/shift-riscv32e-npc.bin
 
 # Trace
-#ARGS ?= -f bin/dummy-riscv32e-npc.elf
-ARGS ?= -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
+IMG 	?= $(NPC_HOME)/bin/add-riscv32-nemu.bin
+#ARGS += -f bin/add-riscv32-nemu.elf
+ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 ARGC ?= ${IMG} 
 TRACE_DIR := ./trace
 
@@ -44,7 +44,7 @@ default: run
 run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
-	${NPC_EXEC} ${ARGS} ${ARGC}
+	${NPC_EXEC} ${ARGC} ${ARGS}
 	@echo "-- DONE --------------------"
 
 gdb:CXXFLAGS += -ggdb3  
@@ -52,7 +52,7 @@ gdb:CFLAGS 	 += -ggdb3
 gdb: 
 	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
 	@mkdir -p $(TRACE_DIR)
-	gdb --args ${NPC_EXEC} ${ARGS} ${ARGC}
+	gdb --args ${NPC_EXEC} ${ARGC}
 
 wave:
 	gtkwave wave.vcd

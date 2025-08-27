@@ -1,5 +1,6 @@
 #include "mem/memory.h"
 #include "common.h"
+#include "main.h"
 #include "Vtop__Dpi.h"     
 #include <fcntl.h>
 
@@ -8,6 +9,11 @@ uint8_t memory[MEMORY_SIZE];
 FILE *mtrace_file= fopen(TRACE_DIR "trace_mtrace.txt","a");
 #define LOG_TRACE_READ(addr ,len, data)  fprintf(mtrace_file,  "TRACE:Read  %d bytes from 0x%x, data = 0x%x\n", len, addr, data)
 #define LOG_TRACE_WRITE(addr, len, data) fprintf(mtrace_file, "TRACE:Write %d bytes to   0x%x, data = 0x%x\n", len, addr, data)
+void close_mtracelog_file(){
+  if(mtrace_file != NULL){
+    fclose(mtrace_file);
+  }
+}
 
 uint8_t* guest_to_host(uint32_t paddr) { return memory + paddr - CONFIG_MBASE; }
 uint32_t host_to_guest(uint8_t *haddr) { return haddr - memory + CONFIG_MBASE; }
@@ -112,11 +118,6 @@ bool loadFileToMemory(const std::string& path, uint8_t* mem, size_t size) {
     return true;
 }
 
-void close_mtracelog_file(){
-  if(mtrace_file != NULL){
-    fclose(mtrace_file);
-  }
-}
 
 
 void init_mem() {

@@ -91,7 +91,6 @@ void init_ftrace() {
     }
 }
 
-//------------------------------------Translate----------------------------------------------------
 #ifndef ELF32_ST_TYPE
 #define ELF32_ST_TYPE(i) ((i) & 0xf)
 #endif
@@ -149,7 +148,7 @@ void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, uint32_t 
         last_fname = strdup(target_fname);
     }
 }
-//------------------------------------End-----------------------------------------------------------
+
 void end_ftrace(){
   fclose(ftrace_file);
 	free(symtab);

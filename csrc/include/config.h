@@ -1,0 +1,5 @@
+#define CONFIG_FTRACE
+#define CONFIG_MTRACE
+#define CONFIG_RINGBUF
+#define CONFIG_DIFFTEST
+

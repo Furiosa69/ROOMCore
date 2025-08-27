@@ -5,5 +5,6 @@
 #include "mem/memory.h"
 #include "utils/debug.h"
 #include "utils/sdb.h"
+#include "macro.h"
 
 #endif

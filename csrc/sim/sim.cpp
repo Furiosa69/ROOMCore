@@ -5,6 +5,7 @@
 #include "utils/iringbuf.h"
 #include "utils/ftrace.h"
 #include "utils/difftest.h"
+#include "main.h"
 
 VerilatedContext* contextp ;
 VerilatedVcdC* tfp ;
@@ -78,11 +79,8 @@ void rst_begin(){
 		}
 
 		// Init begin
-/*
 	init_ringbuf(&ringbuf);
 	init_ftrace();
-*/
-
 }
 
 static int decode_exec(Decode *s){
@@ -93,7 +91,7 @@ static int decode_exec(Decode *s){
 int isa_exec_once(Decode *s){
 	clock_tick();
 	s->isa.inst.val = INST;
-//	add_to_ringbuffer(&ringbuf,PC,INST);
+	add_to_ringbuffer(&ringbuf,PC,INST);
 	clock_tick();
 	return decode_exec(s);
 }
@@ -107,9 +105,7 @@ static void exec_once(Decode *s, uint32_t pc) {
 		cpu.gpr[i] = GPR[i];
 	}
 	// ------ ftrace --------
-/*
 	print_all_function_names(PC,DNPC,INST);
-*/
 }
 
 static void execute(uint64_t n) {
@@ -139,12 +135,12 @@ switch (nemu_state.state) {
 
     case NEMU_ABORT:
 				printf("npc: %x at pc ABORT\n",nemu_state.halt_pc);
-//				print_ringbuf(&ringbuf);
+				print_ringbuf(&ringbuf);
   			Verilated::gotFinish(true);
 				break;
     case NEMU_END:
         if (nemu_state.halt_ret != 0) {
-//					print_ringbuf(&ringbuf);
+				print_ringbuf(&ringbuf);
 					printf("npc: %x at pc HIT BAD TRAP\n" ,nemu_state.halt_pc);
         } else {
 					printf("npc: %x at pc HIT GOOD TRAP\n" ,nemu_state.halt_pc);
