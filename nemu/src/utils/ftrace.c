@@ -63,9 +63,9 @@ void init_ftrace() {
         } else if (shdr->sh_type == SHT_STRTAB ) {
 						const char *section_name = shstrtab + shdr->sh_name;
 						if (strcmp(".strtab",section_name) == 0) {
-            strtab = (char *)malloc(shdr->sh_size);
-            lseek(fd, shdr->sh_offset, SEEK_SET);
-            bytes_read = read(fd, strtab, shdr->sh_size);
+            	strtab = (char *)malloc(shdr->sh_size);
+            	lseek(fd, shdr->sh_offset, SEEK_SET);
+            	bytes_read = read(fd, strtab, shdr->sh_size);
 						if (bytes_read != shdr->sh_size){
 								perror("read strtab");
 								free(strtab);
@@ -148,42 +148,40 @@ const char* ftrace_translate(uint32_t addr) {
 static char* last_fname = NULL;
 static int jal_count = 0;
 
-void print_all_function_names(uint32_t pc, int jal_jalr_flag) {
+void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, int jal_jalr_flag) {
     FILE *file = fopen("ftrace.txt", "a");
     if (file == NULL) {
         perror("Error opening file");
         return;
     }
 
-    const char* current_fname = ftrace_translate(pc);
+    const char* target_fname = ftrace_translate(target_pc);
     
-    if (last_fname == NULL || strcmp(last_fname, current_fname) != 0) {
-        fprintf(file, "PC:0x%08x |", pc);
+    if (last_fname == NULL || strcmp(last_fname, target_fname) != 0) {
+        fprintf(file, "PC:0x%08x |", current_pc);
         if (jal_jalr_flag == 1) {
             jal_count++;
             for (int i = 0; i < jal_count; i++) {
                 fprintf(file, " ");
             }
-            fprintf(file, "call@func:<%s>\n", current_fname);
+            fprintf(file, "call @func%d:<%s : 0x%08x>\n", jal_count,target_fname,target_pc);
         } else if (jal_jalr_flag == 2) {
-            // Ensure jal_count does not go below 0
             if (jal_count > 0) {
                 jal_count--;
             }
             for (int i = 0; i < jal_count; i++) {
                 fprintf(file, " ");
             }
-            fprintf(file, "retu@func:<%s>\n", current_fname);
+            fprintf(file, "ret @func%d:<%s : 0x%08x>\n", jal_count,target_fname,target_pc);
         } else {
-            // Print without adjusting jal_count
             for (int i = 0; i < jal_count; i++) {
                 fprintf(file, " ");
             }
-            fprintf(file, "       @func:<%s>\n", current_fname);
+            fprintf(file, "       @func:<%s>\n", target_fname);
         }
         
         free(last_fname);
-        last_fname = strdup(current_fname);
+        last_fname = strdup(target_fname);
     }
     
     fclose(file);

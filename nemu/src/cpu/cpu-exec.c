@@ -85,7 +85,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
 //--------------------change-----------------------------
 #ifdef CONFIG_FTRACE
 	int jal_jalr_flag = check_jal_or_jalr(s->isa.inst.val);
-	print_all_function_names(cpu.pc,jal_jalr_flag);
+	print_all_function_names(s->pc,cpu.pc,jal_jalr_flag);
 #endif
 //-------------------------------------------------------
 

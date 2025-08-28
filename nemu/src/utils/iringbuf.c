@@ -28,9 +28,9 @@ void init_ring_buffer(RingBuffer *rb) {
     rb->count = 0;
 		rb->current_index = 0;
 		for (int i = 0; i < RING_BUFFER_SIZE; ++i) {
-        rb->entries[i].pc = 0; // 初始化程序计数器为 0
-        rb->entries[i].inst = 0; // 初始化指令为 0
-        memset(rb->entries[i].inst_str, 0, sizeof(rb->entries[i].inst_str)); // 初始化指令字符串为空
+        rb->entries[i].pc = 0; 
+        rb->entries[i].inst = 0; 
+        memset(rb->entries[i].inst_str, 0, sizeof(rb->entries[i].inst_str)); 
     }
 }
 
@@ -51,7 +51,7 @@ void add_to_ringbuffer(RingBuffer *rb, uint64_t pc, uint32_t inst) {
 
     // 将32位指令转换为字节序列
     uint8_t code[4];
-    memcpy(code, &inst, sizeof(inst)); // 使用 memcpy 来复制指令到字节序列
+    memcpy(code, &inst, sizeof(inst)); 
 
     // 存储反汇编后的指令字符串
 #ifdef CONFIG_IRINGBUF

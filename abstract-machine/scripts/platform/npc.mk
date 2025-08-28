@@ -15,7 +15,7 @@ LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
 
-NPC_MAKEFILE := /home/furiosa/ysyx-workbench/npc/Makefile
+NPC_MAKEFILE := $(NPC_HOME)/Makefile
 
 # 添加 LLVM 库
 LDLIBS += -lreadline $(shell llvm-config --libs all) $(shell llvm-config --ldflags)
