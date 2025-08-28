@@ -220,9 +220,9 @@ static int cmd_x(char *args) {
 	  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
 	  for(j = 0;i<len&&j<5;j++,i++){
-		uint32_t data = vaddr_read(addr,4);//查看host_read函数定义后返回32位值
+		uint32_t data = vaddr_read(addr,4);
 		addr += 4;
-		printf("%#010x ",data);//查看isa文件里面的init.c对照发现输出正确
+		printf("%#010x ",data);
   }
   puts("");
   }
@@ -308,7 +308,7 @@ void init_monitor(int argc,char *argv[]){
 
 	init_isa();
 
-	init_difftest(diff_so_file, img_size, difftest_port);
+//	init_difftest(diff_so_file, img_size, difftest_port);
 
 	init_sdb();
 

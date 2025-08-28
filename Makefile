@@ -35,7 +35,8 @@ NPC_EXEC := ${BIN}
 # Trace
 IMG 	?= $(NPC_HOME)/bin/add-riscv32-nemu.bin
 #ARGS += -f bin/add-riscv32-nemu.elf
-ARGS  += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  -b
+#ARGS  += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  -b
+ARGS  += -b
 ARGC  ?= ${IMG} 
 TRACE_DIR := ./trace
 
@@ -44,7 +45,7 @@ default: run
 run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
-	${NPC_EXEC}  ${ARGS} ${ARGC}
+	${NPC_EXEC} ${ARGS} ${ARGC}
 	@echo "-- DONE --------------------"
 
 gdb:CXXFLAGS += -ggdb3  

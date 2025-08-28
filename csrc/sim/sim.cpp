@@ -31,13 +31,13 @@ void sim_init(){
   top = new Vtop;
 	root = top->rootp;
   contextp -> traceEverOn(true);
-  top ->trace(tfp,99);
-  tfp ->open("wave.vcd");
+//  top ->trace(tfp,99);
+//  tfp ->open("wave.vcd");
 }
 
 
 void set_nemu_state(int state, uint32_t pc, int halt_ret) {
-	difftest_skip_ref();
+	//difftest_skip_ref();
   nemu_state.state = state;
   nemu_state.halt_pc = pc;
   nemu_state.halt_ret = halt_ret;
@@ -96,7 +96,7 @@ static void exec_once(Decode *s, uint32_t pc) {
 		cpu.gpr[i] = GPR[i];
 	}
 	// ------ ftrace --------
-	print_all_function_names(PC,DNPC,INST);
+//	print_all_function_names(PC,DNPC,INST);
 }
 
 static void execute(uint64_t n) {
@@ -104,7 +104,7 @@ static void execute(uint64_t n) {
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
 		wp_check();
-		difftest_step(PC,DNPC);
+		//difftest_step(PC,DNPC);
     if (nemu_state.state != NEMU_RUNNING) break;
   }
 }
@@ -144,7 +144,7 @@ void cpu_exec(uint64_t n){
 int is_exit_status_bad() {   
   int good = (nemu_state.state == NEMU_END && nemu_state.halt_ret == 0) || (nemu_state.state == NEMU_QUIT);
 
-	end_ftrace();
+//	end_ftrace();
   tfp->close(); 
   delete top;
   delete tfp;

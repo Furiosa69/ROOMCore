@@ -1,0 +1,26 @@
+#include "device/alarm.h"
+#include "common.h"
+
+void init_map();
+void init_serial();
+void init_timer();
+void init_alarm();
+extern uint64_t get_time();
+
+void device_update() {
+  static uint64_t last = 0;
+  uint64_t now = get_time();
+  if (now - last < 1000000 / TIMER_HZ) {
+    return;
+  }
+  last = now;
+}
+
+void init_device() {
+//  ioe_init();
+
+  init_map();
+  init_serial();
+  init_timer();
+  init_alarm();
+}

@@ -3,12 +3,25 @@
 #include "main.h"
 #include "Vtop__Dpi.h"     
 #include <fcntl.h>
+#include <chrono>
 
 uint8_t memory[MEMORY_SIZE];
 
 FILE *mtrace_file= fopen(TRACE_DIR "trace_mtrace.txt","a");
 #define LOG_TRACE_READ(addr ,len, data)  fprintf(mtrace_file,  "TRACE:Read  %d bytes from 0x%x, data = 0x%x\n", len, addr, data)
 #define LOG_TRACE_WRITE(addr, len, data) fprintf(mtrace_file, "TRACE:Write %d bytes to   0x%x, data = 0x%x\n", len, addr, data)
+
+#define DEVICE_BASE     0xa0000000                                                                                                                                                                                                     
+#define MMIO_BASE       0xa0000000
+#define SERIAL_PORT     (DEVICE_BASE + 0x00003f8)
+#define KBD_ADDR        (DEVICE_BASE + 0x0000060)
+#define RTC_ADDR        (DEVICE_BASE + 0x0000048)
+#define VGACTL_ADDR     (DEVICE_BASE + 0x0000100)
+#define AUDIO_ADDR      (DEVICE_BASE + 0x0000200)
+#define DISK_ADDR       (DEVICE_BASE + 0x0000300)
+#define FB_ADDR         (MMIO_BASE   + 0x1000000)
+#define AUDIO_SBUF_ADDR (MMIO_BASE   + 0x1200000)
+
 void close_mtracelog_file(){
   if(mtrace_file != NULL){
     fclose(mtrace_file);
@@ -30,7 +43,52 @@ void vaddr_write(uint32_t addr, int len, uint32_t data) {
   pmem_write(addr, data,len );
 }                
 
+static uint64_t get_current_microseconds() {
+    auto now = std::chrono::system_clock::now();
+    auto duration = now.time_since_epoch();
+    return std::chrono::duration_cast<std::chrono::microseconds>(duration).count();
+}
+
+uint32_t mmio_read(uint32_t addr_in, int size) {
+		uint32_t addr = addr_in & ~0x3u;
+
+    switch (addr) {
+				case RTC_ADDR:
+				case (RTC_ADDR+4): {
+				    uint64_t microseconds = get_current_microseconds();
+				    if (addr == RTC_ADDR) {
+				        return microseconds & 0xFFFFFFFF;  // 低32位
+				    } else {
+				        return (microseconds >> 32) & 0xFFFFFFFF;  // 高32位
+				    }
+				}
+        default:
+            std::cerr << "Error: Unknown device address 0x read" << std::hex << addr << std::endl;
+            return 0;
+    }
+}
+
+void mmio_write(uint32_t addr_in, uint32_t data, int size) {
+		uint32_t addr = addr_in & ~0x3u;
+    switch (addr) {
+        case SERIAL_PORT:
+            if (size == 1) {
+                putchar(data & 0xFF);
+            }
+//            LOG_TRACE_READ(addr, size, data);
+            break;
+            
+        default:
+            std::cerr << "Error: Unknown device address 0x write" << std::hex << addr << std::endl;
+    }
+}
+
 uint32_t pmem_read(uint32_t addr, int size) {
+
+		if( addr >= DEVICE_BASE ) {
+				return mmio_read(addr, size);
+		}
+
     if ((size == 2 && addr % 2 != 0) || (size == 4 && addr % 4 != 0)) {
         std::cerr << "Error: Read Address is not " << size << "-byte aligned" << std::endl;
         return 0;
@@ -39,26 +97,23 @@ uint32_t pmem_read(uint32_t addr, int size) {
     size_t offset = (addr - 0x80000000);
 
     if (offset + size > sizeof(memory)) {
-//        std::cerr << "Error: Address 0x" << std::hex << addr
-//                  << " out of range "
-//          			  << std::endl;
         return 0;
     }
 
     switch (size) {
         case 1:{
 						uint32_t data1 = static_cast<uint32_t>(*reinterpret_cast<uint8_t*>(&memory[offset]));
-						LOG_TRACE_READ(addr ,size, data1);
+//						LOG_TRACE_READ(addr ,size, data1);
             return data1;
 				}
         case 2:{
             uint32_t data2 = static_cast<uint32_t>(*reinterpret_cast<uint16_t*>(&memory[offset]));
-						LOG_TRACE_READ(addr ,size, data2);
+//						LOG_TRACE_READ(addr ,size, data2);
 						return data2;
 				}
         case 4:{
             uint32_t data4 = static_cast<uint32_t>(*reinterpret_cast<uint32_t*>(&memory[offset]));
-						LOG_TRACE_READ(addr ,size, data4);
+//						LOG_TRACE_READ(addr ,size, data4);
 						return data4;
 				}
         default:
@@ -69,6 +124,11 @@ uint32_t pmem_read(uint32_t addr, int size) {
 
 
 void pmem_write(uint32_t addr, uint32_t data, int size) {
+		if (addr >= DEVICE_BASE) {
+			 mmio_write(addr, data, size);		
+			 return;
+		}
+
     if ((size == 2 && addr % 2 != 0) || (size == 4 && addr % 4 != 0)) {
         std::cerr << "Error: Write Address is not " << size << "-byte aligned" << std::endl;
         return;
@@ -77,28 +137,25 @@ void pmem_write(uint32_t addr, uint32_t data, int size) {
     size_t offset = (addr - 0x80000000);
     
 		if (offset + size > sizeof(memory)) {
-//        std::cerr << "Error: Address 0x" << std::hex << addr
-//                  << " out of range "
-//                  << std::endl;
         return;
     }
 
     switch (size) {
         case 1:{
 						uint8_t data1 = static_cast<uint8_t>(data);
-						LOG_TRACE_WRITE(addr, size, data1);
+//						LOG_TRACE_WRITE(addr, size, data1);
             *reinterpret_cast<uint8_t*>(&memory[offset]) = data1;
             break;
 				}
         case 2:{
 						uint16_t data2 = static_cast<uint16_t>(data);
-						LOG_TRACE_WRITE(addr, size, data2);
+//						LOG_TRACE_WRITE(addr, size, data2);
             *reinterpret_cast<uint16_t*>(&memory[offset]) = data2;
             break;
 				}
         case 4:{
 						uint32_t data4 = static_cast<uint32_t>(data);
-						LOG_TRACE_WRITE(addr, size, data4);
+//						LOG_TRACE_WRITE(addr, size, data4);
             *reinterpret_cast<uint32_t*>(&memory[offset]) = data4;
             break;
 				}
