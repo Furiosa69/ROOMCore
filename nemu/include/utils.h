@@ -61,7 +61,7 @@ void print_ringbuffer(RingBuffer *rb);
 // ----------- ftrace --------
 int check_jal_or_jalr(uint32_t inst);
 void init_ftrace();
-void print_all_function_names(uint32_t pc,int jal_jalr_flag);
+void print_all_function_names(uint32_t current_pc,uint32_t target_pc,int jal_jalr_flag);
 void end_ftrace();
 
 // ----------- log -----------

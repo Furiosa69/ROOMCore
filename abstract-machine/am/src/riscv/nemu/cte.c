@@ -37,19 +37,15 @@ bool cte_init(Context*(*handler)(Event, Context*)) {
 }
 
 Context *kcontext(Area kstack, void (*entry)(void *), void *arg) {
-    uintptr_t *stack_top = (uintptr_t *)(kstack.end);
+    Context *ctx = (Context *)(kstack.end - sizeof(Context));
 
-    Context *ctx = (Context *)(stack_top) - 1;
-
-    for (int i = 0; i < NR_REGS; i++) {
-        ctx->gpr[i] = 0;
-    }
+//    for (int i = 0; i < NR_REGS; i++) {
+//        ctx->gpr[i] = 0;
+//    }
 
 		ctx->gpr[10] = (uintptr_t)arg;
-//    ctx->mcause = 0;
     ctx->mstatus = 0x1800;
     ctx->mepc = (uintptr_t)entry; 
-    ctx->pdir = NULL;
 
     return ctx;
 }
