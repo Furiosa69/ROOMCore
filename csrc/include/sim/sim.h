@@ -59,13 +59,13 @@ extern NEMUState nemu_state;
 
 void step_and_dump_wave();
 void sim_init();
-void sim_exit();
 void NPCTRAP(int pc,int x10);
 void clock_tick();
 void rst_begin();
 void set_nemu_state(int state, uint32_t pc,int halt_ret);
 int  isa_exec_once(Decode *s);
 void cpu_exec(uint64_t n);
+int  is_exit_status_bad();
 
 
 #endif

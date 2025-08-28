@@ -2,11 +2,6 @@
 #include "utils/sdb.h"
 #include "main.h"
 
-#define CONFIG_FTRACE
-#define CONFIG_MTRACE
-#define CONFIG_RINGBUF
-#define CONFIG_DIFFTEST
-
 int main(int argc, char *argv[]) {
 		printf("Command \n");
   	for (int i = 0; i < argc; i++)
@@ -18,5 +13,5 @@ int main(int argc, char *argv[]) {
 
 		engine_start();
 
-    sim_exit();
+		return is_exit_status_bad();
 }

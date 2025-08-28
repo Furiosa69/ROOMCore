@@ -101,6 +101,7 @@ module IDU (
 									 ( jalr ) ?                         4'b0001 :
 									 ( jal  ) ? 												4'b0001 :
 									 ( auipc) ? 												4'b0001 :
+									 ( lui  ) ? 												4'b0001 :
 									 4'b0000;
 									 
 endmodule

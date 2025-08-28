@@ -35,15 +35,6 @@ void sim_init(){
   tfp ->open("wave.vcd");
 }
 
-void sim_exit(){
-	end_ftrace();
-  tfp->close(); 
-  delete top;
-  delete tfp;
-  delete contextp;
-  std::cout << " close vcd" << "\n";
-  exit(EXIT_SUCCESS);
-}
 
 void set_nemu_state(int state, uint32_t pc, int halt_ret) {
 	difftest_skip_ref();
@@ -79,8 +70,8 @@ void rst_begin(){
 		}
 
 		// Init begin
-	init_ringbuf(&ringbuf);
-	init_ftrace();
+//	init_ringbuf(&ringbuf);
+//	init_ftrace();
 }
 
 static int decode_exec(Decode *s){
@@ -91,7 +82,7 @@ static int decode_exec(Decode *s){
 int isa_exec_once(Decode *s){
 	clock_tick();
 	s->isa.inst.val = INST;
-	add_to_ringbuffer(&ringbuf,PC,INST);
+//	add_to_ringbuffer(&ringbuf,PC,INST);
 	clock_tick();
 	return decode_exec(s);
 }
@@ -119,7 +110,7 @@ static void execute(uint64_t n) {
 }
 
 void cpu_exec(uint64_t n){
-		switch (nemu_state.state) {
+	switch (nemu_state.state) {
     case NEMU_END: case NEMU_ABORT:    
       printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
       return;
@@ -128,28 +119,37 @@ void cpu_exec(uint64_t n){
 
 	execute(n);
 
-switch (nemu_state.state) {
-    case NEMU_RUNNING:
-        nemu_state.state = NEMU_STOP;
-        break;
+	switch (nemu_state.state) {
+	    case NEMU_RUNNING:
+	        nemu_state.state = NEMU_STOP;
+	        break;
+	
+	    case NEMU_ABORT:
+					printf(ANSI_FG_RED "NPC: At pc %x ABORT\n" ANSI_NONE,nemu_state.halt_pc);
+	//				print_ringbuf(&ringbuf);
+					break;
+	    case NEMU_END:
+	        if (nemu_state.halt_ret != 0) {
+	//				print_ringbuf(&ringbuf);
+						printf(ANSI_FG_RED "NPC: At pc %x HIT BAD TRAP\n" ANSI_NONE ,nemu_state.halt_pc);
+	        } else {
+						printf(ANSI_FG_GREEN "NPC: At pc %x HIT GOOD TRAP\n" ANSI_NONE,nemu_state.halt_pc);
+	        }
+					break;
+	    case NEMU_QUIT: 
+					break;
+	  }
+}
 
-    case NEMU_ABORT:
-				printf("npc: %x at pc ABORT\n",nemu_state.halt_pc);
-				print_ringbuf(&ringbuf);
-  			Verilated::gotFinish(true);
-				break;
-    case NEMU_END:
-        if (nemu_state.halt_ret != 0) {
-				print_ringbuf(&ringbuf);
-					printf("npc: %x at pc HIT BAD TRAP\n" ,nemu_state.halt_pc);
-        } else {
-					printf("npc: %x at pc HIT GOOD TRAP\n" ,nemu_state.halt_pc);
-        }
-  			Verilated::gotFinish(true);
-				break;
-    case NEMU_QUIT: 
-  			Verilated::gotFinish(true);
-				break;
-  }
+int is_exit_status_bad() {   
+  int good = (nemu_state.state == NEMU_END && nemu_state.halt_ret == 0) || (nemu_state.state == NEMU_QUIT);
+
+	end_ftrace();
+  tfp->close(); 
+  delete top;
+  delete tfp;
+  delete contextp;
+
+  return !good;
 }
 

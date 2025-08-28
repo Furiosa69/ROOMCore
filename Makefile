@@ -10,7 +10,7 @@ endif
 TOP_MODULE := top
 OBJ_DIR := $(NPC_HOME)/obj_dir
 
-VERILATOR_FLAGS += -cc --exe --build --Wall -MMD --trace
+VERILATOR_FLAGS += -cc --exe --build -MMD --trace
 VERILATOR_FLAGS += -x-assign fast
 VERILATOR_FLAGS += --top-module $(TOP_MODULE)\
                    -I$(NPC_HOME)/vsrc
@@ -35,8 +35,8 @@ NPC_EXEC := ${BIN}
 # Trace
 IMG 	?= $(NPC_HOME)/bin/add-riscv32-nemu.bin
 #ARGS += -f bin/add-riscv32-nemu.elf
-ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
-ARGC ?= ${IMG} 
+ARGS  += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  -b
+ARGC  ?= ${IMG} 
 TRACE_DIR := ./trace
 
 default: run
@@ -44,7 +44,7 @@ default: run
 run: obj_dir/Vtop
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
-	${NPC_EXEC} ${ARGC} ${ARGS}
+	${NPC_EXEC}  ${ARGS} ${ARGC}
 	@echo "-- DONE --------------------"
 
 gdb:CXXFLAGS += -ggdb3  
