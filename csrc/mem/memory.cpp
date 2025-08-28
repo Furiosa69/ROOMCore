@@ -15,7 +15,8 @@ FILE *mtrace_file= fopen(TRACE_DIR "trace_mtrace.txt","a");
 #define MMIO_BASE       0xa0000000
 #define SERIAL_PORT     (DEVICE_BASE + 0x00003f8)
 #define KBD_ADDR        (DEVICE_BASE + 0x0000060)
-#define RTC_ADDR        (DEVICE_BASE + 0x0000048)
+#define RTC_ADDR_low    (DEVICE_BASE + 0x0000048)
+#define RTC_ADDR_high   (DEVICE_BASE + 0x000004c)
 #define VGACTL_ADDR     (DEVICE_BASE + 0x0000100)
 #define AUDIO_ADDR      (DEVICE_BASE + 0x0000200)
 #define DISK_ADDR       (DEVICE_BASE + 0x0000300)
@@ -43,20 +44,22 @@ void vaddr_write(uint32_t addr, int len, uint32_t data) {
   pmem_write(addr, data,len );
 }                
 
-static uint64_t get_current_microseconds() {
-    auto now = std::chrono::system_clock::now();
-    auto duration = now.time_since_epoch();
-    return std::chrono::duration_cast<std::chrono::microseconds>(duration).count();
+static const auto startup_time = std::chrono::steady_clock::now();
+
+uint64_t get_uptime_us() {
+    auto now = std::chrono::steady_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(now - startup_time);
+    return duration.count();
 }
 
 uint32_t mmio_read(uint32_t addr_in, int size) {
 		uint32_t addr = addr_in & ~0x3u;
 
     switch (addr) {
-				case RTC_ADDR:
-				case (RTC_ADDR+4): {
-				    uint64_t microseconds = get_current_microseconds();
-				    if (addr == RTC_ADDR) {
+				case RTC_ADDR_low :
+				case RTC_ADDR_high: {
+				    uint64_t microseconds = get_uptime_us();
+				    if (addr == RTC_ADDR_low) {
 				        return microseconds & 0xFFFFFFFF;  // 低32位
 				    } else {
 				        return (microseconds >> 32) & 0xFFFFFFFF;  // 高32位
