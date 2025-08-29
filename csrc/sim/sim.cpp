@@ -68,10 +68,14 @@ void rst_begin(){
 		for(int i = 0; i<32 ; ++i){
 			cpu.gpr[i] = GPR[i];
 		}
+		cpu.csr[0] = MCAUSE;
+		cpu.csr[1] = MTVEC ;
+		cpu.csr[2] = MEPC  ;
+		cpu.csr[3] = MSTATUS;
 
 		// Init begin
 //	init_ringbuf(&ringbuf);
-//	init_ftrace();
+		init_ftrace();
 }
 
 static int decode_exec(Decode *s){
@@ -95,8 +99,16 @@ static void exec_once(Decode *s, uint32_t pc) {
 	for(int i = 0; i<32 ; ++i){
 		cpu.gpr[i] = GPR[i];
 	}
+		cpu.csr[0] = MCAUSE;
+		cpu.csr[1] = MTVEC ;
+		cpu.csr[2] = MEPC  ;
+		cpu.csr[3] = MSTATUS;
 	// ------ ftrace --------
-//	print_all_function_names(PC,DNPC,INST);
+	print_all_function_names(PC,DNPC,INST);
+	// ------ etrace --------
+//	if(CSR_cnt != 0){
+//		printf("mcause %x | mtvec %x | mepc %x | mstatus %x \n",MCAUSE,MTVEC,MEPC,MSTATUS);
+//	}
 }
 
 static void execute(uint64_t n) {
@@ -144,7 +156,7 @@ void cpu_exec(uint64_t n){
 int is_exit_status_bad() {   
   int good = (nemu_state.state == NEMU_END && nemu_state.halt_ret == 0) || (nemu_state.state == NEMU_QUIT);
 
-//	end_ftrace();
+	end_ftrace();
   tfp->close(); 
   delete top;
   delete tfp;

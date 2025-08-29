@@ -153,15 +153,15 @@ static int cmd_d(char *args){
 
 static int cmd_w(char *args){
   if(!args) {
-	printf("Usage: w EXPR\n");
-	return 0;
+		printf("Usage: w EXPR\n");
+		return 0;
   }
   bool success;
   uint32_t res = expr(args,&success);
   if(!success) {
-	printf("invalid expression\n");
+		printf("invalid expression\n");
   } else {
-	wp_watch(args,res);
+		wp_watch(args,res);
   }
   return 0;
 }

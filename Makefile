@@ -33,10 +33,11 @@ BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
-IMG 	?= $(NPC_HOME)/bin/add-riscv32-nemu.bin
+IMG 	?= $(NPC_HOME)/bin/amtest-riscv32e-npc.elf
 #ARGS += -f bin/add-riscv32-nemu.elf
-#ARGS  += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  -b
-ARGS  += -b
+ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  
+ARGS += -f $(NPC_HOME)/bin/amtest-riscv32e-npc.elf
+ARGS += -b
 ARGC  ?= ${IMG} 
 TRACE_DIR := ./trace
 
@@ -53,7 +54,7 @@ gdb:CFLAGS 	 += -ggdb3
 gdb: 
 	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
 	@mkdir -p $(TRACE_DIR)
-	gdb --args ${NPC_EXEC} ${ARGC}
+	gdb --args ${NPC_EXEC} ${ARGS} ${ARGC}
 
 wave:
 	gtkwave wave.vcd

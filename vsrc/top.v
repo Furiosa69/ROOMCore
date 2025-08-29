@@ -13,12 +13,15 @@ wire [ 3:0] lsu_cnt;
 wire        mem_cnt;
 wire [ 3:0] alu_cnt;
 wire [ 5:0] ins_cnt;
+wire [ 2:0] csr_cnt;
 wire [ 3:0] pc_cnt;
 wire [ 4:0] raddr1,raddr2,waddr;
 wire [31:0] rdata1,rdata2,wdata;
 wire [31:0] addr_load,addr_store;
 wire [31:0] data_load,data_store;
 wire [31:0] imm;
+wire [11:0] csr_imm;
+wire [31:0] csr_data;
 wire 				br_taken;
 wire 				auipc,lui,ebreak,load,jalr,jal;
 assign data_store = rdata2;
@@ -33,6 +36,7 @@ IFU ifu_t0(
 	.imm(imm),
 	.br_taken(br_taken),
 	.ret(rdata1),
+	.csr_data(csr_data),
 	.pc_cnt(pc_cnt) 
 );
 
@@ -42,6 +46,7 @@ IDU idu_t0(
 	.mem_cnt(mem_cnt),
 	.alu_cnt(alu_cnt),
 	.ins_cnt(ins_cnt),
+	.csr_cnt(csr_cnt),
 	.pc_cnt(pc_cnt),
 	.auipc(auipc),
 	.lui(lui),
@@ -52,6 +57,7 @@ IDU idu_t0(
 	.rd(waddr),
 	.rs1(raddr1),
 	.rs2(raddr2),
+	.csr_imm(csr_imm),
 	.imm(imm) 
 );
 
@@ -60,12 +66,14 @@ EXU exu_t0(
 	.pc_cnt(pc_cnt),
 	.alu_cnt(alu_cnt),
 	.ins_cnt(ins_cnt),
+	.csr_cnt(csr_cnt),
 	.auipc(auipc),
 	.lui(lui),
 	.load(load),
 	.jalr(jalr),
 	.jal(jal),
 	.imm(imm),
+	.csr_data(csr_data),
 	.alu_result(wdata),
 	.br_taken(br_taken),
 	.rdata1(rdata1),
@@ -95,6 +103,15 @@ LSU lsu_t0(
 	.addr_store(addr_store) 
 );
 
+CSR csr_t0(
+	.clk(clk),
+	.reset(reset),
+	.pc_in(ifu_pc),
+	.csr_cnt(csr_cnt),
+	.csr_imm(csr_imm),
+	.wdata(rdata1),
+	.rdata(csr_data)
+);
 
 endmodule
 

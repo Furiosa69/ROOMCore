@@ -2,12 +2,14 @@ module EXU(
 	input  [31:0] pc_in,
 	input  [ 3:0] pc_cnt,
 	input  [ 3:0] alu_cnt,
+	input  [ 2:0] csr_cnt,
 	input 				auipc,
 	input 				lui,
 	input 				jalr,
 	input					load,
 	input					jal,
 	input  [31:0] imm,
+	input  [31:0] csr_data,
 	output [31:0] alu_result,
 	output 				br_taken,
 	input  [31:0] rdata1,
@@ -26,6 +28,8 @@ module EXU(
 								 ( lui   ) ? 32'b0 :
 								 ( jalr  ) ? pc_in :
 								 ( jal   ) ? pc_in : 
+								 ( csr_cnt === 3'b010 ) ? csr_data :
+								 ( csr_cnt === 3'b001 ) ? csr_data :
 								 rdata1;
 
 	assign alu_b = ( jal   ) ? 32'd4 :
@@ -53,7 +57,6 @@ module EXU(
 											 ( alu_cnt === 4'b0111 ) ? (         alu_a  ^ 				 alu_b ): // ^ (xor/xori)
 											 ( alu_cnt === 4'b1000 ) ? ( 				 alu_a <<      alu_b[4:0]): // <<0 (sll/slli)
 											 ( alu_cnt === 4'b1001 ) ? (         alu_a >>      alu_b[4:0]): // 0>> (srl/srli)
-//											 ( alu_cnt === 4'b1010 ) ? ( $signed(alu_a)>>>		 alu_b[4:0]): // sign>> (sra/srai)
 											 ( alu_cnt === 4'b1010 ) ? ( shift_temp[31:0] ): // sign>> (sra/srai)
 											 32'b0;
 

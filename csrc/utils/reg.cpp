@@ -7,13 +7,22 @@ const char *regs[] = {
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
 
+const char *csrs[] = {
+	"mcause", "mtvec", "mepc", "mstatus"
+};
+
 void isa_reg_display() {
   int reg_num = ARRLEN(regs);
-  int i;
+	int csr_num = ARRLEN(csrs);
 
-  for(i = 0;i<reg_num;i++) {
+  for(int i = 0;i<reg_num;i++) {
     printf("%2d : %8s%#15x%15d\n",i,regs[i],cpu.gpr[i],cpu.gpr[i]);
   }
+
+	for(int i = 0;i<csr_num;i++){
+		printf("%2d : %8s%#15x%15d\n",i,csrs[i],cpu.csr[i],cpu.csr[i]);
+	}
+
 }
 
 uint32_t isa_reg_str2val(const char *s, bool *success) {
