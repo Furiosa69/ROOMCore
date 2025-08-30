@@ -2,8 +2,8 @@
 #define __MEMORY_H__
 
 #include <fstream>
+#include "config.h"
 
-#define MEMORY_SIZE 					 (1024 * 1024 * 512)
 #define CONFIG_PC_RESET_OFFSET 0
 #define CONFIG_MBASE  				 0x80000000
 #define PMEM_LEFT  						 ((uint32_t)CONFIG_MBASE)
@@ -17,6 +17,7 @@ uint32_t vaddr_read(uint32_t addr , int len);
 void vaddr_write(uint32_t addr, int len, uint32_t data);
 uint8_t* guest_to_host(uint32_t paddr);
 uint32_t host_to_guest(uint8_t *haddr);
+void close_mtracelog_file();
 
 extern "C" uint32_t pmem_read(uint32_t addr, int size);
 extern "C" void pmem_write(uint32_t addr, uint32_t data, int size);

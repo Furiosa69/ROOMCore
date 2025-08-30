@@ -9,9 +9,20 @@ void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 
-
 static bool is_skip_ref = false;
 static int skip_dut_nr_inst = 0;
+static long difftest_img_size;
+bool difftest_flags = true;
+
+void difftest_enable(void){
+  difftest_flags = true;
+  ref_difftest_memcpy(RESET_VECTOR, guest_to_host(RESET_VECTOR), difftest_img_size, DIFFTEST_TO_REF);
+  ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+}
+
+void difftest_disable(void){
+  difftest_flags = false;
+}
 
 bool isa_difftest_checkregs(CPU_state *ref_r, uint32_t pc) {
 
@@ -29,11 +40,17 @@ bool isa_difftest_checkregs(CPU_state *ref_r, uint32_t pc) {
 }
 
 void difftest_skip_ref() {
+	if(!difftest_flags){
+    return;
+  }
   is_skip_ref = true;
   skip_dut_nr_inst = 0;
 }
 
 void difftest_skip_dut(int nr_ref, int nr_dut) {
+	if(!difftest_flags){
+    return;
+  }
   skip_dut_nr_inst += nr_dut;
 
   while (nr_ref -- > 0) {
@@ -66,6 +83,9 @@ static void checkregs(CPU_state *ref, uint32_t pc) {
 }
 
 void difftest_step(uint32_t pc, uint32_t npc) {
+	if(!difftest_flags){
+    return;
+  }
   CPU_state ref_r;
 
   if (skip_dut_nr_inst > 0) {

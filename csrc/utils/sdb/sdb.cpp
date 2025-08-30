@@ -16,6 +16,8 @@ void init_wp_pool();
 void wp_watch(char *expr,uint32_t res);
 void wp_remove(int no);
 void wp_iterate();
+extern void difftest_enable();
+extern void difftest_disable();
 
 static char *log_file = NULL;
 char *diff_so_file = NULL;
@@ -117,6 +119,8 @@ static int cmd_p(char *args);
 static int cmd_d(char *args);
 static int cmd_w(char *args);
 static int cmd_rst(char *args);
+static int cmd_detach(char *args);
+static int cmd_attach(char *args);
 
 static struct {
   const char *name;
@@ -130,15 +134,40 @@ static struct {
   { "info","Display the info of registers & watchpoints",cmd_info },
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
   { "p","Usage: p EXPR, Calcalate the expression",cmd_p},
-  { "w","Usage:w EXPR, Watch for the variation of the result of EXPR,pause at variation point",cmd_w},
-  { "d","Usage:d N. Delete watchpoint ",cmd_d},
-  { "rst","Usage:rst . Restart CPU",cmd_rst}
+  IFONE(CONFIG_WATCHPOINT,{ "w","Usage:w EXPR, Watch for the variation of the result of EXPR,pause at variation point",cmd_w},
+  { "d","Usage:d N. Delete watchpoint ",cmd_d},)
+  { "rst","Usage:rst . Restart CPU",cmd_rst},
+	{ "detach","Usage:detach. Out of difftest",cmd_detach},
+  { "attach","Usage:attach. Into difftest",cmd_attach}
 
   /* TODO: Add more commands */
 
 };
 
 #define NR_CMD ARRLEN(cmd_table)
+
+static int cmd_detach(char *args){
+	char *arg = strtok(NULL, " ");
+    if (arg != NULL) {
+        printf("Usage: detach\n");
+        return 0;
+  }
+  difftest_disable();
+  printf("DIFFTEST Disable\n");
+  return 0;
+}
+
+static int cmd_attach(char *args){
+	char *arg = strtok(NULL, " ");
+    if (arg != NULL) {
+        printf("Usage: attach\n");
+        return 0;
+  }
+  difftest_enable();
+  printf("DIFFTEST Enable\n");
+//  ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
+  return 0;
+}
 
 static int cmd_d(char *args){
   char *arg = strtok(NULL," ");
@@ -152,18 +181,18 @@ static int cmd_d(char *args){
 }
 
 static int cmd_w(char *args){
-  if(!args) {
+	if(!args) {
 		printf("Usage: w EXPR\n");
 		return 0;
-  }
-  bool success;
-  uint32_t res = expr(args,&success);
-  if(!success) {
+	}
+	bool success;
+	uint32_t res = expr(args,&success);
+	if(!success) {
 		printf("invalid expression\n");
-  } else {
+	} else {
 		wp_watch(args,res);
-  }
-  return 0;
+	}
+	return 0;
 }
 
 static int cmd_p(char *args){
@@ -293,7 +322,9 @@ void sdb_mainloop() {
 void init_sdb() {
   init_regex();
   
-  init_wp_pool();
+	IFONE(CONFIG_WATCHPOINT,
+  	init_wp_pool();
+	)
 }
 
 void init_isa(){
@@ -308,7 +339,9 @@ void init_monitor(int argc,char *argv[]){
 
 	init_isa();
 
-	init_difftest(diff_so_file, img_size, difftest_port);
+	IFONE(CONFIG_DIFFTEST,
+		init_difftest(diff_so_file, img_size, difftest_port);
+	)
 
 	init_sdb();
 

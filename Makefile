@@ -15,6 +15,7 @@ VERILATOR_FLAGS += -x-assign fast
 VERILATOR_FLAGS += --top-module $(TOP_MODULE)\
                    -I$(NPC_HOME)/vsrc
 
+
 CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fPIE \
             -I$(NPC_HOME)/csrc/include \
             -I$(NPC_HOME)/csrc/mem \
@@ -33,9 +34,9 @@ BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
-IMG  ?=    $(NPC_HOME)/bin/yield-os-riscv32e-npc.bin
+IMG  ?=    $(NPC_HOME)/bin/rtthread-riscv32e-npc.bin
 ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  
-ARGS += -f $(NPC_HOME)/bin/yield-os-riscv32e-npc.elf
+ARGS += -f $(NPC_HOME)/bin/rtthread-riscv32e-npc.elf
 #ARGS += -b
 ARGC  ?= ${IMG} 
 TRACE_DIR := ./trace
@@ -64,5 +65,5 @@ obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
 	$(MAKE) -C obj_dir -f Vtop.mk LDLIBS="$(LDLIBS)"
 
 clean: 
-	rm -r  $(OBJ_DIR) $(TRACE_DIR)
+	rm -r  $(OBJ_DIR) $(TRACE_DIR) wave.vcd
 

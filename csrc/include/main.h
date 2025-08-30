@@ -6,5 +6,6 @@
 #include "utils/debug.h"
 #include "utils/sdb.h"
 #include "macro.h"
+#include "config.h"
 
 #endif

@@ -1,4 +1,5 @@
 #include "common.h"
+#include "main.h"
 #include <unistd.h>
 #include <fcntl.h> //file
 #include <elf.h>   //Elf32_Sym
@@ -117,7 +118,9 @@ static int jal_count = 0;
 #define GET_RD(inst)     (((inst) & RD_MASK) >> 7)
 #define GET_RS1(inst)    (((inst) & RS1_MASK) >> 15)
 
-FILE *ftrace_file = fopen(TRACE_DIR "trace_ftrace.txt", "a");
+IFONE(CONFIG_FTRACE,
+	FILE *ftrace_file = fopen(TRACE_DIR "trace_ftrace.txt", "a");
+
 void print_all_function_names(uint32_t current_pc ,uint32_t target_pc, uint32_t inst) {
 
 		bool call = (GET_OPCODE(inst) == 0x6F) && (GET_RD(inst) == 1);
@@ -157,3 +160,5 @@ void end_ftrace(){
 	strtab = NULL;
 	symtab_size = 0;
 }
+
+)
