@@ -27,6 +27,8 @@ void init_wp_pool();
 void wp_watch(char *expr,word_t res);
 void wp_remove(int no);
 void wp_iterate();
+extern void difftest_enable();
+extern void difftest_disable();
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
@@ -64,6 +66,8 @@ static int cmd_x(char *args);
 static int cmd_p(char *args);
 static int cmd_d(char *args);
 static int cmd_w(char *args);
+static int cmd_detach(char *args);
+static int cmd_attach(char *args);
 
 static struct {
   const char *name;
@@ -78,7 +82,9 @@ static struct {
   { "x","Usage: x N EXPR, Scan the memory from EXPR by N bytes",cmd_x},
   { "p","Usage: p EXPR, Calcalate the expression",cmd_p},
   { "w","Usage:w EXPR, Watch for the variation of the result of EXPR,pause at variation point",cmd_w},
-  { "d","Usage:d N. Delete watchpoint ",cmd_d}
+  { "d","Usage:d N. Delete watchpoint ",cmd_d},
+	{ "detach","Usage:detach. Out of difftest",cmd_detach},
+	{ "attach","Usage:attach. Into difftest",cmd_attach}
 
   /* TODO: Add more commands */
 
@@ -86,11 +92,33 @@ static struct {
 
 #define NR_CMD ARRLEN(cmd_table)
 
+static int cmd_detach(char *args){
+	char *arg = strtok(NULL, " ");
+    if (arg != NULL) {
+        printf("Usage: detach\n");
+        return 0;
+  }
+	difftest_disable();
+	printf("DIFFTEST Disable\n");
+	return 0;
+}
+
+static int cmd_attach(char *args){
+	char *arg = strtok(NULL, " ");
+    if (arg != NULL) {
+        printf("Usage: attach\n");
+        return 0;
+  }
+	difftest_enable();
+	printf("DIFFTEST Enable\n");
+	return 0;
+}
+
 static int cmd_d(char *args){
   char *arg = strtok(NULL," ");
   if(!arg) {
-	printf("Usage: d N\n");
-	return 0;
+		printf("Usage: d N\n");
+		return 0;
   }
   int no = strtol(arg,NULL,10);
   wp_remove(no);
@@ -99,15 +127,15 @@ static int cmd_d(char *args){
 
 static int cmd_w(char *args){
   if(!args) {
-	printf("Usage: w EXPR\n");
-	return 0;
+		printf("Usage: w EXPR\n");
+		return 0;
   }
   bool success;
   word_t res = expr(args,&success);
   if(!success) {
-	printf("invalid expression\n");
+		printf("invalid expression\n");
   } else {
-	wp_watch(args,res);
+		wp_watch(args,res);
   }
   return 0;
 }
@@ -116,9 +144,9 @@ static int cmd_p(char *args){
   bool success;
   int32_t res = expr(args,&success);
   if(!success) {
-	printf("invalid expression\n");
+		printf("invalid expression\n");
   } else {
-	printf("%d\n",res);
+		printf("%d\n",res);
   }
   return 0;
 }
@@ -128,9 +156,9 @@ static int cmd_si(char *args){
   int n;
 
   if(arg == NULL) {
-	n = 1;
+		n = 1;
   } else {
-	n = strtol(arg,NULL,10);
+		n = strtol(arg,NULL,10);
   }
  
   cpu_exec(n);
@@ -141,7 +169,7 @@ static int cmd_info(char *args){
   char *arg = strtok(NULL," ");
 
   if(arg == NULL) {
-	printf("Usage: info r(registers) or info w(watchpoints)\n");
+		printf("Usage: info r(registers) or info w(watchpoints)\n");
   } else {
 	if(strcmp(arg,"r")==0) {
 		isa_reg_display();
@@ -166,11 +194,11 @@ static int cmd_x(char *args) {
 	  printf(ANSI_FMT("%#010x: ",ANSI_FG_BLUE),addr);
   
 	  for(j = 0;i<len&&j<5;j++,i++){
-		word_t data = vaddr_read(addr,4);//查看host_read函数定义后返回32位值
-		addr += 4;
-		printf("%#010x ",data);//查看isa文件里面的init.c对照发现输出正确
-  }
-  puts("");
+			word_t data = vaddr_read(addr,4);//查看host_read函数定义后返回32位值
+			addr += 4;
+			printf("%#010x ",data);//查看isa文件里面的init.c对照发现输出正确
+  	}
+  	puts("");
   }
   return 0;
 }
