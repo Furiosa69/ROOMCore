@@ -31,13 +31,13 @@ void sim_init(){
   top = new Vtop;
 	root = top->rootp;
   contextp -> traceEverOn(true);
-//  top ->trace(tfp,99);
-//  tfp ->open("wave.vcd");
+  top ->trace(tfp,99);
+  tfp ->open("wave.vcd");
 }
 
 
 void set_nemu_state(int state, uint32_t pc, int halt_ret) {
-	//difftest_skip_ref();
+	difftest_skip_ref();
   nemu_state.state = state;
   nemu_state.halt_pc = pc;
   nemu_state.halt_ret = halt_ret;
@@ -116,7 +116,7 @@ static void execute(uint64_t n) {
   for (;n > 0; n --) {
     exec_once(&s, cpu.pc);
 		wp_check();
-		//difftest_step(PC,DNPC);
+	  difftest_step(PC,DNPC);
     if (nemu_state.state != NEMU_RUNNING) break;
   }
 }

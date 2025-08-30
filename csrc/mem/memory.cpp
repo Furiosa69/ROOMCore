@@ -1,4 +1,5 @@
 #include "mem/memory.h"
+#include "utils/difftest.h"
 #include "common.h"
 #include "main.h"
 #include "Vtop__Dpi.h"     
@@ -76,7 +77,7 @@ void mmio_write(uint32_t addr_in, uint32_t data, int size) {
     switch (addr) {
         case SERIAL_PORT:
             if (size == 1) {
-                putchar(data & 0xFF);
+								putc(data & 0xFF, stderr);
             }
 //            LOG_TRACE_READ(addr, size, data);
             break;
@@ -89,6 +90,7 @@ void mmio_write(uint32_t addr_in, uint32_t data, int size) {
 uint32_t pmem_read(uint32_t addr, int size) {
 
 		if( addr >= DEVICE_BASE ) {
+				difftest_skip_ref();
 				return mmio_read(addr, size);
 		}
 
@@ -128,6 +130,7 @@ uint32_t pmem_read(uint32_t addr, int size) {
 
 void pmem_write(uint32_t addr, uint32_t data, int size) {
 		if (addr >= DEVICE_BASE) {
+			 difftest_skip_ref();
 			 mmio_write(addr, data, size);		
 			 return;
 		}

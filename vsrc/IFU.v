@@ -20,7 +20,7 @@ module IFU(
   assign target_pc  = (bxx && br_taken) ? pc_out + imm : 
                       (jal						) ? pc_out + imm :
 		  				 	      (jalr 					) ? ret          : 
-											(mret 					) ? csr_data + 32'd4 :
+											(mret 					) ? csr_data 		 :
 											(ecall				  ) ? csr_data     : 
 											pc_out + 32'd4;
 
