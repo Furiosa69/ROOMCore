@@ -39,10 +39,6 @@ bool cte_init(Context*(*handler)(Event, Context*)) {
 Context *kcontext(Area kstack, void (*entry)(void *), void *arg) {
     Context *ctx = (Context *)(kstack.end - sizeof(Context));
 
-//    for (int i = 0; i < NR_REGS; i++) {
-//        ctx->gpr[i] = 0;
-//    }
-
 		ctx->gpr[10] = (uintptr_t)arg;
     ctx->mstatus = 0x1800;
     ctx->mepc = (uintptr_t)entry; 
@@ -54,7 +50,7 @@ void yield() {
 #ifdef __riscv_e
   asm volatile("li a5, -1; ecall");
 #else
-  asm volatile("li a7, 11; ecall");
+  asm volatile("li a7, -1; ecall");
 #endif
 }
 

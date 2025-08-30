@@ -27,7 +27,7 @@ void isa_reg_display() {
 	int reg_num = ARRLEN(regs);
 	int i;
 
-	for(i = 0;i<reg_num;i++) {
+	for(i = 0;i<reg_num ;i++) {
 		printf("%2d : %8s%#15x%15d\n",i,regs[i],cpu.gpr[i],cpu.gpr[i]);
 	}
 }
@@ -36,7 +36,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   int reg_num = ARRLEN(regs);
   int i;
 
-  for(i = 0;i<reg_num;i++) {
+  for(i = 0;i<reg_num ;i++) {
   int len1 = strlen(s);
   int len2 = strlen(regs[i]);
 	if(strncmp( s+len1-2, regs[i]+len2-2,2)== 0){
@@ -47,3 +47,13 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   return 0;
 }
 
+void isa_reg_display_diff(CPU_state *ref) {
+	int reg_num = ARRLEN(regs);
+	int i;
+
+	for(i = 0;i<reg_num ;i++) {
+		printf("%2d : %8s%#15x  %#15x\n",i,regs[i],cpu.gpr[i],ref->gpr[i]);
+	}
+//	printf("dut -> mtcec : %x | mepc : %x | mstatus : %x | mcause : %x \n",cpu.csr[0],cpu.csr[1],cpu.csr[2],cpu.csr[3]);
+//	printf("ref -> mtcec : %x | mepc : %x | mstatus : %x | mcause : %x \n",ref->csr[0],ref->csr[1],ref->csr[2],ref->csr[3]);
+}
