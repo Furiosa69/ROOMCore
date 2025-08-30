@@ -37,7 +37,7 @@ IFU ifu_t0(
 	.br_taken(br_taken),
 	.ret(rdata1),
 	.csr_data(csr_data),
-	.pc_cnt(pc_cnt) 
+	.pc_cnt(pc_cnt)
 );
 
 IDU idu_t0(
@@ -58,7 +58,7 @@ IDU idu_t0(
 	.rs1(raddr1),
 	.rs2(raddr2),
 	.csr_imm(csr_imm),
-	.imm(imm) 
+	.imm(imm)
 );
 
 EXU exu_t0(
@@ -78,7 +78,7 @@ EXU exu_t0(
 	.br_taken(br_taken),
 	.rdata1(rdata1),
 	.rdata2(rdata2),
-	.data_load(data_load) 
+	.data_load(data_load)
 );
 
 MEM mem_t0(
@@ -92,7 +92,7 @@ MEM mem_t0(
 	.rdata1(rdata1),
 	.rdata2(rdata2),
 	.waddr(waddr),
-	.wdata(wdata) 
+	.wdata(wdata)
 );
 
 LSU lsu_t0(
@@ -100,7 +100,7 @@ LSU lsu_t0(
 	.data_load(data_load),
 	.data_store(data_store),
 	.addr_load(addr_load),
-	.addr_store(addr_store) 
+	.addr_store(addr_store)
 );
 
 CSR csr_t0(

@@ -1,13 +1,13 @@
 module IFU(
-	input 				clk,
-	input 				reset,
-	input [31:0]	imm,
-	input					br_taken,
+	input 						clk,
+	input 						reset,
+	input 		 [31:0]	imm,
+	input							br_taken,
 	output reg [31:0] inst,
 	output reg [31:0] pc_out ,
-	input [31:0]  ret,
-	input [31:0]  csr_data,
-	input [ 3:0] 	pc_cnt 
+	input 		 [31:0] ret,
+	input 		 [31:0] csr_data,
+	input 		 [ 3:0] pc_cnt  
 );
 
 	wire jalr  = (pc_cnt === 4'b1000);

@@ -1,4 +1,4 @@
-ifeq ($(VERILATOR_ROOT),)   
+ifeq ($(VERILATOR_ROOT),)
 VERILATOR = verilator
 VERILATOR_COVERAGE = verilator_coverage
 else
@@ -27,18 +27,17 @@ CFLAGS += -Wall -O0 -I$(NPC_HOME)/csrc
 LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic -ledit
 
 CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp" -o -name "*.c")
-V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v")
-
+V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v") 
 
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
 IMG  ?=    $(NPC_HOME)/bin/rtthread-riscv32e-npc.bin
-ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so  
+ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 ARGS += -f $(NPC_HOME)/bin/rtthread-riscv32e-npc.elf
 #ARGS += -b
-ARGC  ?= ${IMG} 
+ARGC  ?= ${IMG}
 TRACE_DIR := ./trace
 
 default: run
@@ -49,8 +48,11 @@ run: obj_dir/Vtop
 	${NPC_EXEC} ${ARGS} ${ARGC}
 	@echo "-- DONE --------------------"
 
-gdb:CXXFLAGS += -ggdb3  
-gdb:CFLAGS 	 += -ggdb3
+config:
+	python3 $(NPC_HOME)/csrc/include/config/config_cli.py
+
+gdb:CXXFLAGS += -ggdb3
+gdb:CFLAGS   += -ggdb3
 gdb: 
 	@echo "-- RUNNING (GDB DEBUG MODE) ---------------"
 	@mkdir -p $(TRACE_DIR)
@@ -66,4 +68,3 @@ obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
 
 clean: 
 	rm -r  $(OBJ_DIR) $(TRACE_DIR) wave.vcd
-

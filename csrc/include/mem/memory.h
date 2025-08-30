@@ -2,8 +2,9 @@
 #define __MEMORY_H__
 
 #include <fstream>
-#include "config.h"
+#include "config/config.h"
 
+#define MEMORY_SIZE 					 (1024 * 1024 * 1024)
 #define CONFIG_PC_RESET_OFFSET 0
 #define CONFIG_MBASE  				 0x80000000
 #define PMEM_LEFT  						 ((uint32_t)CONFIG_MBASE)

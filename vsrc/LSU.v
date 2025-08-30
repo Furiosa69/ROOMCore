@@ -3,7 +3,7 @@ module LSU (
 	output [31:0] data_load,
 	input  [31:0] data_store,
 	input  [31:0] addr_load,
-	input  [31:0] addr_store 
+	input  [31:0] addr_store
 );
 
 	reg [31:0] temp;

@@ -1,7 +1,0 @@
-iringbuf ok
-ftrace  ok
-mtrace  ok
-etrace  ok
-difftest ok
-watchpoiont ok
-wave ok

@@ -16,8 +16,7 @@ module IDU (
 	output				ebreak,
 	output				load,
 	output				jal,
-	output 				jalr 
-
+	output 				jalr
 );
 
 	wire [6:0] opcode;
@@ -125,5 +124,5 @@ module IDU (
 									 ( IcsrType ) ? (( fun3 === 3'b010 ) ? 4'b0001 : // csrrs
 									 								 ( fun3 === 3'b001 ) ? 4'b0001 : 4'b0000) : // csrrw
 									 4'b0000;
-									 
+
 endmodule

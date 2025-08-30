@@ -62,4 +62,5 @@ module EXU(
 
 	assign alu_result = ( load ) ? data_load : _alu_result;
 
+
 endmodule
