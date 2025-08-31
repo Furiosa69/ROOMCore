@@ -29,6 +29,7 @@ def main():
                 ('内存跟踪   (MTRACE)', 'MTRACE'),
                 ('环形缓冲区 (RINGBUFF)', 'RINGBUFF'),
                 ('监视点     (WATCHPOINT)', 'WATCHPOINT'),
+                ('快照恢复   (LIGHTSSS)', 'LIGHTSSS'),
             ],
             default=[opt for opt, enabled in current_config.items() if enabled]
         )
@@ -42,7 +43,7 @@ def main():
 
 """
         
-        all_options = ['WAVE', 'DIFFTEST', 'FTRACE', 'ETRACE', 'MTRACE', 'RINGBUFF', 'WATCHPOINT']
+        all_options = ['WAVE', 'DIFFTEST', 'FTRACE', 'ETRACE', 'MTRACE', 'RINGBUFF', 'WATCHPOINT', 'LIGHTSSS']
         for option in all_options:
             enabled = option in answers['options']
             content += f"#define CONFIG_{option} {1 if enabled else 0}\n"

@@ -8,6 +8,7 @@
 #include "mem/memory.h"
 #include "utils/difftest.h"
 #include "main.h"
+#include "lightsss.h"
 
 VerilatedContext* contextp ;
 VerilatedVcdC* tfp ;
@@ -23,10 +24,31 @@ NEMUState nemu_state = { .state = NEMU_STOP };
 
 void wp_check();
 
+static bool record_wave_near_checkpoint = false;
+static uint64_t wave_record_start_time = 0;
+static const uint64_t WAVE_RECORD_DURATION = 1000; // 记录1000个时间单位
+
 void step_and_dump_wave(){
   top->eval();
   contextp->timeInc(1);
-  tfp->dump(contextp->time());
+
+  bool should_dump_wave = false;
+  
+  IFONE(CONFIG_WAVE, should_dump_wave = true;)
+  
+	IFONE(CONFIG_LIGHTSSS,
+  if (record_wave_near_checkpoint) {
+    should_dump_wave = true;
+    
+    if (contextp->time() > wave_record_start_time + WAVE_RECORD_DURATION) {
+      record_wave_near_checkpoint = false;
+    }
+  }
+	)
+
+  if (should_dump_wave) {
+    tfp->dump(contextp->time());
+  }
 }
 
 void sim_init(){
@@ -36,10 +58,10 @@ void sim_init(){
 	root = top->rootp;
   contextp -> traceEverOn(true);
 
-	IFONE(CONFIG_WAVE,
-  	top ->trace(tfp,99);
+	#if defined(CONFIG_WAVE) || defined(CONFIG_LIGHTSSS)
+  	top ->trace(tfp,10);
   	tfp ->open("wave.vcd");
-	)
+	#endif
 }
 
 void set_nemu_state(int state, uint32_t pc, int halt_ret) {
@@ -133,9 +155,34 @@ static void exec_once(Decode *s, uint32_t pc) {
 	)
 }
 
+static LightSSS g_execution_snapshot;
+static uint64_t g_instruction_count = 0;
+static uint64_t g_last_safe_point = 0;
+bool should_checkpoint;
+
 static void execute(uint64_t n) {
 	Decode s;
+
   for (;n > 0; n --) {
+
+		IFONE(CONFIG_LIGHTSSS,
+			g_instruction_count++;
+			should_checkpoint = (g_instruction_count %10000 == 0) || (cpu.pc %0x1000 == 0);
+			if(should_checkpoint){
+    	  int result = g_execution_snapshot.do_fork();
+
+  			record_wave_near_checkpoint = true;
+  			wave_record_start_time = contextp->time();
+
+    	  if (result == FORK_CHILD) {
+    	    uint64_t restore_point = g_execution_snapshot.get_end_cycles();
+    	    printf("检查点已创建...\n");
+    	    return;
+    	  } else if (result == FORK_OK) {
+    	    g_last_safe_point = g_instruction_count;
+    	  }
+    	}
+		)
 
     exec_once(&s, cpu.pc);
 
@@ -147,7 +194,16 @@ static void execute(uint64_t n) {
 	  	difftest_step(PC,DNPC);
 		)
 
-    if (nemu_state.state != NEMU_RUNNING) break;
+    if (nemu_state.state != NEMU_RUNNING) {
+			IFONE(CONFIG_LIGHTSSS,
+      	g_execution_snapshot.wakeup_child(g_last_safe_point);
+				printf("Wakeup Child in PC 0x%x\n",PC);
+				g_execution_snapshot.do_clear();
+				printf("清理完成\n");
+				exit(EXIT_SUCCESS);
+			)
+			break;
+		}
   }
 }
 
