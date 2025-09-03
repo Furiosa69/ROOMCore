@@ -81,7 +81,7 @@ EXU exu_t0(
 	.data_load(data_load)
 );
 
-MEM mem_t0(
+GPR gpr_t0(
 	.clk(clk),
 	.reset(reset),
 	.pc_in(ifu_pc),

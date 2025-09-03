@@ -1,4 +1,4 @@
-module MEM(
+module GPR(
 	input 				clk,
 	input 				reset,
 	input  [31:0] pc_in,

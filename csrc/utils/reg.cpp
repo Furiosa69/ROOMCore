@@ -49,8 +49,8 @@ uint32_t diff_isa_reg_display(CPU_state *ref,CPU_state *dut) {
 	}
 
   for(i = 0;i<reg_num;i++) {
-		if(ref->gpr[i] != root->top__DOT__mem_t0__DOT__rf[i]){
-    	printf("%2d | ref->%s = 0x%08x, dut->%s = 0x%08x\n",i,regs[i],ref->gpr[i],regs[i],root->top__DOT__mem_t0__DOT__rf[i]);
+		if(ref->gpr[i] != root->top__DOT__gpr_t0__DOT__rf[i]){
+    	printf("%2d | ref->%s = 0x%08x, dut->%s = 0x%08x\n",i,regs[i],ref->gpr[i],regs[i],root->top__DOT__gpr_t0__DOT__rf[i]);
 		}
 	}
 

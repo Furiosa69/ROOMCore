@@ -8,6 +8,6 @@
 #define CONFIG_MTRACE 0
 #define CONFIG_RINGBUFF 0
 #define CONFIG_WATCHPOINT 0
-#define CONFIG_LIGHTSSS 1
+#define CONFIG_LIGHTSSS 0
 
 #endif

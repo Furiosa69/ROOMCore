@@ -17,7 +17,7 @@ extern Vtop___024root* root;
 #define  PC   root->top__DOT__ifu_pc
 #define  DNPC root->top__DOT__ifu_t0__DOT__target_pc
 #define  INST root->top__DOT__inst
-#define  GPR  root->top__DOT__mem_t0__DOT__rf
+#define  GPR  root->top__DOT__gpr_t0__DOT__rf
 #define  CSR_cnt  root->top__DOT__csr_cnt
 #define  MCAUSE  root->top__DOT__csr_t0__DOT__mcause
 #define  MTVEC   root->top__DOT__csr_t0__DOT__mtvec

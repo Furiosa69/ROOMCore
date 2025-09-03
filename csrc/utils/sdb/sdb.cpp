@@ -148,7 +148,7 @@ static struct {
 
 static int cmd_detach(char *args){
 	char *arg = strtok(NULL, " ");
-    if (arg != NULL) {
+  if (!arg) {
         printf("Usage: detach\n");
         return 0;
   }
@@ -159,7 +159,7 @@ static int cmd_detach(char *args){
 
 static int cmd_attach(char *args){
 	char *arg = strtok(NULL, " ");
-    if (arg != NULL) {
+  if (!arg) {
         printf("Usage: attach\n");
         return 0;
   }
@@ -172,8 +172,8 @@ static int cmd_attach(char *args){
 static int cmd_d(char *args){
   char *arg = strtok(NULL," ");
   if(!arg) {
-	printf("Usage: d N\n");
-	return 0;
+		printf("Usage: d N\n");
+		return 0;
   }
   int no = strtol(arg,NULL,10);
   wp_remove(no);
