@@ -106,45 +106,6 @@ const char* ftrace_translate(uint32_t addr) {
     return "???";
 }
 
-//------------------------------------Printf------------------------------------------------------
-
-//static char* last_fname = NULL;
-//static int jal_count = 0;
-//
-//void print_all_function_names(uint32_t pc,int jal_jalr_flag) {
-//    FILE *file = fopen("ftrace.txt", "a");
-//    if (file == NULL) {
-//        perror("Error opening file");
-//        return;
-//    }
-//
-//		const char* current_fname = ftrace_translate(pc);
-//
-//		if (last_fname == NULL || strcmp(last_fname,current_fname) != 0){
-//			fprintf(file,"PC:0x%08x	|",pc);
-//			if (jal_jalr_flag == 1) {
-//					jal_count ++;
-//					for(int i = 0;i < jal_count;){
-//							fprintf(file," ");
-//					}
-//					fprintf(file,"call@func:<%s>\n",current_fname);
-//			}else if (jal_jalr_flag ==2 ){
-//					jal_count --;
-//					for(int i = 0;i < jal_count;){
-//							fprintf(file," ");
-//					}
-//					fprintf(file,"retu@func:<%s>\n",current_fname);
-//			}
-//
-//			else fprintf(file,"PC:0x%08x 	| 	    @func:<%s>\n",pc,current_fname);
-//
-//			free(last_fname);
-//			last_fname = strdup(current_fname);
-//		}
-//
-//    fclose(file);
-//}
-
 static char* last_fname = NULL;
 static int jal_count = 0;
 

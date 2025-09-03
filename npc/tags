@@ -1,0 +1,750 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/furiosa/my_cpu/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+ANSI_BG_BLACK	csrc/include/utils/color.h	/^#define ANSI_BG_BLACK /;"	d
+ANSI_BG_BLUE	csrc/include/utils/color.h	/^#define ANSI_BG_BLUE /;"	d
+ANSI_BG_CYAN	csrc/include/utils/color.h	/^#define ANSI_BG_CYAN /;"	d
+ANSI_BG_GREEN	csrc/include/utils/color.h	/^#define ANSI_BG_GREEN /;"	d
+ANSI_BG_MAGENTA	csrc/include/utils/color.h	/^#define ANSI_BG_MAGENTA /;"	d
+ANSI_BG_RED	csrc/include/utils/color.h	/^#define ANSI_BG_RED /;"	d
+ANSI_BG_WHITE	csrc/include/utils/color.h	/^#define ANSI_BG_WHITE /;"	d
+ANSI_BG_YELLOW	csrc/include/utils/color.h	/^#define ANSI_BG_YELLOW /;"	d
+ANSI_FG_BLACK	csrc/include/utils/color.h	/^#define ANSI_FG_BLACK /;"	d
+ANSI_FG_BLUE	csrc/include/utils/color.h	/^#define ANSI_FG_BLUE /;"	d
+ANSI_FG_CYAN	csrc/include/utils/color.h	/^#define ANSI_FG_CYAN /;"	d
+ANSI_FG_GREEN	csrc/include/utils/color.h	/^#define ANSI_FG_GREEN /;"	d
+ANSI_FG_MAGENTA	csrc/include/utils/color.h	/^#define ANSI_FG_MAGENTA /;"	d
+ANSI_FG_RED	csrc/include/utils/color.h	/^#define ANSI_FG_RED /;"	d
+ANSI_FG_WHITE	csrc/include/utils/color.h	/^#define ANSI_FG_WHITE /;"	d
+ANSI_FG_YELLOW	csrc/include/utils/color.h	/^#define ANSI_FG_YELLOW /;"	d
+ANSI_FMT	csrc/include/utils/color.h	/^#define ANSI_FMT(/;"	d
+ANSI_NONE	csrc/include/utils/color.h	/^#define ANSI_NONE /;"	d
+ARGC	Makefile	/^ARGC  ?= ${IMG}$/;"	m
+ARRLEN	csrc/include/common.h	/^#define ARRLEN(/;"	d
+ARRLEN	csrc/include/macro.h	/^#define ARRLEN(/;"	d
+AUDIO_ADDR	csrc/mem/memory.cpp	/^#define AUDIO_ADDR /;"	d	file:
+AUDIO_SBUF_ADDR	csrc/mem/memory.cpp	/^#define AUDIO_SBUF_ADDR /;"	d	file:
+Assert	csrc/include/common.h	/^#define Assert(/;"	d
+BIN	Makefile	/^BIN      := $(OBJ_DIR)\/V$(TOP_MODULE)$/;"	m
+BITMASK	csrc/include/macro.h	/^#define BITMASK(/;"	d
+BITS	csrc/include/macro.h	/^#define BITS(/;"	d
+BLACK	csrc/include/utils/color.h	/^#define BLACK /;"	d
+BLUE	csrc/include/utils/color.h	/^#define BLUE /;"	d
+BROWN	csrc/include/utils/color.h	/^#define BROWN /;"	d
+BType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+BType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+CHOOSE2nd	csrc/include/macro.h	/^#define CHOOSE2nd(/;"	d
+CONFIG_DIFFTEST	csrc/include/config/config.h	/^#define CONFIG_DIFFTEST /;"	d
+CONFIG_ETRACE	csrc/include/config/config.h	/^#define CONFIG_ETRACE /;"	d
+CONFIG_FTRACE	csrc/include/config/config.h	/^#define CONFIG_FTRACE /;"	d
+CONFIG_LIGHTSSS	csrc/include/config/config.h	/^#define CONFIG_LIGHTSSS /;"	d
+CONFIG_MBASE	csrc/include/mem/memory.h	/^#define CONFIG_MBASE /;"	d
+CONFIG_MTRACE	csrc/include/config/config.h	/^#define CONFIG_MTRACE /;"	d
+CONFIG_PC_RESET_OFFSET	csrc/include/mem/memory.h	/^#define CONFIG_PC_RESET_OFFSET /;"	d
+CONFIG_RINGBUFF	csrc/include/config/config.h	/^#define CONFIG_RINGBUFF /;"	d
+CONFIG_WATCHPOINT	csrc/include/config/config.h	/^#define CONFIG_WATCHPOINT /;"	d
+CONFIG_WAVE	csrc/include/config/config.h	/^#define CONFIG_WAVE /;"	d
+CPU_state	csrc/include/sim/sim.h	/^typedef riscv32_CPU_state CPU_state;$/;"	t	typeref:typename:riscv32_CPU_state
+CSR	vsrc/CSR.v	/^module CSR($/;"	m
+CSR_cnt	csrc/include/sim/sim.h	/^#define  CSR_cnt /;"	d
+CXX_SRC	Makefile	/^CXX_SRC := $(shell find $(NPC_HOME)\/csrc -name "*.cpp" -o -name "*.c")$/;"	m
+Count1	csrc/utils/sdb/expr.cpp	/^static uint32_t Count1(int op,uint32_t val,bool *success) {$/;"	f	typeref:typename:uint32_t	file:
+Count2	csrc/utils/sdb/expr.cpp	/^static uint32_t Count2(uint32_t val1,int op,uint32_t val2,bool *success) {$/;"	f	typeref:typename:uint32_t	file:
+DEVICE_BASE	csrc/mem/memory.cpp	/^#define DEVICE_BASE /;"	d	file:
+DIFFTEST_REG_SIZE	csrc/include/utils/difftest.h	/^#define DIFFTEST_REG_SIZE /;"	d
+DIFFTEST_TO_DUT	csrc/include/utils/difftest.h	/^enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };   $/;"	e	enum:__anon559157a10103
+DIFFTEST_TO_REF	csrc/include/utils/difftest.h	/^enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };   $/;"	e	enum:__anon559157a10103
+DISK_ADDR	csrc/mem/memory.cpp	/^#define DISK_ADDR /;"	d	file:
+DNPC	csrc/include/sim/sim.h	/^#define  DNPC /;"	d
+Decode	csrc/include/sim/sim.h	/^typedef struct Decode {$/;"	s
+Decode	csrc/include/sim/sim.h	/^} Decode;$/;"	t	typeref:struct:Decode
+ELF32_ST_TYPE	csrc/utils/ftrace.cpp	/^#define ELF32_ST_TYPE(/;"	d	file:
+EXU	vsrc/EXU.v	/^module EXU($/;"	m
+FAIT_EXIT	csrc/include/common.h	/^#define FAIT_EXIT /;"	d
+FB_ADDR	csrc/mem/memory.cpp	/^#define FB_ADDR /;"	d	file:
+FORK_CHILD	csrc/include/lightsss.h	/^const int FORK_CHILD = 2;$/;"	v	typeref:typename:const int
+FORK_ERROR	csrc/include/lightsss.h	/^const int FORK_ERROR = 1;$/;"	v	typeref:typename:const int
+FORK_OK	csrc/include/lightsss.h	/^const int FORK_OK = 0;$/;"	v	typeref:typename:const int
+FORK_PRINTF	csrc/include/lightsss.h	/^#define FORK_PRINTF(/;"	d
+FUNC_TYPE	csrc/utils/ftrace.cpp	/^#define FUNC_TYPE /;"	d	file:
+ForkShareMemory	csrc/include/lightsss.h	/^class ForkShareMemory {$/;"	c
+ForkShareMemory	csrc/lightsss.cpp	/^ForkShareMemory::ForkShareMemory() {$/;"	f	class:ForkShareMemory
+GET_OPCODE	csrc/utils/ftrace.cpp	/^#define GET_OPCODE(/;"	d	file:
+GET_RD	csrc/utils/ftrace.cpp	/^#define GET_RD(/;"	d	file:
+GET_RS1	csrc/utils/ftrace.cpp	/^#define GET_RS1(/;"	d	file:
+GPR	csrc/include/sim/sim.h	/^#define  GPR /;"	d
+GPR	vsrc/GPR.v	/^module GPR($/;"	m
+GRAY	csrc/include/utils/color.h	/^#define GRAY /;"	d
+GREEN	csrc/include/utils/color.h	/^#define GREEN /;"	d
+IDU	vsrc/IDU.v	/^module IDU ($/;"	m
+IFDEF	csrc/include/macro.h	/^#define IFDEF(/;"	d
+IFNDEF	csrc/include/macro.h	/^#define IFNDEF(/;"	d
+IFONE	csrc/include/macro.h	/^#define IFONE(/;"	d
+IFONE	csrc/mem/memory.cpp	/^IFONE(CONFIG_MTRACE,$/;"	f
+IFU	vsrc/IFU.v	/^module IFU($/;"	m
+IFZERO	csrc/include/macro.h	/^#define IFZERO(/;"	d
+IMG	Makefile	/^IMG  ?=    $(NPC_HOME)\/bin\/microbench-riscv32e-npc.bin$/;"	m
+INST	csrc/include/sim/sim.h	/^#define  INST /;"	d
+ISADecodeInfo	csrc/include/sim/sim.h	/^typedef riscv32_ISADecodeInfo ISADecodeInfo;$/;"	t	typeref:typename:riscv32_ISADecodeInfo
+ISDEF	csrc/include/macro.h	/^#define ISDEF(/;"	d
+ISNDEF	csrc/include/macro.h	/^#define ISNDEF(/;"	d
+ISONE	csrc/include/macro.h	/^#define ISONE(/;"	d
+ISZERO	csrc/include/macro.h	/^#define ISZERO(/;"	d
+IType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+IType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+I_imm	vsrc/IDU.v	/^	wire 	 I_imm  = ( opcode == 7'b0010011 );$/;"	n	module:IDU
+IcsrType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+Info	csrc/include/common.h	/^#define Info(/;"	d
+JType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+JType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+KBD_ADDR	csrc/mem/memory.cpp	/^#define KBD_ADDR /;"	d	file:
+LOG_TRACE_READ	csrc/mem/memory.cpp	/^	#define LOG_TRACE_READ(/;"	d	file:
+LOG_TRACE_WRITE	csrc/mem/memory.cpp	/^	#define LOG_TRACE_WRITE(/;"	d	file:
+LSU	vsrc/LSU.v	/^module LSU ($/;"	m
+LightSSS	csrc/include/lightsss.h	/^class LightSSS {$/;"	c
+Log	csrc/include/common.h	/^#define Log(/;"	d
+MAP	csrc/include/macro.h	/^#define MAP(/;"	d
+MCAUSE	csrc/include/sim/sim.h	/^#define  MCAUSE /;"	d
+MEMORY_SIZE	csrc/include/mem/memory.h	/^#define MEMORY_SIZE /;"	d
+MEPC	csrc/include/sim/sim.h	/^#define  MEPC	/;"	d
+MMIO_BASE	csrc/mem/memory.cpp	/^#define MMIO_BASE /;"	d	file:
+MSTATUS	csrc/include/sim/sim.h	/^#define  MSTATUS /;"	d
+MTVEC	csrc/include/sim/sim.h	/^#define  MTVEC /;"	d
+MUXDEF	csrc/include/macro.h	/^#define MUXDEF(/;"	d
+MUXNDEF	csrc/include/macro.h	/^#define MUXNDEF(/;"	d
+MUXONE	csrc/include/macro.h	/^#define MUXONE(/;"	d
+MUXZERO	csrc/include/macro.h	/^#define MUXZERO(/;"	d
+MUX_MACRO_PROPERTY	csrc/include/macro.h	/^#define MUX_MACRO_PROPERTY(/;"	d
+MUX_WITH_COMMA	csrc/include/macro.h	/^#define MUX_WITH_COMMA(/;"	d
+NEMUState	csrc/include/sim/sim.h	/^} NEMUState;$/;"	t	typeref:struct:__anoneae150c90508
+NEMU_ABORT	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	e	enum:__anoneae150c90103
+NEMU_END	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	e	enum:__anoneae150c90103
+NEMU_QUIT	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	e	enum:__anoneae150c90103
+NEMU_RUNNING	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	e	enum:__anoneae150c90103
+NEMU_STOP	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	e	enum:__anoneae150c90103
+NO	csrc/utils/sdb/watchpoint.cpp	/^  int NO;$/;"	m	struct:watchpoint	typeref:typename:int	file:
+NONE	csrc/include/utils/color.h	/^#define NONE /;"	d
+NPCTRAP	csrc/sim/sim.cpp	/^void NPCTRAP(uint32_t pc ,int halt_ret){$/;"	f	typeref:typename:void
+NPCTRAP	vsrc/top.v	/^import "DPI-C" function void NPCTRAP(input int unsigned pc, input int x10);$/;"	f
+NPC_EXEC	Makefile	/^NPC_EXEC := ${BIN}$/;"	m
+NR_CMD	csrc/utils/sdb/sdb.cpp	/^#define NR_CMD /;"	d	file:
+NR_REGEX	csrc/utils/sdb/expr.cpp	/^#define NR_REGEX /;"	d	file:
+NR_WP	csrc/utils/sdb/watchpoint.cpp	/^#define NR_WP /;"	d	file:
+OBJ_DIR	Makefile	/^OBJ_DIR := $(NPC_HOME)\/obj_dir$/;"	m
+OPCODE_MASK	csrc/utils/ftrace.cpp	/^#define OPCODE_MASK /;"	d	file:
+PAGE_MASK	csrc/include/common.h	/^#define PAGE_MASK /;"	d
+PAGE_SHIFT	csrc/include/common.h	/^#define PAGE_SHIFT /;"	d
+PAGE_SIZE	csrc/include/common.h	/^#define PAGE_SIZE /;"	d
+PC	csrc/include/sim/sim.h	/^#define  PC /;"	d
+PERL	obj_dir/Vtop.mk	/^PERL = perl$/;"	m
+PG_ALIGN	csrc/include/macro.h	/^#define PG_ALIGN /;"	d
+PMEM_LEFT	csrc/include/mem/memory.h	/^#define PMEM_LEFT /;"	d
+PMEM_RIGHT	csrc/include/mem/memory.h	/^#define PMEM_RIGHT /;"	d
+PURPLE	csrc/include/utils/color.h	/^#define PURPLE /;"	d
+RD_MASK	csrc/utils/ftrace.cpp	/^#define RD_MASK /;"	d	file:
+RED	csrc/include/utils/color.h	/^#define RED /;"	d
+RESET_VECTOR	csrc/include/mem/memory.h	/^#define RESET_VECTOR /;"	d
+RING_BUFFER_SIZE	csrc/include/utils/iringbuf.h	/^#define RING_BUFFER_SIZE /;"	d
+RISCV_GPR_NUM	csrc/include/utils/difftest.h	/^#define RISCV_GPR_NUM /;"	d
+RISCV_GPR_TYPE	csrc/include/utils/difftest.h	/^#define RISCV_GPR_TYPE /;"	d
+ROUNDDOWN	csrc/include/macro.h	/^#define ROUNDDOWN(/;"	d
+ROUNDUP	csrc/include/macro.h	/^#define ROUNDUP(/;"	d
+RS1_MASK	csrc/utils/ftrace.cpp	/^#define RS1_MASK /;"	d	file:
+RTC_ADDR_high	csrc/mem/memory.cpp	/^#define RTC_ADDR_high /;"	d	file:
+RTC_ADDR_low	csrc/mem/memory.cpp	/^#define RTC_ADDR_low /;"	d	file:
+RType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+RType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+RingBuffer	csrc/include/utils/iringbuf.h	/^} RingBuffer;$/;"	t	typeref:struct:__anon90350e7e0208
+RingBufferEntry	csrc/include/utils/iringbuf.h	/^} RingBufferEntry;$/;"	t	typeref:struct:__anon90350e7e0108
+SERIAL_PORT	csrc/mem/memory.cpp	/^#define SERIAL_PORT /;"	d	file:
+SEXT	csrc/include/macro.h	/^#define SEXT(/;"	d
+SLOT_SIZE	csrc/include/common.h	/^#define SLOT_SIZE /;"	d
+STRLEN	csrc/include/macro.h	/^#define STRLEN(/;"	d
+SType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+SType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+SYSTEMC_INCLUDE	obj_dir/Vtop.mk	/^SYSTEMC_INCLUDE ?= $/;"	m
+SYSTEMC_LIBDIR	obj_dir/Vtop.mk	/^SYSTEMC_LIBDIR ?= $/;"	m
+TK_AND	csrc/utils/sdb/expr.cpp	/^  TK_AND   = 4,$/;"	e	enum:__anon70ab91d70103	file:
+TK_DEREF	csrc/utils/sdb/expr.cpp	/^  TK_DEREF = 12,$/;"	e	enum:__anon70ab91d70103	file:
+TK_EQ	csrc/utils/sdb/expr.cpp	/^  TK_EQ    = 1,$/;"	e	enum:__anon70ab91d70103	file:
+TK_GE	csrc/utils/sdb/expr.cpp	/^  TK_GE    = 9,$/;"	e	enum:__anon70ab91d70103	file:
+TK_GT	csrc/utils/sdb/expr.cpp	/^  TK_GT    = 7,$/;"	e	enum:__anon70ab91d70103	file:
+TK_LE	csrc/utils/sdb/expr.cpp	/^  TK_LE    = 8,$/;"	e	enum:__anon70ab91d70103	file:
+TK_LT	csrc/utils/sdb/expr.cpp	/^  TK_LT    = 6,$/;"	e	enum:__anon70ab91d70103	file:
+TK_NEG	csrc/utils/sdb/expr.cpp	/^  TK_NEG   = 11,$/;"	e	enum:__anon70ab91d70103	file:
+TK_NEQ	csrc/utils/sdb/expr.cpp	/^  TK_NEQ   = 3,$/;"	e	enum:__anon70ab91d70103	file:
+TK_NOTYPE	csrc/utils/sdb/expr.cpp	/^  TK_NOTYPE = 256,$/;"	e	enum:__anon70ab91d70103	file:
+TK_NUM	csrc/utils/sdb/expr.cpp	/^  TK_NUM   = 2,$/;"	e	enum:__anon70ab91d70103	file:
+TK_OR	csrc/utils/sdb/expr.cpp	/^  TK_OR    = 5,$/;"	e	enum:__anon70ab91d70103	file:
+TK_POS	csrc/utils/sdb/expr.cpp	/^  TK_POS   = 13 $/;"	e	enum:__anon70ab91d70103	file:
+TK_REG	csrc/utils/sdb/expr.cpp	/^  TK_REG   = 10,$/;"	e	enum:__anon70ab91d70103	file:
+TODO	csrc/include/common.h	/^#define TODO(/;"	d
+TOP	obj_dir/Vtop__Syms.h	/^    Vtop___024root                 TOP;$/;"	m	class:Vtop__Syms	typeref:typename:Vtop___024root
+TOP_MODULE	Makefile	/^TOP_MODULE := top$/;"	m
+TOP____024unit	obj_dir/Vtop__Syms.h	/^    Vtop___024unit                 TOP____024unit;$/;"	m	class:Vtop__Syms	typeref:typename:Vtop___024unit
+TRACE_DIR	Makefile	/^TRACE_DIR := .\/trace$/;"	m
+TRACE_DIR	csrc/include/common.h	/^#define TRACE_DIR /;"	d
+Token	csrc/utils/sdb/expr.cpp	/^} Token;$/;"	t	typeref:struct:token	file:
+UType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
+UType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
+VERILATED_VTOP_H_	obj_dir/Vtop.h	/^#define VERILATED_VTOP_H_ /;"	d
+VERILATED_VTOP__DPI_H_	obj_dir/Vtop__Dpi.h	/^#define VERILATED_VTOP__DPI_H_ /;"	d
+VERILATED_VTOP__SYMS_H_	obj_dir/Vtop__Syms.h	/^#define VERILATED_VTOP__SYMS_H_ /;"	d
+VERILATED_VTOP___024ROOT_H_	obj_dir/Vtop___024root.h	/^#define VERILATED_VTOP___024ROOT_H_ /;"	d
+VERILATED_VTOP___024UNIT_H_	obj_dir/Vtop___024unit.h	/^#define VERILATED_VTOP___024UNIT_H_ /;"	d
+VERILATOR	Makefile	/^VERILATOR = $(VERILATOR_ROOT)\/bin\/verilator$/;"	m
+VERILATOR	Makefile	/^VERILATOR = verilator$/;"	m
+VERILATOR_COVERAGE	Makefile	/^VERILATOR_COVERAGE = $(VERILATOR_ROOT)\/bin\/verilator_coverage$/;"	m
+VERILATOR_COVERAGE	Makefile	/^VERILATOR_COVERAGE = verilator_coverage$/;"	m
+VERILATOR_ROOT	obj_dir/Vtop.mk	/^VERILATOR_ROOT = \/usr\/local\/share\/verilator$/;"	m
+VGACTL_ADDR	csrc/mem/memory.cpp	/^#define VGACTL_ADDR /;"	d	file:
+VL_ATTR_ALIGNED	obj_dir/Vtop.h	/^} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);$/;"	v	typeref:class:VL_NOT_FINAL
+VL_ATTR_ALIGNED	obj_dir/Vtop__Syms.h	/^} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);$/;"	v	typeref:class:Vtop__Syms
+VL_ATTR_ALIGNED	obj_dir/Vtop___024root.h	/^} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);$/;"	v	typeref:class:Vtop___024root
+VL_ATTR_ALIGNED	obj_dir/Vtop___024unit.h	/^} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);$/;"	v	typeref:class:Vtop___024unit
+VL_INCLUDE_OPT	obj_dir/Vtop__ALL.cpp	/^#define VL_INCLUDE_OPT /;"	d	file:
+VL_NOT_FINAL	obj_dir/Vtop.h	/^class Vtop VL_NOT_FINAL : public VerilatedModel {$/;"	c
+VM_C11	obj_dir/Vtop_classes.mk	/^VM_C11 = 1$/;"	m
+VM_COVERAGE	obj_dir/Vtop_classes.mk	/^VM_COVERAGE = 0$/;"	m
+VM_MODPREFIX	obj_dir/Vtop.mk	/^VM_MODPREFIX = Vtop$/;"	m
+VM_PARALLEL_BUILDS	obj_dir/Vtop_classes.mk	/^VM_PARALLEL_BUILDS = 0$/;"	m
+VM_PCLI	obj_dir/Vtop.mk	/^VM_PCLI = 1$/;"	m
+VM_PREFIX	obj_dir/Vtop.mk	/^VM_PREFIX = Vtop$/;"	m
+VM_PROFC	obj_dir/Vtop.mk	/^VM_PROFC = 0$/;"	m
+VM_SC	obj_dir/Vtop.mk	/^VM_SC = 0$/;"	m
+VM_SC_TARGET_ARCH	obj_dir/Vtop.mk	/^VM_SC_TARGET_ARCH = linux$/;"	m
+VM_SP_OR_SC	obj_dir/Vtop.mk	/^VM_SP_OR_SC = $(VM_SC)$/;"	m
+VM_TIMING	obj_dir/Vtop_classes.mk	/^VM_TIMING = 0$/;"	m
+VM_TRACE	obj_dir/Vtop_classes.mk	/^VM_TRACE = 1$/;"	m
+VM_TRACE_FST	obj_dir/Vtop_classes.mk	/^VM_TRACE_FST = 0$/;"	m
+VM_TRACE_VCD	obj_dir/Vtop_classes.mk	/^VM_TRACE_VCD = 1$/;"	m
+VM_USER_CFLAGS	obj_dir/Vtop.mk	/^VM_USER_CFLAGS = \\$/;"	m
+VM_USER_CLASSES	obj_dir/Vtop.mk	/^VM_USER_CLASSES = \\$/;"	m
+VM_USER_DIR	obj_dir/Vtop.mk	/^VM_USER_DIR = \\$/;"	m
+VM_USER_LDLIBS	obj_dir/Vtop.mk	/^VM_USER_LDLIBS = \\$/;"	m
+V_SRC	Makefile	/^V_SRC   := $(shell find $(NPC_HOME)\/vsrc -name "*.v") $/;"	m
+Vtop	obj_dir/Vtop.cpp	/^Vtop::Vtop(VerilatedContext* _vcontextp__, const char* _vcname__)$/;"	f	class:Vtop
+Vtop	obj_dir/Vtop.cpp	/^Vtop::Vtop(const char* _vcname__)$/;"	f	class:Vtop
+Vtop	obj_dir/Vtop.mk	/^Vtop: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)$/;"	t
+Vtop__Syms	obj_dir/Vtop__Syms.cpp	/^Vtop__Syms::Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* modelp)$/;"	f	class:Vtop__Syms
+Vtop__Syms	obj_dir/Vtop__Syms.h	/^class Vtop__Syms final : public VerilatedSyms {$/;"	c
+Vtop___024root	obj_dir/Vtop___024root.h	/^class Vtop___024root final : public VerilatedModule {$/;"	c
+Vtop___024root	obj_dir/Vtop___024root__Slow.cpp	/^Vtop___024root::Vtop___024root(Vtop__Syms* symsp, const char* v__name)$/;"	f	class:Vtop___024root
+Vtop___024root___ctor_var_reset	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___dump_triggers__act	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___dump_triggers__act(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___dump_triggers__nba	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___dump_triggers__nba(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___dump_triggers__stl	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___dump_triggers__stl(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval	obj_dir/Vtop___024root__DepSet_heccd7ead__0.cpp	/^void Vtop___024root___eval(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:void
+Vtop___024root___eval_act	obj_dir/Vtop___024root__DepSet_heccd7ead__0.cpp	/^void Vtop___024root___eval_act(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:void
+Vtop___024root___eval_debug_assertions	obj_dir/Vtop___024root__DepSet_heccd7ead__0.cpp	/^void Vtop___024root___eval_debug_assertions(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:void
+Vtop___024root___eval_final	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_final(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval_initial	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_initial(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval_nba	obj_dir/Vtop___024root__DepSet_heccd7ead__0.cpp	/^void Vtop___024root___eval_nba(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:void
+Vtop___024root___eval_settle	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_settle(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval_static	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_static(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval_stl	obj_dir/Vtop___024root__DepSet_heccd7ead__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_stl(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___eval_triggers__act	obj_dir/Vtop___024root__DepSet_h84412442__0.cpp	/^void Vtop___024root___eval_triggers__act(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:void
+Vtop___024root___eval_triggers__stl	obj_dir/Vtop___024root__DepSet_h84412442__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___eval_triggers__stl(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root___nba_sequent__TOP__0	obj_dir/Vtop___024root__DepSet_h84412442__0.cpp	/^VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_INLINE_OPT void
+Vtop___024root___stl_sequent__TOP__0	obj_dir/Vtop___024root__DepSet_h84412442__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root__trace_chg_sub_0	obj_dir/Vtop__Trace__0.cpp	/^void Vtop___024root__trace_chg_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffer* bufp) {$/;"	f	typeref:typename:void
+Vtop___024root__trace_chg_top_0	obj_dir/Vtop__Trace__0.cpp	/^void Vtop___024root__trace_chg_top_0(void* voidSelf, VerilatedVcd::Buffer* bufp) {$/;"	f	typeref:typename:void
+Vtop___024root__trace_cleanup	obj_dir/Vtop__Trace__0.cpp	/^void Vtop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* \/*unused*\/) {$/;"	f	typeref:typename:void
+Vtop___024root__trace_full_sub_0	obj_dir/Vtop__Trace__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root__trace_full_sub_0(Vtop___024root* vlSelf, VerilatedVcd::Buffer*/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root__trace_full_top_0	obj_dir/Vtop__Trace__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root__trace_full_top_0(void* voidSelf, VerilatedVcd::Buffer* bufp) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root__trace_init_sub__TOP__0	obj_dir/Vtop__Trace__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root__trace_init_sub__TOP__0(Vtop___024root* vlSelf, VerilatedVcd* t/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root__trace_init_top	obj_dir/Vtop__Trace__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root__trace_init_top(Vtop___024root* vlSelf, VerilatedVcd* tracep) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024root__trace_register	obj_dir/Vtop__Trace__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024root__trace_register(Vtop___024root* vlSelf, VerilatedVcd* tracep) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+Vtop___024unit	obj_dir/Vtop___024unit.h	/^class Vtop___024unit final : public VerilatedModule {$/;"	c
+Vtop___024unit	obj_dir/Vtop___024unit__Slow.cpp	/^Vtop___024unit::Vtop___024unit(Vtop__Syms* symsp, const char* v__name)$/;"	f	class:Vtop___024unit
+Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit	obj_dir/Vtop___024unit__DepSet_hab9af801__0.cpp	/^VL_INLINE_OPT void Vtop___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit(IData\/*31:0*\/ pc, IData/;"	f	typeref:typename:VL_INLINE_OPT void
+Vtop___024unit____Vdpiimwrap_pmem_read_TOP____024unit	obj_dir/Vtop___024unit__DepSet_hab9af801__0.cpp	/^VL_INLINE_OPT void Vtop___024unit____Vdpiimwrap_pmem_read_TOP____024unit(IData\/*31:0*\/ addr, I/;"	f	typeref:typename:VL_INLINE_OPT void
+Vtop___024unit____Vdpiimwrap_pmem_write_TOP____024unit	obj_dir/Vtop___024unit__DepSet_hab9af801__0.cpp	/^VL_INLINE_OPT void Vtop___024unit____Vdpiimwrap_pmem_write_TOP____024unit(IData\/*31:0*\/ addr, /;"	f	typeref:typename:VL_INLINE_OPT void
+Vtop___024unit___ctor_var_reset	obj_dir/Vtop___024unit__DepSet_hff17caec__0__Slow.cpp	/^VL_ATTR_COLD void Vtop___024unit___ctor_var_reset(Vtop___024unit* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+WAIT_INTERVAL	csrc/include/common.h	/^#define WAIT_INTERVAL /;"	d
+WAVE_RECORD_DURATION	csrc/sim/sim.cpp	/^static const uint64_t WAVE_RECORD_DURATION = 1000; \/\/ 记录1000个时间单位$/;"	v	typeref:typename:const uint64_t	file:
+WHITE	csrc/include/utils/color.h	/^#define WHITE /;"	d
+WP	csrc/utils/sdb/watchpoint.cpp	/^} WP;$/;"	t	typeref:struct:watchpoint	file:
+_COLOR_H_	csrc/include/utils/color.h	/^#define _COLOR_H_$/;"	d
+_Log	csrc/include/utils/color.h	/^#define _Log(/;"	d
+__COMMON_H__	csrc/include/common.h	/^#define __COMMON_H__$/;"	d
+__CONFIG_H__	csrc/include/config/config.h	/^#define __CONFIG_H__$/;"	d
+__DEBUG_H__	csrc/include/utils/debug.h	/^#define __DEBUG_H__$/;"	d
+__DIFFTEST_DEF_H__	csrc/include/utils/difftest.h	/^#define __DIFFTEST_DEF_H__$/;"	d
+__EXPORT	csrc/include/utils/difftest.h	/^#define __EXPORT /;"	d
+__FTRACE_H__	csrc/include/utils/ftrace.h	/^#define __FTRACE_H__$/;"	d
+__IGNORE	csrc/include/macro.h	/^#define __IGNORE(/;"	d
+__IRINGBUF_H__	csrc/include/utils/iringbuf.h	/^#define __IRINGBUF_H__$/;"	d
+__KEEP	csrc/include/macro.h	/^#define __KEEP(/;"	d
+__LIGHTSSS_H	csrc/include/lightsss.h	/^#define __LIGHTSSS_H$/;"	d
+__MACRO_H__	csrc/include/macro.h	/^#define __MACRO_H__$/;"	d
+__MAIN_H__	csrc/include/main.h	/^#define __MAIN_H__$/;"	d
+__MEMORY_H__	csrc/include/mem/memory.h	/^#define __MEMORY_H__$/;"	d
+__PVT____024unit	obj_dir/Vtop.h	/^    Vtop___024unit* const __PVT____024unit;$/;"	m	class:VL_NOT_FINAL	typeref:typename:Vtop___024unit * const
+__PVT____024unit	obj_dir/Vtop___024root.h	/^    Vtop___024unit* __PVT____024unit;$/;"	m	class:Vtop___024root	typeref:typename:Vtop___024unit *
+__P_DEF_0	csrc/include/macro.h	/^#define __P_DEF_0 /;"	d
+__P_DEF_1	csrc/include/macro.h	/^#define __P_DEF_1 /;"	d
+__P_ONE_1	csrc/include/macro.h	/^#define __P_ONE_1 /;"	d
+__P_ZERO_0	csrc/include/macro.h	/^#define __P_ZERO_0 /;"	d
+__REG_H__	csrc/include/utils/reg.h	/^#define __REG_H__$/;"	d
+__SDB_H__	csrc/include/utils/sdb.h	/^#define __SDB_H__$/;"	d
+__SIM_H__	csrc/include/sim/sim.h	/^#define __SIM_H__$/;"	d
+__VactContinue	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ __VactContinue;$/;"	m	class:Vtop___024root	typeref:typename:CData
+__VactIterCount	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __VactIterCount;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__VactTriggered	obj_dir/Vtop___024root.h	/^    VlTriggerVec<1> __VactTriggered;$/;"	m	class:Vtop___024root	typeref:typename:VlTriggerVec<1>
+__Vconfigure	obj_dir/Vtop___024root__Slow.cpp	/^void Vtop___024root::__Vconfigure(bool first) {$/;"	f	class:Vtop___024root	typeref:typename:void
+__Vconfigure	obj_dir/Vtop___024unit__Slow.cpp	/^void Vtop___024unit::__Vconfigure(bool first) {$/;"	f	class:Vtop___024unit	typeref:typename:void
+__Vfunc_pmem_read__0__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__0__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vfunc_pmem_read__2__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__2__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vfunc_pmem_read__3__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__3__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vfunc_pmem_read__4__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__4__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vfunc_pmem_read__5__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__5__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vfunc_pmem_read__6__Vfuncout	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __Vfunc_pmem_read__6__Vfuncout;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__Vm_activity	obj_dir/Vtop__Syms.h	/^    bool __Vm_activity = false;  \/\/\/< Used by trace routines to determine change occurred$/;"	m	class:Vtop__Syms	typeref:typename:bool
+__Vm_baseCode	obj_dir/Vtop__Syms.h	/^    uint32_t __Vm_baseCode = 0;  \/\/\/< Used by trace routines when tracing multiple models$/;"	m	class:Vtop__Syms	typeref:typename:uint32_t
+__Vm_deleter	obj_dir/Vtop__Syms.h	/^    VlDeleter __Vm_deleter;$/;"	m	class:Vtop__Syms	typeref:typename:VlDeleter
+__Vm_didInit	obj_dir/Vtop__Syms.h	/^    bool __Vm_didInit = false;$/;"	m	class:Vtop__Syms	typeref:typename:bool
+__Vm_modelp	obj_dir/Vtop__Syms.h	/^    Vtop* const __Vm_modelp;$/;"	m	class:Vtop__Syms	typeref:typename:Vtop * const
+__Vm_traceActivity	obj_dir/Vtop___024root.h	/^    VlUnpacked<CData\/*0:0*\/, 2> __Vm_traceActivity;$/;"	m	class:Vtop___024root	typeref:typename:VlUnpacked<CData,2>
+__VnbaTriggered	obj_dir/Vtop___024root.h	/^    VlTriggerVec<1> __VnbaTriggered;$/;"	m	class:Vtop___024root	typeref:typename:VlTriggerVec<1>
+__VstlIterCount	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ __VstlIterCount;$/;"	m	class:Vtop___024root	typeref:typename:IData
+__VstlTriggered	obj_dir/Vtop___024root.h	/^    VlTriggerVec<1> __VstlTriggered;$/;"	m	class:Vtop___024root	typeref:typename:VlTriggerVec<1>
+__Vtrigrprev__TOP__clk	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ __Vtrigrprev__TOP__clk;$/;"	m	class:Vtop___024root	typeref:typename:CData
+__anon4f21e8d10108	csrc/utils/sdb/sdb.cpp	/^static struct {$/;"	s	file:
+__anon559157a10103	csrc/include/utils/difftest.h	/^enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };   $/;"	g
+__anon70ab91d70103	csrc/utils/sdb/expr.cpp	/^enum {$/;"	g	file:
+__anon90350e7e0108	csrc/include/utils/iringbuf.h	/^typedef struct {  $/;"	s
+__anon90350e7e0208	csrc/include/utils/iringbuf.h	/^typedef struct {$/;"	s
+__anoneae150c90103	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	g
+__anoneae150c90208	csrc/include/sim/sim.h	/^typedef struct {$/;"	s
+__anoneae150c90308	csrc/include/sim/sim.h	/^typedef struct {$/;"	s
+__anoneae150c9040a	csrc/include/sim/sim.h	/^  union {$/;"	u	struct:__anoneae150c90308
+__anoneae150c90508	csrc/include/sim/sim.h	/^typedef struct {$/;"	s
+_alu_result	vsrc/EXU.v	/^	wire  [31:0]  _alu_result;$/;"	n	module:EXU
+add_to_ringbuffer	csrc/utils/iring.cpp	/^void add_to_ringbuffer(RingBuffer *ringbuf,uint32_t pc,uint32_t inst){$/;"	f	typeref:typename:void
+addr	vsrc/top.v	/^import "DPI-C" function int unsigned pmem_read(input int unsigned addr, input int size);$/;"	p	function:NPCTRAP.pmem_write.pmem_read
+addr	vsrc/top.v	/^import "DPI-C" function void pmem_write(input int unsigned addr, input int unsigned data, input /;"	p	function:NPCTRAP.pmem_write
+addr_load	vsrc/LSU.v	/^	input  [31:0] addr_load,$/;"	p	module:LSU
+addr_load	vsrc/top.v	/^wire [31:0] addr_load,addr_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+addr_store	vsrc/LSU.v	/^	input  [31:0] addr_store$/;"	p	module:LSU
+addr_store	vsrc/top.v	/^wire [31:0] addr_load,addr_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+alu_a	vsrc/EXU.v	/^	wire [31:0] alu_a,alu_b;$/;"	n	module:EXU
+alu_b	vsrc/EXU.v	/^	wire [31:0] alu_a,alu_b;$/;"	n	module:EXU
+alu_cnt	vsrc/EXU.v	/^	input  [ 3:0] alu_cnt,$/;"	p	module:EXU
+alu_cnt	vsrc/IDU.v	/^	output [ 3:0] alu_cnt,$/;"	p	module:IDU
+alu_cnt	vsrc/top.v	/^wire [ 3:0] alu_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+alu_result	vsrc/EXU.v	/^	output [31:0] alu_result,$/;"	p	module:EXU
+auipc	vsrc/EXU.v	/^	input 				auipc,$/;"	p	module:EXU
+auipc	vsrc/IDU.v	/^	output 				auipc,$/;"	p	module:IDU
+auipc	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+br_taken	vsrc/EXU.v	/^	output 				br_taken,$/;"	p	module:EXU
+br_taken	vsrc/IFU.v	/^	input							br_taken,$/;"	p	module:IFU
+br_taken	vsrc/top.v	/^wire 				br_taken;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+bxx	vsrc/IFU.v	/^	wire bxx   = (pc_cnt === 4'b0001) | (pc_cnt === 4'b0010) | (pc_cnt === 4'b0011) | (pc_cnt === 4/;"	n	module:IFU
+c_idx	csrc/include/utils/iringbuf.h	/^  int c_idx;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
+check_parentheses	csrc/utils/sdb/expr.cpp	/^bool check_parentheses(int p ,int q) {$/;"	f	typeref:typename:bool
+checkregs	csrc/utils/dut.cpp	/^static void checkregs(CPU_state *ref, uint32_t pc) {$/;"	f	typeref:typename:void	file:
+clean	Makefile	/^clean: $/;"	t
+clk	vsrc/CSR.v	/^	input 				clk,$/;"	p	module:CSR
+clk	vsrc/GPR.v	/^	input 				clk,$/;"	p	module:GPR
+clk	vsrc/IFU.v	/^	input 						clk,$/;"	p	module:IFU
+clk	vsrc/top.v	/^	input 			  clk,$/;"	p	module:NPCTRAP.pmem_write.pmem_read.top
+clock_tick	csrc/sim/sim.cpp	/^void clock_tick() {$/;"	f	typeref:typename:void
+cmd_attach	csrc/utils/sdb/sdb.cpp	/^static int cmd_attach(char *args){$/;"	f	typeref:typename:int	file:
+cmd_c	csrc/utils/sdb/sdb.cpp	/^static int cmd_c(char *args) {$/;"	f	typeref:typename:int	file:
+cmd_d	csrc/utils/sdb/sdb.cpp	/^static int cmd_d(char *args){$/;"	f	typeref:typename:int	file:
+cmd_detach	csrc/utils/sdb/sdb.cpp	/^static int cmd_detach(char *args){$/;"	f	typeref:typename:int	file:
+cmd_help	csrc/utils/sdb/sdb.cpp	/^static int cmd_help(char *args) {$/;"	f	typeref:typename:int	file:
+cmd_info	csrc/utils/sdb/sdb.cpp	/^static int cmd_info(char *args){$/;"	f	typeref:typename:int	file:
+cmd_p	csrc/utils/sdb/sdb.cpp	/^static int cmd_p(char *args){$/;"	f	typeref:typename:int	file:
+cmd_q	csrc/utils/sdb/sdb.cpp	/^static int cmd_q(char *args) {$/;"	f	typeref:typename:int	file:
+cmd_rst	csrc/utils/sdb/sdb.cpp	/^static int cmd_rst(char *args){$/;"	f	typeref:typename:int	file:
+cmd_si	csrc/utils/sdb/sdb.cpp	/^static int cmd_si(char *args){$/;"	f	typeref:typename:int	file:
+cmd_table	csrc/utils/sdb/sdb.cpp	/^} cmd_table [] = {$/;"	v	typeref:struct:__anon4f21e8d10108[]
+cmd_w	csrc/utils/sdb/sdb.cpp	/^static int cmd_w(char *args){$/;"	f	typeref:typename:int	file:
+cmd_x	csrc/utils/sdb/sdb.cpp	/^static int cmd_x(char *args) {$/;"	f	typeref:typename:int	file:
+concat	csrc/include/macro.h	/^#define concat(/;"	d
+concat3	csrc/include/macro.h	/^#define concat3(/;"	d
+concat4	csrc/include/macro.h	/^#define concat4(/;"	d
+concat5	csrc/include/macro.h	/^#define concat5(/;"	d
+concat_temp	csrc/include/macro.h	/^#define concat_temp(/;"	d
+config	Makefile	/^config:$/;"	t
+contextp	csrc/sim/sim.cpp	/^VerilatedContext* contextp ;$/;"	v	typeref:typename:VerilatedContext *
+count	csrc/include/utils/iringbuf.h	/^  int count;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
+cpu_exec	csrc/sim/sim.cpp	/^void cpu_exec(uint64_t n){$/;"	f	typeref:typename:void
+csr	csrc/include/sim/sim.h	/^  uint32_t csr[4];$/;"	m	struct:__anoneae150c90208	typeref:typename:uint32_t[4]
+csr_cnt	vsrc/CSR.v	/^	input  [ 2:0] csr_cnt,$/;"	p	module:CSR
+csr_cnt	vsrc/EXU.v	/^	input  [ 2:0] csr_cnt,$/;"	p	module:EXU
+csr_cnt	vsrc/IDU.v	/^	output [ 2:0] csr_cnt,$/;"	p	module:IDU
+csr_cnt	vsrc/top.v	/^wire [ 2:0] csr_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+csr_data	vsrc/EXU.v	/^	input  [31:0] csr_data,$/;"	p	module:EXU
+csr_data	vsrc/IFU.v	/^	input 		 [31:0] csr_data,$/;"	p	module:IFU
+csr_data	vsrc/top.v	/^wire [31:0] csr_data;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+csr_imm	vsrc/CSR.v	/^	input  [11:0] csr_imm,$/;"	p	module:CSR
+csr_imm	vsrc/IDU.v	/^	output [11:0] csr_imm,$/;"	p	module:IDU
+csr_imm	vsrc/top.v	/^wire [11:0] csr_imm;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+csr_t0	vsrc/top.v	/^CSR csr_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+csrs	csrc/utils/reg.cpp	/^const char *csrs[] = {$/;"	v	typeref:typename:const char * []
+data	vsrc/top.v	/^import "DPI-C" function void pmem_write(input int unsigned addr, input int unsigned data, input /;"	p	function:NPCTRAP.pmem_write
+data_load	vsrc/EXU.v	/^	input  [31:0] data_load,$/;"	p	module:EXU
+data_load	vsrc/LSU.v	/^	output [31:0] data_load,$/;"	p	module:LSU
+data_load	vsrc/top.v	/^wire [31:0] data_load,data_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+data_store	vsrc/LSU.v	/^	input  [31:0] data_store,$/;"	p	module:LSU
+data_store	vsrc/top.v	/^wire [31:0] data_load,data_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+debug.o	obj_dir/Vtop.mk	/^debug.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/debug.cpp$/;"	t
+decode_exec	csrc/sim/sim.cpp	/^static int decode_exec(Decode *s){$/;"	f	typeref:typename:int	file:
+default	Makefile	/^default: run$/;"	t
+default	obj_dir/Vtop.mk	/^default: Vtop$/;"	t
+description	csrc/utils/sdb/sdb.cpp	/^  const char *description;$/;"	m	struct:__anon4f21e8d10108	typeref:typename:const char *	file:
+diff_isa_reg_display	csrc/utils/reg.cpp	/^uint32_t diff_isa_reg_display(CPU_state *ref,CPU_state *dut) {$/;"	f	typeref:typename:uint32_t
+diff_so_file	csrc/utils/sdb/sdb.cpp	/^char *diff_so_file = NULL;$/;"	v	typeref:typename:char *
+difftest_disable	csrc/utils/dut.cpp	/^void difftest_disable(void){$/;"	f	typeref:typename:void
+difftest_enable	csrc/utils/dut.cpp	/^void difftest_enable(void){$/;"	f	typeref:typename:void
+difftest_flags	csrc/utils/dut.cpp	/^bool difftest_flags = true;$/;"	v	typeref:typename:bool
+difftest_img_size	csrc/utils/dut.cpp	/^static long difftest_img_size;$/;"	v	typeref:typename:long	file:
+difftest_port	csrc/utils/sdb/sdb.cpp	/^int difftest_port = 1234;$/;"	v	typeref:typename:int
+difftest_skip_dut	csrc/utils/dut.cpp	/^void difftest_skip_dut(int nr_ref, int nr_dut) {$/;"	f	typeref:typename:void
+difftest_skip_ref	csrc/utils/dut.cpp	/^void difftest_skip_ref() {$/;"	f	typeref:typename:void
+difftest_step	csrc/utils/dut.cpp	/^void difftest_step(uint32_t pc, uint32_t npc) {$/;"	f	typeref:typename:void
+disable_sim_verbose	csrc/lightsss.cpp	/^void disable_sim_verbose() {$/;"	f	typeref:typename:void
+disasm.o	obj_dir/Vtop.mk	/^disasm.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/disasm.cpp$/;"	t
+disassemble	csrc/utils/disasm.cpp	/^void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte) {$/;"	f	typeref:typename:void
+dnpc	csrc/include/sim/sim.h	/^  uint32_t dnpc; $/;"	m	struct:Decode	typeref:typename:uint32_t
+do_clear	csrc/lightsss.cpp	/^int LightSSS::do_clear() {$/;"	f	class:LightSSS	typeref:typename:int
+do_fork	csrc/lightsss.cpp	/^int LightSSS::do_fork() {$/;"	f	class:LightSSS	typeref:typename:int
+dump_memory	csrc/utils/debug.cpp	/^void dump_memory() {$/;"	f	typeref:typename:void
+dut.o	obj_dir/Vtop.mk	/^dut.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/dut.cpp$/;"	t
+ebreak	vsrc/GPR.v	/^	input 				ebreak,$/;"	p	module:GPR
+ebreak	vsrc/IDU.v	/^	output				ebreak,$/;"	p	module:IDU
+ebreak	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+ecall	vsrc/IDU.v	/^	wire ecall,mret;$/;"	n	module:IDU
+ecall	vsrc/IFU.v	/^	wire ecall = (pc_cnt === 4'b1010);$/;"	n	module:IFU
+enable_sim_verbose	csrc/lightsss.cpp	/^void enable_sim_verbose() {  $/;"	f	typeref:typename:void
+endCycles	csrc/include/lightsss.h	/^  uint64_t endCycles;$/;"	m	struct:shinfo	typeref:typename:uint64_t
+engine_start	csrc/utils/sdb/sdb.cpp	/^void engine_start(){$/;"	f	typeref:typename:void
+entries	csrc/include/utils/iringbuf.h	/^  RingBufferEntry entries[RING_BUFFER_SIZE];$/;"	m	struct:__anon90350e7e0208	typeref:typename:RingBufferEntry[]
+eprintf	csrc/lightsss.cpp	/^int eprintf(const char *fmt, ...) {$/;"	f	typeref:typename:int
+eprintf_handle	csrc/lightsss.cpp	/^static eprintf_handle_t eprintf_handle = vprintf;                                               /;"	v	typeref:typename:eprintf_handle_t	file:
+eprintf_handle_t	csrc/include/common.h	/^typedef int (*eprintf_handle_t)(const char *fmt, va_list ap);$/;"	t	typeref:typename:int (*)(const char * fmt,va_list ap)
+eval	csrc/utils/sdb/expr.cpp	/^static uint32_t eval(int p,int q,bool *success){$/;"	f	typeref:typename:uint32_t	file:
+eval	obj_dir/Vtop.h	/^    void eval() { eval_step(); }$/;"	f	class:VL_NOT_FINAL	typeref:typename:void
+eval_end_step	obj_dir/Vtop.h	/^    void eval_end_step() {}$/;"	f	class:VL_NOT_FINAL	typeref:typename:void
+eval_step	obj_dir/Vtop.cpp	/^void Vtop::eval_step() {$/;"	f	class:Vtop	typeref:typename:void
+eventsPending	obj_dir/Vtop.cpp	/^bool Vtop::eventsPending() { return false; }$/;"	f	class:Vtop	typeref:typename:bool
+exec_once	csrc/sim/sim.cpp	/^static void exec_once(Decode *s, uint32_t pc) {$/;"	f	typeref:typename:void	file:
+execute	csrc/sim/sim.cpp	/^static void execute(uint64_t n) {$/;"	f	typeref:typename:void	file:
+expr	csrc/utils/sdb/expr.cpp	/^uint32_t expr(char *e, bool *success) {$/;"	f	typeref:typename:uint32_t
+expr	csrc/utils/sdb/watchpoint.cpp	/^  char expr[512];$/;"	m	struct:watchpoint	typeref:typename:char[512]	file:
+expr.o	obj_dir/Vtop.mk	/^expr.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/expr.cpp$/;"	t
+exu_t0	vsrc/top.v	/^EXU exu_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+final	obj_dir/Vtop.cpp	/^VL_ATTR_COLD void Vtop::final() {$/;"	f	class:Vtop	typeref:typename:VL_ATTR_COLD void
+find_major	csrc/utils/sdb/expr.cpp	/^int find_major(int p ,int q) {$/;"	f	typeref:typename:int
+flag	csrc/include/lightsss.h	/^  bool flag;$/;"	m	struct:shinfo	typeref:typename:bool
+forkshm	csrc/include/lightsss.h	/^  ForkShareMemory forkshm;$/;"	m	class:LightSSS	typeref:typename:ForkShareMemory
+fprintf_with_pid	csrc/include/common.h	/^#define fprintf_with_pid(/;"	d
+free_	csrc/utils/sdb/watchpoint.cpp	/^static WP *head = NULL, *free_ = NULL;$/;"	v	typeref:typename:WP *	file:
+free_wp	csrc/utils/sdb/watchpoint.cpp	/^void free_wp(WP *wp) {$/;"	f	typeref:typename:void
+ftrace.o	obj_dir/Vtop.mk	/^ftrace.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/ftrace.cpp$/;"	t
+ftrace_elf_file	csrc/utils/sdb/sdb.cpp	/^char *ftrace_elf_file = NULL;$/;"	v	typeref:typename:char *
+ftrace_translate	csrc/utils/ftrace.cpp	/^const char* ftrace_translate(uint32_t addr) {$/;"	f	typeref:typename:const char *
+fun3	vsrc/IDU.v	/^	wire [2:0] fun3;$/;"	n	module:IDU
+fun7	vsrc/IDU.v	/^	wire [6:0] fun7;$/;"	n	module:IDU
+gDisassembler	csrc/utils/disasm.cpp	/^static llvm::MCDisassembler *gDisassembler = nullptr;$/;"	v	typeref:typename:llvm::MCDisassembler *	file:
+gIP	csrc/utils/disasm.cpp	/^static llvm::MCInstPrinter *gIP = nullptr;$/;"	v	typeref:typename:llvm::MCInstPrinter *	file:
+gSTI	csrc/utils/disasm.cpp	/^static llvm::MCSubtargetInfo *gSTI = nullptr;$/;"	v	typeref:typename:llvm::MCSubtargetInfo *	file:
+g_execution_snapshot	csrc/sim/sim.cpp	/^static LightSSS g_execution_snapshot;$/;"	v	typeref:typename:LightSSS	file:
+g_instruction_count	csrc/sim/sim.cpp	/^static uint64_t g_instruction_count = 0;$/;"	v	typeref:typename:uint64_t	file:
+g_last_safe_point	csrc/sim/sim.cpp	/^static uint64_t g_last_safe_point = 0;$/;"	v	typeref:typename:uint64_t	file:
+gdb	Makefile	/^gdb: $/;"	t
+gdb	Makefile	/^gdb:CFLAGS   += -ggdb3$/;"	t
+gdb	Makefile	/^gdb:CXXFLAGS += -ggdb3$/;"	t
+get_end_cycles	csrc/include/lightsss.h	/^  uint64_t get_end_cycles() {$/;"	f	class:LightSSS	typeref:typename:uint64_t
+get_uptime_us	csrc/mem/memory.cpp	/^uint64_t get_uptime_us() {$/;"	f	typeref:typename:uint64_t
+gpr	csrc/include/sim/sim.h	/^  uint32_t gpr[32];$/;"	m	struct:__anoneae150c90208	typeref:typename:uint32_t[32]
+gpr_t0	vsrc/top.v	/^GPR gpr_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+halt_pc	csrc/include/sim/sim.h	/^  uint32_t halt_pc;$/;"	m	struct:__anoneae150c90508	typeref:typename:uint32_t
+halt_ret	csrc/include/sim/sim.h	/^  uint32_t halt_ret;$/;"	m	struct:__anoneae150c90508	typeref:typename:uint32_t
+handler	csrc/utils/sdb/sdb.cpp	/^  int (*handler) (char *);$/;"	m	struct:__anon4f21e8d10108	typeref:typename:int (*)(char *)	file:
+head	csrc/include/utils/iringbuf.h	/^  int head;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
+head	csrc/utils/sdb/watchpoint.cpp	/^static WP *head = NULL, *free_ = NULL;$/;"	v	typeref:typename:WP *	file:
+hierName	obj_dir/Vtop.cpp	/^const char* Vtop::hierName() const { return vlSymsp->name(); }$/;"	f	class:Vtop	typeref:typename:const char *
+host_to_guest	csrc/mem/memory.cpp	/^uint32_t host_to_guest(uint8_t *haddr) { return haddr - memory + CONFIG_MBASE; }$/;"	f	typeref:typename:uint32_t
+idu_t0	vsrc/top.v	/^IDU idu_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+ifu_pc	vsrc/top.v	/^wire [31:0] ifu_pc;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+ifu_t0	vsrc/top.v	/^IFU ifu_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+img_file	csrc/utils/sdb/sdb.cpp	/^static char *img_file = NULL;$/;"	v	typeref:typename:char *	file:
+imm	vsrc/EXU.v	/^	input  [31:0] imm,$/;"	p	module:EXU
+imm	vsrc/IDU.v	/^	output [31:0] imm,$/;"	p	module:IDU
+imm	vsrc/IFU.v	/^	input 		 [31:0]	imm,$/;"	p	module:IFU
+imm	vsrc/top.v	/^wire [31:0] imm;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+info	csrc/include/lightsss.h	/^  shinfo *info;$/;"	m	class:ForkShareMemory	typeref:typename:shinfo *
+init_difftest	csrc/utils/dut.cpp	/^void init_difftest(char *ref_so_file, long img_size, int port) {$/;"	f	typeref:typename:void
+init_disasm	csrc/utils/disasm.cpp	/^void init_disasm(const char *triple) {$/;"	f	typeref:typename:void
+init_ftrace	csrc/utils/ftrace.cpp	/^void init_ftrace() {$/;"	f	typeref:typename:void
+init_isa	csrc/utils/sdb/sdb.cpp	/^void init_isa(){$/;"	f	typeref:typename:void
+init_mem	csrc/mem/memory.cpp	/^void init_mem() {$/;"	f	typeref:typename:void
+init_monitor	csrc/utils/sdb/sdb.cpp	/^void init_monitor(int argc,char *argv[]){$/;"	f	typeref:typename:void
+init_regex	csrc/utils/sdb/expr.cpp	/^void init_regex() {$/;"	f	typeref:typename:void
+init_ringbuf	csrc/utils/iring.cpp	/^void init_ringbuf(RingBuffer *ringbuf){$/;"	f	typeref:typename:void
+init_sdb	csrc/utils/sdb/sdb.cpp	/^void init_sdb() {$/;"	f	typeref:typename:void
+init_wp_pool	csrc/utils/sdb/watchpoint.cpp	/^void init_wp_pool() {$/;"	f	typeref:typename:void
+ins_cnt	vsrc/EXU.v	/^	input  [ 5:0] ins_cnt $/;"	p	module:EXU
+ins_cnt	vsrc/IDU.v	/^	output [ 5:0] ins_cnt,$/;"	p	module:IDU
+ins_cnt	vsrc/top.v	/^wire [ 5:0] ins_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+inst	csrc/include/sim/sim.h	/^  } inst;$/;"	m	struct:__anoneae150c90308	typeref:union:__anoneae150c90308::__anoneae150c9040a
+inst	csrc/include/utils/iringbuf.h	/^  uint32_t inst;$/;"	m	struct:__anon90350e7e0108	typeref:typename:uint32_t
+inst	vsrc/IDU.v	/^	input  [31:0] inst,$/;"	p	module:IDU
+inst	vsrc/IFU.v	/^	output reg [31:0] inst,$/;"	p	module:IFU
+inst	vsrc/top.v	/^wire [31:0] inst;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+inst_str	csrc/include/utils/iringbuf.h	/^  char inst_str[128];$/;"	m	struct:__anon90350e7e0108	typeref:typename:char[128]
+io_read	csrc/include/macro.h	/^#define io_read(/;"	d
+io_write	csrc/include/macro.h	/^#define io_write(/;"	d
+ioaddr_t	csrc/include/common.h	/^typedef uint16_t ioaddr_t;$/;"	t	typeref:typename:uint16_t
+iring.o	obj_dir/Vtop.mk	/^iring.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/iring.cpp$/;"	t
+is_batch_mode	csrc/utils/sdb/sdb.cpp	/^static int is_batch_mode = false;$/;"	v	typeref:typename:int	file:
+is_child	csrc/lightsss.cpp	/^bool LightSSS::is_child() {$/;"	f	class:LightSSS	typeref:typename:bool
+is_exit_status_bad	csrc/sim/sim.cpp	/^int is_exit_status_bad() {   $/;"	f	typeref:typename:int
+is_skip_ref	csrc/utils/dut.cpp	/^static bool is_skip_ref = false;$/;"	v	typeref:typename:bool	file:
+isa	csrc/include/sim/sim.h	/^  ISADecodeInfo isa;$/;"	m	struct:Decode	typeref:typename:ISADecodeInfo
+isa_difftest_checkregs	csrc/utils/dut.cpp	/^bool isa_difftest_checkregs(CPU_state *ref_r, uint32_t pc) {$/;"	f	typeref:typename:bool
+isa_exec_once	csrc/sim/sim.cpp	/^int isa_exec_once(Decode *s){$/;"	f	typeref:typename:int
+isa_reg_display	csrc/utils/reg.cpp	/^void isa_reg_display() {$/;"	f	typeref:typename:void
+isa_reg_str2val	csrc/utils/reg.cpp	/^uint32_t isa_reg_str2val(const char *s, bool *success) {$/;"	f	typeref:typename:uint32_t
+isdef	csrc/include/macro.h	/^#define isdef(/;"	d
+jal	vsrc/EXU.v	/^	input					jal,$/;"	p	module:EXU
+jal	vsrc/IDU.v	/^	output				jal,$/;"	p	module:IDU
+jal	vsrc/IFU.v	/^	wire jal   = (pc_cnt === 4'b0111);$/;"	n	module:IFU
+jal	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+jal_count	csrc/utils/ftrace.cpp	/^static int jal_count = 0;$/;"	v	typeref:typename:int	file:
+jalr	vsrc/EXU.v	/^	input 				jalr,$/;"	p	module:EXU
+jalr	vsrc/IDU.v	/^	output 				jalr$/;"	p	module:IDU
+jalr	vsrc/IFU.v	/^	wire jalr  = (pc_cnt === 4'b1000);$/;"	n	module:IFU
+jalr	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+key_n	csrc/include/lightsss.h	/^  key_t key_n;$/;"	m	class:ForkShareMemory	typeref:typename:key_t
+last_fname	csrc/utils/ftrace.cpp	/^static char* last_fname = NULL;$/;"	v	typeref:typename:char *	file:
+lightsss.o	obj_dir/Vtop.mk	/^lightsss.o: \/home\/furiosa\/my_cpu\/csrc\/lightsss.cpp$/;"	t
+likely	csrc/include/macro.h	/^#define likely(/;"	d
+load	vsrc/EXU.v	/^	input					load,$/;"	p	module:EXU
+load	vsrc/IDU.v	/^	output				load,$/;"	p	module:IDU
+load	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+loadFileToMemory	csrc/mem/memory.cpp	/^bool loadFileToMemory(const std::string& path, uint8_t* mem, size_t size) {$/;"	f	typeref:typename:bool
+load_img	csrc/utils/sdb/sdb.cpp	/^long load_img() {$/;"	f	typeref:typename:long
+log_file	csrc/utils/sdb/sdb.cpp	/^static char *log_file = NULL;$/;"	v	typeref:typename:char *	file:
+log_write	csrc/include/utils/color.h	/^#define log_write(/;"	d
+lsu_cnt	vsrc/IDU.v	/^	output [ 3:0] lsu_cnt,$/;"	p	module:IDU
+lsu_cnt	vsrc/LSU.v	/^	input  [ 3:0] lsu_cnt,$/;"	p	module:LSU
+lsu_cnt	vsrc/top.v	/^wire [ 3:0] lsu_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+lsu_t0	vsrc/top.v	/^LSU lsu_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
+lui	vsrc/EXU.v	/^	input 				lui,$/;"	p	module:EXU
+lui	vsrc/IDU.v	/^	output 				lui,$/;"	p	module:IDU
+lui	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+main	csrc/include/config/config_cli.py	/^def main():$/;"	f
+main	csrc/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
+main.o	obj_dir/Vtop.mk	/^main.o: \/home\/furiosa\/my_cpu\/csrc\/main.cpp$/;"	t
+make_token	csrc/utils/sdb/expr.cpp	/^static bool make_token(char *e) {$/;"	f	typeref:typename:bool	file:
+mcause	vsrc/CSR.v	/^	reg [31:0] mcause ;$/;"	r	module:CSR
+mem_cnt	vsrc/GPR.v	/^	input         mem_cnt $/;"	p	module:GPR
+mem_cnt	vsrc/IDU.v	/^	output        mem_cnt,$/;"	p	module:IDU
+mem_cnt	vsrc/top.v	/^wire        mem_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+memory	csrc/mem/memory.cpp	/^uint8_t memory[MEMORY_SIZE];$/;"	v	typeref:typename:uint8_t[]
+memory.o	obj_dir/Vtop.mk	/^memory.o: \/home\/furiosa\/my_cpu\/csrc\/mem\/memory.cpp$/;"	t
+mepc	vsrc/CSR.v	/^	reg [31:0] mepc   ;$/;"	r	module:CSR
+mmio_read	csrc/mem/memory.cpp	/^uint32_t mmio_read(uint32_t addr_in, int size) {$/;"	f	typeref:typename:uint32_t
+mmio_write	csrc/mem/memory.cpp	/^void mmio_write(uint32_t addr_in, uint32_t data, int size) {$/;"	f	typeref:typename:void
+modelName	obj_dir/Vtop.cpp	/^const char* Vtop::modelName() const { return "Vtop"; }$/;"	f	class:Vtop	typeref:typename:const char *
+mret	vsrc/IDU.v	/^	wire ecall,mret;$/;"	n	module:IDU
+mret	vsrc/IFU.v	/^	wire mret  = (pc_cnt === 4'b1001);$/;"	n	module:IFU
+mstatus	vsrc/CSR.v	/^	reg [31:0] mstatus;$/;"	r	module:CSR
+mtvec	vsrc/CSR.v	/^	reg [31:0] mtvec  ;$/;"	r	module:CSR
+name	csrc/utils/sdb/sdb.cpp	/^  const char *name;$/;"	m	struct:__anon4f21e8d10108	typeref:typename:const char *	file:
+name	obj_dir/Vtop.cpp	/^const char* Vtop::name() const {$/;"	f	class:Vtop	typeref:typename:const char *
+name	obj_dir/Vtop__Syms.h	/^    const char* name() { return TOP.name(); }$/;"	f	class:Vtop__Syms	typeref:typename:const char *
+nemu_state	csrc/sim/sim.cpp	/^NEMUState nemu_state = { .state = NEMU_STOP };  $/;"	v	typeref:typename:NEMUState
+new_wp	csrc/utils/sdb/watchpoint.cpp	/^static WP* new_wp() {$/;"	f	typeref:typename:WP *	file:
+next	csrc/utils/sdb/watchpoint.cpp	/^  struct watchpoint *next;$/;"	m	struct:watchpoint	typeref:struct:watchpoint *	file:
+nextTimeSlot	obj_dir/Vtop.cpp	/^uint64_t Vtop::nextTimeSlot() {$/;"	f	class:Vtop	typeref:typename:uint64_t
+notgood	csrc/include/lightsss.h	/^  bool notgood;$/;"	m	struct:shinfo	typeref:typename:bool
+nr_token	csrc/utils/sdb/expr.cpp	/^static int nr_token __attribute__((used))  = 0;$/;"	v	typeref:typename:int	file:
+obj_dir/Vtop	Makefile	/^obj_dir\/Vtop: $(CXX_SRC) $(V_SRC)$/;"	t
+old	csrc/utils/sdb/watchpoint.cpp	/^  uint32_t old;\/\/讲义默认32位无符号数$/;"	m	struct:watchpoint	typeref:typename:uint32_t	file:
+oldest	csrc/include/lightsss.h	/^  pid_t oldest;$/;"	m	struct:shinfo	typeref:typename:pid_t
+opcode	vsrc/IDU.v	/^	wire [6:0] opcode;$/;"	n	module:IDU
+panic	csrc/include/common.h	/^#define panic(/;"	d
+parse_args	csrc/utils/sdb/sdb.cpp	/^int parse_args(int argc, char *argv[]) {$/;"	f	typeref:typename:int
+pc	csrc/include/sim/sim.h	/^  uint32_t pc;$/;"	m	struct:Decode	typeref:typename:uint32_t
+pc	csrc/include/sim/sim.h	/^  uint32_t pc;$/;"	m	struct:__anoneae150c90208	typeref:typename:uint32_t
+pc	csrc/include/utils/iringbuf.h	/^  uint32_t pc;$/;"	m	struct:__anon90350e7e0108	typeref:typename:uint32_t
+pc	vsrc/top.v	/^import "DPI-C" function void NPCTRAP(input int unsigned pc, input int x10);$/;"	p	function:NPCTRAP
+pc_cnt	vsrc/EXU.v	/^	input  [ 3:0] pc_cnt,$/;"	p	module:EXU
+pc_cnt	vsrc/IDU.v	/^	output [ 3:0] pc_cnt,$/;"	p	module:IDU
+pc_cnt	vsrc/IFU.v	/^	input 		 [ 3:0] pc_cnt  $/;"	p	module:IFU
+pc_cnt	vsrc/top.v	/^wire [ 3:0] pc_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+pc_in	vsrc/CSR.v	/^	input  [31:0] pc_in,$/;"	p	module:CSR
+pc_in	vsrc/EXU.v	/^	input  [31:0] pc_in,$/;"	p	module:EXU
+pc_in	vsrc/GPR.v	/^	input  [31:0] pc_in,$/;"	p	module:GPR
+pc_out	vsrc/IFU.v	/^	output reg [31:0] pc_out ,$/;"	p	module:IFU
+pid	csrc/include/lightsss.h	/^  pid_t pid = -1;$/;"	m	class:LightSSS	typeref:typename:pid_t
+pidSlot	csrc/include/lightsss.h	/^  std::deque<pid_t> pidSlot = {};$/;"	m	class:LightSSS	typeref:typename:std::deque<pid_t>
+pmem_read	csrc/mem/memory.cpp	/^uint32_t pmem_read(uint32_t addr, int size) {$/;"	f	typeref:typename:uint32_t
+pmem_read	vsrc/top.v	/^import "DPI-C" function int unsigned pmem_read(input int unsigned addr, input int size);$/;"	f	function:NPCTRAP.pmem_write
+pmem_write	csrc/mem/memory.cpp	/^void pmem_write(uint32_t addr, uint32_t data, int size) {$/;"	f	typeref:typename:void
+pmem_write	vsrc/top.v	/^import "DPI-C" function void pmem_write(input int unsigned addr, input int unsigned data, input /;"	f	function:NPCTRAP
+print_ringbuf	csrc/utils/iring.cpp	/^void print_ringbuf(RingBuffer *ringbuf){$/;"	f	typeref:typename:void
+printf_with_pid	csrc/include/common.h	/^#define printf_with_pid(/;"	d
+raddr1	vsrc/GPR.v	/^	input  [ 4:0] raddr1,$/;"	p	module:GPR
+raddr1	vsrc/top.v	/^wire [ 4:0] raddr1,raddr2,waddr;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+raddr2	vsrc/GPR.v	/^	input  [ 4:0] raddr2,$/;"	p	module:GPR
+raddr2	vsrc/top.v	/^wire [ 4:0] raddr1,raddr2,waddr;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+rd	vsrc/IDU.v	/^	output [ 4:0] rd,$/;"	p	module:IDU
+rdata	vsrc/CSR.v	/^	output [31:0] rdata$/;"	p	module:CSR
+rdata1	vsrc/EXU.v	/^	input  [31:0] rdata1,$/;"	p	module:EXU
+rdata1	vsrc/GPR.v	/^	output [31:0] rdata1,$/;"	p	module:GPR
+rdata1	vsrc/top.v	/^wire [31:0] rdata1,rdata2,wdata;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+rdata2	vsrc/EXU.v	/^	input  [31:0] rdata2,$/;"	p	module:EXU
+rdata2	vsrc/GPR.v	/^	output [31:0] rdata2,$/;"	p	module:GPR
+rdata2	vsrc/top.v	/^wire [31:0] rdata1,rdata2,wdata;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+re	csrc/utils/sdb/expr.cpp	/^static regex_t re[NR_REGEX] = {};$/;"	v	typeref:typename:regex_t[]	file:
+record_wave_near_checkpoint	csrc/sim/sim.cpp	/^static bool record_wave_near_checkpoint = false;$/;"	v	typeref:typename:bool	file:
+ref_difftest_exec	csrc/utils/dut.cpp	/^void (*ref_difftest_exec)(uint64_t n) = NULL;$/;"	v	typeref:typename:void (*)(uint64_t n)
+ref_difftest_memcpy	csrc/utils/dut.cpp	/^void (*ref_difftest_memcpy)(uint32_t addr, void *buf, size_t n, bool direction) = NULL;$/;"	v	typeref:typename:void (*)(uint32_t addr,void * buf,size_t n,bool direction)
+ref_difftest_raise_intr	csrc/utils/dut.cpp	/^void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;$/;"	v	typeref:typename:void (*)(uint64_t NO)
+ref_difftest_regcpy	csrc/utils/dut.cpp	/^void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;$/;"	v	typeref:typename:void (*)(void * dut,bool direction)
+reg.o	obj_dir/Vtop.mk	/^reg.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/reg.cpp$/;"	t
+regex	csrc/utils/sdb/expr.cpp	/^  const char *regex;$/;"	m	struct:rule	typeref:typename:const char *	file:
+regs	csrc/utils/reg.cpp	/^const char *regs[] = {$/;"	v	typeref:typename:const char * []
+reset	vsrc/CSR.v	/^	input 				reset,$/;"	p	module:CSR
+reset	vsrc/GPR.v	/^	input 				reset,$/;"	p	module:GPR
+reset	vsrc/IFU.v	/^	input 						reset,$/;"	p	module:IFU
+reset	vsrc/top.v	/^	input 			  reset $/;"	p	module:NPCTRAP.pmem_write.pmem_read.top
+ret	vsrc/IFU.v	/^	input 		 [31:0] ret,$/;"	p	module:IFU
+return_num	csrc/utils/sdb/expr.cpp	/^static uint32_t return_num(int i,bool *success) {$/;"	f	typeref:typename:uint32_t	file:
+rf	vsrc/GPR.v	/^	reg [31:0] rf [0:31];$/;"	r	module:GPR
+riscv32_CPU_state	csrc/include/sim/sim.h	/^} riscv32_CPU_state;$/;"	t	typeref:struct:__anoneae150c90208
+riscv32_ISADecodeInfo	csrc/include/sim/sim.h	/^} riscv32_ISADecodeInfo;$/;"	t	typeref:struct:__anoneae150c90308
+rl_gets	csrc/utils/sdb/sdb.cpp	/^static char* rl_gets() {$/;"	f	typeref:typename:char *	file:
+root	csrc/sim/sim.cpp	/^Vtop___024root* root;$/;"	v	typeref:typename:Vtop___024root *
+rootp	obj_dir/Vtop.h	/^    Vtop___024root* const rootp;$/;"	m	class:VL_NOT_FINAL	typeref:typename:Vtop___024root * const
+rs1	vsrc/IDU.v	/^	output [ 4:0] rs1,$/;"	p	module:IDU
+rs2	vsrc/IDU.v	/^	output [ 4:0] rs2,$/;"	p	module:IDU
+rst_begin	csrc/sim/sim.cpp	/^void rst_begin(){$/;"	f	typeref:typename:void
+rule	csrc/utils/sdb/expr.cpp	/^static struct rule {$/;"	s	file:
+rules	csrc/utils/sdb/expr.cpp	/^} rules[] = {$/;"	v	typeref:struct:rule[]
+run	Makefile	/^run: obj_dir\/Vtop$/;"	t
+sdb.o	obj_dir/Vtop.mk	/^sdb.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/sdb.cpp$/;"	t
+sdb_mainloop	csrc/utils/sdb/sdb.cpp	/^void sdb_mainloop() {$/;"	f	typeref:typename:void
+sdb_set_batch_mode	csrc/utils/sdb/sdb.cpp	/^void sdb_set_batch_mode() {$/;"	f	typeref:typename:void
+set_nemu_state	csrc/sim/sim.cpp	/^void set_nemu_state(int state, uint32_t pc, int halt_ret) {$/;"	f	typeref:typename:void
+shdrs	csrc/utils/ftrace.cpp	/^Elf32_Shdr *shdrs = NULL;$/;"	v	typeref:typename:Elf32_Shdr *
+shift_temp	vsrc/EXU.v	/^	wire  [63:0]  shift_temp ;$/;"	n	module:EXU
+shinfo	csrc/include/lightsss.h	/^typedef struct shinfo {$/;"	s
+shinfo	csrc/include/lightsss.h	/^} shinfo;$/;"	t	typeref:struct:shinfo
+shm_id	csrc/include/lightsss.h	/^  int shm_id;$/;"	m	class:ForkShareMemory	typeref:typename:int
+should_checkpoint	csrc/sim/sim.cpp	/^bool should_checkpoint;$/;"	v	typeref:typename:bool
+shwait	csrc/lightsss.cpp	/^void ForkShareMemory::shwait() {$/;"	f	class:ForkShareMemory	typeref:typename:void
+sim.o	obj_dir/Vtop.mk	/^sim.o: \/home\/furiosa\/my_cpu\/csrc\/sim\/sim.cpp$/;"	t
+sim_init	csrc/sim/sim.cpp	/^void sim_init(){$/;"	f	typeref:typename:void
+sim_verbose	csrc/lightsss.cpp	/^bool sim_verbose = true;$/;"	v	typeref:typename:bool
+size	vsrc/top.v	/^import "DPI-C" function int unsigned pmem_read(input int unsigned addr, input int size);$/;"	p	function:NPCTRAP.pmem_write.pmem_read
+size	vsrc/top.v	/^import "DPI-C" function void pmem_write(input int unsigned addr, input int unsigned data, input /;"	p	function:NPCTRAP.pmem_write
+skip_dut_nr_inst	csrc/utils/dut.cpp	/^static int skip_dut_nr_inst = 0;$/;"	v	typeref:typename:int	file:
+slotCnt	csrc/include/lightsss.h	/^  int slotCnt = 0;$/;"	m	class:LightSSS	typeref:typename:int
+snpc	csrc/include/sim/sim.h	/^  uint32_t snpc; $/;"	m	struct:Decode	typeref:typename:uint32_t
+special_type	csrc/utils/sdb/expr.cpp	/^#define special_type(/;"	d	file:
+specialtype	csrc/utils/sdb/expr.cpp	/^static bool specialtype(int type,int types[],int size) {$/;"	f	typeref:typename:bool	file:
+startup_time	csrc/mem/memory.cpp	/^static const auto startup_time = std::chrono::steady_clock::now();$/;"	v	typeref:typename:const auto	file:
+state	csrc/include/sim/sim.h	/^  int state;$/;"	m	struct:__anoneae150c90508	typeref:typename:int
+step_and_dump_wave	csrc/sim/sim.cpp	/^void step_and_dump_wave(){$/;"	f	typeref:typename:void
+str	csrc/include/macro.h	/^#define str(/;"	d
+str	csrc/utils/sdb/expr.cpp	/^  char str[32];$/;"	m	struct:token	typeref:typename:char[32]	file:
+str_temp	csrc/include/macro.h	/^#define str_temp(/;"	d
+strtab	csrc/utils/ftrace.cpp	/^char *strtab = NULL;$/;"	v	typeref:typename:char *
+symtab	csrc/utils/ftrace.cpp	/^Elf32_Sym *symtab = NULL;$/;"	v	typeref:typename:Elf32_Sym *
+symtab_size	csrc/utils/ftrace.cpp	/^int symtab_size = 0;$/;"	v	typeref:typename:int
+tail	csrc/include/utils/iringbuf.h	/^  int tail;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
+target_pc	vsrc/IFU.v	/^	wire [31:0] target_pc;$/;"	n	module:IFU
+temp	vsrc/CSR.v	/^	wire [31:0] temp;$/;"	n	module:CSR
+temp	vsrc/LSU.v	/^	reg [31:0] temp;$/;"	r	module:LSU
+tfp	csrc/sim/sim.cpp	/^VerilatedVcdC* tfp ;$/;"	v	typeref:typename:VerilatedVcdC *
+threads	obj_dir/Vtop.cpp	/^unsigned Vtop::threads() const { return 1; }$/;"	f	class:Vtop	typeref:typename:unsigned
+token	csrc/utils/sdb/expr.cpp	/^typedef struct token {$/;"	s	file:
+token_type	csrc/utils/sdb/expr.cpp	/^  int token_type;$/;"	m	struct:rule	typeref:typename:int	file:
+tokens	csrc/utils/sdb/expr.cpp	/^static Token tokens[1024] __attribute__((used)) = {};$/;"	v	typeref:typename:Token[1024]	file:
+top	csrc/sim/sim.cpp	/^Vtop* top;$/;"	v	typeref:typename:Vtop *
+top	vsrc/top.v	/^module top($/;"	m	function:NPCTRAP.pmem_write.pmem_read
+top__DOT__addr_load	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__addr_load;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__alu_cnt	obj_dir/Vtop___024root.h	/^    CData\/*3:0*\/ top__DOT__alu_cnt;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__csr_cnt	obj_dir/Vtop___024root.h	/^    CData\/*2:0*\/ top__DOT__csr_cnt;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__csr_data	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_data;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__csr_imm	obj_dir/Vtop___024root.h	/^    SData\/*11:0*\/ top__DOT__csr_imm;$/;"	m	class:Vtop___024root	typeref:typename:SData
+top__DOT__csr_t0__DOT__mcause	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_t0__DOT__mcause;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__csr_t0__DOT__mepc	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_t0__DOT__mepc;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__csr_t0__DOT__mstatus	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_t0__DOT__mstatus;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__csr_t0__DOT__mtvec	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_t0__DOT__mtvec;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__csr_t0__DOT__temp	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__csr_t0__DOT__temp;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__exu_t0__DOT__IType	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ top__DOT__exu_t0__DOT__IType;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__exu_t0__DOT__UType	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ top__DOT__exu_t0__DOT__UType;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__exu_t0__DOT____VdfgTmp_h194da086__0	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__exu_t0__DOT____VdfgTmp_h194da086__0;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__exu_t0__DOT____VdfgTmp_h4c4a572f__0	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ top__DOT__exu_t0__DOT____VdfgTmp_h4c4a572f__0;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__exu_t0__DOT____VdfgTmp_h4c5ef41f__0	obj_dir/Vtop___024root.h	/^    CData\/*0:0*\/ top__DOT__exu_t0__DOT____VdfgTmp_h4c5ef41f__0;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__exu_t0__DOT____VdfgTmp_hc86b8aa2__0	obj_dir/Vtop___024root.h	/^    CData\/*4:0*\/ top__DOT__exu_t0__DOT____VdfgTmp_hc86b8aa2__0;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__exu_t0__DOT__alu_a	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__exu_t0__DOT__alu_a;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__exu_t0__DOT__alu_b	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__exu_t0__DOT__alu_b;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__gpr_t0__DOT__rf	obj_dir/Vtop___024root.h	/^    VlUnpacked<IData\/*31:0*\/, 32> top__DOT__gpr_t0__DOT__rf;$/;"	m	class:Vtop___024root	typeref:typename:VlUnpacked<IData,32>
+top__DOT__gpr_t0__DOT__unnamedblk1__DOT__i	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__gpr_t0__DOT__unnamedblk1__DOT__i;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__idu_t0__DOT____VdfgTmp_h5d003edb__0	obj_dir/Vtop___024root.h	/^    CData\/*3:0*\/ top__DOT__idu_t0__DOT____VdfgTmp_h5d003edb__0;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__ifu_pc	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__ifu_pc;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__ifu_t0__DOT____VdfgTmp_hbd6b7a64__0	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__ifu_t0__DOT____VdfgTmp_hbd6b7a64__0;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__ifu_t0__DOT__target_pc	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__ifu_t0__DOT__target_pc;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__imm	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__imm;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__inst	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__inst;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__lsu_cnt	obj_dir/Vtop___024root.h	/^    CData\/*3:0*\/ top__DOT__lsu_cnt;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__lsu_t0__DOT__temp	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__lsu_t0__DOT__temp;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__pc_cnt	obj_dir/Vtop___024root.h	/^    CData\/*3:0*\/ top__DOT__pc_cnt;$/;"	m	class:Vtop___024root	typeref:typename:CData
+top__DOT__rdata1	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__rdata1;$/;"	m	class:Vtop___024root	typeref:typename:IData
+top__DOT__rdata2	obj_dir/Vtop___024root.h	/^    IData\/*31:0*\/ top__DOT__rdata2;$/;"	m	class:Vtop___024root	typeref:typename:IData
+trace	obj_dir/Vtop.cpp	/^VL_ATTR_COLD void Vtop::trace(VerilatedVcdC* tfp, int levels, int options) {$/;"	f	class:Vtop	typeref:typename:VL_ATTR_COLD void
+traceConfig	obj_dir/Vtop.cpp	/^std::unique_ptr<VerilatedTraceConfig> Vtop::traceConfig() const {$/;"	f	class:Vtop	typeref:typename:std::unique_ptr<VerilatedTraceConfig>
+trace_init	obj_dir/Vtop.cpp	/^VL_ATTR_COLD static void trace_init(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {$/;"	f	typeref:typename:VL_ATTR_COLD void	file:
+type	csrc/utils/sdb/expr.cpp	/^  int type;$/;"	m	struct:token	typeref:typename:int	file:
+type1	csrc/utils/sdb/expr.cpp	/^static int type1[] = {TK_NEG,TK_DEREF,TK_POS};\/\/-，*,+$/;"	v	typeref:typename:int[]	file:
+type2	csrc/utils/sdb/expr.cpp	/^static int type2[] = {')',TK_NUM,TK_REG};$/;"	v	typeref:typename:int[]	file:
+type3	csrc/utils/sdb/expr.cpp	/^static int type3[] = {'(',')',TK_NUM,TK_REG};$/;"	v	typeref:typename:int[]	file:
+unlikely	csrc/include/macro.h	/^#define unlikely(/;"	d
+vaddr_ifetch	csrc/mem/memory.cpp	/^uint32_t vaddr_ifetch(uint32_t addr, int len) {$/;"	f	typeref:typename:uint32_t
+vaddr_read	csrc/mem/memory.cpp	/^uint32_t vaddr_read(uint32_t addr, int len) {$/;"	f	typeref:typename:uint32_t
+vaddr_write	csrc/mem/memory.cpp	/^void vaddr_write(uint32_t addr, int len, uint32_t data) {$/;"	f	typeref:typename:void
+val	csrc/include/sim/sim.h	/^    uint32_t val;$/;"	m	union:__anoneae150c90308::__anoneae150c9040a	typeref:typename:uint32_t
+vlSymsp	obj_dir/Vtop.h	/^    Vtop__Syms* const vlSymsp;$/;"	m	class:VL_NOT_FINAL	typeref:typename:Vtop__Syms * const
+vlSymsp	obj_dir/Vtop___024root.h	/^    Vtop__Syms* const vlSymsp;$/;"	m	class:Vtop___024root	typeref:typename:Vtop__Syms * const
+vlSymsp	obj_dir/Vtop___024unit.h	/^    Vtop__Syms* const vlSymsp;$/;"	m	class:Vtop___024unit	typeref:typename:Vtop__Syms * const
+waddr	vsrc/GPR.v	/^	input  [ 4:0] waddr,$/;"	p	module:GPR
+waddr	vsrc/top.v	/^wire [ 4:0] raddr1,raddr2,waddr;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+waitProcess	csrc/include/lightsss.h	/^  int waitProcess = 0;$/;"	m	class:LightSSS	typeref:typename:int
+wakeup_child	csrc/lightsss.cpp	/^int LightSSS::wakeup_child(uint64_t cycles) {$/;"	f	class:LightSSS	typeref:typename:int
+watchpoint	csrc/utils/sdb/watchpoint.cpp	/^typedef struct watchpoint {$/;"	s	file:
+watchpoint.o	obj_dir/Vtop.mk	/^watchpoint.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/watchpoint.cpp$/;"	t
+wave	Makefile	/^wave:$/;"	t
+wave_record_start_time	csrc/sim/sim.cpp	/^static uint64_t wave_record_start_time = 0;$/;"	v	typeref:typename:uint64_t	file:
+wdata	vsrc/CSR.v	/^	input  [31:0] wdata,$/;"	p	module:CSR
+wdata	vsrc/GPR.v	/^	input	 [31:0] wdata,$/;"	p	module:GPR
+wdata	vsrc/top.v	/^wire [31:0] rdata1,rdata2,wdata;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
+wen	vsrc/GPR.v	/^	wire wen;$/;"	n	module:GPR
+wp_check	csrc/utils/sdb/watchpoint.cpp	/^void wp_check() {$/;"	f	typeref:typename:void
+wp_iterate	csrc/utils/sdb/watchpoint.cpp	/^void wp_iterate() {$/;"	f	typeref:typename:void
+wp_pool	csrc/utils/sdb/watchpoint.cpp	/^static WP wp_pool[NR_WP] = {};$/;"	v	typeref:typename:WP[]	file:
+wp_remove	csrc/utils/sdb/watchpoint.cpp	/^void wp_remove(int no) {$/;"	f	typeref:typename:void
+wp_watch	csrc/utils/sdb/watchpoint.cpp	/^void wp_watch(char *args,uint32_t res) {$/;"	f	typeref:typename:void
+x10	vsrc/top.v	/^import "DPI-C" function void NPCTRAP(input int unsigned pc, input int x10);$/;"	p	function:NPCTRAP
+~ForkShareMemory	csrc/lightsss.cpp	/^ForkShareMemory::~ForkShareMemory() {$/;"	f	class:ForkShareMemory
+~Vtop	obj_dir/Vtop.cpp	/^Vtop::~Vtop() {$/;"	f	class:Vtop
+~Vtop__Syms	obj_dir/Vtop__Syms.cpp	/^Vtop__Syms::~Vtop__Syms()$/;"	f	class:Vtop__Syms
+~Vtop___024root	obj_dir/Vtop___024root__Slow.cpp	/^Vtop___024root::~Vtop___024root() {$/;"	f	class:Vtop___024root
+~Vtop___024unit	obj_dir/Vtop___024unit__Slow.cpp	/^Vtop___024unit::~Vtop___024unit() {$/;"	f	class:Vtop___024unit
