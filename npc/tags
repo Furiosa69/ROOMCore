@@ -4,7 +4,7 @@
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/furiosa/my_cpu/	//
+!_TAG_PROC_CWD	/home/furiosa/ysyx-workbench/npc/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
@@ -106,6 +106,7 @@ Info	csrc/include/common.h	/^#define Info(/;"	d
 JType	vsrc/EXU.v	/^	wire UType,JType,BType,IType,SType,RType;$/;"	n	module:EXU
 JType	vsrc/IDU.v	/^	wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:IDU
 KBD_ADDR	csrc/mem/memory.cpp	/^#define KBD_ADDR /;"	d	file:
+LOG	README.md	/^### LOG$/;"	S	section:my_cpu""此项目为 ysyx_24080018 个人搭建的 CPU。
 LOG_TRACE_READ	csrc/mem/memory.cpp	/^	#define LOG_TRACE_READ(/;"	d	file:
 LOG_TRACE_WRITE	csrc/mem/memory.cpp	/^	#define LOG_TRACE_WRITE(/;"	d	file:
 LSU	vsrc/LSU.v	/^module LSU ($/;"	m
@@ -399,7 +400,7 @@ data_load	vsrc/LSU.v	/^	output [31:0] data_load,$/;"	p	module:LSU
 data_load	vsrc/top.v	/^wire [31:0] data_load,data_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
 data_store	vsrc/LSU.v	/^	input  [31:0] data_store,$/;"	p	module:LSU
 data_store	vsrc/top.v	/^wire [31:0] data_load,data_store;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
-debug.o	obj_dir/Vtop.mk	/^debug.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/debug.cpp$/;"	t
+debug.o	obj_dir/Vtop.mk	/^debug.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/debug.cpp$/;"	t
 decode_exec	csrc/sim/sim.cpp	/^static int decode_exec(Decode *s){$/;"	f	typeref:typename:int	file:
 default	Makefile	/^default: run$/;"	t
 default	obj_dir/Vtop.mk	/^default: Vtop$/;"	t
@@ -415,13 +416,13 @@ difftest_skip_dut	csrc/utils/dut.cpp	/^void difftest_skip_dut(int nr_ref, int nr
 difftest_skip_ref	csrc/utils/dut.cpp	/^void difftest_skip_ref() {$/;"	f	typeref:typename:void
 difftest_step	csrc/utils/dut.cpp	/^void difftest_step(uint32_t pc, uint32_t npc) {$/;"	f	typeref:typename:void
 disable_sim_verbose	csrc/lightsss.cpp	/^void disable_sim_verbose() {$/;"	f	typeref:typename:void
-disasm.o	obj_dir/Vtop.mk	/^disasm.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/disasm.cpp$/;"	t
+disasm.o	obj_dir/Vtop.mk	/^disasm.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/disasm.cpp$/;"	t
 disassemble	csrc/utils/disasm.cpp	/^void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte) {$/;"	f	typeref:typename:void
 dnpc	csrc/include/sim/sim.h	/^  uint32_t dnpc; $/;"	m	struct:Decode	typeref:typename:uint32_t
 do_clear	csrc/lightsss.cpp	/^int LightSSS::do_clear() {$/;"	f	class:LightSSS	typeref:typename:int
 do_fork	csrc/lightsss.cpp	/^int LightSSS::do_fork() {$/;"	f	class:LightSSS	typeref:typename:int
 dump_memory	csrc/utils/debug.cpp	/^void dump_memory() {$/;"	f	typeref:typename:void
-dut.o	obj_dir/Vtop.mk	/^dut.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/dut.cpp$/;"	t
+dut.o	obj_dir/Vtop.mk	/^dut.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/dut.cpp$/;"	t
 ebreak	vsrc/GPR.v	/^	input 				ebreak,$/;"	p	module:GPR
 ebreak	vsrc/IDU.v	/^	output				ebreak,$/;"	p	module:IDU
 ebreak	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
@@ -443,7 +444,7 @@ exec_once	csrc/sim/sim.cpp	/^static void exec_once(Decode *s, uint32_t pc) {$/;"
 execute	csrc/sim/sim.cpp	/^static void execute(uint64_t n) {$/;"	f	typeref:typename:void	file:
 expr	csrc/utils/sdb/expr.cpp	/^uint32_t expr(char *e, bool *success) {$/;"	f	typeref:typename:uint32_t
 expr	csrc/utils/sdb/watchpoint.cpp	/^  char expr[512];$/;"	m	struct:watchpoint	typeref:typename:char[512]	file:
-expr.o	obj_dir/Vtop.mk	/^expr.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/expr.cpp$/;"	t
+expr.o	obj_dir/Vtop.mk	/^expr.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/expr.cpp$/;"	t
 exu_t0	vsrc/top.v	/^EXU exu_t0($/;"	i	module:NPCTRAP.pmem_write.pmem_read.top
 final	obj_dir/Vtop.cpp	/^VL_ATTR_COLD void Vtop::final() {$/;"	f	class:Vtop	typeref:typename:VL_ATTR_COLD void
 find_major	csrc/utils/sdb/expr.cpp	/^int find_major(int p ,int q) {$/;"	f	typeref:typename:int
@@ -452,7 +453,7 @@ forkshm	csrc/include/lightsss.h	/^  ForkShareMemory forkshm;$/;"	m	class:LightSS
 fprintf_with_pid	csrc/include/common.h	/^#define fprintf_with_pid(/;"	d
 free_	csrc/utils/sdb/watchpoint.cpp	/^static WP *head = NULL, *free_ = NULL;$/;"	v	typeref:typename:WP *	file:
 free_wp	csrc/utils/sdb/watchpoint.cpp	/^void free_wp(WP *wp) {$/;"	f	typeref:typename:void
-ftrace.o	obj_dir/Vtop.mk	/^ftrace.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/ftrace.cpp$/;"	t
+ftrace.o	obj_dir/Vtop.mk	/^ftrace.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/ftrace.cpp$/;"	t
 ftrace_elf_file	csrc/utils/sdb/sdb.cpp	/^char *ftrace_elf_file = NULL;$/;"	v	typeref:typename:char *
 ftrace_translate	csrc/utils/ftrace.cpp	/^const char* ftrace_translate(uint32_t addr) {$/;"	f	typeref:typename:const char *
 fun3	vsrc/IDU.v	/^	wire [2:0] fun3;$/;"	n	module:IDU
@@ -508,7 +509,7 @@ inst_str	csrc/include/utils/iringbuf.h	/^  char inst_str[128];$/;"	m	struct:__an
 io_read	csrc/include/macro.h	/^#define io_read(/;"	d
 io_write	csrc/include/macro.h	/^#define io_write(/;"	d
 ioaddr_t	csrc/include/common.h	/^typedef uint16_t ioaddr_t;$/;"	t	typeref:typename:uint16_t
-iring.o	obj_dir/Vtop.mk	/^iring.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/iring.cpp$/;"	t
+iring.o	obj_dir/Vtop.mk	/^iring.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/iring.cpp$/;"	t
 is_batch_mode	csrc/utils/sdb/sdb.cpp	/^static int is_batch_mode = false;$/;"	v	typeref:typename:int	file:
 is_child	csrc/lightsss.cpp	/^bool LightSSS::is_child() {$/;"	f	class:LightSSS	typeref:typename:bool
 is_exit_status_bad	csrc/sim/sim.cpp	/^int is_exit_status_bad() {   $/;"	f	typeref:typename:int
@@ -530,7 +531,7 @@ jalr	vsrc/IFU.v	/^	wire jalr  = (pc_cnt === 4'b1000);$/;"	n	module:IFU
 jalr	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
 key_n	csrc/include/lightsss.h	/^  key_t key_n;$/;"	m	class:ForkShareMemory	typeref:typename:key_t
 last_fname	csrc/utils/ftrace.cpp	/^static char* last_fname = NULL;$/;"	v	typeref:typename:char *	file:
-lightsss.o	obj_dir/Vtop.mk	/^lightsss.o: \/home\/furiosa\/my_cpu\/csrc\/lightsss.cpp$/;"	t
+lightsss.o	obj_dir/Vtop.mk	/^lightsss.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/lightsss.cpp$/;"	t
 likely	csrc/include/macro.h	/^#define likely(/;"	d
 load	vsrc/EXU.v	/^	input					load,$/;"	p	module:EXU
 load	vsrc/IDU.v	/^	output				load,$/;"	p	module:IDU
@@ -548,14 +549,14 @@ lui	vsrc/IDU.v	/^	output 				lui,$/;"	p	module:IDU
 lui	vsrc/top.v	/^wire 				auipc,lui,ebreak,load,jalr,jal;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
 main	csrc/include/config/config_cli.py	/^def main():$/;"	f
 main	csrc/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
-main.o	obj_dir/Vtop.mk	/^main.o: \/home\/furiosa\/my_cpu\/csrc\/main.cpp$/;"	t
+main.o	obj_dir/Vtop.mk	/^main.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/main.cpp$/;"	t
 make_token	csrc/utils/sdb/expr.cpp	/^static bool make_token(char *e) {$/;"	f	typeref:typename:bool	file:
 mcause	vsrc/CSR.v	/^	reg [31:0] mcause ;$/;"	r	module:CSR
 mem_cnt	vsrc/GPR.v	/^	input         mem_cnt $/;"	p	module:GPR
 mem_cnt	vsrc/IDU.v	/^	output        mem_cnt,$/;"	p	module:IDU
 mem_cnt	vsrc/top.v	/^wire        mem_cnt;$/;"	n	module:NPCTRAP.pmem_write.pmem_read.top
 memory	csrc/mem/memory.cpp	/^uint8_t memory[MEMORY_SIZE];$/;"	v	typeref:typename:uint8_t[]
-memory.o	obj_dir/Vtop.mk	/^memory.o: \/home\/furiosa\/my_cpu\/csrc\/mem\/memory.cpp$/;"	t
+memory.o	obj_dir/Vtop.mk	/^memory.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/mem\/memory.cpp$/;"	t
 mepc	vsrc/CSR.v	/^	reg [31:0] mepc   ;$/;"	r	module:CSR
 mmio_read	csrc/mem/memory.cpp	/^uint32_t mmio_read(uint32_t addr_in, int size) {$/;"	f	typeref:typename:uint32_t
 mmio_write	csrc/mem/memory.cpp	/^void mmio_write(uint32_t addr_in, uint32_t data, int size) {$/;"	f	typeref:typename:void
@@ -564,6 +565,7 @@ mret	vsrc/IDU.v	/^	wire ecall,mret;$/;"	n	module:IDU
 mret	vsrc/IFU.v	/^	wire mret  = (pc_cnt === 4'b1001);$/;"	n	module:IFU
 mstatus	vsrc/CSR.v	/^	reg [31:0] mstatus;$/;"	r	module:CSR
 mtvec	vsrc/CSR.v	/^	reg [31:0] mtvec  ;$/;"	r	module:CSR
+my_cpu	README.md	/^# my_cpu$/;"	c
 name	csrc/utils/sdb/sdb.cpp	/^  const char *name;$/;"	m	struct:__anon4f21e8d10108	typeref:typename:const char *	file:
 name	obj_dir/Vtop.cpp	/^const char* Vtop::name() const {$/;"	f	class:Vtop	typeref:typename:const char *
 name	obj_dir/Vtop__Syms.h	/^    const char* name() { return TOP.name(); }$/;"	f	class:Vtop__Syms	typeref:typename:const char *
@@ -617,7 +619,7 @@ ref_difftest_exec	csrc/utils/dut.cpp	/^void (*ref_difftest_exec)(uint64_t n) = N
 ref_difftest_memcpy	csrc/utils/dut.cpp	/^void (*ref_difftest_memcpy)(uint32_t addr, void *buf, size_t n, bool direction) = NULL;$/;"	v	typeref:typename:void (*)(uint32_t addr,void * buf,size_t n,bool direction)
 ref_difftest_raise_intr	csrc/utils/dut.cpp	/^void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;$/;"	v	typeref:typename:void (*)(uint64_t NO)
 ref_difftest_regcpy	csrc/utils/dut.cpp	/^void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;$/;"	v	typeref:typename:void (*)(void * dut,bool direction)
-reg.o	obj_dir/Vtop.mk	/^reg.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/reg.cpp$/;"	t
+reg.o	obj_dir/Vtop.mk	/^reg.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/reg.cpp$/;"	t
 regex	csrc/utils/sdb/expr.cpp	/^  const char *regex;$/;"	m	struct:rule	typeref:typename:const char *	file:
 regs	csrc/utils/reg.cpp	/^const char *regs[] = {$/;"	v	typeref:typename:const char * []
 reset	vsrc/CSR.v	/^	input 				reset,$/;"	p	module:CSR
@@ -638,7 +640,7 @@ rst_begin	csrc/sim/sim.cpp	/^void rst_begin(){$/;"	f	typeref:typename:void
 rule	csrc/utils/sdb/expr.cpp	/^static struct rule {$/;"	s	file:
 rules	csrc/utils/sdb/expr.cpp	/^} rules[] = {$/;"	v	typeref:struct:rule[]
 run	Makefile	/^run: obj_dir\/Vtop$/;"	t
-sdb.o	obj_dir/Vtop.mk	/^sdb.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/sdb.cpp$/;"	t
+sdb.o	obj_dir/Vtop.mk	/^sdb.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/sdb.cpp$/;"	t
 sdb_mainloop	csrc/utils/sdb/sdb.cpp	/^void sdb_mainloop() {$/;"	f	typeref:typename:void
 sdb_set_batch_mode	csrc/utils/sdb/sdb.cpp	/^void sdb_set_batch_mode() {$/;"	f	typeref:typename:void
 set_nemu_state	csrc/sim/sim.cpp	/^void set_nemu_state(int state, uint32_t pc, int halt_ret) {$/;"	f	typeref:typename:void
@@ -649,7 +651,7 @@ shinfo	csrc/include/lightsss.h	/^} shinfo;$/;"	t	typeref:struct:shinfo
 shm_id	csrc/include/lightsss.h	/^  int shm_id;$/;"	m	class:ForkShareMemory	typeref:typename:int
 should_checkpoint	csrc/sim/sim.cpp	/^bool should_checkpoint;$/;"	v	typeref:typename:bool
 shwait	csrc/lightsss.cpp	/^void ForkShareMemory::shwait() {$/;"	f	class:ForkShareMemory	typeref:typename:void
-sim.o	obj_dir/Vtop.mk	/^sim.o: \/home\/furiosa\/my_cpu\/csrc\/sim\/sim.cpp$/;"	t
+sim.o	obj_dir/Vtop.mk	/^sim.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/sim\/sim.cpp$/;"	t
 sim_init	csrc/sim/sim.cpp	/^void sim_init(){$/;"	f	typeref:typename:void
 sim_verbose	csrc/lightsss.cpp	/^bool sim_verbose = true;$/;"	v	typeref:typename:bool
 size	vsrc/top.v	/^import "DPI-C" function int unsigned pmem_read(input int unsigned addr, input int size);$/;"	p	function:NPCTRAP.pmem_write.pmem_read
@@ -730,7 +732,7 @@ waddr	vsrc/top.v	/^wire [ 4:0] raddr1,raddr2,waddr;$/;"	n	module:NPCTRAP.pmem_wr
 waitProcess	csrc/include/lightsss.h	/^  int waitProcess = 0;$/;"	m	class:LightSSS	typeref:typename:int
 wakeup_child	csrc/lightsss.cpp	/^int LightSSS::wakeup_child(uint64_t cycles) {$/;"	f	class:LightSSS	typeref:typename:int
 watchpoint	csrc/utils/sdb/watchpoint.cpp	/^typedef struct watchpoint {$/;"	s	file:
-watchpoint.o	obj_dir/Vtop.mk	/^watchpoint.o: \/home\/furiosa\/my_cpu\/csrc\/utils\/sdb\/watchpoint.cpp$/;"	t
+watchpoint.o	obj_dir/Vtop.mk	/^watchpoint.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/watchpoint.cpp$/;"	t
 wave	Makefile	/^wave:$/;"	t
 wave_record_start_time	csrc/sim/sim.cpp	/^static uint64_t wave_record_start_time = 0;$/;"	v	typeref:typename:uint64_t	file:
 wdata	vsrc/CSR.v	/^	input  [31:0] wdata,$/;"	p	module:CSR
@@ -748,3 +750,4 @@ x10	vsrc/top.v	/^import "DPI-C" function void NPCTRAP(input int unsigned pc, inp
 ~Vtop__Syms	obj_dir/Vtop__Syms.cpp	/^Vtop__Syms::~Vtop__Syms()$/;"	f	class:Vtop__Syms
 ~Vtop___024root	obj_dir/Vtop___024root__Slow.cpp	/^Vtop___024root::~Vtop___024root() {$/;"	f	class:Vtop___024root
 ~Vtop___024unit	obj_dir/Vtop___024unit__Slow.cpp	/^Vtop___024unit::~Vtop___024unit() {$/;"	f	class:Vtop___024unit
+此项目为 ysyx_24080018 个人搭建的 CPU。	README.md	/^## 此项目为 ysyx_24080018 个人搭建的 CPU。$/;"	s	chapter:my_cpu
