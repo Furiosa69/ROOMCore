@@ -33,9 +33,9 @@ BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
-IMG  ?=  $(NPC_HOME)/bin/microbench-riscv32e-npc.bin
+IMG  ?=  $(NPC_HOME)/bin/add-riscv32e-npc.bin
 ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
-ARGS += -f $(NPC_HOME)/bin/microbench-riscv32e-npc.elf
+#ARGS += -f $(NPC_HOME)/bin/add-riscv32e-npc.elf
 ARGS += -b
 ARGC  ?= ${IMG}
 TRACE_DIR := ./trace

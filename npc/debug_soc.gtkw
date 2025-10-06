@@ -1,27 +1,61 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Sat Oct  4 18:16:46 2025
+[*] Sun Oct  5 20:39:55 2025
 [*]
 [dumpfile] "/home/furiosa/ysyx-workbench/npc/wave.vcd"
-[dumpfile_mtime] "Sat Oct  4 18:13:43 2025"
-[dumpfile_size] 32477
+[dumpfile_mtime] "Sun Oct  5 20:39:00 2025"
+[dumpfile_size] 1550826
 [savefile] "/home/furiosa/ysyx-workbench/npc/debug_soc.gtkw"
-[timestart] 46
+[timestart] 706
 [size] 2048 1027
 [pos] -1 -1
-*-1.762378 65 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-1.984770 716 714 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.top.
 [sst_width] 250
-[signals_width] 312
+[signals_width] 362
 [sst_expanded] 1
-[sst_vpaned_height] 337
+[sst_vpaned_height] 628
+@800200
+-valid&&ready
 @28
-TOP.top.ifu_t0.clk
+TOP.top.ifu_idu_valid
+TOP.top.idu_ifu_ready
+[color] 2
+TOP.top.idu_exu_valid
+[color] 2
+TOP.top.exu_idu_ready
+TOP.top.exu_mem_valid
+TOP.top.mem_exu_ready
+[color] 2
+TOP.top.mem_wbu_valid
+[color] 2
+TOP.top.wbu_mem_ready
+@1000200
+-valid&&ready
+@28
+TOP.top.clk
+TOP.top.reset
+@200
+-
+@800200
+-ifu
 @22
-TOP.top.ifu_t0.inst[31:0]
-TOP.top.ifu_t0.pc_out[31:0]
+TOP.top.ifu_t0.o_inst[31:0]
+@28
+TOP.top.ifu_t0.bxx
+TOP.top.ifu_t0.i_br_taken
+[color] 1
+TOP.top.ifu_t0.i_ControlHazard
+@22
+TOP.top.ifu_t0.o_pc[31:0]
 TOP.top.ifu_t0.target_pc[31:0]
+@28
+TOP.top.ifu_t0.cstate
+@1000200
+-ifu
+@200
+-
 @800200
 -rf
 @22
@@ -43,64 +77,46 @@ TOP.top.gpr_t0.rf[14][31:0]
 TOP.top.gpr_t0.rf[15][31:0]
 @1000200
 -rf
+@28
+TOP.top.gpr_t0.wen
+@200
+-
+@22
+TOP.top.gpr_t0.i_wdata[31:0]
+TOP.top.gpr_t0.i_waddr[4:0]
+TOP.top.lsu_t0.o_wdata[31:0]
+@200
+-
+@800200
+-exu
+@28
+TOP.top.exu_t0.o_br_taken
+@22
+TOP.top.exu_t0.i_pc_cnt[3:0]
+TOP.top.exu_t0.alu_a[31:0]
+TOP.top.exu_t0.alu_b[31:0]
+TOP.top.exu_t0.o_data_store[31:0]
+TOP.top.exu_t0.i_rdata2[31:0]
+TOP.top.exu_t0.i_rdata1[31:0]
+TOP.top.raddr1[4:0]
+TOP.top.raddr2[4:0]
+TOP.top.exu_t0.i_bypass_waddr[4:0]
+TOP.top.exu_t0.o_alu_result[31:0]
+@1000200
+-exu
 @c00200
--ready&valid
-@28
-TOP.top.idu_t0.idu_ifu_ready
-TOP.top.idu_t0.ifu_idu_valid
-@200
--
-@28
-TOP.top.ifu_t0.idu_ifu_ready
-TOP.top.ifu_t0.ifu_idu_valid
-@200
--
-@28
-TOP.top.exu_t0.exu_idu_ready
-TOP.top.exu_t0.idu_exu_valid
-@200
--
-@1401200
--ready&valid
-@200
--
-@c00201
--idu
-@28
-TOP.top.idu_t0.BType
-TOP.top.idu_t0.IType
-TOP.top.idu_t0.IcsrType
-TOP.top.idu_t0.JType
-TOP.top.idu_t0.RType
-TOP.top.idu_t0.SType
-TOP.top.idu_t0.UType
-@1401201
--idu
-@200
--
-@28
-[color] 1
-TOP.top.idu_t0.ControlHazard
-@200
--
-@c00028
-TOP.top.lsu_t0.cstate[1:0]
-@28
-(0)TOP.top.lsu_t0.cstate[1:0]
-(1)TOP.top.lsu_t0.cstate[1:0]
-@1401200
--group_end
-@200
--
+-lsu
 @22
-TOP.top.lsu_t0.addr_store_reg[31:0]
-TOP.top.lsu_t0.data_store_reg[31:0]
+TOP.top.lsu_t0.i_lsu_cnt[3:0]
 @28
-TOP.top.lsu_t0.exu_mem_valid
+TOP.top.lsu_t0.load
+TOP.top.lsu_t0.cstate
 @22
-TOP.top.lsu_t0.lsu_cnt_reg[3:0]
-@28
-TOP.top.lsu_t0.cstate[1:0]
-TOP.top.gpr_t0.ebreak
+TOP.top.lsu_t0.i_data_store[31:0]
+TOP.top.lsu_t0.i_addr_store[31:0]
+TOP.top.lsu_t0.data_load[31:0]
+TOP.top.lsu_t0.i_addr_load[31:0]
+@1401200
+-lsu
 [pattern_trace] 1
 [pattern_trace] 0
