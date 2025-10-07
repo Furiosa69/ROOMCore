@@ -1,122 +1,112 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Sun Oct  5 20:39:55 2025
+[*] Tue Oct  7 09:15:58 2025
 [*]
-[dumpfile] "/home/furiosa/ysyx-workbench/npc/wave.vcd"
-[dumpfile_mtime] "Sun Oct  5 20:39:00 2025"
-[dumpfile_size] 1550826
+[dumpfile] "(null)"
 [savefile] "/home/furiosa/ysyx-workbench/npc/debug_soc.gtkw"
-[timestart] 706
+[timestart] 34435
 [size] 2048 1027
-[pos] -1 -1
-*-1.984770 716 714 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -33 -541
+*-1.955023 34448 24192 34330 34994 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
-[treeopen] TOP.top.
+[treeopen] TOP.ysyxSoCFull.
+[treeopen] TOP.ysyxSoCFull.asic.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.cpu.
 [sst_width] 250
 [signals_width] 362
 [sst_expanded] 1
-[sst_vpaned_height] 628
-@800200
--valid&&ready
+[sst_vpaned_height] 262
 @28
-TOP.top.ifu_idu_valid
-TOP.top.idu_ifu_ready
-[color] 2
-TOP.top.idu_exu_valid
-[color] 2
-TOP.top.exu_idu_ready
-TOP.top.exu_mem_valid
-TOP.top.mem_exu_ready
-[color] 2
-TOP.top.mem_wbu_valid
-[color] 2
-TOP.top.wbu_mem_ready
-@1000200
--valid&&ready
-@28
-TOP.top.clk
-TOP.top.reset
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.clk
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.reset
 @200
 -
 @800200
 -ifu
 @22
-TOP.top.ifu_t0.o_inst[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.o_inst[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.o_ifu_addr[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.target_pc[31:0]
 @28
-TOP.top.ifu_t0.bxx
-TOP.top.ifu_t0.i_br_taken
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.cstate
+@22
+[color] 2
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.i_ifu_rdata[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.o_ifu_addr[31:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.o_ifu_reqValid
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.i_ifu_respValid
 [color] 1
-TOP.top.ifu_t0.i_ControlHazard
-@22
-TOP.top.ifu_t0.o_pc[31:0]
-TOP.top.ifu_t0.target_pc[31:0]
-@28
-TOP.top.ifu_t0.cstate
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.i_ControlHazard
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.cstate
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.nstate
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.prev_idle
 @1000200
 -ifu
 @200
 -
-@800200
--rf
-@22
-TOP.top.gpr_t0.rf[0][31:0]
-TOP.top.gpr_t0.rf[1][31:0]
-TOP.top.gpr_t0.rf[2][31:0]
-TOP.top.gpr_t0.rf[3][31:0]
-TOP.top.gpr_t0.rf[4][31:0]
-TOP.top.gpr_t0.rf[5][31:0]
-TOP.top.gpr_t0.rf[6][31:0]
-TOP.top.gpr_t0.rf[7][31:0]
-TOP.top.gpr_t0.rf[8][31:0]
-TOP.top.gpr_t0.rf[9][31:0]
-TOP.top.gpr_t0.rf[10][31:0]
-TOP.top.gpr_t0.rf[11][31:0]
-TOP.top.gpr_t0.rf[12][31:0]
-TOP.top.gpr_t0.rf[13][31:0]
-TOP.top.gpr_t0.rf[14][31:0]
-TOP.top.gpr_t0.rf[15][31:0]
-@1000200
--rf
 @28
-TOP.top.gpr_t0.wen
-@200
--
-@22
-TOP.top.gpr_t0.i_wdata[31:0]
-TOP.top.gpr_t0.i_waddr[4:0]
-TOP.top.lsu_t0.o_wdata[31:0]
-@200
--
+TOP.ysyxSoCFull.asic.cpu.cpu.clock
 @800200
--exu
+-valid&&ready
 @28
-TOP.top.exu_t0.o_br_taken
-@22
-TOP.top.exu_t0.i_pc_cnt[3:0]
-TOP.top.exu_t0.alu_a[31:0]
-TOP.top.exu_t0.alu_b[31:0]
-TOP.top.exu_t0.o_data_store[31:0]
-TOP.top.exu_t0.i_rdata2[31:0]
-TOP.top.exu_t0.i_rdata1[31:0]
-TOP.top.raddr1[4:0]
-TOP.top.raddr2[4:0]
-TOP.top.exu_t0.i_bypass_waddr[4:0]
-TOP.top.exu_t0.o_alu_result[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.wbu_ifu_retire
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.ifu_idu_valid
+TOP.ysyxSoCFull.asic.cpu.cpu.ifu.idu_ifu_ready
+TOP.ysyxSoCFull.asic.cpu.cpu.idu_exu_valid
+TOP.ysyxSoCFull.asic.cpu.cpu.exu_idu_ready
+TOP.ysyxSoCFull.asic.cpu.cpu.exu_mem_valid
+TOP.ysyxSoCFull.asic.cpu.cpu.mem_exu_ready
+[color] 2
+TOP.ysyxSoCFull.asic.cpu.cpu.mem_wbu_valid
+TOP.ysyxSoCFull.asic.cpu.cpu.wbu_mem_ready
 @1000200
--exu
+-valid&&ready
 @c00200
--lsu
+-rf
 @22
-TOP.top.lsu_t0.i_lsu_cnt[3:0]
-@28
-TOP.top.lsu_t0.load
-TOP.top.lsu_t0.cstate
-@22
-TOP.top.lsu_t0.i_data_store[31:0]
-TOP.top.lsu_t0.i_addr_store[31:0]
-TOP.top.lsu_t0.data_load[31:0]
-TOP.top.lsu_t0.i_addr_load[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[0][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[1][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[2][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[3][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[4][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[5][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[6][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[7][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[8][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[9][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[10][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[11][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[12][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[13][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[14][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.rf[15][31:0]
 @1401200
+-rf
+@c00201
 -lsu
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_addr[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_rdata[31:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_reqValid
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_respValid
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wdata[31:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wen
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wmask[3:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_size[1:0]
+@1401201
+-lsu
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.exu.alu_a[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.exu.alu_b[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.exu.o_alu_result[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.i_wdata[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.gpr.i_waddr[4:0]
 [pattern_trace] 1
 [pattern_trace] 0

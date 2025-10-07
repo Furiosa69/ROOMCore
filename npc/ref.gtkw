@@ -1,0 +1,83 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Tue Oct  7 09:15:48 2025
+[*]
+[dumpfile] "/home/furiosa/ysyx-workbench/npc/waveform.vcd"
+[dumpfile_mtime] "Mon Oct  6 20:14:01 2025"
+[dumpfile_size] 474877805
+[savefile] "/home/furiosa/ysyx-workbench/npc/ref.gtkw"
+[timestart] 34318
+[size] 2048 1027
+[pos] -51 -51
+*-1.000000 34323 24135 33997 34323 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.ysyxSoCFull.
+[treeopen] TOP.ysyxSoCFull.asic.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.cpu.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.
+[treeopen] TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.
+[sst_width] 250
+[signals_width] 232
+[sst_expanded] 1
+[sst_vpaned_height] 288
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_reqValid
+[color] 2
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_respValid
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_addr[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_rdata[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wdata[31:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wen
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_wmask[3:0]
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_size[1:0]
+@200
+-
+@c00200
+-rf
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[0][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[1][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[2][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[3][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[4][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[5][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[6][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[7][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[8][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[9][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[10][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[11][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[12][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[13][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[14][31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.rf[15][31:0]
+@1401200
+-rf
+@200
+-
+@28
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.i_RegWen
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.i_ExuRes[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.U_WBU.U_REG.i_RdRaddr[4:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.LsuRData[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.LsuWmask[7:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_rdata[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.io_lsu_addr[31:0]
+@200
+-
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.Rs1Data[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.Rs2Data[31:0]
+TOP.ysyxSoCFull.asic.cpu.cpu.ExuRes[31:0]
+@200
+-
+@22
+TOP.ysyxSoCFull.asic.cpu.cpu.Instruction[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

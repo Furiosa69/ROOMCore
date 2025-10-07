@@ -7,33 +7,41 @@ VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 VERILATOR_COVERAGE = $(VERILATOR_ROOT)/bin/verilator_coverage
 endif
 
-TOP_MODULE := top
+TOP_MODULE := ysyxSoCFull
 OBJ_DIR := $(NPC_HOME)/obj_dir
 
 VERILATOR_FLAGS += -cc --exe --build -MMD --trace
 VERILATOR_FLAGS += -x-assign fast
 VERILATOR_FLAGS += --top-module $(TOP_MODULE)\
-                   -I$(NPC_HOME)/vsrc
+                   -I$(NPC_HOME)/vsrc \
+									 -I$(NPC_HOME)/ysyxSoC/perip/uart16550/rtl \
+									 -I$(NPC_HOME)/ysyxSoC/perip/spi/rtl \
+									 --timescale "1ns/1ns" \
+									 --no-timing
 
 
 CXXFLAGS += -g $(shell llvm-config --cxxflags | sed 's/-D__STDC_[A-Z_]*//g') -fPIE \
             -I$(NPC_HOME)/csrc/include \
             -I$(NPC_HOME)/csrc/mem \
             -I$(NPC_HOME)/csrc/sim \
-            -I/usr/local/share/verilator/include
+            -I/usr/local/share/verilator/include \
+						-I$(NPC_HOME)/ysyxSoC/perip/uart16550/rtl \
+						-I$(NPC_HOME)/ysyxSoC/perip/spi/rtl
 
 CFLAGS += -Wall -O0 -I$(NPC_HOME)/csrc
 
 LIBS += $(shell llvm-config --libs all) -lpthread -lrt -ldl -latomic -ledit -lSDL2
 
 CXX_SRC := $(shell find $(NPC_HOME)/csrc -name "*.cpp" -o -name "*.c")
-V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v") 
+V_SRC   := $(shell find $(NPC_HOME)/vsrc -name "*.v") \
+					 $(shell find $(NPC_HOME)/ysyxSoC/perip -name "*.v") \
+					 $(shell find $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage -name "*.v")
 
 BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
-IMG  ?=  $(NPC_HOME)/bin/add-riscv32e-npc.bin
+IMG  ?=  $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage/hello-minirv-ysyxsoc.bin
 ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 #ARGS += -f $(NPC_HOME)/bin/add-riscv32e-npc.elf
 ARGS += -b
@@ -42,7 +50,7 @@ TRACE_DIR := ./trace
 
 default: run
 
-run: obj_dir/Vtop
+run: obj_dir/V$(TOP_MODULE)
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
 	${NPC_EXEC} ${ARGS} ${ARGC}
@@ -61,10 +69,10 @@ gdb:
 wave:
 	gtkwave wave.vcd
 
-obj_dir/Vtop: $(CXX_SRC) $(V_SRC)
+obj_dir/V$(TOP_MODULE): $(CXX_SRC) $(V_SRC)
 	@echo "-- VERILATE ---------------"
 	$(VERILATOR) $(VERILATOR_FLAGS) $(CXX_SRC) $(V_SRC) --CFLAGS "$(CXXFLAGS)" --LDFLAGS "$(LIBS)"
-	$(MAKE) -C obj_dir -f Vtop.mk LDLIBS="$(LDLIBS)"
+	$(MAKE) -C obj_dir -f V$(TOP_MODULE).mk LDLIBS="$(LDLIBS)"
 
 clean: 
 	rm -r  $(OBJ_DIR) $(TRACE_DIR) wave.vcd
