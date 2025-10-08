@@ -41,10 +41,10 @@ BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
-IMG  ?=  $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage/hello-minirv-ysyxsoc.bin
+IMG  ?=  $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage/new.bin
 ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 #ARGS += -f $(NPC_HOME)/bin/add-riscv32e-npc.elf
-ARGS += -b
+ARGS += -b 
 ARGC  ?= ${IMG}
 TRACE_DIR := ./trace
 
@@ -53,7 +53,7 @@ default: run
 run: obj_dir/V$(TOP_MODULE)
 	@echo "-- RUNNING  ---------------"
 	@mkdir -p $(TRACE_DIR)
-	${NPC_EXEC} ${ARGS} ${ARGC}
+	${NPC_EXEC} ${ARGS} ${ARGC} 
 	@echo "-- DONE --------------------"
 
 config:

@@ -138,7 +138,7 @@ IFNDEF	csrc/include/macro.h	/^#define IFNDEF(/;"	d
 IFONE	csrc/include/macro.h	/^#define IFONE(/;"	d
 IFONE	csrc/mem/memory.cpp	/^IFONE(CONFIG_MTRACE,$/;"	f
 IFZERO	csrc/include/macro.h	/^#define IFZERO(/;"	d
-IMG	Makefile	/^IMG  ?=  $(NPC_HOME)\/bin\/add-riscv32e-npc.bin$/;"	m
+IMG	Makefile	/^IMG  ?=  $(NPC_HOME)\/ysyxSoC\/ready-to-run\/D-stage\/new.bin$/;"	m
 INIT_RANDOM	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  `define INIT_RANDOM$/;"	c
 INIT_RANDOM_PROLOG_	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^      `define INIT_RANDOM_PROLOG_ `INIT_RANDOM #`RANDOMIZE_DELAY begin end$/;"	c
 INIT_RANDOM_PROLOG_	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^      `define INIT_RANDOM_PROLOG_ `INIT_RANDOM$/;"	c
@@ -205,6 +205,7 @@ PAGE_MASK	csrc/include/common.h	/^#define PAGE_MASK /;"	d
 PAGE_SHIFT	csrc/include/common.h	/^#define PAGE_SHIFT /;"	d
 PAGE_SIZE	csrc/include/common.h	/^#define PAGE_SIZE /;"	d
 PC	csrc/include/sim/sim.h	/^#define  PC /;"	d
+PERL	obj_dir/VysyxSoCFull.mk	/^PERL = perl$/;"	m
 PG_ALIGN	csrc/include/macro.h	/^#define PG_ALIGN /;"	d
 PMEM_LEFT	csrc/include/mem/memory.h	/^#define PMEM_LEFT /;"	d
 PMEM_RIGHT	csrc/include/mem/memory.h	/^#define PMEM_RIGHT /;"	d
@@ -346,6 +347,8 @@ ST_IDLE	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    localparam  ST_IDL
 ST_WAIT	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^                ST_WAIT = 1'b1;$/;"	c	module:EF_PSRAM_CTRL_wb
 SType	vsrc/ysyx_24080018_EXU.v	/^  wire UType,JType,BType,IType,SType,RType;$/;"	n	module:ysyx_24080018_EXU
 SType	vsrc/ysyx_24080018_IDU.v	/^  wire UType,JType,BType,IType,SType,RType,IcsrType;$/;"	n	module:ysyx_24080018_IDU
+SYSTEMC_INCLUDE	obj_dir/VysyxSoCFull.mk	/^SYSTEMC_INCLUDE ?= $/;"	m
+SYSTEMC_LIBDIR	obj_dir/VysyxSoCFull.mk	/^SYSTEMC_LIBDIR ?= $/;"	m
 SynchronizerShiftReg_w1_d10	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^module SynchronizerShiftReg_w1_d10($/;"	m
 TK_AND	csrc/utils/sdb/expr.cpp	/^  TK_AND   = 4,$/;"	e	enum:__anon70ab91d70103	file:
 TK_DEREF	csrc/utils/sdb/expr.cpp	/^  TK_DEREF = 12,$/;"	e	enum:__anon70ab91d70103	file:
@@ -362,7 +365,9 @@ TK_OR	csrc/utils/sdb/expr.cpp	/^  TK_OR    = 5,$/;"	e	enum:__anon70ab91d70103	fi
 TK_POS	csrc/utils/sdb/expr.cpp	/^  TK_POS   = 13 $/;"	e	enum:__anon70ab91d70103	file:
 TK_REG	csrc/utils/sdb/expr.cpp	/^  TK_REG   = 10,$/;"	e	enum:__anon70ab91d70103	file:
 TODO	csrc/include/common.h	/^#define TODO(/;"	d
+TOP	obj_dir/VysyxSoCFull__Syms.h	/^    VysyxSoCFull___024root         TOP;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VysyxSoCFull___024root
 TOP_MODULE	Makefile	/^TOP_MODULE := ysyxSoCFull$/;"	m
+TOP____024unit	obj_dir/VysyxSoCFull__Syms.h	/^    VysyxSoCFull___024unit         TOP____024unit;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VysyxSoCFull___024unit
 TRACE_DIR	Makefile	/^TRACE_DIR := .\/trace$/;"	m
 TRACE_DIR	csrc/include/common.h	/^#define TRACE_DIR /;"	d
 Testing	ysyxSoC/perip/sdram/core_sdram_axi4/README.md	/^##### Testing$/;"	T	subsection:SDRAM Controller (AXI4)
@@ -444,15 +449,103 @@ UType	vsrc/ysyx_24080018_IDU.v	/^  wire UType,JType,BType,IType,SType,RType,Icsr
 Uregs	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   uart_regs Uregs($/;"	i	module:uart_top_apb
 VERBOSE_LINE_STATUS	ysyxSoC/perip/uart16550/rtl/uart_defines.v	/^`define VERBOSE_LINE_STATUS 0   \/\/ Details about the lsr (line status register)$/;"	c
 VERBOSE_WB	ysyxSoC/perip/uart16550/rtl/uart_defines.v	/^`define VERBOSE_WB  0           \/\/ All activity on the WISHBONE is recorded$/;"	c
+VERILATED_VYSYXSOCFULL_H_	obj_dir/VysyxSoCFull.h	/^#define VERILATED_VYSYXSOCFULL_H_ /;"	d
+VERILATED_VYSYXSOCFULL__DPI_H_	obj_dir/VysyxSoCFull__Dpi.h	/^#define VERILATED_VYSYXSOCFULL__DPI_H_ /;"	d
+VERILATED_VYSYXSOCFULL__PCH_H_	obj_dir/VysyxSoCFull__pch.h	/^#define VERILATED_VYSYXSOCFULL__PCH_H_ /;"	d
+VERILATED_VYSYXSOCFULL__SYMS_H_	obj_dir/VysyxSoCFull__Syms.h	/^#define VERILATED_VYSYXSOCFULL__SYMS_H_ /;"	d
+VERILATED_VYSYXSOCFULL___024ROOT_H_	obj_dir/VysyxSoCFull___024root.h	/^#define VERILATED_VYSYXSOCFULL___024ROOT_H_ /;"	d
+VERILATED_VYSYXSOCFULL___024UNIT_H_	obj_dir/VysyxSoCFull___024unit.h	/^#define VERILATED_VYSYXSOCFULL___024UNIT_H_ /;"	d
 VERILATOR	Makefile	/^VERILATOR = $(VERILATOR_ROOT)\/bin\/verilator$/;"	m
 VERILATOR	Makefile	/^VERILATOR = verilator$/;"	m
 VERILATOR_COVERAGE	Makefile	/^VERILATOR_COVERAGE = $(VERILATOR_ROOT)\/bin\/verilator_coverage$/;"	m
 VERILATOR_COVERAGE	Makefile	/^VERILATOR_COVERAGE = verilator_coverage$/;"	m
+VERILATOR_ROOT	obj_dir/VysyxSoCFull.mk	/^VERILATOR_ROOT = \/usr\/local\/share\/verilator$/;"	m
 VGACTL_ADDR	csrc/mem/memory.cpp	/^#define VGACTL_ADDR /;"	d	file:
 VGACTL_ADDR_high	csrc/mem/memory.cpp	/^#define VGACTL_ADDR_high /;"	d	file:
+VL_INCLUDE_OPT	obj_dir/VysyxSoCFull__ALL.cpp	/^#define VL_INCLUDE_OPT /;"	d	file:
+VL_NOT_FINAL	obj_dir/VysyxSoCFull.h	/^class alignas(VL_CACHE_LINE_BYTES) VysyxSoCFull VL_NOT_FINAL : public VerilatedModel {$/;"	c
+VL_PCH_INCLUDED	obj_dir/VysyxSoCFull__pch.h	/^#define VL_PCH_INCLUDED$/;"	d
+VM_C11	obj_dir/VysyxSoCFull_classes.mk	/^VM_C11 = 1$/;"	m
+VM_COVERAGE	obj_dir/VysyxSoCFull_classes.mk	/^VM_COVERAGE = 0$/;"	m
+VM_MODPREFIX	obj_dir/VysyxSoCFull.mk	/^VM_MODPREFIX = VysyxSoCFull$/;"	m
+VM_PARALLEL_BUILDS	obj_dir/VysyxSoCFull_classes.mk	/^VM_PARALLEL_BUILDS = 0$/;"	m
+VM_PCLI	obj_dir/VysyxSoCFull.mk	/^VM_PCLI = 1$/;"	m
+VM_PREFIX	obj_dir/VysyxSoCFull.mk	/^VM_PREFIX = VysyxSoCFull$/;"	m
+VM_PROFC	obj_dir/VysyxSoCFull.mk	/^VM_PROFC = 0$/;"	m
+VM_SC	obj_dir/VysyxSoCFull.mk	/^VM_SC = 0$/;"	m
+VM_SC_TARGET_ARCH	obj_dir/VysyxSoCFull.mk	/^VM_SC_TARGET_ARCH = linux$/;"	m
+VM_SP_OR_SC	obj_dir/VysyxSoCFull.mk	/^VM_SP_OR_SC = $(VM_SC)$/;"	m
+VM_TIMING	obj_dir/VysyxSoCFull_classes.mk	/^VM_TIMING = 0$/;"	m
+VM_TRACE	obj_dir/VysyxSoCFull_classes.mk	/^VM_TRACE = 1$/;"	m
+VM_TRACE_FST	obj_dir/VysyxSoCFull_classes.mk	/^VM_TRACE_FST = 0$/;"	m
+VM_TRACE_VCD	obj_dir/VysyxSoCFull_classes.mk	/^VM_TRACE_VCD = 1$/;"	m
+VM_USER_CFLAGS	obj_dir/VysyxSoCFull.mk	/^VM_USER_CFLAGS = \\$/;"	m
+VM_USER_CLASSES	obj_dir/VysyxSoCFull.mk	/^VM_USER_CLASSES = \\$/;"	m
+VM_USER_DIR	obj_dir/VysyxSoCFull.mk	/^VM_USER_DIR = \\$/;"	m
+VM_USER_LDLIBS	obj_dir/VysyxSoCFull.mk	/^VM_USER_LDLIBS = \\$/;"	m
 V_FILE_FINAL	ysyxSoC/Makefile	/^V_FILE_FINAL = build\/ysyxSoCFull.v$/;"	m
 V_FILE_GEN	ysyxSoC/Makefile	/^V_FILE_GEN   = build\/ysyxSoCTop.sv$/;"	m
 V_SRC	Makefile	/^V_SRC   := $(shell find $(NPC_HOME)\/vsrc -name "*.v") \\$/;"	m
+VysyxSoCFull	obj_dir/VysyxSoCFull.cpp	/^VysyxSoCFull::VysyxSoCFull(VerilatedContext* _vcontextp__, const char* _vcname__)$/;"	f	class:VysyxSoCFull
+VysyxSoCFull	obj_dir/VysyxSoCFull.cpp	/^VysyxSoCFull::VysyxSoCFull(const char* _vcname__)$/;"	f	class:VysyxSoCFull
+VysyxSoCFull	obj_dir/VysyxSoCFull.mk	/^VysyxSoCFull: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)$/;"	t
+VysyxSoCFull__Syms	obj_dir/VysyxSoCFull__Syms.cpp	/^VysyxSoCFull__Syms::VysyxSoCFull__Syms(VerilatedContext* contextp, const char* namep, VysyxSoCFu/;"	f	class:VysyxSoCFull__Syms
+VysyxSoCFull__Syms	obj_dir/VysyxSoCFull__Syms.h	/^class alignas(VL_CACHE_LINE_BYTES)VysyxSoCFull__Syms final : public VerilatedSyms {$/;"	c
+VysyxSoCFull___024root	obj_dir/VysyxSoCFull___024root.h	/^class alignas(VL_CACHE_LINE_BYTES) VysyxSoCFull___024root final : public VerilatedModule {$/;"	c
+VysyxSoCFull___024root	obj_dir/VysyxSoCFull___024root__Slow.cpp	/^VysyxSoCFull___024root::VysyxSoCFull___024root(VysyxSoCFull__Syms* symsp, const char* v__name)$/;"	f	class:VysyxSoCFull___024root
+VysyxSoCFull___024root___ctor_var_reset	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___ctor_var_reset(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___dump_triggers__act	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___dump_triggers__act(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___dump_triggers__ico	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___dump_triggers__ico(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___dump_triggers__nba	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___dump_triggers__nba(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___dump_triggers__stl	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___dump_triggers__stl(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^void VysyxSoCFull___024root___eval(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_act	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^void VysyxSoCFull___024root___eval_act(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_debug_assertions	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^void VysyxSoCFull___024root___eval_debug_assertions(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_final	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_final(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_ico	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^void VysyxSoCFull___024root___eval_ico(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_initial	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_initial(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_nba	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^void VysyxSoCFull___024root___eval_nba(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_phase__act	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^bool VysyxSoCFull___024root___eval_phase__act(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:bool
+VysyxSoCFull___024root___eval_phase__ico	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^bool VysyxSoCFull___024root___eval_phase__ico(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:bool
+VysyxSoCFull___024root___eval_phase__nba	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^bool VysyxSoCFull___024root___eval_phase__nba(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:bool
+VysyxSoCFull___024root___eval_phase__stl	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD bool VysyxSoCFull___024root___eval_phase__stl(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD bool
+VysyxSoCFull___024root___eval_settle	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_settle(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_static	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_static(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_static__TOP	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_static__TOP(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_stl	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_stl(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___eval_triggers__act	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0.cpp	/^void VysyxSoCFull___024root___eval_triggers__act(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_triggers__ico	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0.cpp	/^void VysyxSoCFull___024root___eval_triggers__ico(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root___eval_triggers__stl	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___eval_triggers__stl(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root___ico_sequent__TOP__0	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___ico_sequent__TOP__0(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_comb__TOP__0	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_comb__TOP__0(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_comb__TOP__1	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_comb__TOP__1(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_comb__TOP__2	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_comb__TOP__2(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__0	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__0(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__1	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__1(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__2	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__2(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__3	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__3(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__4	obj_dir/VysyxSoCFull___024root__DepSet_h4d156741__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__4(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__5	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__5(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__6	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__6(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___nba_sequent__TOP__7	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024root___nba_sequent__TOP__7(VysyxSoCFull___024root* vlSelf) /;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024root___stl_sequent__TOP__0	obj_dir/VysyxSoCFull___024root__DepSet_h0188974b__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root___stl_sequent__TOP__0(VysyxSoCFull___024root* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__traceDeclTypesSub0	obj_dir/VysyxSoCFull__TraceDecls__0__Slow.cpp	/^void VysyxSoCFull___024root__traceDeclTypesSub0(VerilatedVcd* tracep) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root__trace_chg_0	obj_dir/VysyxSoCFull__Trace__0.cpp	/^void VysyxSoCFull___024root__trace_chg_0(void* voidSelf, VerilatedVcd::Buffer* bufp) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root__trace_chg_0_sub_0	obj_dir/VysyxSoCFull__Trace__0.cpp	/^void VysyxSoCFull___024root__trace_chg_0_sub_0(VysyxSoCFull___024root* vlSelf, VerilatedVcd::Buf/;"	f	typeref:typename:void
+VysyxSoCFull___024root__trace_cleanup	obj_dir/VysyxSoCFull__Trace__0.cpp	/^void VysyxSoCFull___024root__trace_cleanup(void* voidSelf, VerilatedVcd* \/*unused*\/) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root__trace_const_0	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_const_0(void* voidSelf, VerilatedVcd::Buffer* bu/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_const_0_sub_0	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_const_0_sub_0(VysyxSoCFull___024root* vlSelf, Ve/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_decl_types	obj_dir/VysyxSoCFull__TraceDecls__0__Slow.cpp	/^void VysyxSoCFull___024root__trace_decl_types(VerilatedVcd* tracep) {$/;"	f	typeref:typename:void
+VysyxSoCFull___024root__trace_full_0	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_full_0(void* voidSelf, VerilatedVcd::Buffer* buf/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_full_0_sub_0	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_full_0_sub_0(VysyxSoCFull___024root* vlSelf, Ver/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_init_sub__TOP__0	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_init_sub__TOP__0(VysyxSoCFull___024root* vlSelf,/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_init_top	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_init_top(VysyxSoCFull___024root* vlSelf, Verilat/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024root__trace_register	obj_dir/VysyxSoCFull__Trace__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024root__trace_register(VysyxSoCFull___024root* vlSelf, Verilat/;"	f	typeref:typename:VL_ATTR_COLD void
+VysyxSoCFull___024unit	obj_dir/VysyxSoCFull___024unit.h	/^class alignas(VL_CACHE_LINE_BYTES) VysyxSoCFull___024unit final : public VerilatedModule {$/;"	c
+VysyxSoCFull___024unit	obj_dir/VysyxSoCFull___024unit__Slow.cpp	/^VysyxSoCFull___024unit::VysyxSoCFull___024unit(VysyxSoCFull__Syms* symsp, const char* v__name)$/;"	f	class:VysyxSoCFull___024unit
+VysyxSoCFull___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit	obj_dir/VysyxSoCFull___024unit__DepSet_h308b0958__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024unit____Vdpiimwrap_NPCTRAP_TOP____024unit(IData\/*31:0*\/ p/;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit	obj_dir/VysyxSoCFull___024unit__DepSet_h308b0958__0.cpp	/^VL_INLINE_OPT void VysyxSoCFull___024unit____Vdpiimwrap_flash_read_TOP____024unit(IData\/*31:0*\//;"	f	typeref:typename:VL_INLINE_OPT void
+VysyxSoCFull___024unit___ctor_var_reset	obj_dir/VysyxSoCFull___024unit__DepSet_h460a3d32__0__Slow.cpp	/^VL_ATTR_COLD void VysyxSoCFull___024unit___ctor_var_reset(VysyxSoCFull___024unit* vlSelf) {$/;"	f	typeref:typename:VL_ATTR_COLD void
 W0_addr	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  input         W0_addr,$/;"	p	module:ram_2x36
 W0_addr	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  input         W0_addr,$/;"	p	module:ram_2x39
 W0_addr	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  input         W0_addr,$/;"	p	module:ram_2x47
@@ -528,6 +621,8 @@ __LIGHTSSS_H	csrc/include/lightsss.h	/^#define __LIGHTSSS_H$/;"	d
 __MACRO_H__	csrc/include/macro.h	/^#define __MACRO_H__$/;"	d
 __MAIN_H__	csrc/include/main.h	/^#define __MAIN_H__$/;"	d
 __MEMORY_H__	csrc/include/mem/memory.h	/^#define __MEMORY_H__$/;"	d
+__PVT____024unit	obj_dir/VysyxSoCFull.h	/^    VysyxSoCFull___024unit* const __PVT____024unit;$/;"	m	class:VL_NOT_FINAL	typeref:typename:VysyxSoCFull___024unit * const
+__PVT____024unit	obj_dir/VysyxSoCFull___024root.h	/^    VysyxSoCFull___024unit* __PVT____024unit;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VysyxSoCFull___024unit *
 __P_DEF_0	csrc/include/macro.h	/^#define __P_DEF_0 /;"	d
 __P_DEF_1	csrc/include/macro.h	/^#define __P_DEF_1 /;"	d
 __P_ONE_1	csrc/include/macro.h	/^#define __P_ONE_1 /;"	d
@@ -535,11 +630,77 @@ __P_ZERO_0	csrc/include/macro.h	/^#define __P_ZERO_0 /;"	d
 __REG_H__	csrc/include/utils/reg.h	/^#define __REG_H__$/;"	d
 __SDB_H__	csrc/include/utils/sdb.h	/^#define __SDB_H__$/;"	d
 __SIM_H__	csrc/include/sim/sim.h	/^#define __SIM_H__$/;"	d
+__VactContinue	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __VactContinue;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__VactIterCount	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ __VactIterCount;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+__VactTriggered	obj_dir/VysyxSoCFull___024root.h	/^    VlTriggerVec<5> __VactTriggered;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VlTriggerVec<5>
+__Vconfigure	obj_dir/VysyxSoCFull___024root__Slow.cpp	/^void VysyxSoCFull___024root::__Vconfigure(bool first) {$/;"	f	class:VysyxSoCFull___024root	typeref:typename:void
+__Vconfigure	obj_dir/VysyxSoCFull___024unit__Slow.cpp	/^void VysyxSoCFull___024unit::__Vconfigure(bool first) {$/;"	f	class:VysyxSoCFull___024unit	typeref:typename:void
+__VdfgTmp_ha17ae98a__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ __VdfgTmp_ha17ae98a__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__VdfgTmp_ha749e19e__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __VdfgTmp_ha749e19e__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT___asic_spi_mosi	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT___asic_spi_mosi;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT___asic_spi_sck	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT___asic_spi_sck;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__rd_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdra/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__refresh_timer_q	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*16:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdr/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_pready	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_pready;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__clgen__DOT__cnt	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__D/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__ctrl	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*13:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__D/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DO/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__tip	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DO/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__dlc	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__counter_b	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__top	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rbit_counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rframing_error	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity_error	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity_xor	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rshift	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tf_count	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__bit_counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__bit_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__bottom	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__parity_xor	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__shift_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*6:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ __Vdly__ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__flash__DOT__addr	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*23:0*\/ __Vdly__ysyxSoCFull__DOT__flash__DOT__addr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+__Vdly__ysyxSoCFull__DOT__flash__DOT__cmd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ __Vdly__ysyxSoCFull__DOT__flash__DOT__cmd;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__flash__DOT__counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ __Vdly__ysyxSoCFull__DOT__flash__DOT__counter;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vdly__ysyxSoCFull__DOT__flash__DOT__data	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ __Vdly__ysyxSoCFull__DOT__flash__DOT__data;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+__Vdly__ysyxSoCFull__DOT__flash__DOT__state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ __Vdly__ysyxSoCFull__DOT__flash__DOT__state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__VicoFirstIteration	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __VicoFirstIteration;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__VicoTriggered	obj_dir/VysyxSoCFull___024root.h	/^    VlTriggerVec<1> __VicoTriggered;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VlTriggerVec<1>
+__Vm_activity	obj_dir/VysyxSoCFull__Syms.h	/^    bool __Vm_activity = false;  \/\/\/< Used by trace routines to determine change occurred$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:bool
+__Vm_baseCode	obj_dir/VysyxSoCFull__Syms.h	/^    uint32_t __Vm_baseCode = 0;  \/\/\/< Used by trace routines when tracing multiple models$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:uint32_t
+__Vm_deleter	obj_dir/VysyxSoCFull__Syms.h	/^    VlDeleter __Vm_deleter;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VlDeleter
+__Vm_didInit	obj_dir/VysyxSoCFull__Syms.h	/^    bool __Vm_didInit = false;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:bool
+__Vm_modelp	obj_dir/VysyxSoCFull__Syms.h	/^    VysyxSoCFull* const __Vm_modelp;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VysyxSoCFull * const
+__Vm_traceActivity	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<CData\/*0:0*\/, 9> __Vm_traceActivity;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<CData,9>
+__VnbaTriggered	obj_dir/VysyxSoCFull___024root.h	/^    VlTriggerVec<5> __VnbaTriggered;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VlTriggerVec<5>
+__Vscope_ysyxSoCFull__asic__axi42apb	obj_dir/VysyxSoCFull__Syms.h	/^    VerilatedScope __Vscope_ysyxSoCFull__asic__axi42apb;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VerilatedScope
+__Vscope_ysyxSoCFull__flash	obj_dir/VysyxSoCFull__Syms.h	/^    VerilatedScope __Vscope_ysyxSoCFull__flash;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VerilatedScope
+__Vscope_ysyxSoCFull__flash__flash_cmd_i	obj_dir/VysyxSoCFull__Syms.h	/^    VerilatedScope __Vscope_ysyxSoCFull__flash__flash_cmd_i;$/;"	m	class:VysyxSoCFull__Syms	typeref:typename:VerilatedScope
+__VstlFirstIteration	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __VstlFirstIteration;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__VstlTriggered	obj_dir/VysyxSoCFull___024root.h	/^    VlTriggerVec<1> __VstlTriggered;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VlTriggerVec<1>
+__Vtableidx1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*6:0*\/ __Vtableidx1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vtrigprevexpr___TOP__clock__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vtrigprevexpr___TOP__clock__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vtrigprevexpr___TOP__reset__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vtrigprevexpr___TOP__reset__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vtrigprevexpr___TOP__ysyxSoCFull__DOT____Vcellinp__flash__ss__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vtrigprevexpr___TOP__ysyxSoCFull__DOT____Vcellinp__flash__ss__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+__Vtrigprevexpr___TOP__ysyxSoCFull__DOT___asic_spi_sck__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ __Vtrigprevexpr___TOP__ysyxSoCFull__DOT___asic_spi_sck__0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
 __anon4f21e8d10108	csrc/utils/sdb/sdb.cpp	/^static struct {$/;"	s	file:
 __anon559157a10103	csrc/include/utils/difftest.h	/^enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };   $/;"	g
 __anon70ab91d70103	csrc/utils/sdb/expr.cpp	/^enum {$/;"	g	file:
 __anon90350e7e0108	csrc/include/utils/iringbuf.h	/^typedef struct {  $/;"	s
 __anon90350e7e0208	csrc/include/utils/iringbuf.h	/^typedef struct {$/;"	s
+__anonda1fbce50108	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50208	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50308	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50408	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50508	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50608	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50708	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
+__anonda1fbce50808	obj_dir/VysyxSoCFull___024root.h	/^    struct {$/;"	s	class:VysyxSoCFull___024root
 __anoneae150c90103	csrc/include/sim/sim.h	/^enum { NEMU_RUNNING, NEMU_STOP, NEMU_END, NEMU_ABORT, NEMU_QUIT };$/;"	g
 __anoneae150c90208	csrc/include/sim/sim.h	/^typedef struct {$/;"	s
 __anoneae150c90308	csrc/include/sim/sim.h	/^typedef struct {$/;"	s
@@ -776,6 +937,7 @@ araddr_reg_r	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  reg  [31:0] araddr_r
 asic	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  ysyxSoCASIC asic ($/;"	i	module:ysyxSoCFull
 ass	ysyxSoC/perip/spi/rtl/spi_top.v	/^  wire                             ass;              \/\/ automatic slave select$/;"	n	module:spi_top
 async_dat_i	ysyxSoC/perip/uart16550/rtl/uart_sync_flops.v	/^input   [width-1:0]             async_dat_i;            \/\/ asynchronous data input$/;"	p	module:uart_sync_flops
+atClone	obj_dir/VysyxSoCFull.cpp	/^void VysyxSoCFull::atClone() const {$/;"	f	class:VysyxSoCFull	typeref:typename:void
 auipc	vsrc/ysyx_24080018.v	/^wire 				auipc,lui,load,jalr,jal;$/;"	n	module:NPCTRAP.ysyx_24080018
 auipc	vsrc/ysyx_24080018_IDU.v	/^  wire        auipc;$/;"	n	module:ysyx_24080018_IDU
 auto_anon_in_araddr	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  input  [31:0] auto_anon_in_araddr,$/;"	p	module:AXI4Xbar
@@ -1077,6 +1239,7 @@ byte1	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    wire [7:0]  byte1 = 
 byte2	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    wire [7:0]  byte2 = dat_i[23:16];$/;"	n	module:EF_PSRAM_CTRL_wb
 byte3	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    wire [7:0]  byte3 = dat_i[31:24];$/;"	n	module:EF_PSRAM_CTRL_wb
 byte_index	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL.v	/^    wire[1:0] byte_index = {counter[7:1] - 8'd10}[1:0];$/;"	n	module:PSRAM_READER
+byte_sel	vsrc/ysyx_24080018_LSU.v	/^	reg [7:0] byte_sel;$/;"	r	module:ysyx_24080018_LSU
 byte_sel	ysyxSoC/perip/spi/rtl/spi_shift.v	/^  input                    [3:0] byte_sel;     \/\/ byte select signals for storing the data in /;"	p	module:spi_shift
 c_idx	csrc/include/utils/iringbuf.h	/^  int c_idx;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
 calculate_addr_next	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_pmem.v	/^function [31:0] calculate_addr_next;$/;"	f	module:sdram_axi_pmem
@@ -1256,8 +1419,10 @@ dcd	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       cts, dsr, ri, dcd;     
 dcd_c	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       cts_c, dsr_c, ri_c, dcd_c; \/\/ Complement effective signals (considering loopback)$/;"	n	module:uart_regs
 dcd_pad_i	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       cts_pad_i, dsr_pad_i, ri_pad_i, dcd_pad_i; \/\/ modem status bits$/;"	n	module:uart_regs
 dcd_pad_i	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   wire   dcd_pad_i=1'b0;$/;"	n	module:uart_top_apb
+debug.o	obj_dir/VysyxSoCFull.mk	/^debug.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/debug.cpp$/;"	t
 decode_exec	csrc/sim/sim.cpp	/^static int decode_exec(Decode *s){$/;"	f	typeref:typename:int	file:
 default	Makefile	/^default: run$/;"	t
+default	obj_dir/VysyxSoCFull.mk	/^default: VysyxSoCFull$/;"	t
 delay_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg [DELAY_W-1:0] delay_q;$/;"	r	module:sdram_axi_core
 delay_r	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg [DELAY_W-1:0] delay_r;$/;"	r	module:sdram_axi_core
 delay_state_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg  [STATE_W-1:0]     delay_state_q;$/;"	r	module:sdram_axi_core
@@ -1287,6 +1452,7 @@ din	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^    output [width-1:0] din$/;"	
 dio	ysyxSoC/perip/psram/psram.v	/^  inout [3:0] dio$/;"	p	module:psram
 dio	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^    inout  [width-1:0] dio,$/;"	p	module:TriStateInBuf
 disable_sim_verbose	csrc/lightsss.cpp	/^void disable_sim_verbose() {$/;"	f	typeref:typename:void
+disasm.o	obj_dir/VysyxSoCFull.mk	/^disasm.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/disasm.cpp$/;"	t
 disassemble	csrc/utils/disasm.cpp	/^void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte) {$/;"	f	typeref:typename:void
 divider	ysyxSoC/perip/spi/rtl/spi_clgen.v	/^  input     [`SPI_DIVIDER_LEN-1:0] divider;  \/\/ clock divider (output clock is divided by this/;"	p	module:spi_clgen
 divider	ysyxSoC/perip/spi/rtl/spi_top.v	/^  reg       [`SPI_DIVIDER_LEN-1:0] divider;          \/\/ Divider register$/;"	r	module:spi_top
@@ -1334,6 +1500,7 @@ dtr_pad_o	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       rts_pad_o, dtr_pa
 dtr_pad_o	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   wire   dtr_pad_o;$/;"	n	module:uart_top_apb
 dump_memory	csrc/utils/debug.cpp	/^void dump_memory() {$/;"	f	typeref:typename:void
 dut	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  ysyxSoCFull dut ($/;"	i	module:ysyxSoCTop
+dut.o	obj_dir/VysyxSoCFull.mk	/^dut.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/dut.cpp$/;"	t
 ebreak	vsrc/ysyx_24080018_IDU.v	/^  wire        ebreak;$/;"	n	module:ysyx_24080018_IDU
 ecall	vsrc/ysyx_24080018_IDU.v	/^  wire ecall,mret;$/;"	n	module:ysyx_24080018_IDU
 ecall	vsrc/ysyx_24080018_IFU.v	/^  wire ecall = (i_pc_cnt === 4'b1010);$/;"	n	module:ysyx_24080018_IFU
@@ -1355,10 +1522,15 @@ eprintf_handle	csrc/lightsss.cpp	/^static eprintf_handle_t eprintf_handle = vpri
 eprintf_handle_t	csrc/include/common.h	/^typedef int (*eprintf_handle_t)(const char *fmt, va_list ap);$/;"	t	typeref:typename:int (*)(const char * fmt,va_list ap)
 error_bit	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^output				error_bit;$/;"	p	module:uart_rfifo
 eval	csrc/utils/sdb/expr.cpp	/^static uint32_t eval(int p,int q,bool *success){$/;"	f	typeref:typename:uint32_t	file:
+eval	obj_dir/VysyxSoCFull.h	/^    void eval() { eval_step(); }$/;"	f	class:VL_NOT_FINAL	typeref:typename:void
+eval_end_step	obj_dir/VysyxSoCFull.h	/^    void eval_end_step() {}$/;"	f	class:VL_NOT_FINAL	typeref:typename:void
+eval_step	obj_dir/VysyxSoCFull.cpp	/^void VysyxSoCFull::eval_step() {$/;"	f	class:VysyxSoCFull	typeref:typename:void
+eventsPending	obj_dir/VysyxSoCFull.cpp	/^bool VysyxSoCFull::eventsPending() { return false; }$/;"	f	class:VysyxSoCFull	typeref:typename:bool
 exec_once	csrc/sim/sim.cpp	/^static void exec_once(Decode *s, uint32_t pc) {$/;"	f	typeref:typename:void	file:
 execute	csrc/sim/sim.cpp	/^static void execute(uint64_t n) {$/;"	f	typeref:typename:void	file:
 expr	csrc/utils/sdb/expr.cpp	/^uint32_t expr(char *e, bool *success) {$/;"	f	typeref:typename:uint32_t
 expr	csrc/utils/sdb/watchpoint.cpp	/^  char expr[512];$/;"	m	struct:watchpoint	typeref:typename:char[512]	file:
+expr.o	obj_dir/VysyxSoCFull.mk	/^expr.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/expr.cpp$/;"	t
 externalPins_uart_rx	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^         externalPins_uart_rx,$/;"	p	module:ysyxSoCFull
 externalPins_uart_tx	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  output externalPins_uart_tx$/;"	p	module:ysyxSoCFull
 exu	vsrc/ysyx_24080018.v	/^ysyx_24080018_EXU exu($/;"	i	module:NPCTRAP.ysyx_24080018
@@ -1395,6 +1567,7 @@ fifo_tx	ysyxSoC/perip/uart16550/rtl/uart_transmitter.v	/^uart_tfifo fifo_tx(    
 fifo_width	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^parameter fifo_width = `UART_FIFO_WIDTH;$/;"	c	module:uart_rfifo
 fifo_width	ysyxSoC/perip/uart16550/rtl/uart_tfifo.v	/^parameter fifo_width = `UART_FIFO_WIDTH;$/;"	c	module:uart_tfifo
 fifo_write	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire    fifo_write;$/;"	n	module:uart_regs
+final	obj_dir/VysyxSoCFull.cpp	/^VL_ATTR_COLD void VysyxSoCFull::final() {$/;"	f	class:VysyxSoCFull	typeref:typename:VL_ATTR_COLD void
 find_major	csrc/utils/sdb/expr.cpp	/^int find_major(int p ,int q) {$/;"	f	typeref:typename:int
 flag	csrc/include/lightsss.h	/^  bool flag;$/;"	m	struct:shinfo	typeref:typename:bool
 flash	ysyxSoC/perip/flash/flash.v	/^module flash ($/;"	m
@@ -1404,7 +1577,6 @@ flash_addr_start	ysyxSoC/perip/spi/rtl/spi_top_apb.v	/^  parameter flash_addr_st
 flash_cmd	ysyxSoC/perip/flash/flash.v	/^module flash_cmd($/;"	m	function:flash_read
 flash_cmd_i	ysyxSoC/perip/flash/flash.v	/^  flash_cmd flash_cmd_i($/;"	i	module:flash
 flash_cmd_i	ysyxSoC/perip/spi/rtl/spi_top_apb.v	/^flash_cmd flash_cmd_i($/;"	i	module:spi_top_apb
-flash_read	csrc/include/sim/sim.h	/^extern "C" void flash_read(int32_t addr, int32_t *data) { assert(0);}$/;"	f	typeref:typename:void
 flash_read	ysyxSoC/perip/flash/flash.v	/^import "DPI-C" function void flash_read(input int addr, output int data);$/;"	f
 flop_0	ysyxSoC/perip/uart16550/rtl/uart_sync_flops.v	/^reg     [width-1:0]             flop_0;$/;"	r	module:uart_sync_flops
 forkshm	csrc/include/lightsss.h	/^  ForkShareMemory forkshm;$/;"	m	class:LightSSS	typeref:typename:ForkShareMemory
@@ -1412,6 +1584,7 @@ fprintf_with_pid	csrc/include/common.h	/^#define fprintf_with_pid(/;"	d
 framebuffer	csrc/mem/memory.cpp	/^uint32_t *framebuffer = NULL;$/;"	v	typeref:typename:uint32_t *
 free_	csrc/utils/sdb/watchpoint.cpp	/^static WP *head = NULL, *free_ = NULL;$/;"	v	typeref:typename:WP *	file:
 free_wp	csrc/utils/sdb/watchpoint.cpp	/^void free_wp(WP *wp) {$/;"	f	typeref:typename:void
+ftrace.o	obj_dir/VysyxSoCFull.mk	/^ftrace.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/ftrace.cpp$/;"	t
 ftrace_elf_file	csrc/utils/sdb/sdb.cpp	/^char *ftrace_elf_file = NULL;$/;"	v	typeref:typename:char *
 ftrace_translate	csrc/utils/ftrace.cpp	/^const char* ftrace_translate(uint32_t addr) {$/;"	f	typeref:typename:const char *
 full	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  wire        full = ptr_match & maybe_full;$/;"	n	module:Queue2_AXI4BundleAR
@@ -1448,11 +1621,14 @@ gpio_seg_7	ysyxSoC/perip/gpio/gpio_top_apb.v	/^  output [7:0]  gpio_seg_7$/;"	p	
 gpio_top_apb	ysyxSoC/perip/gpio/gpio_top_apb.v	/^module gpio_top_apb($/;"	m
 gpr	csrc/include/sim/sim.h	/^  uint32_t gpr[32];$/;"	m	struct:__anoneae150c90208	typeref:typename:uint32_t[32]
 gpr	vsrc/ysyx_24080018.v	/^ysyx_24080018_GPR gpr($/;"	i	module:NPCTRAP.ysyx_24080018
+guest_to_host	csrc/mem/memory.cpp	/^uint8_t* guest_to_host(uint32_t paddr) { return memory + paddr - CONFIG_MBASE; }$/;"	f	typeref:typename:uint8_t *
+half_sel	vsrc/ysyx_24080018_LSU.v	/^	reg [15:0] half_sel;$/;"	r	module:ysyx_24080018_LSU
 halt_pc	csrc/include/sim/sim.h	/^  uint32_t halt_pc;$/;"	m	struct:__anoneae150c90508	typeref:typename:uint32_t
 halt_ret	csrc/include/sim/sim.h	/^  uint32_t halt_ret;$/;"	m	struct:__anoneae150c90508	typeref:typename:uint32_t
 handler	csrc/utils/sdb/sdb.cpp	/^  int (*handler) (char *);$/;"	m	struct:__anon4f21e8d10108	typeref:typename:int (*)(char *)	file:
 head	csrc/include/utils/iringbuf.h	/^  int head;$/;"	m	struct:__anon90350e7e0208	typeref:typename:int
 head	csrc/utils/sdb/watchpoint.cpp	/^static WP *head = NULL, *free_ = NULL;$/;"	v	typeref:typename:WP *	file:
+hierName	obj_dir/VysyxSoCFull.cpp	/^const char* VysyxSoCFull::hierName() const { return vlSymsp->name(); }$/;"	f	class:VysyxSoCFull	typeref:typename:const char *
 host_to_guest	csrc/mem/memory.cpp	/^uint32_t host_to_guest(uint8_t *haddr) { return haddr - memory + CONFIG_MBASE; }$/;"	f	typeref:typename:uint32_t
 i	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL.v	/^        genvar i;$/;"	r	module:PSRAM_READER
 i_ControlHazard	vsrc/ysyx_24080018_IFU.v	/^	input 						i_ControlHazard,$/;"	p	module:ysyx_24080018_IFU
@@ -1526,7 +1702,6 @@ ifu_idu_valid	vsrc/ysyx_24080018.v	/^wire ifu_idu_valid,idu_exu_valid,exu_mem_va
 ifu_idu_valid	vsrc/ysyx_24080018_IDU.v	/^  input         ifu_idu_valid,$/;"	p	module:ysyx_24080018_IDU
 ifu_idu_valid	vsrc/ysyx_24080018_IFU.v	/^  output            ifu_idu_valid,$/;"	p	module:ysyx_24080018_IFU
 ifu_pc	vsrc/ysyx_24080018.v	/^wire [31:0] ifu_pc,idu_pc,exu_pc,mem_pc;$/;"	n	module:NPCTRAP.ysyx_24080018
-ifu_rdata	vsrc/ysyx_24080018_IFU.v	/^  reg [31:0] ifu_rdata;$/;"	r	module:ysyx_24080018_IFU
 iir	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^output [3:0]                      iir;$/;"	p	module:uart_regs
 iir	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg [3:0]  iir;$/;"	r	module:uart_regs
 iir_read	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire     iir_read;$/;"	n	module:uart_regs
@@ -1888,6 +2063,7 @@ io_slave_wvalid	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  input         io_
 io_we	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^               io_we,$/;"	p	module:sdramChisel
 io_write	csrc/include/macro.h	/^#define io_write(/;"	d
 ioaddr_t	csrc/include/common.h	/^typedef uint16_t ioaddr_t;$/;"	t	typeref:typename:uint16_t
+iring.o	obj_dir/VysyxSoCFull.mk	/^iring.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/iring.cpp$/;"	t
 isValidLoad	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  wire        isValidLoad = io_lsu_reqValid & ~io_lsu_wen;$/;"	n	module:MemBridge
 isValidStore	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  wire        isValidStore = io_lsu_reqValid & io_lsu_wen;$/;"	n	module:MemBridge
 is_batch_mode	csrc/utils/sdb/sdb.cpp	/^static int is_batch_mode = false;$/;"	v	typeref:typename:int	file:
@@ -1922,6 +2098,7 @@ lcr	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^output [7:0]                      
 lcr	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg [7:0]  lcr;$/;"	r	module:uart_regs
 lcr	ysyxSoC/perip/uart16550/rtl/uart_transmitter.v	/^input [7:0]                       lcr;$/;"	p	module:uart_transmitter
 len	ysyxSoC/perip/spi/rtl/spi_shift.v	/^  input [`SPI_CHAR_LEN_BITS-1:0] len;          \/\/ data len in bits (minus one)$/;"	p	module:spi_shift
+lightsss.o	obj_dir/VysyxSoCFull.mk	/^lightsss.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/lightsss.cpp$/;"	t
 likely	csrc/include/macro.h	/^#define likely(/;"	d
 line	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL.v	/^    input   wire [31: 0]    line,$/;"	p	module:PSRAM_WRITER
 line	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL.v	/^    output  wire [31:0]     line,$/;"	p	module:PSRAM_READER
@@ -1971,13 +2148,13 @@ lsr_mask_d	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg        lsr_mask_d; \/\/
 lsu	vsrc/ysyx_24080018.v	/^ysyx_24080018_LSU lsu($/;"	i	module:NPCTRAP.ysyx_24080018
 lsuRead	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  wire        lsuRead = _io_master_wvalid_T & isValidLoad | _lsuRead_T_2;$/;"	n	module:MemBridge
 lsu_cnt	vsrc/ysyx_24080018_IDU.v	/^  wire [ 3:0] lsu_cnt;$/;"	n	module:ysyx_24080018_IDU
-lsu_rdata	vsrc/ysyx_24080018_LSU.v	/^	reg [31:0] lsu_rdata;$/;"	r	module:ysyx_24080018_LSU
-lsu_vmask	vsrc/ysyx_24080018_LSU.v	/^	wire [31:0] lsu_vmask;$/;"	n	module:ysyx_24080018_LSU
+lsu_rdata	vsrc/ysyx_24080018_LSU.v	/^	wire [31:0] lsu_rdata;$/;"	n	module:ysyx_24080018_LSU
 luart	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  APBUart16550 luart ($/;"	i	module:ysyxSoCASIC
 lui	vsrc/ysyx_24080018.v	/^wire 				auipc,lui,load,jalr,jal;$/;"	n	module:NPCTRAP.ysyx_24080018
 lui	vsrc/ysyx_24080018_IDU.v	/^  wire        lui;$/;"	n	module:ysyx_24080018_IDU
 main	csrc/include/config/config_cli.py	/^def main():$/;"	f
 main	csrc/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
+main.o	obj_dir/VysyxSoCFull.mk	/^main.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/main.cpp$/;"	t
 make_token	csrc/utils/sdb/expr.cpp	/^static bool make_token(char *e) {$/;"	f	typeref:typename:bool	file:
 marchid	vsrc/ysyx_24080018_CSR.v	/^  reg [31:0] marchid  ;$/;"	r	module:ysyx_24080018_CSR
 mask	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_pmem.v	/^    reg [31:0]   mask;$/;"	r	function:sdram_axi_pmem.calculate_addr_next
@@ -2005,6 +2182,7 @@ mem_wbu_valid	vsrc/ysyx_24080018_GPR.v	/^  input         mem_wbu_valid,$/;"	p	mo
 mem_wbu_valid	vsrc/ysyx_24080018_LSU.v	/^  output        mem_wbu_valid,$/;"	p	module:ysyx_24080018_LSU
 mem_wdata	vsrc/ysyx_24080018.v	/^wire [31:0] exu_wdata,mem_wdata;$/;"	n	module:NPCTRAP.ysyx_24080018
 memory	csrc/mem/memory.cpp	/^uint8_t memory[MEMORY_SIZE];$/;"	v	typeref:typename:uint8_t[]
+memory.o	obj_dir/VysyxSoCFull.mk	/^memory.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/mem\/memory.cpp$/;"	t
 mepc	vsrc/ysyx_24080018_CSR.v	/^  reg [31:0] mepc     ;$/;"	r	module:ysyx_24080018_CSR
 miso	ysyxSoC/perip/bitrev/bitrev.v	/^  output miso$/;"	p	module:bitrev
 miso	ysyxSoC/perip/flash/flash.v	/^  output miso$/;"	p	module:flash
@@ -2012,6 +2190,7 @@ miso_pad_i	ysyxSoC/perip/spi/rtl/spi_top.v	/^  input                            
 mmio_read	csrc/mem/memory.cpp	/^uint32_t mmio_read(uint32_t addr_in, int size) {$/;"	f	typeref:typename:uint32_t
 mmio_write	csrc/mem/memory.cpp	/^void mmio_write(uint32_t addr_in, uint32_t data, int size) {$/;"	f	typeref:typename:void
 mode	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  reg  [12:0] mode;$/;"	r	module:sdramChisel
+modelName	obj_dir/VysyxSoCFull.cpp	/^const char* VysyxSoCFull::modelName() const { return "VysyxSoCFull"; }$/;"	f	class:VysyxSoCFull	typeref:typename:const char *
 modem_inputs	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^input [3:0]                  modem_inputs;$/;"	p	module:uart_regs
 modem_inputs	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire [3:0]                        modem_inputs;$/;"	n	module:uart_regs
 mosi	ysyxSoC/perip/bitrev/bitrev.v	/^  input  mosi,$/;"	p	module:bitrev
@@ -2050,6 +2229,8 @@ mw_sck	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    wire        mw_sck;
 mw_wr	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    wire        mw_wr;$/;"	n	module:EF_PSRAM_CTRL_wb
 my_cpu	README.md	/^# my_cpu$/;"	c
 name	csrc/utils/sdb/sdb.cpp	/^  const char *name;$/;"	m	struct:__anon4f21e8d10108	typeref:typename:const char *	file:
+name	obj_dir/VysyxSoCFull.cpp	/^const char* VysyxSoCFull::name() const {$/;"	f	class:VysyxSoCFull	typeref:typename:const char *
+name	obj_dir/VysyxSoCFull__Syms.h	/^    const char* name() { return TOP.name(); }$/;"	f	class:VysyxSoCFull__Syms	typeref:typename:const char *
 neg_edge	ysyxSoC/perip/spi/rtl/spi_clgen.v	/^  output                           neg_edge; \/\/ pulse marking negative edge of clk_out$/;"	p	module:spi_clgen
 neg_edge	ysyxSoC/perip/spi/rtl/spi_clgen.v	/^  reg                              neg_edge;$/;"	r	module:spi_clgen
 neg_edge	ysyxSoC/perip/spi/rtl/spi_shift.v	/^  input                          neg_edge;     \/\/ recognize negedge of sclk$/;"	p	module:spi_shift
@@ -2057,6 +2238,7 @@ neg_edge	ysyxSoC/perip/spi/rtl/spi_top.v	/^  wire                             ne
 nemu_state	csrc/sim/sim.cpp	/^NEMUState nemu_state = { .state = NEMU_STOP };  $/;"	v	typeref:typename:NEMUState
 new_wp	csrc/utils/sdb/watchpoint.cpp	/^static WP* new_wp() {$/;"	f	typeref:typename:WP *	file:
 next	csrc/utils/sdb/watchpoint.cpp	/^  struct watchpoint *next;$/;"	m	struct:watchpoint	typeref:struct:watchpoint *	file:
+nextTimeSlot	obj_dir/VysyxSoCFull.cpp	/^uint64_t VysyxSoCFull::nextTimeSlot() {$/;"	f	class:VysyxSoCFull	typeref:typename:uint64_t
 next_state_r	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg  [STATE_W-1:0]     next_state_r;$/;"	r	module:sdram_axi_core
 nodeIn_bdeq_q	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  Queue2_AXI4BundleB nodeIn_bdeq_q ($/;"	i	module:AXI4Buffer
 nodeIn_bvalid	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  wire        nodeIn_bvalid =$/;"	n	module:AXI4ToAPB
@@ -2194,6 +2376,8 @@ pos_edge	ysyxSoC/perip/spi/rtl/spi_clgen.v	/^  output                           
 pos_edge	ysyxSoC/perip/spi/rtl/spi_clgen.v	/^  reg                              pos_edge;$/;"	r	module:spi_clgen
 pos_edge	ysyxSoC/perip/spi/rtl/spi_shift.v	/^  input                          pos_edge;     \/\/ recognize posedge of sclk$/;"	p	module:spi_shift
 pos_edge	ysyxSoC/perip/spi/rtl/spi_top.v	/^  wire                             pos_edge;         \/\/ recognize posedge of sclk$/;"	n	module:spi_top
+prepareClone	obj_dir/VysyxSoCFull.cpp	/^void VysyxSoCFull::prepareClone() const { contextp()->prepareClone(); }$/;"	f	class:VysyxSoCFull	typeref:typename:void
+prev_idle	vsrc/ysyx_24080018_IFU.v	/^	reg prev_idle;$/;"	r	module:ysyx_24080018_IFU
 print_ringbuf	csrc/utils/iring.cpp	/^void print_ringbuf(RingBuffer *ringbuf){$/;"	f	typeref:typename:void
 printf_with_pid	csrc/include/common.h	/^#define printf_with_pid(/;"	d
 ps2_clk	ysyxSoC/perip/ps2/ps2_top_apb.v	/^  input         ps2_clk,$/;"	p	module:ps2_top_apb
@@ -2292,6 +2476,7 @@ ref_difftest_raise_intr	csrc/utils/dut.cpp	/^void (*ref_difftest_raise_intr)(uin
 ref_difftest_regcpy	csrc/utils/dut.cpp	/^void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;$/;"	v	typeref:typename:void (*)(void * dut,bool direction)
 refresh_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg                    refresh_q;$/;"	r	module:sdram_axi_core
 refresh_timer_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg [REFRESH_CNT_W-1:0] refresh_timer_q;$/;"	r	module:sdram_axi_core
+reg.o	obj_dir/VysyxSoCFull.mk	/^reg.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/reg.cpp$/;"	t
 reg_adr	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   wire [2:0] reg_adr;$/;"	n	module:uart_top_apb
 reg_dat8_r	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   wire [7:0] reg_dat8_r; \/\/ read from reg$/;"	n	module:uart_top_apb
 reg_dat8_w	ysyxSoC/perip/uart16550/rtl/uart_top_apb.v	/^   reg  [7:0] reg_dat8_w; \/\/ write to reg$/;"	r	module:uart_top_apb
@@ -2403,7 +2588,8 @@ rls_int	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       rls_int;  \/\/ rece
 rls_int_d	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg      rls_int_d;$/;"	r	module:uart_regs
 rls_int_pnd	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg     rls_int_pnd;$/;"	r	module:uart_regs
 rls_int_rise	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire      rls_int_rise;$/;"	n	module:uart_regs
-root	csrc/sim/sim.cpp	/^Vtop___024root* root;$/;"	v	typeref:typename:Vtop___024root *
+root	csrc/sim/sim.cpp	/^VysyxSoCFull___024root* root;$/;"	v	typeref:typename:VysyxSoCFull___024root *
+rootp	obj_dir/VysyxSoCFull.h	/^    VysyxSoCFull___024root* const rootp;$/;"	m	class:VL_NOT_FINAL	typeref:typename:VysyxSoCFull___024root * const
 rowReg_4x13	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^module rowReg_4x13($/;"	m
 rowReg_ext	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  rowReg_4x13 rowReg_ext ($/;"	i	module:sdramChisel
 row_open_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg [SDRAM_BANKS-1:0]  row_open_q;$/;"	r	module:sdram_axi_core
@@ -2467,6 +2653,7 @@ scratch	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg [7:0]  scratch; \/\/ UART 
 screen_height	csrc/mem/memory.cpp	/^uint32_t screen_height = 0;$/;"	v	typeref:typename:uint32_t
 screen_size	csrc/mem/memory.cpp	/^static uint32_t screen_size() {$/;"	f	typeref:typename:uint32_t	file:
 screen_width	csrc/mem/memory.cpp	/^uint32_t screen_width = 0;$/;"	v	typeref:typename:uint32_t
+sdb.o	obj_dir/VysyxSoCFull.mk	/^sdb.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/sdb.cpp$/;"	t
 sdb_mainloop	csrc/utils/sdb/sdb.cpp	/^void sdb_mainloop() {$/;"	f	typeref:typename:void
 sdb_set_batch_mode	csrc/utils/sdb/sdb.cpp	/^void sdb_set_batch_mode() {$/;"	f	typeref:typename:void
 sdram	ysyxSoC/perip/sdram/sdram.v	/^module sdram($/;"	m
@@ -2563,6 +2750,7 @@ shinfo	csrc/include/lightsss.h	/^} shinfo;$/;"	t	typeref:struct:shinfo
 shm_id	csrc/include/lightsss.h	/^  int shm_id;$/;"	m	class:ForkShareMemory	typeref:typename:int
 should_checkpoint	csrc/sim/sim.cpp	/^bool should_checkpoint;$/;"	v	typeref:typename:bool
 shwait	csrc/lightsss.cpp	/^void ForkShareMemory::shwait() {$/;"	f	class:ForkShareMemory	typeref:typename:void
+sim.o	obj_dir/VysyxSoCFull.mk	/^sim.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/sim\/sim.cpp$/;"	t
 sim_init	csrc/sim/sim.cpp	/^void sim_init(){$/;"	f	typeref:typename:void
 sim_verbose	csrc/lightsss.cpp	/^bool sim_verbose = true;$/;"	v	typeref:typename:bool
 size	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL.v	/^    input   wire [2:0]      size,$/;"	p	module:PSRAM_READER
@@ -2660,7 +2848,8 @@ target_pc	vsrc/ysyx_24080018_IFU.v	/^  wire [31:0] target_pc;$/;"	n	module:ysyx_
 target_state_q	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg  [STATE_W-1:0]     target_state_q;$/;"	r	module:sdram_axi_core
 target_state_r	ysyxSoC/perip/sdram/core_sdram_axi4/sdram_axi_core.v	/^reg  [STATE_W-1:0]     target_state_r;$/;"	r	module:sdram_axi_core
 temp	vsrc/ysyx_24080018_CSR.v	/^  wire [31:0] temp;$/;"	n	module:ysyx_24080018_CSR
-temp_reg	vsrc/ysyx_24080018_LSU.v	/^  reg [31:0] temp_reg;$/;"	r	module:ysyx_24080018_LSU
+temp	vsrc/ysyx_24080018_LSU.v	/^  wire [31:0] temp;$/;"	n	module:ysyx_24080018_LSU
+temp_pc	vsrc/ysyx_24080018_IFU.v	/^	reg [31:0] temp_pc;$/;"	r	module:ysyx_24080018_IFU
 texture	csrc/mem/memory.cpp	/^static SDL_Texture *texture = NULL;$/;"	v	typeref:typename:SDL_Texture *	file:
 tf_count	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^output [`UART_FIFO_COUNTER_W-1:0] tf_count;$/;"	p	module:uart_regs
 tf_count	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire [`UART_FIFO_COUNTER_W-1:0] tf_count;$/;"	n	module:uart_regs
@@ -2680,6 +2869,7 @@ thre_int_d	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg      thre_int_d;$/;"	r	
 thre_int_pnd	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg     thre_int_pnd;$/;"	r	module:uart_regs
 thre_int_rise	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire      thre_int_rise;$/;"	n	module:uart_regs
 thre_set_en	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       thre_set_en; \/\/ THRE status is delayed one character time when a character is writt/;"	n	module:uart_regs
+threads	obj_dir/VysyxSoCFull.cpp	/^unsigned VysyxSoCFull::threads() const { return 1; }$/;"	f	class:VysyxSoCFull	typeref:typename:unsigned
 ti_int	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^wire       ti_int;   \/\/ timeout indicator interrupt$/;"	n	module:uart_regs
 ti_int_d	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg      ti_int_d;$/;"	r	module:uart_regs
 ti_int_pnd	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg     ti_int_pnd;$/;"	r	module:uart_regs
@@ -2691,11 +2881,14 @@ toc_value	ysyxSoC/perip/uart16550/rtl/uart_receiver.v	/^reg 	[9:0]	toc_value; \/
 token	csrc/utils/sdb/expr.cpp	/^typedef struct token {$/;"	s	file:
 token_type	csrc/utils/sdb/expr.cpp	/^  int token_type;$/;"	m	struct:rule	typeref:typename:int	file:
 tokens	csrc/utils/sdb/expr.cpp	/^static Token tokens[1024] __attribute__((used)) = {};$/;"	v	typeref:typename:Token[1024]	file:
-top	csrc/sim/sim.cpp	/^Vtop* top;$/;"	v	typeref:typename:Vtop *
+top	csrc/sim/sim.cpp	/^VysyxSoCFull* top;$/;"	v	typeref:typename:VysyxSoCFull *
 top	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^reg	[fifo_pointer_w-1:0]	top    = 'h0;$/;"	r	module:uart_rfifo
 top	ysyxSoC/perip/uart16550/rtl/uart_tfifo.v	/^reg    [fifo_pointer_w-1:0] top    = 'h0;$/;"	r	module:uart_tfifo
 top_plus_1	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^wire [fifo_pointer_w-1:0] top_plus_1 = top + 1'b1;$/;"	n	module:uart_rfifo
 top_plus_1	ysyxSoC/perip/uart16550/rtl/uart_tfifo.v	/^wire [fifo_pointer_w-1:0] top_plus_1 = top + 1'b1;$/;"	n	module:uart_tfifo
+trace	obj_dir/VysyxSoCFull.cpp	/^VL_ATTR_COLD void VysyxSoCFull::trace(VerilatedVcdC* tfp, int levels, int options) {$/;"	f	class:VysyxSoCFull	typeref:typename:VL_ATTR_COLD void
+traceConfig	obj_dir/VysyxSoCFull.cpp	/^std::unique_ptr<VerilatedTraceConfig> VysyxSoCFull::traceConfig() const {$/;"	f	class:VysyxSoCFull	typeref:typename:std::unique_ptr<VerilatedTraceConfig>
+trace_init	obj_dir/VysyxSoCFull.cpp	/^VL_ATTR_COLD static void trace_init(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {$/;"	f	typeref:typename:VL_ATTR_COLD void	file:
 transmitter	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^uart_transmitter transmitter(clk, wb_rst_i, lcr, tf_push, wb_dat_i, enable, serial_out, tstate, /;"	i	module:uart_regs
 trigger_level	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^reg [3:0]  trigger_level; \/\/ trigger level of the receiver FIFO$/;"	r	module:uart_regs
 tstate	ysyxSoC/perip/uart16550/rtl/uart_regs.v	/^output [2:0]                      tstate;$/;"	p	module:uart_regs
@@ -2753,11 +2946,15 @@ vga_update_screen	csrc/mem/memory.cpp	/^void vga_update_screen() {$/;"	f	typeref
 vga_valid	ysyxSoC/perip/vga/vga_top_apb.v	/^  output        vga_valid$/;"	p	module:vga_top_apb
 vga_vsync	ysyxSoC/perip/vga/vga_top_apb.v	/^  output        vga_vsync,$/;"	p	module:vga_top_apb
 vgactl_port_base	csrc/mem/memory.cpp	/^static uint32_t *vgactl_port_base = NULL;$/;"	v	typeref:typename:uint32_t *	file:
+vlSymsp	obj_dir/VysyxSoCFull.h	/^    VysyxSoCFull__Syms* const vlSymsp;$/;"	m	class:VL_NOT_FINAL	typeref:typename:VysyxSoCFull__Syms * const
+vlSymsp	obj_dir/VysyxSoCFull___024root.h	/^    VysyxSoCFull__Syms* const vlSymsp;$/;"	m	class:VysyxSoCFull___024root	typeref:typename:VysyxSoCFull__Syms * const
+vlSymsp	obj_dir/VysyxSoCFull___024unit.h	/^    VysyxSoCFull__Syms* const vlSymsp;$/;"	m	class:VysyxSoCFull___024unit	typeref:typename:VysyxSoCFull__Syms * const
 vmem	csrc/mem/memory.cpp	/^static void *vmem = NULL;$/;"	v	typeref:typename:void *	file:
 waddr_s1	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  reg  [23:0] waddr_s1;$/;"	r	module:sdramChisel
 waitProcess	csrc/include/lightsss.h	/^  int waitProcess = 0;$/;"	m	class:LightSSS	typeref:typename:int
 wakeup_child	csrc/lightsss.cpp	/^int LightSSS::wakeup_child(uint64_t cycles) {$/;"	f	class:LightSSS	typeref:typename:int
 watchpoint	csrc/utils/sdb/watchpoint.cpp	/^typedef struct watchpoint {$/;"	s	file:
+watchpoint.o	obj_dir/VysyxSoCFull.mk	/^watchpoint.o: \/home\/furiosa\/ysyx-workbench\/npc\/csrc\/utils\/sdb\/watchpoint.cpp$/;"	t
 wave	Makefile	/^wave:$/;"	t
 wave_record_start_time	csrc/sim/sim.cpp	/^static uint64_t wave_record_start_time = 0;$/;"	v	typeref:typename:uint64_t	file:
 wb_ack_o	ysyxSoC/perip/spi/rtl/spi_top.v	/^  output                           wb_ack_o;         \/\/ bus cycle acknowledge output$/;"	p	module:spi_top
@@ -2797,6 +2994,9 @@ wbu_cnt	vsrc/ysyx_24080018_IDU.v	/^  wire        wbu_cnt;$/;"	n	module:ysyx_2408
 wbu_csr_ready	vsrc/ysyx_24080018.v	/^wire idu_ifu_ready,exu_idu_ready,mem_exu_ready,wbu_mem_ready,csr_exu_ready,wbu_csr_ready;$/;"	n	module:NPCTRAP.ysyx_24080018
 wbu_csr_ready	vsrc/ysyx_24080018_CSR.v	/^  input         wbu_csr_ready,$/;"	p	module:ysyx_24080018_CSR
 wbu_csr_ready	vsrc/ysyx_24080018_GPR.v	/^  output        wbu_csr_ready,$/;"	p	module:ysyx_24080018_GPR
+wbu_ifu_retire	vsrc/ysyx_24080018.v	/^wire wbu_ifu_retire;$/;"	n	module:NPCTRAP.ysyx_24080018
+wbu_ifu_retire	vsrc/ysyx_24080018_GPR.v	/^	output				wbu_ifu_retire,$/;"	p	module:ysyx_24080018_GPR
+wbu_ifu_retire	vsrc/ysyx_24080018_IFU.v	/^	input							wbu_ifu_retire,$/;"	p	module:ysyx_24080018_IFU
 wbu_mem_ready	vsrc/ysyx_24080018.v	/^wire idu_ifu_ready,exu_idu_ready,mem_exu_ready,wbu_mem_ready,csr_exu_ready,wbu_csr_ready;$/;"	n	module:NPCTRAP.ysyx_24080018
 wbu_mem_ready	vsrc/ysyx_24080018_GPR.v	/^  output        wbu_mem_ready,$/;"	p	module:ysyx_24080018_GPR
 wbu_mem_ready	vsrc/ysyx_24080018_LSU.v	/^  input         wbu_mem_ready,$/;"	p	module:ysyx_24080018_LSU
@@ -2810,6 +3010,8 @@ we_i	ysyxSoC/perip/psram/efabless/EF_PSRAM_CTRL_wb.v	/^    input   wire        w
 wen	vsrc/ysyx_24080018_GPR.v	/^	wire wen;$/;"	n	module:ysyx_24080018_GPR
 width	ysyxSoC/perip/uart16550/rtl/uart_sync_flops.v	/^parameter width         = 1;$/;"	c	module:uart_sync_flops
 width	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  parameter width = 1$/;"	c	module:TriStateInBuf
+wmask_byte	vsrc/ysyx_24080018_LSU.v	/^	wire [3:0] wmask_half,wmask_byte;$/;"	n	module:ysyx_24080018_LSU
+wmask_half	vsrc/ysyx_24080018_LSU.v	/^	wire [3:0] wmask_half,wmask_byte;$/;"	n	module:ysyx_24080018_LSU
 word0	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^wire	[2:0]	word0 = fifo[0];$/;"	n	module:uart_rfifo
 word1	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^wire	[2:0]	word1 = fifo[1];$/;"	n	module:uart_rfifo
 word10	ysyxSoC/perip/uart16550/rtl/uart_rfifo.v	/^wire	[2:0]	word10 = fifo[10];$/;"	n	module:uart_rfifo
@@ -2852,6 +3054,414 @@ wstrb_reg_r	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^  reg  [3:0]  wstrb_reg
 x10	vsrc/ysyx_24080018.v	/^import "DPI-C" function void NPCTRAP(input int unsigned pc, input int x10);$/;"	p	function:NPCTRAP
 ysyxSoCASIC	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^module ysyxSoCASIC($/;"	m
 ysyxSoCFull	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^module ysyxSoCFull($/;"	m
+ysyxSoCFull__DOT____Vcellinp__flash__ss	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT____Vcellinp__flash__ss;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT___asic_spi_mosi	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT___asic_spi_mosi;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT___asic_spi_sck	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT___asic_spi_sck;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT___asic_spi_ss	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT___asic_spi_ss;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT____Vcellinp__cpu__reset	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT____Vcellinp__cpu__reset;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT___apbdelay_delayer_in_prdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT___apbdelay_delayer_in_prdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT___apbdelay_delayer_in_pready	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT___apbdelay_delayer_in_pready;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT___apbxbar_auto_anon_out_1_penable	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT___apbxbar_auto_anon_out_1_penable;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT___apbxbar_auto_anon_out_1_psel	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT___apbxbar_auto_anon_out_1_psel;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT___axi42apb_auto_out_psel	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT___axi42apb_auto_out_psel;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT___axi42apb_auto_out_pstrb	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT___axi42apb_auto_out_pstrb;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__apbxbar__DOT__sel_2;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__accept_read	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__accept_read;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__accept_write	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__accept_write;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__araddr_reg_r	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__araddr_reg_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__awaddr_reg_r	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__awaddr_reg_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__bid_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__bid_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__is_write	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__is_write;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__is_write_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__is_write_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_bvalid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_bvalid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_rdata_r	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_rdata_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_rvalid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__nodeIn_rvalid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__resp_hold	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__resp_hold;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__resp_hold_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__resp_hold_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__rid_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__rid_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__unnamedblk1__DOT___GEN	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__unnamedblk1__DOT___GEN;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__wdata_reg_r	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__wdata_reg_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__wstrb_reg_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__axi42apb__DOT__wstrb_reg_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__do_enq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__do_enq;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__empty	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__empty;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__full;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__maybe_full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__maybe_full/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__ptr_match	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__ptr_match;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__ram_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<CData\/*5:0*\/, 2> ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<CData,2>
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__unnamedblk1__DOT__do_deq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__unnamedblk/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__wrap	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__wrap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__wrap_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_bdeq_q__DOT__wrap_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT___ram_ext_R0_data	obj_dir/VysyxSoCFull___024root.h	/^        QData\/*38:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT___ram_ext_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:QData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__do_enq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__do_enq;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__empty	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__empty;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__full;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__maybe_full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__maybe_full/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__ptr_match	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__ptr_match;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__ram_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<QData\/*38:0*\/, 2> ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<QData,2>
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__unnamedblk1__DOT__do_deq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__unnamedblk/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__wrap	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__wrap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__wrap_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeIn_rdeq_q__DOT__wrap_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT___ram_ext_R0_data	obj_dir/VysyxSoCFull___024root.h	/^        QData\/*46:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT___ram_ex/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:QData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__do_enq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__do_enq;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__empty	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__empty;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__full;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__maybe_full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__maybe_fu/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__ptr_match	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__ptr_matc/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__ram_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<QData\/*46:0*\/, 2> ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<QData,2>
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__unnamedblk1__DOT__do_deq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__unnamedb/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__wrap	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__wrap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__wrap_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_ardeq_q__DOT__wrap_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT___ram_ext_R0_data	obj_dir/VysyxSoCFull___024root.h	/^        QData\/*46:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT___ram_ex/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:QData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__do_enq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__do_enq;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__empty	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__empty;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__full;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__maybe_full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__maybe_fu/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__ptr_match	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__ptr_matc/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__ram_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<QData\/*46:0*\/, 2> ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<QData,2>
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__unnamedblk1__DOT__do_deq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__unnamedb/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__wrap	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__wrap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__wrap_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_awdeq_q__DOT__wrap_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT___ram_ext_R0_data	obj_dir/VysyxSoCFull___024root.h	/^        QData\/*35:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT___ram_ext/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:QData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__do_enq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__do_enq;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__empty	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__empty;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__full;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__maybe_full	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__maybe_ful/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__ptr_match	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__ptr_match/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__ram_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<QData\/*35:0*\/, 2> ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<QData,2>
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__unnamedblk1__DOT__do_deq	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__unnamedbl/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__wrap	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__wrap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__wrap_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__axi4buf__DOT__nodeOut_wdeq_q__DOT__wrap_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT___bridge_io_lsu_respValid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT___bridge_io_lsu_respValid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_ifu_reqValid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_ifu_reqValid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_lsu_reqValid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_lsu_reqValid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_lsu_size	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT___cpu_io_lsu_size;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT____VdfgTmp_h1913f264__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT____VdfgTmp_h1913f264__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___instReturn_T	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___instReturn_T;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_lsu_respValid_T	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_lsu_respValid_T;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_arvalid_T	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_arvalid_T;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_arvalid_T_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_arvalid_T_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_awvalid_T_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_awvalid_T_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_awvalid_T_3	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_awvalid_T_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_wvalid_T	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_wvalid_T;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_wvalid_T_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___io_master_wvalid_T_2/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___lsuRead_T_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT___lsuRead_T_2;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__io_ifu_rdata_r	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__io_ifu_rdata_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__io_master_bready_0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__io_master_bready_0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__isValidLoad	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__isValidLoad;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__isValidStore	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__isValidStore;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__lsuRead	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__lsuRead;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__stateD	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__stateD;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__stateI	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__stateI;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___stateD_T_21	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___st/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___stateD_T_22	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___st/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___stateD_T_24	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___st/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___stateD_T_30	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__bridge__DOT__unnamedblk1__DOT___st/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ControlHazard	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ControlHazard;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__addr_lsu	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__addr_lsu;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__alu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__alu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__auipc	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__auipc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_cnt_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_cnt_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_exu_ready_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_exu_ready_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_imm_reg	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*11:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_imm_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_wbu_valid_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__csr_wbu_valid_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__marchid	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__marchid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcause	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcause;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcycle	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcycle;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcycleh	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mcycleh;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mepc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mepc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mstatus	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mstatus;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mtvec	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mtvec;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mvendorid	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__mvendorid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__rdata_reg	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__rdata_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__temp	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__temp;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__wdata_reg	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr__DOT__wdata_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr_imm	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*11:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__csr_imm;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_store	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__data_store;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_h2fe289c7__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_h2fe/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_h7a7a4062__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_h7a7/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_hae59ac92__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_hae5/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_hb029f2e2__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT____VdfgTmp_hb02/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT___br_taken	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT___br_taken;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__alu_a	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__alu_a;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__alu_b	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__alu_b;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_csr_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_csr_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_csr_valid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_csr_valid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_ebreak	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_ebreak;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_lsu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_lsu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_mem_valid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_mem_valid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_waddr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_waddr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_wbu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_wbu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_wdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__exu_wdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__rf	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<IData\/*31:0*\/, 32> ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DO/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlUnpacked<IData,32>
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__unnamedblk1__DOT__i	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__gpr__DOT__unnamedblk1__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__IType	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__IType;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__UType	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__UType;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT____VdfgTmp_hcaa94f0b__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT____VdfgTmp_hcaa/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__csr_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__csr_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__imm	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__imm;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__pc_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu__DOT__pc_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_csr_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_csr_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_ebreak	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_ebreak;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_lsu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_lsu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_waddr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_waddr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_wbu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__idu_wbu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT____VdfgTmp_h058a3770__0	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT____VdfgTmp_h05/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__bxx	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__bxx;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__prev_idle	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__prev_idle;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__target_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__target_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__temp_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu__DOT__temp_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu_idu_valid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu_idu_valid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ifu_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__imm	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__imm;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ins_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*5:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__ins_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__inst;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__jal	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__jal;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__jalr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__jalr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__load	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__load;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT____VdfgTmp_hcdba60d5__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT____VdfgTmp_hcdb/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT____VdfgTmp_he6cb2ab3__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT____VdfgTmp_he6c/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__byte_sel	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__byte_sel;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__cstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__cstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__half_sel	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__half_sel;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__load	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__load;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__nstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__nstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__store	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lsu__DOT__store;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lui	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__lui;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_ebreak	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_ebreak;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_pc	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_pc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_waddr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_waddr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wbu_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wbu_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wbu_valid	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wbu_valid;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__mem_wdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__pc_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__pc_cnt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__raddr1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__raddr1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__raddr2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__raddr2;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rdata1	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rdata1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rdata2	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__rdata2;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__wbu_ifu_retire	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu__DOT__cpu__DOT__wbu_ifu_retire;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_2	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_3	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_4	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_5	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_6	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_7	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_8	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__sync_9	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__cpu_reset_chain__DOT__output_chain__DOT__syn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT____Vcellinp__u_sdram_ctrl__inport_wr_i	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT____Vcellinp__u_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__is_write	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__is_write;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__ack_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__active_row_q	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<SData\/*12:0*\/, 4> ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlUnpacked<SData,4>
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__addr_q	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*12:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__bank_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__cke_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__command_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__data_buffer_q	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__data_q	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__data_rd_en_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__dbg_state	obj_dir/VysyxSoCFull___024root.h	/^        VlWide<3>\/*79:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_c/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlWide<3>
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__delay_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__delay_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__delay_state_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__dqm_buffer_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__dqm_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__idx	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__next_state_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__ram_addr_w	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__ram_rd_w	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__ram_req_w	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__ram_write_data_w	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__rd_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__refresh_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__refresh_timer_q	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*16:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__row_open_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__sample_data0_q	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__sample_data_q	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__sdram_data_in_w	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__state_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__target_state_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__DOT__target_state_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lsdram_apb__DOT__msdram__DOT__u_sdram_ctrl__/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_penable	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_penable;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pstrb	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pstrb;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pwdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pwdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pwrite	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT____Vcellinp__mspi__in_pwrite;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_prdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_prdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_pready	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_in_pready;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_spi_irq_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT___mspi_spi_irq_out;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__cmd_state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__cmd_state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____Vcellinp__shift__latch	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____Vce/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____VdfgTmp_h6152773c__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____Vdf/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____VdfgTmp_hd1270a29__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT____Vdf/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__clgen__DOT__cnt	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__clge/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__clgen__DOT__cnt_zero	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__clgen/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__ctrl	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*13:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__ctrl/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__divider	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__divi/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__neg_edge	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__neg_e/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__pos_edge	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__pos_e/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT____VdfgTmp_h70f6fa58__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__data	obj_dir/VysyxSoCFull___024root.h	/^        VlWide<4>\/*127:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlWide<4>
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__rx_bit_pos	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__rx_clk	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift__DOT__tx_clk	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__shift/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__ss	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__ss;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__tip	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__tip;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__wb_dat	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi__DOT__u0_spi_top__DOT__wb_d/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi_in_psel	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__mspi_in_psel;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__spi_ack	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__spi_ack;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__lspi__DOT__spi_state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__lspi__DOT__spi_state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT____VdfgTmp_h75460ee5__0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT____VdfgTm/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__block_cnt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__block_cn/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__block_value	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__block_va/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__counter_t	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*9:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__counter_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__delayed_modem_signals	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__delayed_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__dl	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__dl;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__dlc	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__dlc;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__enable	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__enable;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fcr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fcr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fifo_read	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fifo_rea/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fifo_write	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__fifo_wri/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__i_uart_sync_flops__DOT__flop_0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__i_uart_s/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ier	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ier;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__iir	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__iir;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__iir_read	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__iir_read/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lcr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lcr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr0r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr1_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr1_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr1r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr1r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr2_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr2_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr2r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr2r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr3_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr3_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr3r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr3r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr4_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr4_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr4r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr4r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr5r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr6r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7_d;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr7r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask_condition	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__lsr_mask/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__mcr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__mcr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int_d/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int_pnd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ms_int_p/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msi_reset	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msi_rese/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msr	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msr_read	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__msr_read/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int_pnd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rda_int_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__counter_b	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__bottom	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__fifo	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<CData\/*2:0*\/, 16> ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Ureg/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlUnpacked<CData,16>
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__rfifo__DOT__ram	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<CData\/*7:0*\/, 16> ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Ureg/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlUnpacked<CData,16>
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__top	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__fifo_rx__DOT__top_plus_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rbit_counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rbit_in	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rcounter16	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rcounter16_eq_0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rcounter16_eq_7	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rcounter16_minus_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rf_data_in	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*10:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receive/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rf_push	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rf_push_q	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rframing_error	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity_error	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rparity_xor	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__rshift	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50408	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver__DOT__toc_value	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*9:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__receiver/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_count	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_count/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_overrun	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_overr/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_pop	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_pop;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_push_pulse	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rf_push_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int_pnd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rls_int_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rx_reset	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__rx_reset/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__scratch	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__scratch;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__serial_in	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__serial_i/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__serial_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__serial_o/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__srx_pad	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__srx_pad;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__start_dlc	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__start_dl/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tf_count	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tf_count/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tf_push	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tf_push;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int_pnd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__thre_int/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int_d	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int_d/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int_pnd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__ti_int_p/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__bit_counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__bit_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*4:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__bottom	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__tfifo__DOT__ram	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<CData\/*7:0*\/, 16> ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Ureg/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:VlUnpacked<CData,16>
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__top	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__fifo_tx__DOT__top_plus_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__parity_xor	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__shift_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*6:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__stx_o_tmp	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__tf_data_in	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__tf_data_out	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__tf_overrun	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmitter__DOT__tf_pop	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__transmit/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__trigger_level	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__trigger_/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tstate	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tstate;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50308	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tx_reset	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__Uregs__DOT__tx_reset/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__interrupt	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__interrupt;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_w	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_w;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_w_reg	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_dat8_w_reg;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_re	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_re;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50108	typeref:typename:CData
+ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_we	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__asic__DOT__luart__DOT__muart__DOT__reg_we;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50208	typeref:typename:CData
+ysyxSoCFull__DOT__flash__DOT__addr	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*23:0*\/ ysyxSoCFull__DOT__flash__DOT__addr;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__flash__DOT__cmd	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__flash__DOT__cmd;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__flash__DOT__counter	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*7:0*\/ ysyxSoCFull__DOT__flash__DOT__counter;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__flash__DOT__data	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__flash__DOT__data;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__flash__DOT__data_bswap	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__flash__DOT__data_bswap;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__flash__DOT__rdata	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*31:0*\/ ysyxSoCFull__DOT__flash__DOT__rdata;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__flash__DOT__state	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*2:0*\/ ysyxSoCFull__DOT__flash__DOT__state;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
+ysyxSoCFull__DOT__sdram__DOT__REG	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*15:0*\/ ysyxSoCFull__DOT__sdram__DOT__REG;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__sdram__DOT___rowReg_ext_R0_data	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*12:0*\/ ysyxSoCFull__DOT__sdram__DOT___rowReg_ext_R0_data;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__sdram__DOT__di_REG	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__sdram__DOT__di_REG;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<SData\/*15:0*\/, 16777216> ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT__Memory/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<SData,16777216>
+ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT___R0_addr_d0	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*23:0*\/ ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT___R0_addr_d0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT___R0_en_d0	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*0:0*\/ ysyxSoCFull__DOT__sdram__DOT__mem_ext__DOT___R0_en_d0;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+ysyxSoCFull__DOT__sdram__DOT__mode	obj_dir/VysyxSoCFull___024root.h	/^        SData\/*12:0*\/ ysyxSoCFull__DOT__sdram__DOT__mode;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:SData
+ysyxSoCFull__DOT__sdram__DOT__r	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*1:0*\/ ysyxSoCFull__DOT__sdram__DOT__r;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+ysyxSoCFull__DOT__sdram__DOT__raddr_s1	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*23:0*\/ ysyxSoCFull__DOT__sdram__DOT__raddr_s1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__sdram__DOT__rowReg_ext__DOT__Memory	obj_dir/VysyxSoCFull___024root.h	/^        VlUnpacked<SData\/*12:0*\/, 4> ysyxSoCFull__DOT__sdram__DOT__rowReg_ext__DOT__Memory;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50808	typeref:typename:VlUnpacked<SData,4>
+ysyxSoCFull__DOT__sdram__DOT__waddr_s1	obj_dir/VysyxSoCFull___024root.h	/^        IData\/*23:0*\/ ysyxSoCFull__DOT__sdram__DOT__waddr_s1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50708	typeref:typename:IData
+ysyxSoCFull__DOT__sdram__DOT__word_remain	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__sdram__DOT__word_remain;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50608	typeref:typename:CData
+ysyxSoCFull__DOT__sdram__DOT__word_remain_1	obj_dir/VysyxSoCFull___024root.h	/^        CData\/*3:0*\/ ysyxSoCFull__DOT__sdram__DOT__word_remain_1;$/;"	m	struct:VysyxSoCFull___024root::__anonda1fbce50508	typeref:typename:CData
 ysyxSoCTop	ysyxSoC/ready-to-run/D-stage/ysyxSoCFull.v	/^module ysyxSoCTop($/;"	m
 ysyx_24080018	vsrc/ysyx_24080018.v	/^module ysyx_24080018($/;"	m	function:NPCTRAP
 ysyx_24080018_CSR	vsrc/ysyx_24080018_CSR.v	/^module ysyx_24080018_CSR($/;"	m
@@ -2861,4 +3471,8 @@ ysyx_24080018_IDU	vsrc/ysyx_24080018_IDU.v	/^module ysyx_24080018_IDU ($/;"	m
 ysyx_24080018_IFU	vsrc/ysyx_24080018_IFU.v	/^module ysyx_24080018_IFU( $/;"	m
 ysyx_24080018_LSU	vsrc/ysyx_24080018_LSU.v	/^module ysyx_24080018_LSU ($/;"	m
 ~ForkShareMemory	csrc/lightsss.cpp	/^ForkShareMemory::~ForkShareMemory() {$/;"	f	class:ForkShareMemory
+~VysyxSoCFull	obj_dir/VysyxSoCFull.cpp	/^VysyxSoCFull::~VysyxSoCFull() {$/;"	f	class:VysyxSoCFull
+~VysyxSoCFull__Syms	obj_dir/VysyxSoCFull__Syms.cpp	/^VysyxSoCFull__Syms::~VysyxSoCFull__Syms()$/;"	f	class:VysyxSoCFull__Syms
+~VysyxSoCFull___024root	obj_dir/VysyxSoCFull___024root__Slow.cpp	/^VysyxSoCFull___024root::~VysyxSoCFull___024root() {$/;"	f	class:VysyxSoCFull___024root
+~VysyxSoCFull___024unit	obj_dir/VysyxSoCFull___024unit__Slow.cpp	/^VysyxSoCFull___024unit::~VysyxSoCFull___024unit() {$/;"	f	class:VysyxSoCFull___024unit
 此项目为 ysyx_24080018 个人搭建的 CPU。	README.md	/^## 此项目为 ysyx_24080018 个人搭建的 CPU。$/;"	s	chapter:my_cpu
