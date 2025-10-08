@@ -6,11 +6,12 @@
 #include <errno.h>
 
 void __am_uart_init() {
-  int ret = fcntl(STDIN_FILENO, F_GETFL);
-  assert(ret != -1);
-  int flag = ret | O_NONBLOCK;
-  ret = fcntl(STDIN_FILENO, F_SETFL, flag);
-  assert(ret != -1);
+	printf("uart init\n");
+//  int ret = fcntl(STDIN_FILENO, F_GETFL);
+//  assert(ret != -1);
+//  int flag = ret | O_NONBLOCK;
+//  ret = fcntl(STDIN_FILENO, F_SETFL, flag);
+//  assert(ret != -1);
 }
 
 void __am_uart_config(AM_UART_CONFIG_T *cfg) {
