@@ -41,6 +41,7 @@ BIN      := $(OBJ_DIR)/V$(TOP_MODULE)
 NPC_EXEC := ${BIN}
 
 # Trace
+#IMG ?= $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage/hello-minirv-ysyxsoc.bin
 IMG  ?=  $(NPC_HOME)/ysyxSoC/ready-to-run/D-stage/new.bin
 ARGS += -d $(NEMU_HOME)/build/riscv32-nemu-interpreter-so
 #ARGS += -f $(NPC_HOME)/bin/add-riscv32e-npc.elf
